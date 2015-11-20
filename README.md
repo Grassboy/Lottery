@@ -11,3 +11,5 @@
 遠端抽獎頁的網址為：http://grassboy.github.io/lotteryButton/index.html
  * 注意，直接連進去時並無法操作，此網址的格式應為 
    * `http://grassboy.github.io/lotteryButton/index.html?[firebase server 位置]?[firebase 用戶 email]`
+
+系統操作各式情境請見 [OperationScenario](https://github.com/Grassboy/Lottery/wiki/OperationScenario)

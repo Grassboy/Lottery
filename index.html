@@ -1,0 +1,251 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="description" content="一年一度的尾牙又來啦！揪竟今年的大獎會獎落誰家呢？！" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Lottery 尾牙抽獎程式！" />
+	<meta property="og:url" content="" />
+	<meta property="og:image" content="" />
+	<meta property="og:site_name" content="Lottery 尾牙抽獎程式！" />
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
+    <link href='//fonts.googleapis.com/css?family=Asap:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Fredoka+One' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="fonts/style.css">
+	<link href="stylesheets/animate.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.firebase.com/js/client/2.1.1/firebase.js"></script>
+	<link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+	<link href="stylesheets/fix.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <!-- //開發模式下，可能需要 compass livereload 環境
+    <script src="http://localhost:35729/livereload.js"></script>
+	<link onerror="this.href='stylesheets/screen.css'" href="http://localhost:24680/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    -->
+	<title>年終感恩餐會</title>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h2>年終感恩餐會</h2>
+            <h1 class="wt014 animated infinite">電子抽獎系統</h1>
+        </header>
+        <div class="page-container">
+            <div class="gift-page">
+                <div class="btn-add"><i class="icon-add"></i></div>
+                <div class="btn-toggle"><i class="icon-gift"></i></div>
+                <h3>獎項清單</h3>
+                <div class="gift-add">
+                    <input type="text" class="gift-input gift-add-title" placeholder="獎項名稱">
+                    <input type="text" class="gift-input gift-add-content" placeholder="獎項內容">
+                    <input type="value" class="gift-input gift-add-count" placeholder="數量">
+                    <button class="gift-add-button">追加</button>
+                    <button class="gift-cancel-button">取消</button>
+                </div>
+                <div class="gift-search">
+                    <input type="text" class="gift-input gift-search-sn" placeholder="搜尋獎項">
+                </div>
+                <ol class="gift-list">
+                    <li class="gift-item tpl-data">
+                        <div class="gift-sn"></div>
+                        <div class="gift-title"></div>
+                        <div class="gift-content"></div>
+                        <div class="gift-count"></div>
+                        <div class="gift-start"></div>
+                    </li>
+                </ol>
+            </div>
+            <div class="summary-page">
+                <h3 class="wt014">得獎名單</h3>
+                <div class="summary-list-outer">
+                    <ol class="table summary-list">
+                        <li class="tr th summary-item tpl-data">
+                            <div class="td summary-sn">員工代號</div>
+                            <div class="td summary-group">處室單位</div>
+                            <div class="td summary-name">姓名</div>
+                        </li>
+                        <li class="tr summary-item tpl-data">
+                            <div class="td summary-sn" data-real-id="20">832803</div>
+                            <div class="td summary-group">雲端系統處 五科</div>
+                            <div class="td summary-name"><span>832803</span><div class="summary-cancel"></div><div class="summary-remove"></div></div>
+                        </li>
+                    </ol>
+                </div>
+                <div class="summary-gift-count">
+                    <div class="count-title">預計抽出</div>
+                    <em>10</em>
+                </div>
+                <div class="summary-gift-count-now">
+                    <div class="count-title">目前抽出</div>
+                    <em>0</em>
+                </div>
+                <a href="#" title="回到得獎者統計" class="icon-back back-to-statics"></a>
+                <button class="button-display">跑馬顯示</button>
+                <button class="button-start"><i class="icon-start-draw"></i>開始</button>
+                <button class="button-start-all">全抽<i class="icon-quick-draw"></i></button>
+            </div>
+            <div class="page config-page inactive">
+                <div class="config-group-outer">
+                    <ul id="info" title="系統基本設定" class="config-group"></ul>
+                    <ul id="msg_conf" title="訊息系統設定" class="config-group"></ul>
+                    <ul id="firebase_conf" title="Firebase 設定" class="config-group"></ul>
+                    <ul id="justfont_conf" title="JustFont 設定" class="config-group"></ul>
+                </div>
+                <button class="to-remote-button">至遠端抽獎頁</button>
+                <button class="back-to-import">回資料戴入頁</button>
+                <button class="export-config">匯出設定檔</button>
+            </div>
+            <div class="page import-page active">
+                <div class="need-file-form">
+                    <h3>請提供下列 CSV 檔</h3>
+                    <ul class="need-file-list">
+                        <li class="need-file-item gift-b-csv">
+                            <label>獎項清單(a獎)</label>
+                            <input type="file" class="file-gift-a-csv" />
+                        </li>
+                        <li class="need-file-item gift-a-csv">
+                            <label>獎項清單(b獎)</label>
+                            <input type="file" class="file-gift-b-csv" />
+                        </li>
+                        <li class="need-file-item users-csv">
+                            <label>員工清單</label>
+                            <input type="file" class="file-users-csv" />
+                        </li>
+                        <li class="need-file-item ps-csv">
+                            <label>特殊員工清單</label>
+                            <input type="file" class="file-ps-csv" />
+                        </li>
+                    </ul>
+                    <button class="fake-data-button">直接載入測試資料</button>
+                    <button class="config-button">進行系統設定</button>
+                    <h3>請提供備援金鑰</h3>
+                    <input type="text" value="" class="restore-key" />
+                    <button class="start-system-button">啟動系統</button>
+                </div>
+                <div class="drawmode-guagua tpl-data">
+                    <div class="guagua-tips">請抽出一張刮刮卡</div>
+                    <div class="guagua-card card1"></div>
+                    <div class="guagua-card card2"></div>
+                    <div class="guagua-card card3"></div>
+                    <div class="guagua-card card4"></div>
+                    <div class="guagua-card card5"></div>
+                    <div class="guagua-card card6"></div>
+                    <div class="guagua-card card-final">
+                        <div class="guagua-result">
+                            <div class="drawmode-sn">832803</div>
+                            <div class="drawmode-group">雲端系統處</div>
+                            <div class="drawmode-name">吳嘉祥</div>
+                        </div>
+                        <canvas class="guagua-canvas" width="640" height="480"></canvas>
+                        <img class="guagua-img" src="images/card1.jpg" />
+                        <img class="guagua-cursor" src="images/coin.png" />
+                    </div>
+                </div>
+                <div class="drawmode-slots tpl-data">
+                    <div class="slots-machine">
+                        <div class="slot-outer">
+                            <div class="slot"></div>
+                        </div>
+                        <div class="slot-outer">
+                            <div class="slot"></div>
+                        </div>
+                        <div class="slot-outer">
+                            <div class="slot"></div>
+                        </div>
+                        <div class="slot-outer">
+                            <div class="slot"></div>
+                        </div>
+                        <div class="slot-outer">
+                            <div class="slot"></div>
+                        </div>
+                        <div class="slot-outer">
+                            <div class="slot"></div>
+                        </div>
+                    </div>
+                    <div class="slots-bar">
+                        <div class="slots-bar-inner"></div>
+                        <div class="slots-bar-button"></div>
+                    </div>
+                    <div class="slots-result">
+                        <div class="slots-result-inner">
+                            <div class="drawmode-group"></div>
+                            <div class="drawmode-name"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page main-page inactive"></div>
+            <div class="page user-page inactive">
+                <h3>參與抽獎員工清單</h3>
+                <ol class="table user-list">
+                    <li class="tr th user-item">
+                        <div class="td">序號</div>
+                        <div class="td user-sn">員工代號</div>
+                        <div class="td user-group">處室單位</div>
+                        <div class="td user-name">姓名</div>
+                        <div class="td user-title">職稱</div>
+                        <div class="td user-receive">抽得獎項</div>
+                    </li>
+                    <li class="tr user-item tpl-data">
+                        <div class="td user-id"></div>
+                        <div class="td user-sn"></div>
+                        <div class="td user-group"></div>
+                        <div class="td user-name"></div>
+                        <div class="td user-title"></div>
+                        <div class="td user-receive"></div>
+                    </li>
+                </ol>
+            </div>
+            <div class="page gift-result inactive">
+                <h3>所有獎項清單</h3>
+                <ol class="table gift-result-list">
+                    <li class="tr th gift-result-item">
+                        <div class="td">序號</div>
+                        <div class="td gift-result-sn">獎項代號</div>
+                        <div class="td gift-result-content">獎別/獎品內容</div>
+                        <div class="td gift-result-count">數量</div>
+                        <div class="td gift-result-who">得獎人(依抽出順序排列)</div>
+                    </li>
+                    <li class="tr gift-result-item tpl-data">
+                        <div class="td gift-result-id"></div>
+                        <div class="td gift-result-sn"><span></span><i title="發送得獎訊息" class="icon-sms"></i></div>
+                        <div class="td gift-result-content"></div>
+                        <div class="td gift-result-count"></div>
+                        <div class="td gift-result-who">
+                            <ol class="gift-result-who-list">
+                            </ol>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <div class="page drawtype-page inactive">
+                <h3>獎項抽出方式</h3>
+                <ul class="drawtype-list"><li class="drawtype-item tpl-data" data-drawtype="basic">
+                        <div class="drawtype-icon"></div>
+                        <div class="drawtype-info"></div>
+                        <label class="drawtype-title"></label>
+                    </li></ul>
+            </div>
+            <div class="page drawing-page inactive">
+                <aside class="real-id-tips"></aside>
+                <div class="drawing-slogan slogan1"></div>
+                <div class="gone-ok-msg"></div>
+            </div>
+        </div>
+        <footer class="footer">
+            <ul class="toolbox">
+                <li class="btn"><i class="icon-user"></i><label>員工清單</label></li><li 
+                    class="btn"><i class="icon-award"></i><label>抽獎統計</label></li><li 
+                    class="btn"><i class="icon-ticket"></i><label>抽獎模式</label></li><li 
+                    class="btn"><i class="icon-draw"></i><label>匯出檔案</label></li><li 
+                    class="btn"><i class="icon-settings"></i><label>系統設定</label></li><li 
+                    class="btn"><i class="icon-home"></i><label>回到首頁</label></li><li 
+                    class="btn"><i class="icon-arrow"></i><label>展開/收合</label></li>
+            </ul>
+        </footer>
+        <div class="icon-signal ping"></div>
+    </div>
+    <div style="display:none;" class="wt014 unique-text">
+    </div>
+	<script src="javascript/controller.js"></script>
+</body>
+</html>

@@ -19,7 +19,7 @@ var setting_info = {
         <em>活動當天「千萬記得」設成 <span>否</span></em>
     `,
     'msg_conf.admin_sn': `
-        管理員員工編號，測試模式下會把所有訊息全發到這個員工編號
+        管理員員工編號，測試模式下會把所有訊息全發到這個員工編號，<br>你可以<button class="msg-test">按我測試訊息發佈</button>
     `,
     'msg_conf.user_id': `
         訊息系統帳號

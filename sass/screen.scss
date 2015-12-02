@@ -1077,6 +1077,10 @@ html, body {
             margin: 3px;
             text-shadow: 0 -1px 0 black;
             opacity: 0;
+            &.sms-sent {
+                color: gray;
+                opacity: 0.5;
+            }
             &:hover {
                 -webkit-animation: shake 0.3s ease-in infinite;
                         animation: shake 0.3s ease-in infinite;
@@ -1952,7 +1956,7 @@ html, body {
             background: rgba(red, 0.2);
         }
     }
-    button {
+    .to-remote-button, .back-to-import, .export-config {
         position: fixed;
         top: 600px;
         left: 740px;

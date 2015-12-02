@@ -115,6 +115,15 @@ $.when(
         $('.to-remote-button').bind('click', function(){
             window.open(`http://grassboy.github.io/lotteryButton/index.html?${$('#firebase_conf #server-value').val()}?${$('#firebase_conf #email-value').val()}`)
         });
+        $('.msg-test').bind('click', function(){
+            sendMSG([msg_conf.admin_sn], '訊息達人測試', function(is_success, msg){
+                if(!is_success) {
+                    alert('測試訊息發送失敗！');
+                } else {
+                    alert('訊息已送出！');
+                }
+            });
+        });
     })();
     ////}}
     var user_id_index = 0;  //員工流水號(自動遞增)
@@ -760,6 +769,7 @@ $.when(
             var $this = $(this), gift_sn = $this.parent().find('span').text();
             var user_list = [];
             $this.parents('.gift-result-item').find('.receiver').map(function(){
+                var $this = $(this);
                 var user_id = this.id.replace('user-', '')^0;
                 var user = filterOne(user_array, function(user){
                         return user._id == user_id;
@@ -783,6 +793,9 @@ $.when(
                     sendMSG(user_list, msg_contents, function(is_success){
                         if(!is_success) {
                             alert('訊息發送失敗！\n以下是要發送的對象：\n'+user_list.join(' ')+'\n\n以下是要發送的訊息內容：\n'+msg_contents+'\n\n');
+                        } else {
+                            alert('訊息已送出！');
+                            $this.addClass('sms-sent');
                         }
                     });
                 } else {

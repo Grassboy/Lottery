@@ -3,7 +3,7 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 5, ../../../compass.app/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 5, ../../../../home/grassboy/compass.app/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -25,45 +25,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../compass.app/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../home/grassboy/compass.app/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../compass.app/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../home/grassboy/compass.app/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../compass.app/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../home/grassboy/compass.app/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../compass.app/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../home/grassboy/compass.app/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../compass.app/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../home/grassboy/compass.app/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../compass.app/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../home/grassboy/compass.app/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../compass.app/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../home/grassboy/compass.app/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../compass.app/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../home/grassboy/compass.app/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
@@ -1590,11 +1590,16 @@ html, body {
   opacity: 0;
 }
 /* line 1080, ../sass/screen.scss */
+.table .tr .icon-sms.sms-sent {
+  color: gray;
+  opacity: 0.5;
+}
+/* line 1084, ../sass/screen.scss */
 .table .tr .icon-sms:hover {
   -webkit-animation: shake 0.3s ease-in infinite;
   animation: shake 0.3s ease-in infinite;
 }
-/* line 1086, ../sass/screen.scss */
+/* line 1090, ../sass/screen.scss */
 .table .td {
   display: table-cell;
   padding: 16px 2px;
@@ -1603,39 +1608,39 @@ html, body {
   border-bottom: 1px solid #FF0E0A;
   text-align: center;
 }
-/* line 1093, ../sass/screen.scss */
+/* line 1097, ../sass/screen.scss */
 .table .td.user-id, .table .td.gift-result-id {
   font-size: 16px;
   color: white;
 }
-/* line 1097, ../sass/screen.scss */
+/* line 1101, ../sass/screen.scss */
 .table .td.user-sn, .table .td.gift-result-sn {
   width: 100px;
 }
-/* line 1101, ../sass/screen.scss */
+/* line 1105, ../sass/screen.scss */
 .table .td.user-group, .table .td.gift-result-content {
   width: 180px;
   font-size: 20px;
 }
-/* line 1106, ../sass/screen.scss */
+/* line 1110, ../sass/screen.scss */
 .table .td.user-name {
   width: 100px;
 }
-/* line 1109, ../sass/screen.scss */
+/* line 1113, ../sass/screen.scss */
 .table .td.user-title {
   width: 140px;
   font-size: 20px;
 }
-/* line 1113, ../sass/screen.scss */
+/* line 1117, ../sass/screen.scss */
 .table .td.user-receive {
   font-size: 16px;
   width: 160px;
 }
-/* line 1117, ../sass/screen.scss */
+/* line 1121, ../sass/screen.scss */
 .table .td.gift-result-sn, .table .td.gift-result-id, .table .td.gift-result-content, .table .td.gift-result-count, .table .td.gift-result-who {
   vertical-align: top;
 }
-/* line 1125, ../sass/screen.scss */
+/* line 1129, ../sass/screen.scss */
 .table .td.gift-result-who {
   box-sizing: border-box;
   text-align: left;
@@ -1644,22 +1649,22 @@ html, body {
   width: 500px;
   padding-left: 20px;
 }
-/* line 1132, ../sass/screen.scss */
+/* line 1136, ../sass/screen.scss */
 .table .td.gift-result-who .gift-result-who-list {
   list-style: inside decimal-leading-zero none;
 }
-/* line 1135, ../sass/screen.scss */
+/* line 1139, ../sass/screen.scss */
 .table .td.gift-result-who .receiver {
   box-sizing: border-box;
   margin-left: 1em;
   padding: 0 5px;
 }
-/* line 1139, ../sass/screen.scss */
+/* line 1143, ../sass/screen.scss */
 .table .td.gift-result-who .receiver:nth-child(even) {
   color: white;
 }
 
-/* line 1147, ../sass/screen.scss */
+/* line 1151, ../sass/screen.scss */
 .drawing-page {
   -moz-user-select: -moz-none;
   -ms-user-select: none;
@@ -1671,7 +1676,7 @@ html, body {
   overflow: hidden;
 }
 
-/* line 1154, ../sass/screen.scss */
+/* line 1158, ../sass/screen.scss */
 .real-id-tips {
   position: absolute;
   left: 54px;
@@ -1680,7 +1685,7 @@ html, body {
   color: rgba(255, 255, 255, 0.3);
 }
 
-/* line 1160, ../sass/screen.scss */
+/* line 1164, ../sass/screen.scss */
 .drawing-slogan {
   transform-type: preserve-3d;
   perspective: 1000px;
@@ -1689,7 +1694,7 @@ html, body {
   left: 0;
   z-index: 105;
 }
-/* line 1166, ../sass/screen.scss */
+/* line 1170, ../sass/screen.scss */
 .drawing-slogan:before, .drawing-slogan:after {
   position: absolute;
   content: ' ';
@@ -1705,13 +1710,13 @@ html, body {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
 }
-/* line 1183, ../sass/screen.scss */
+/* line 1187, ../sass/screen.scss */
 .draw-start ~ .drawing-slogan.slogan1:before, .draw-start ~ .drawing-slogan.slogan1:after {
   width: 300px;
   height: 50px;
   content: '選我！選我！';
 }
-/* line 1187, ../sass/screen.scss */
+/* line 1191, ../sass/screen.scss */
 .draw-start ~ .drawing-slogan.slogan1:before {
   left: 30px;
   top: 70px;
@@ -1719,7 +1724,7 @@ html, body {
   -webkit-animation-name: slogan1;
   animation-name: slogan1;
 }
-/* line 1193, ../sass/screen.scss */
+/* line 1197, ../sass/screen.scss */
 .draw-start ~ .drawing-slogan.slogan1:after {
   left: 700px;
   top: 160px;
@@ -1727,7 +1732,7 @@ html, body {
   -webkit-animation-name: slogan2;
   animation-name: slogan2;
 }
-/* line 1201, ../sass/screen.scss */
+/* line 1205, ../sass/screen.scss */
 .draw-done ~ .drawing-slogan.slogan1:before {
   width: 420px;
   height: 50px;
@@ -1738,7 +1743,7 @@ html, body {
   -webkit-animation-name: slogan4;
   animation-name: slogan4;
 }
-/* line 1209, ../sass/screen.scss */
+/* line 1213, ../sass/screen.scss */
 .draw-done ~ .drawing-slogan.slogan1:after {
   width: 70px;
   height: 300px;
@@ -1754,7 +1759,7 @@ html, body {
   animation-name: slogan3;
 }
 
-/* line 1228, ../sass/screen.scss */
+/* line 1232, ../sass/screen.scss */
 .gone-ok-msg {
   position: absolute;
   width: 90%;
@@ -1770,34 +1775,34 @@ html, body {
   animation: opacity_flip 1s infinite;
   text-shadow: 0 0 10px white, 0 0 10px white, 0 0 10px white;
 }
-/* line 1229, ../sass/screen.scss */
+/* line 1233, ../sass/screen.scss */
 .gone-ok-msg:empty {
   display: none;
 }
-/* line 1246, ../sass/screen.scss */
+/* line 1250, ../sass/screen.scss */
 .gone-ok-msg:after {
   content: ' 可不在現場！';
 }
 
-/* line 1251, ../sass/screen.scss */
+/* line 1255, ../sass/screen.scss */
 .drawmode-basic {
   text-align: center;
   font-size: 96px;
   text-shadow: 0 -2px 0 black;
 }
-/* line 1255, ../sass/screen.scss */
+/* line 1259, ../sass/screen.scss */
 .drawmode-basic.draw-start .drawmode-group, .drawmode-basic.draw-start .drawmode-name, .drawmode-basic.draw-done .drawmode-stop {
   display: none;
 }
-/* line 1260, ../sass/screen.scss */
+/* line 1264, ../sass/screen.scss */
 .drawmode-basic.draw-start .drawmode-sn {
   font-size: 128px;
 }
-/* line 1263, ../sass/screen.scss */
+/* line 1267, ../sass/screen.scss */
 .drawmode-basic.draw-done h3 {
   visibility: hidden;
 }
-/* line 1266, ../sass/screen.scss */
+/* line 1270, ../sass/screen.scss */
 .drawmode-basic .drawmode-stop {
   font-size: 64px;
   border-radius: 20px;
@@ -2105,13 +2110,13 @@ html, body {
     transform: translateX(-10px);
   }
 }
-/* line 1391, ../sass/screen.scss */
+/* line 1395, ../sass/screen.scss */
 .drawmode-slots {
   position: relative;
   transition: transform ease-in 0.3s;
   transform: scale(0.9) translateY(-20px);
 }
-/* line 1395, ../sass/screen.scss */
+/* line 1399, ../sass/screen.scss */
 .drawmode-slots .slots-machine {
   padding: 30px;
   background: white;
@@ -2125,7 +2130,7 @@ html, body {
   transform: scale(0.9) translateY(-50px);
   z-index: 3;
 }
-/* line 1408, ../sass/screen.scss */
+/* line 1412, ../sass/screen.scss */
 .drawmode-slots .slot-outer {
   display: inline-block;
   width: 150px;
@@ -2134,7 +2139,7 @@ html, body {
   overflow: hidden;
   border-radius: 5px;
 }
-/* line 1415, ../sass/screen.scss */
+/* line 1419, ../sass/screen.scss */
 .drawmode-slots .slot-outer:after {
   content: ' ';
   position: absolute;
@@ -2148,7 +2153,7 @@ html, body {
   box-sizing: border-box;
   border-radius: 5px;
 }
-/* line 1426, ../sass/screen.scss */
+/* line 1430, ../sass/screen.scss */
 .drawmode-slots .slot-outer:before {
   content: ' ';
   width: 10px;
@@ -2161,7 +2166,7 @@ html, body {
   left: -5px;
   top: 50%;
 }
-/* line 1438, ../sass/screen.scss */
+/* line 1442, ../sass/screen.scss */
 .drawmode-slots .slot {
   transition: transform 0.5s linear;
   display-inline: block;
@@ -2170,21 +2175,21 @@ html, body {
   background-image: url(../images/number.png);
   background-repeat: repeat-y;
 }
-/* line 1354, ../sass/screen.scss */
+/* line 1358, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-start, .drawmode-slots .slot-outer:nth-child(even) .slot.slot-turbo, .drawmode-slots .slot-outer:nth-child(even) .slot.slot-end {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
 }
-/* line 1360, ../sass/screen.scss */
+/* line 1364, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-start {
   -webkit-animation-name: start-rotateSlot1;
   animation-name: start-rotateSlot1;
   -webkit-animation-timing-function: cubic-bezier(0.78, -0.05, 0.61, 1.23);
   animation-timing-function: cubic-bezier(0.78, -0.05, 0.61, 1.23);
 }
-/* line 1366, ../sass/screen.scss */
+/* line 1370, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-turbo {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
@@ -2193,7 +2198,7 @@ html, body {
   -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
 }
-/* line 1374, ../sass/screen.scss */
+/* line 1378, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-end {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
@@ -2202,65 +2207,65 @@ html, body {
   -webkit-animation-timing-function: cubic-bezier(0, 1, 0, 1.012);
   animation-timing-function: cubic-bezier(0, 1, 0, 1.012);
 }
-/* line 1383, ../sass/screen.scss */
+/* line 1387, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-7 {
   transform: translateY(0px);
 }
-/* line 1383, ../sass/screen.scss */
+/* line 1387, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-8 {
   transform: translateY(-160px);
 }
-/* line 1383, ../sass/screen.scss */
+/* line 1387, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-9 {
   transform: translateY(-320px);
 }
-/* line 1383, ../sass/screen.scss */
+/* line 1387, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-0 {
   transform: translateY(-480px);
 }
-/* line 1383, ../sass/screen.scss */
+/* line 1387, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-1 {
   transform: translateY(-640px);
 }
-/* line 1383, ../sass/screen.scss */
+/* line 1387, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-2 {
   transform: translateY(-800px);
 }
-/* line 1383, ../sass/screen.scss */
+/* line 1387, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-3 {
   transform: translateY(-960px);
 }
-/* line 1383, ../sass/screen.scss */
+/* line 1387, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-4 {
   transform: translateY(-1120px);
 }
-/* line 1383, ../sass/screen.scss */
+/* line 1387, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-5 {
   transform: translateY(-1280px);
 }
-/* line 1383, ../sass/screen.scss */
+/* line 1387, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-6 {
   transform: translateY(-1440px);
 }
-/* line 1387, ../sass/screen.scss */
+/* line 1391, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-v {
   transform: translateY(-1600px);
 }
-/* line 1354, ../sass/screen.scss */
+/* line 1358, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-start, .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-turbo, .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-end {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
 }
-/* line 1360, ../sass/screen.scss */
+/* line 1364, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-start {
   -webkit-animation-name: start-rotateSlot2;
   animation-name: start-rotateSlot2;
   -webkit-animation-timing-function: cubic-bezier(0.78, -0.05, 0.61, 1.23);
   animation-timing-function: cubic-bezier(0.78, -0.05, 0.61, 1.23);
 }
-/* line 1366, ../sass/screen.scss */
+/* line 1370, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-turbo {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
@@ -2269,7 +2274,7 @@ html, body {
   -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
 }
-/* line 1374, ../sass/screen.scss */
+/* line 1378, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-end {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
@@ -2278,55 +2283,55 @@ html, body {
   -webkit-animation-timing-function: cubic-bezier(0, 1, 0, 1.012);
   animation-timing-function: cubic-bezier(0, 1, 0, 1.012);
 }
-/* line 1383, ../sass/screen.scss */
+/* line 1387, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-7 {
   transform: translateY(0px);
 }
-/* line 1383, ../sass/screen.scss */
+/* line 1387, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-8 {
   transform: translateY(-160px);
 }
-/* line 1383, ../sass/screen.scss */
+/* line 1387, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-9 {
   transform: translateY(-320px);
 }
-/* line 1383, ../sass/screen.scss */
+/* line 1387, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-0 {
   transform: translateY(-480px);
 }
-/* line 1383, ../sass/screen.scss */
+/* line 1387, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-1 {
   transform: translateY(-640px);
 }
-/* line 1383, ../sass/screen.scss */
+/* line 1387, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-2 {
   transform: translateY(-800px);
 }
-/* line 1383, ../sass/screen.scss */
+/* line 1387, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-3 {
   transform: translateY(-960px);
 }
-/* line 1383, ../sass/screen.scss */
+/* line 1387, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-4 {
   transform: translateY(-1120px);
 }
-/* line 1383, ../sass/screen.scss */
+/* line 1387, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-5 {
   transform: translateY(-1280px);
 }
-/* line 1383, ../sass/screen.scss */
+/* line 1387, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-6 {
   transform: translateY(-1440px);
 }
-/* line 1387, ../sass/screen.scss */
+/* line 1391, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-v {
   transform: translateY(-1600px);
 }
-/* line 1452, ../sass/screen.scss */
+/* line 1456, ../sass/screen.scss */
 .drawmode-slots .drawmode-group, .drawmode-slots .drawmode-name {
   font-size: 96px;
 }
-/* line 1455, ../sass/screen.scss */
+/* line 1459, ../sass/screen.scss */
 .drawmode-slots .slots-bar {
   transition: transform 0.3s ease-in;
   position: absolute;
@@ -2349,7 +2354,7 @@ html, body {
   transform-type: preserve-3d;
   perspective: 1000px;
 }
-/* line 1477, ../sass/screen.scss */
+/* line 1481, ../sass/screen.scss */
 .drawmode-slots .slots-bar-inner {
   width: 20px;
   height: 100%;
@@ -2359,7 +2364,7 @@ html, body {
   left: -10px;
   border-radius: 20px;
 }
-/* line 1486, ../sass/screen.scss */
+/* line 1490, ../sass/screen.scss */
 .drawmode-slots .slots-bar-button {
   transition: transform 0.3s ease-in;
   transform-origin: center center -250px;
@@ -2386,7 +2391,7 @@ html, body {
   -webkit-animation-name: slots-bar-init;
   animation-name: slots-bar-init;
 }
-/* line 1511, ../sass/screen.scss */
+/* line 1515, ../sass/screen.scss */
 .drawmode-slots .slots-bar-button:before {
   font-family: 'icomoon';
   speak: none;
@@ -2396,14 +2401,14 @@ html, body {
   text-transform: none;
   content: '\e608';
 }
-/* line 1516, ../sass/screen.scss */
+/* line 1520, ../sass/screen.scss */
 .drawmode-slots.draw-running .slots-bar-button {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
   -webkit-animation-name: slots-bar;
   animation-name: slots-bar;
 }
-/* line 1522, ../sass/screen.scss */
+/* line 1526, ../sass/screen.scss */
 .drawmode-slots .slots-result {
   transition: transform 0.3s ease-in;
   position: relative;
@@ -2422,14 +2427,14 @@ html, body {
   transform-origin: center 0;
   transform: translateX(-20px);
 }
-/* line 1541, ../sass/screen.scss */
+/* line 1545, ../sass/screen.scss */
 .drawmode-slots .slots-result-inner {
   border-radius: 20px;
   height: 290px;
   box-shadow: 0 0 5px orange, 0 0 5px gold inset, 5px 5px 5px brown inset;
   background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8));
 }
-/* line 1548, ../sass/screen.scss */
+/* line 1552, ../sass/screen.scss */
 .drawmode-slots .slots-result:before, .drawmode-slots .slots-result:after, .drawmode-slots .slots-result-inner:before, .drawmode-slots .slots-result-inner:after {
   font-family: 'icomoon';
   speak: none;
@@ -2444,25 +2449,25 @@ html, body {
   font-size: 50px;
   text-shadow: 2px 2px 2px black, 1px 1px 0 black, 1px -1px 0 black, -1px 1px 0 black, -1px -1px 0 black;
 }
-/* line 1562, ../sass/screen.scss */
+/* line 1566, ../sass/screen.scss */
 .drawmode-slots .slots-result:before, .drawmode-slots .slots-result-inner:before {
   left: 20px;
 }
-/* line 1565, ../sass/screen.scss */
+/* line 1569, ../sass/screen.scss */
 .drawmode-slots .slots-result:after, .drawmode-slots .slots-result-inner:after {
   right: 20px;
 }
-/* line 1570, ../sass/screen.scss */
+/* line 1574, ../sass/screen.scss */
 .drawmode-slots .slots-result:before, .drawmode-slots .slots-result:after {
   bottom: auto;
   top: -20px;
 }
-/* line 1576, ../sass/screen.scss */
+/* line 1580, ../sass/screen.scss */
 .drawmode-slots.draw-start ~ .drawing-slogan:before {
   left: 0px;
   top: 500px;
 }
-/* line 1579, ../sass/screen.scss */
+/* line 1583, ../sass/screen.scss */
 .drawmode-slots.draw-start ~ .drawing-slogan:after {
   top: 520px;
 }
@@ -2995,7 +3000,7 @@ html, body {
     opacity: 0;
   }
 }
-/* line 1723, ../sass/screen.scss */
+/* line 1727, ../sass/screen.scss */
 .drawmode-guagua {
   transform-type: preserve-3d;
   perspective: 1000px;
@@ -3005,7 +3010,7 @@ html, body {
   text-align: center;
   color: black;
 }
-/* line 1730, ../sass/screen.scss */
+/* line 1734, ../sass/screen.scss */
 .drawmode-guagua .guagua-tips {
   -webkit-animation: font_color_flip 0.3s steps(3, start) infinite;
   animation: font_color_flip 0.3s steps(3, start) infinite;
@@ -3019,7 +3024,7 @@ html, body {
   padding-bottom: 350px;
   z-index: 2;
 }
-/* line 1743, ../sass/screen.scss */
+/* line 1747, ../sass/screen.scss */
 .drawmode-guagua .guagua-card {
   transition: margin-bottom 1s ease-in;
   display: block;
@@ -3037,7 +3042,7 @@ html, body {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 }
-/* line 1755, ../sass/screen.scss */
+/* line 1759, ../sass/screen.scss */
 .drawmode-guagua .guagua-card.card-final {
   width: 640px;
   height: 480px;
@@ -3075,44 +3080,44 @@ html, body {
   */
   background-image: url(../images/card2.jpg);
 }
-/* line 1792, ../sass/screen.scss */
+/* line 1796, ../sass/screen.scss */
 .drawmode-guagua.card-drawed .guagua-tips {
   z-index: -1;
   opacity: 0;
 }
-/* line 1796, ../sass/screen.scss */
+/* line 1800, ../sass/screen.scss */
 .drawmode-guagua.card-drawed .guagua-card {
   margin-bottom: 900px;
 }
-/* line 1799, ../sass/screen.scss */
+/* line 1803, ../sass/screen.scss */
 .drawmode-guagua.card-drawed .card-final {
   visibility: visible;
   margin-bottom: 50px;
   -webkit-animation-name: gua_final;
   animation-name: gua_final;
 }
-/* line 1806, ../sass/screen.scss */
+/* line 1810, ../sass/screen.scss */
 .drawmode-guagua .card1 {
   -webkit-animation-duration: 8s;
   animation-duration: 8s;
   -webkit-animation-name: gua_flip1;
   animation-name: gua_flip1;
 }
-/* line 1812, ../sass/screen.scss */
+/* line 1816, ../sass/screen.scss */
 .drawmode-guagua .card2 {
   -webkit-animation-duration: 7s;
   animation-duration: 7s;
   -webkit-animation-name: gua_flip2;
   animation-name: gua_flip2;
 }
-/* line 1818, ../sass/screen.scss */
+/* line 1822, ../sass/screen.scss */
 .drawmode-guagua .card3 {
   -webkit-animation-duration: 7.5s;
   animation-duration: 7.5s;
   -webkit-animation-name: gua_flip3;
   animation-name: gua_flip3;
 }
-/* line 1824, ../sass/screen.scss */
+/* line 1828, ../sass/screen.scss */
 .drawmode-guagua .card4,
 .drawmode-guagua .card5,
 .drawmode-guagua .card6 {
@@ -3120,59 +3125,59 @@ html, body {
   -webkit-animation-name: gua_flip4;
   animation-name: gua_flip4;
 }
-/* line 1831, ../sass/screen.scss */
+/* line 1835, ../sass/screen.scss */
 .drawmode-guagua .card4 {
   -webkit-animation-duration: 7s;
   animation-duration: 7s;
   -webkit-animation-delay: 2s;
   animation-delay: 2s;
 }
-/* line 1837, ../sass/screen.scss */
+/* line 1841, ../sass/screen.scss */
 .drawmode-guagua .card5 {
   -webkit-animation-duration: 8s;
   animation-duration: 8s;
   -webkit-animation-delay: 4s;
   animation-delay: 4s;
 }
-/* line 1843, ../sass/screen.scss */
+/* line 1847, ../sass/screen.scss */
 .drawmode-guagua .card6 {
   -webkit-animation-duration: 9s;
   animation-duration: 9s;
 }
-/* line 1847, ../sass/screen.scss */
+/* line 1851, ../sass/screen.scss */
 .drawmode-guagua .guagua-canvas {
   cursor: url(../images/coin.png) 24 24, auto;
   position: absolute;
   left: 0;
   top: 0;
 }
-/* line 1852, ../sass/screen.scss */
+/* line 1856, ../sass/screen.scss */
 .drawmode-guagua .guagua-img {
   display: none;
 }
-/* line 1856, ../sass/screen.scss */
+/* line 1860, ../sass/screen.scss */
 .drawmode-guagua .drawmode-group {
   font-size: 68px;
   font-weight: bold;
   line-height: 120px;
   color: #333;
 }
-/* line 1862, ../sass/screen.scss */
+/* line 1866, ../sass/screen.scss */
 .drawmode-guagua .drawmode-sn, .drawmode-guagua .drawmode-name {
   font-size: 100px;
   font-weight: bold;
   color: #333;
 }
-/* line 1867, ../sass/screen.scss */
+/* line 1871, ../sass/screen.scss */
 .drawmode-guagua .drawmode-name {
   line-height: 200px;
 }
-/* line 1870, ../sass/screen.scss */
+/* line 1874, ../sass/screen.scss */
 .drawmode-guagua .drawmode-sn {
   font-family: 'Arial';
   line-height: 180px;
 }
-/* line 1874, ../sass/screen.scss */
+/* line 1878, ../sass/screen.scss */
 .drawmode-guagua .guagua-cursor {
   transition: visibility 0.3s ease-in, opacity 0.3s ease-in;
   position: absolute;
@@ -3182,33 +3187,33 @@ html, body {
   opacity: 0;
   visibility: hidden;
 }
-/* line 1882, ../sass/screen.scss */
+/* line 1886, ../sass/screen.scss */
 .drawmode-guagua .card-final .guagua-cursor.show-coin {
   opacity: 1;
   visibility: visible;
   z-index: 10;
 }
-/* line 1887, ../sass/screen.scss */
+/* line 1891, ../sass/screen.scss */
 .drawmode-guagua.draw-done .guagua-canvas {
   opacity: 0;
 }
-/* line 1891, ../sass/screen.scss */
+/* line 1895, ../sass/screen.scss */
 .drawmode-guagua.draw-start ~ .drawing-slogan:before {
   left: 740px;
   top: 500px;
 }
-/* line 1894, ../sass/screen.scss */
+/* line 1898, ../sass/screen.scss */
 .drawmode-guagua.draw-start ~ .drawing-slogan:after {
   left: 40px;
   top: 520px;
 }
 
-/* line 1899, ../sass/screen.scss */
+/* line 1903, ../sass/screen.scss */
 .config-page {
   overflow: auto;
   height: 610px;
 }
-/* line 1902, ../sass/screen.scss */
+/* line 1906, ../sass/screen.scss */
 .config-page .config-group {
   overflow: hidden;
   *zoom: 1;
@@ -3220,7 +3225,7 @@ html, body {
   border-radius: 20px;
   position: relative;
 }
-/* line 1911, ../sass/screen.scss */
+/* line 1915, ../sass/screen.scss */
 .config-page .config-group:before {
   content: attr(title);
   font-size: 1.3em;
@@ -3229,17 +3234,17 @@ html, body {
   padding: 3px;
   color: orange;
 }
-/* line 1920, ../sass/screen.scss */
+/* line 1924, ../sass/screen.scss */
 .config-page .config-group input[type="text"] {
   font-size: 20px;
   width: 600px;
   background: rgba(255, 255, 255, 0.8);
 }
-/* line 1925, ../sass/screen.scss */
+/* line 1929, ../sass/screen.scss */
 .config-page .config-group .config-info {
   line-height: 1.6em;
 }
-/* line 1927, ../sass/screen.scss */
+/* line 1931, ../sass/screen.scss */
 .config-page .config-group .config-info em {
   background: red;
   color: yellow;
@@ -3247,44 +3252,44 @@ html, body {
   padding: 0 12px;
   border-radius: 4px;
 }
-/* line 1934, ../sass/screen.scss */
+/* line 1938, ../sass/screen.scss */
 .config-page .config-group .config-info span {
   font-weight: bold;
   font-family: courier;
   text-shadow: 0 0 3px white;
 }
-/* line 1939, ../sass/screen.scss */
+/* line 1943, ../sass/screen.scss */
 .config-page .config-group .config-info a {
   text-decoration: underline;
   color: pink;
 }
-/* line 1945, ../sass/screen.scss */
+/* line 1949, ../sass/screen.scss */
 .config-page .config-item {
   overflow: hidden;
   *zoom: 1;
   margin-top: 20px;
 }
-/* line 1948, ../sass/screen.scss */
+/* line 1952, ../sass/screen.scss */
 .config-page .config-item:nth-child(2n+1) {
   background: rgba(255, 0, 0, 0.4);
 }
-/* line 1951, ../sass/screen.scss */
+/* line 1955, ../sass/screen.scss */
 .config-page .config-item:nth-child(2n) {
   background: rgba(255, 0, 0, 0.2);
 }
-/* line 1955, ../sass/screen.scss */
-.config-page button {
+/* line 1959, ../sass/screen.scss */
+.config-page .to-remote-button, .config-page .back-to-import, .config-page .export-config {
   position: fixed;
   top: 600px;
   left: 740px;
   width: 240px;
   font-size: 1.5em;
 }
-/* line 1962, ../sass/screen.scss */
+/* line 1966, ../sass/screen.scss */
 .config-page .back-to-import {
   top: 500px;
 }
-/* line 1965, ../sass/screen.scss */
+/* line 1969, ../sass/screen.scss */
 .config-page .export-config {
   font-size: 2em;
   display: block;
@@ -3292,31 +3297,31 @@ html, body {
   top: 650px;
 }
 
-/* line 1972, ../sass/screen.scss */
+/* line 1976, ../sass/screen.scss */
 .test-page {
   width: 100%;
   height: 100%;
 }
 
-/* line 1975, ../sass/screen.scss */
+/* line 1979, ../sass/screen.scss */
 .need-file-form {
   text-align: center;
 }
 
-/* line 1978, ../sass/screen.scss */
+/* line 1982, ../sass/screen.scss */
 .fake-data-button, .config-button {
   font-size: 32px;
   margin-bottom: 10px;
 }
 
-/* line 1982, ../sass/screen.scss */
+/* line 1986, ../sass/screen.scss */
 .need-file-list {
   overflow: hidden;
   *zoom: 1;
   width: 80%;
   margin: 0 auto;
 }
-/* line 1986, ../sass/screen.scss */
+/* line 1990, ../sass/screen.scss */
 .need-file-list .need-file-item {
   box-sizing: border-box;
   width: 45%;
@@ -3329,18 +3334,18 @@ html, body {
   line-height: 50px;
   background: rgba(0, 0, 0, 0.3);
 }
-/* line 1996, ../sass/screen.scss */
+/* line 2000, ../sass/screen.scss */
 .need-file-list .need-file-item label {
   font-size: 24px;
   display: block;
 }
-/* line 2001, ../sass/screen.scss */
+/* line 2005, ../sass/screen.scss */
 .need-file-list .need-file-item.success {
   color: yellow;
   line-height: 96px;
   border-color: yellow;
 }
-/* line 2005, ../sass/screen.scss */
+/* line 2009, ../sass/screen.scss */
 .need-file-list .need-file-item.success label:before {
   font-family: 'icomoon';
   speak: none;
@@ -3350,12 +3355,12 @@ html, body {
   text-transform: none;
   content: "\e60b";
 }
-/* line 2009, ../sass/screen.scss */
+/* line 2013, ../sass/screen.scss */
 .need-file-list .need-file-item.success input {
   display: none;
 }
 
-/* line 2015, ../sass/screen.scss */
+/* line 2019, ../sass/screen.scss */
 .restore-key {
   font-size: 32px;
   color: white;
@@ -3366,7 +3371,7 @@ html, body {
   width: 200px;
 }
 
-/* line 2024, ../sass/screen.scss */
+/* line 2028, ../sass/screen.scss */
 .start-system-button {
   font-size: 32px;
 }
@@ -3435,7 +3440,7 @@ html, body {
     opacity: 0;
   }
 }
-/* line 2034, ../sass/screen.scss */
+/* line 2038, ../sass/screen.scss */
 .ping {
   opacity: 0;
   position: fixed;
@@ -3449,7 +3454,7 @@ html, body {
   font-size: 40px;
   animation: signal 1s 1;
 }
-/* line 2043, ../sass/screen.scss */
+/* line 2047, ../sass/screen.scss */
 .ping.pong {
   animation: signal2 1s 1;
 }

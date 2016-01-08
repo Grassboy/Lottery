@@ -1325,7 +1325,7 @@ html, body {
         }
     }
 }
-@include slotFrames(1760px);
+@include slotFrames(1920px);
 @include keyframes(slots-bar-init) {
     0%, 100% {
         transform: rotateX(30deg);
@@ -1391,6 +1391,9 @@ html, body {
     &.slot-v {
         transform: translateY(-1600px);
     }
+    &.slot-z {
+        transform: translateY(-1760px);
+    }
 }
 .drawmode-slots {
     position: relative;
@@ -1443,7 +1446,7 @@ html, body {
         transition: transform 0.5s linear;
         display-inline:block;
         width: 150px;
-        height: 1760px;
+        height: 1920px;
         background-image: url(../images/number.png);
         background-repeat: repeat-y;
     }

@@ -384,7 +384,7 @@ $.when(
                 return;
             }
             _dom.real_id_tips.text('');
-            var drawing = current_drawmode.draw(that.skip);
+            var drawing = current_drawmode.draw(that.skip, that.sn);
             if(drawing) {
                 drawing.then(function(user){
                     if(user != -1) {
@@ -485,7 +485,7 @@ $.when(
             current_drawmode = this;
             current_drawmode.active();
         },
-        draw: function(skip_array){ //DrawMode.prototype.draw 由 Gift.draw 觸發
+        draw: function(skip_array, gift_sn){ //DrawMode.prototype.draw 由 Gift.draw 觸發
             var that = this;
             if(that.deferred && that.deferred.resolve) {
                 alert('前一次的抽獎流程中斷，\r\n現在重新開始新的抽獎流程');
@@ -503,6 +503,8 @@ $.when(
                 if(!user.receive_gift) {
                     if(skip_string.indexOf('|'+user.sn+'|') != -1) {
                         console.log(user.sn + ' 這名員工不得抽這個獎，故略過');
+                    } else if(user.allow_gift && user.allow_gift.indexOf('|'+gift_sn+'|')==-1) { //有指定允許抽的獎的話，如果 gift_sn 不在這個清單內，則略過
+                        console.log(user.sn + ' 允許抽的獎當中，不含 '+gift_sn+'，故略過');
                     } else {
                         that.LotteryBox.push(user);
                     }
@@ -1177,9 +1179,15 @@ $.when(
     var processPSData = function(r){
         var users = r.split('\n');
         //users[0] 為 meta data，從第三欄開始為一連串不能領的 gift id
+        //不過如果有一欄為「只能領某些獎」，要把該欄位綁到 user.allow_gift
         var data = splitLine($.trim(users[0]));
+        var allow_gift_column_index;
         for(var i = 3, n = data.length; i < n; i++){
-            var gift_id = $.trim(data[i]).replace(/不能領\ ?/, '');
+            if($.trim(data[i]).indexOf('只能領某些獎')!=-1) {
+                allow_gift_column_index = i; //先把 column_index 記下來
+                continue;
+            }
+            var gift_id = $.trim(data[i]).match(/不能領\ ?[\ ]*/) && $.trim(data[i]).replace(/不能領\ ?[\ ]*/, '');
             if(!gift_id) {
                 continue;
             }
@@ -1206,6 +1214,12 @@ $.when(
                         user.gone_ok = $.trim(ps_user[2]);
                     }
                     for(var j = 3, n2 = ps_user.length; j < n2 && data[j]; ++j){
+                        if(j == allow_gift_column_index) {
+                            if($.trim(ps_user[allow_gift_column_index]) != '') {
+                                user.allow_gift = '|'+$.trim(ps_user[allow_gift_column_index]).split(' ').join('|')+'|';
+                            }
+                            continue;
+                        }
                         if($.trim(ps_user[j])) {
                             data[j].push(user.sn);  //data[i] 為前面指定的 gift.skip 清單
                         }

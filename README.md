@@ -14,6 +14,8 @@
  * 注意，直接連進去時並無法操作，此網址的格式應為 
    * `http://grassboy.github.io/lotteryButton/index.html?[firebase server 位置]?[firebase 用戶 email]`
 
+系統操作各式情境請見 [OperationScenario](https://github.com/Grassboy/Lottery/wiki/OperationScenario)
+
 系統安裝方式請按以下步驟：
 
  * [下載此專案至本機](https://github.com/Grassboy/Lottery/archive/gh-pages.zip)
@@ -30,4 +32,3 @@
  * 灰色指南針此時會變成紅色指南針，即表示已完成 Watch，此時 http://localhost:24680/ 就可以連至抽獎系統，如下圖：
    ![System Preview](http://i.imgur.com/IzgDZjq.png)
 
-系統操作各式情境請見 [OperationScenario](https://github.com/Grassboy/Lottery/wiki/OperationScenario)

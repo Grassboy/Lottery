@@ -16,6 +16,7 @@
  * 請直接透過設定頁面的「至遠端抽獎頁」按鈕開啟
  * Firebase 設定需要填入由 Firebase 專案提供的設定資訊，如下圖
   ![Firebase 設定](http://i.imgur.com/8IqKImj.png)
+  ![Firebase 設定2](http://i.imgur.com/vriDjyz.png)
   (你也是可以用用目前我設定好的 firebase 環境，支援暱名登入，不過如果這個 firebase 被用在其他未預期的用途上…我可能會考慮拿掉降子0rz...)
 
 系統操作各式情境請見 [OperationScenario](https://github.com/Grassboy/Lottery/wiki/OperationScenario)

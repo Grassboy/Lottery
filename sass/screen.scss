@@ -261,6 +261,9 @@ html, body {
         position: absolute;
         left: -2048px;
         top: -2147483647px;
+        button {
+            display: none;
+        }
     }
     h3 {
         text-align: center;

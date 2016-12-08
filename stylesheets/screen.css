@@ -570,7 +570,11 @@ html, body {
   left: -2048px;
   top: -2147483647px;
 }
-/* line 265, ../sass/screen.scss */
+/* line 264, ../sass/screen.scss */
+.page.inactive button {
+  display: none;
+}
+/* line 268, ../sass/screen.scss */
 .page h3 {
   text-align: center;
   font-size: 24px;
@@ -578,7 +582,7 @@ html, body {
   padding: 20px;
 }
 
-/* line 272, ../sass/screen.scss */
+/* line 275, ../sass/screen.scss */
 .user-item {
   overflow: hidden;
   *zoom: 1;
@@ -588,13 +592,13 @@ html, body {
   font-size: 24px;
 }
 
-/* line 279, ../sass/screen.scss */
+/* line 282, ../sass/screen.scss */
 .gift-list {
   overflow: auto;
   height: 520px;
 }
 
-/* line 283, ../sass/screen.scss */
+/* line 286, ../sass/screen.scss */
 .gift-page {
   background-color: #570100;
   background-image: linear-gradient(90deg, #570100 40%, #470100);
@@ -609,11 +613,11 @@ html, body {
   top: 110px;
   left: -500px;
 }
-/* line 296, ../sass/screen.scss */
+/* line 299, ../sass/screen.scss */
 .gift-page.active {
   left: 0;
 }
-/* line 299, ../sass/screen.scss */
+/* line 302, ../sass/screen.scss */
 .gift-page:after {
   content: ' ';
   position: absolute;
@@ -623,7 +627,7 @@ html, body {
   right: -5px;
   top: 0;
 }
-/* line 307, ../sass/screen.scss */
+/* line 310, ../sass/screen.scss */
 .gift-page h3 {
   text-align: center;
   background-image: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(255, 14, 10, 0.6), rgba(0, 0, 0, 0));
@@ -636,7 +640,7 @@ html, body {
   box-shadow: 0 4px 2px -2px black;
   margin-bottom: 5px;
 }
-/* line 319, ../sass/screen.scss */
+/* line 322, ../sass/screen.scss */
 .gift-page .btn-toggle, .gift-page .btn-add {
   color: orange;
   background-image: linear-gradient(180deg, #ff0e0a, #a30300);
@@ -645,7 +649,7 @@ html, body {
   border: 1px solid black;
   text-shadow: 0 -1px 0 black;
 }
-/* line 322, ../sass/screen.scss */
+/* line 325, ../sass/screen.scss */
 .gift-page .btn-add {
   transition: color 0.3s ease-in, text-shadow 0.3s ease-in, opacity 0.1s ease-in;
   position: absolute;
@@ -656,15 +660,15 @@ html, body {
   color: #AAA;
   z-index: 2;
 }
-/* line 330, ../sass/screen.scss */
+/* line 333, ../sass/screen.scss */
 .gift-page .btn-add:hover {
   opacity: 1;
 }
-/* line 332, ../sass/screen.scss */
+/* line 335, ../sass/screen.scss */
 .gift-page .btn-add:hover .icon-add {
   color: white;
 }
-/* line 336, ../sass/screen.scss */
+/* line 339, ../sass/screen.scss */
 .gift-page .btn-add:after {
   display: inline-block;
   position: absolute;
@@ -685,17 +689,17 @@ html, body {
   opacity: 0;
   visibility: hidden;
 }
-/* line 356, ../sass/screen.scss */
+/* line 359, ../sass/screen.scss */
 .gift-page .btn-add:hover:after {
   opacity: 1;
   visibility: visible;
 }
-/* line 360, ../sass/screen.scss */
+/* line 363, ../sass/screen.scss */
 .gift-page .btn-add .icon-add:before {
   content: '\e600';
   margin-right: -6px;
 }
-/* line 364, ../sass/screen.scss */
+/* line 367, ../sass/screen.scss */
 .gift-page .btn-add .icon-add:after {
   content: '+';
   text-shadow: 0 -1px 0 black, 2px 2px 0 red, -2px 2px 0 red, 2px -2px 0 red, -2px -2px 0 red, 2px 0 0 red, 0 2px 0 red, -2px 0 0 red, 0 -2px 0 red;
@@ -703,7 +707,7 @@ html, body {
   top: 4px;
   color: white;
 }
-/* line 372, ../sass/screen.scss */
+/* line 375, ../sass/screen.scss */
 .gift-page .btn-toggle {
   transition: color 0.3s ease-in, text-shadow 0.3s ease-in, opacity 0.1s ease-in;
   position: absolute;
@@ -711,7 +715,7 @@ html, body {
   top: 4px;
   font-size: 36px;
 }
-/* line 377, ../sass/screen.scss */
+/* line 380, ../sass/screen.scss */
 .gift-page .btn-toggle:after {
   display: inline-block;
   position: absolute;
@@ -729,17 +733,17 @@ html, body {
   border-radius: 5px;
   opacity: 1;
 }
-/* line 394, ../sass/screen.scss */
+/* line 397, ../sass/screen.scss */
 .gift-page .btn-toggle:hover {
   color: white;
   text-shadow: 0 0 3px white;
 }
-/* line 397, ../sass/screen.scss */
+/* line 400, ../sass/screen.scss */
 .gift-page .btn-toggle:hover:after {
   text-shadow: none;
   content: '開始抽獎';
 }
-/* line 404, ../sass/screen.scss */
+/* line 407, ../sass/screen.scss */
 .gift-page.active .btn-toggle {
   opacity: 0.6;
   color: #AAA;
@@ -747,30 +751,30 @@ html, body {
   font-size: 20px;
   top: 6px;
 }
-/* line 410, ../sass/screen.scss */
+/* line 413, ../sass/screen.scss */
 .gift-page.active .btn-toggle:hover {
   opacity: 1;
   color: white;
 }
-/* line 413, ../sass/screen.scss */
+/* line 416, ../sass/screen.scss */
 .gift-page.active .btn-toggle:hover:after {
   content: '關閉獎項清單';
 }
-/* line 417, ../sass/screen.scss */
+/* line 420, ../sass/screen.scss */
 .gift-page.active .btn-toggle:after {
   text-shadow: none;
 }
-/* line 421, ../sass/screen.scss */
+/* line 424, ../sass/screen.scss */
 .gift-page.active .icon-gift:before {
   content: '\e606';
 }
-/* line 424, ../sass/screen.scss */
+/* line 427, ../sass/screen.scss */
 .gift-page.active ~ .page, .gift-page.active ~ .summary-page {
   opacity: 0.4;
   filter: blur(3px);
 }
 
-/* line 430, ../sass/screen.scss */
+/* line 433, ../sass/screen.scss */
 .summary-page {
   transition: right 0.3s ease-in, opacity 0.5s ease-in, filter 0.5s ease-in;
   background: radial-gradient(#8a0000 4%, #5c0000 9%, rgba(102, 0, 0, 0) 9%) 0 0, radial-gradient(#8a0000 4%, #5c0000 8%, rgba(102, 0, 0, 0) 10%) 50px 50px, radial-gradient(rgba(153, 0, 0, 0.8) 20%, rgba(102, 0, 0, 0)) 50px 0, radial-gradient(rgba(153, 0, 0, 0.8) 20%, rgba(102, 0, 0, 0)) 0 50px, radial-gradient(#660000 35%, rgba(102, 0, 0, 0) 60%) 50px 0, radial-gradient(#660000 35%, rgba(102, 0, 0, 0) 60%) 100px 50px, radial-gradient(rgba(77, 0, 0, 0.7), rgba(102, 0, 0, 0)) 0 0, radial-gradient(rgba(77, 0, 0, 0.7), rgba(102, 0, 0, 0)) 50px 50px, linear-gradient(45deg, rgba(102, 0, 0, 0) 49%, #000000 50%, rgba(102, 0, 0, 0) 70%) 0 0, linear-gradient(-45deg, rgba(102, 0, 0, 0) 49%, #000000 50%, rgba(102, 0, 0, 0) 70%) 0 0;
@@ -787,24 +791,24 @@ html, body {
   top: 110px;
   right: -970px;
 }
-/* line 457, ../sass/screen.scss */
+/* line 460, ../sass/screen.scss */
 .summary-page.ready .button-start, .summary-page.ready .button-start-all, .summary-page.active .button-start, .summary-page.active .button-start-all {
   display: block;
 }
-/* line 461, ../sass/screen.scss */
+/* line 464, ../sass/screen.scss */
 .summary-page.active {
   right: 0;
 }
-/* line 463, ../sass/screen.scss */
+/* line 466, ../sass/screen.scss */
 .summary-page.active ~ .page {
   opacity: 0;
 }
-/* line 468, ../sass/screen.scss */
+/* line 471, ../sass/screen.scss */
 .summary-page.ready .back-to-statics, .summary-page.done .back-to-statics {
   visibility: visible;
   left: -50px;
 }
-/* line 474, ../sass/screen.scss */
+/* line 477, ../sass/screen.scss */
 .summary-page.ready .summary-gift-count, .summary-page.ready .summary-gift-count-now, .summary-page.ready button {
   right: auto;
   -webkit-animation: to_left 0.3s steps(30, start) forwards;
@@ -814,12 +818,12 @@ html, body {
   -webkit-animation-duration: .3s;
   animation-duration: .3s;
 }
-/* line 486, ../sass/screen.scss */
+/* line 489, ../sass/screen.scss */
 .summary-page.done .summary-item.tr:only-child {
   display: block;
   width: 800px;
 }
-/* line 489, ../sass/screen.scss */
+/* line 492, ../sass/screen.scss */
 .summary-page.done .summary-item.tr:only-child .td {
   box-sizing: border-box;
   display: block;
@@ -828,32 +832,32 @@ html, body {
   font-size: 54px;
   width: 100%;
 }
-/* line 498, ../sass/screen.scss */
+/* line 501, ../sass/screen.scss */
 .summary-page.done .summary-item.tr:only-child.check .summary-name .summary-remove {
   top: auto;
 }
-/* line 502, ../sass/screen.scss */
+/* line 505, ../sass/screen.scss */
 .summary-page.done .summary-item.tr:only-child .summary-sn {
   font-size: 96px;
 }
-/* line 505, ../sass/screen.scss */
+/* line 508, ../sass/screen.scss */
 .summary-page.done .summary-item.tr:only-child .summary-name {
   font-size: 96px;
 }
-/* line 507, ../sass/screen.scss */
+/* line 510, ../sass/screen.scss */
 .summary-page.done .summary-item.tr:only-child .summary-name .summary-remove {
   top: 30px;
   z-index: 10;
 }
-/* line 514, ../sass/screen.scss */
+/* line 517, ../sass/screen.scss */
 .summary-page.done .button-display {
   display: block;
 }
-/* line 517, ../sass/screen.scss */
+/* line 520, ../sass/screen.scss */
 .summary-page.done .button-start, .summary-page.done .button-start-all {
   display: none;
 }
-/* line 521, ../sass/screen.scss */
+/* line 524, ../sass/screen.scss */
 .summary-page h3 {
   box-sizing: border-box;
   font-size: 30px;
@@ -864,7 +868,7 @@ html, body {
   letter-spacing: 8px;
   background-image: linear-gradient(90deg, #990000, rgba(255, 255, 255, 0));
 }
-/* line 531, ../sass/screen.scss */
+/* line 534, ../sass/screen.scss */
 .summary-page .summary-gift-count, .summary-page .summary-gift-count-now {
   width: 120px;
   height: 120px;
@@ -877,19 +881,19 @@ html, body {
   border-radius: 0 0 16px 16px;
   background-image: linear-gradient(120deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9));
 }
-/* line 541, ../sass/screen.scss */
+/* line 544, ../sass/screen.scss */
 .summary-page .summary-gift-count .count-title, .summary-page .summary-gift-count-now .count-title {
   box-sizing: border-box;
   padding: 5px;
   background-image: linear-gradient(0deg, #ff0000, #990000);
 }
-/* line 546, ../sass/screen.scss */
+/* line 549, ../sass/screen.scss */
 .summary-page .summary-gift-count em, .summary-page .summary-gift-count-now em {
   font-family: 'Fredoka One', cursive;
   font-size: 64px;
   line-height: 80px;
 }
-/* line 550, ../sass/screen.scss */
+/* line 553, ../sass/screen.scss */
 .summary-page .summary-gift-count em:after, .summary-page .summary-gift-count-now em:after {
   content: '人';
   font-size: 20px;
@@ -898,15 +902,15 @@ html, body {
   right: 4px;
   bottom: -22px;
 }
-/* line 559, ../sass/screen.scss */
+/* line 562, ../sass/screen.scss */
 .summary-page .summary-gift-count {
   top: 8px;
 }
-/* line 562, ../sass/screen.scss */
+/* line 565, ../sass/screen.scss */
 .summary-page .summary-gift-count-now {
   top: 136px;
 }
-/* line 565, ../sass/screen.scss */
+/* line 568, ../sass/screen.scss */
 .summary-page .back-to-statics {
   transition: left 0.3s ease-in, color 0.3s ease-in;
   visibility: hidden;
@@ -923,11 +927,11 @@ html, body {
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
   font-size: 36px;
 }
-/* line 577, ../sass/screen.scss */
+/* line 580, ../sass/screen.scss */
 .summary-page .back-to-statics:hover {
   color: white;
 }
-/* line 581, ../sass/screen.scss */
+/* line 584, ../sass/screen.scss */
 .summary-page button {
   -moz-user-select: -moz-none;
   -ms-user-select: none;
@@ -948,74 +952,74 @@ html, body {
   position: absolute;
   right: 8px;
 }
-/* line 598, ../sass/screen.scss */
+/* line 601, ../sass/screen.scss */
 .summary-page button:active {
   bottom: 9px;
   background-image: linear-gradient(180deg, rgba(214, 95, 95, 0.5), rgba(165, 42, 42, 0.6) 30%, rgba(165, 42, 42, 0.3));
   box-shadow: -1px -1px 0 #FF0000 inset, 0 0 3px red;
 }
-/* line 603, ../sass/screen.scss */
+/* line 606, ../sass/screen.scss */
 .summary-page button:focus {
   outline: 0 !important;
 }
-/* line 606, ../sass/screen.scss */
+/* line 609, ../sass/screen.scss */
 .summary-page button:hover {
   box-shadow: 0 0 15px yellow;
   color: white;
 }
-/* line 610, ../sass/screen.scss */
+/* line 613, ../sass/screen.scss */
 .summary-page button.button-start {
   font-size: 40px;
   line-height: 40px;
   bottom: 72px;
 }
-/* line 615, ../sass/screen.scss */
+/* line 618, ../sass/screen.scss */
 .summary-page button.button-start-all {
   font-size: 24px;
   bottom: 16px;
 }
-/* line 618, ../sass/screen.scss */
+/* line 621, ../sass/screen.scss */
 .summary-page button.button-start-all.under-auto-draw .icon-quick-draw:before {
   content: "\f04c";
 }
-/* line 622, ../sass/screen.scss */
+/* line 625, ../sass/screen.scss */
 .summary-page button.button-display {
   font-size: 24px;
   bottom: 16px;
   z-index: 300;
 }
 
-/* line 630, ../sass/screen.scss */
+/* line 633, ../sass/screen.scss */
 .icon-start-draw:before {
   font-size: 1.6em;
 }
 
-/* line 634, ../sass/screen.scss */
+/* line 637, ../sass/screen.scss */
 .summary-list-outer {
   height: 555px;
   overflow: auto;
   margin-right: 136px;
 }
-/* line 637, ../sass/screen.scss */
+/* line 640, ../sass/screen.scss */
 .summary-list-outer.scrolling {
   overflow: hidden;
 }
-/* line 639, ../sass/screen.scss */
+/* line 642, ../sass/screen.scss */
 .summary-list-outer.scrolling .summary-list {
   bottom: 0px;
   position: relative;
   transition: bottom linear 0s;
 }
-/* line 644, ../sass/screen.scss */
+/* line 647, ../sass/screen.scss */
 .summary-list-outer.scrolling ~ .button-display {
   display: none;
 }
 
-/* line 649, ../sass/screen.scss */
+/* line 652, ../sass/screen.scss */
 .summary-list.table {
   margin: 10px auto 0 auto;
 }
-/* line 651, ../sass/screen.scss */
+/* line 654, ../sass/screen.scss */
 .summary-list.table:empty:after {
   content: '尚未開始抽獎，請按 [開始] 進行抽獎';
   font-size: 30px;
@@ -1025,27 +1029,27 @@ html, body {
   letter-spacing: 5px;
   margin: 100px;
 }
-/* line 660, ../sass/screen.scss */
+/* line 663, ../sass/screen.scss */
 .summary-list.table .tr {
   position: relative;
 }
-/* line 663, ../sass/screen.scss */
+/* line 666, ../sass/screen.scss */
 .summary-list.table .tr.th .td {
   padding: 10px 0 10px 0;
   text-shadow: none;
   font-weight: normal;
 }
-/* line 668, ../sass/screen.scss */
+/* line 671, ../sass/screen.scss */
 .summary-list.table .td {
   padding: 24px 0;
   font-size: 36px;
   overflow: hidden;
 }
-/* line 673, ../sass/screen.scss */
+/* line 676, ../sass/screen.scss */
 .summary-list.table .tr:hover .summary-remove:after {
   opacity: 0.5;
 }
-/* line 677, ../sass/screen.scss */
+/* line 680, ../sass/screen.scss */
 .summary-list.table .tr.check .summary-name:after {
   box-sizing: border-box;
   position: absolute;
@@ -1062,11 +1066,11 @@ html, body {
   line-height: 48px;
   z-index: 2;
 }
-/* line 690, ../sass/screen.scss */
+/* line 693, ../sass/screen.scss */
 .can-back .summary-list.table .tr.check .summary-name:after {
   content: "如此一來這名同仁的摸彩券將置回摸彩箱，確定嗎？";
 }
-/* line 694, ../sass/screen.scss */
+/* line 697, ../sass/screen.scss */
 .summary-list.table .tr.check .summary-name .summary-remove {
   opacity: 1;
   position: absolute;
@@ -1082,16 +1086,16 @@ html, body {
   margin-bottom: 0px;
   z-index: 3;
 }
-/* line 704, ../sass/screen.scss */
+/* line 707, ../sass/screen.scss */
 .summary-list.table .tr.check .summary-name .summary-remove:after {
   opacity: 1;
   content: "\e60b";
 }
-/* line 708, ../sass/screen.scss */
+/* line 711, ../sass/screen.scss */
 .summary-list.table .tr.check .summary-name .summary-remove:hover:after {
   color: black;
 }
-/* line 712, ../sass/screen.scss */
+/* line 715, ../sass/screen.scss */
 .summary-list.table .tr.check .summary-cancel {
   display: block;
   color: black;
@@ -1104,7 +1108,7 @@ html, body {
   bottom: 5px;
   z-index: 3;
 }
-/* line 721, ../sass/screen.scss */
+/* line 724, ../sass/screen.scss */
 .summary-list.table .tr.check .summary-cancel:after {
   font-family: 'icomoon';
   speak: none;
@@ -1114,18 +1118,18 @@ html, body {
   text-transform: none;
   content: "\e606";
 }
-/* line 725, ../sass/screen.scss */
+/* line 728, ../sass/screen.scss */
 .summary-list.table .tr.check .summary-cancel:hover:after {
   text-shadow: 0 0 3px white;
 }
-/* line 730, ../sass/screen.scss */
+/* line 733, ../sass/screen.scss */
 .summary-list.table .summary-sn {
   font-size: 48px;
   position: relative;
   width: 160px;
   overflow: visible;
 }
-/* line 735, ../sass/screen.scss */
+/* line 738, ../sass/screen.scss */
 .summary-list.table .summary-sn:before {
   color: rgba(255, 255, 255, 0.3);
   content: attr(data-real-id);
@@ -1134,17 +1138,17 @@ html, body {
   left: 0px;
   top: -3px;
 }
-/* line 743, ../sass/screen.scss */
+/* line 746, ../sass/screen.scss */
 .summary-list.table .summary-group {
   width: 300px;
   font-size: 30px;
 }
-/* line 747, ../sass/screen.scss */
+/* line 750, ../sass/screen.scss */
 .summary-list.table .summary-name {
   width: 240px;
   font-size: 50px;
 }
-/* line 750, ../sass/screen.scss */
+/* line 753, ../sass/screen.scss */
 .summary-list.table .summary-name .summary-remove {
   color: red;
   position: absolute;
@@ -1154,7 +1158,7 @@ html, body {
   top: 0;
   margin-bottom: -16px;
 }
-/* line 757, ../sass/screen.scss */
+/* line 760, ../sass/screen.scss */
 .summary-list.table .summary-name .summary-remove:after {
   opacity: 0;
   font-family: 'icomoon';
@@ -1165,38 +1169,38 @@ html, body {
   text-transform: none;
   content: '\e606';
 }
-/* line 762, ../sass/screen.scss */
+/* line 765, ../sass/screen.scss */
 .summary-list.table .summary-name .summary-remove:hover:after {
   opacity: 1;
   color: white;
   text-shadow: 0 0 3px white;
 }
-/* line 768, ../sass/screen.scss */
+/* line 771, ../sass/screen.scss */
 .summary-list.table .summary-name .summary-cancel {
   display: none;
 }
-/* line 772, ../sass/screen.scss */
+/* line 775, ../sass/screen.scss */
 .summary-list.table .summary-title {
   width: 150px;
   font-size: 30px;
   padding: 0 3px;
 }
 
-/* line 779, ../sass/screen.scss */
+/* line 782, ../sass/screen.scss */
 .main-page {
   overflow: hidden;
   height: 610px;
   background-image: url(../images/main_bg.png);
 }
 
-/* line 784, ../sass/screen.scss */
+/* line 787, ../sass/screen.scss */
 .main-picture {
   display: inline-block;
   position: absolute;
   background-repeat: no-repeat;
   background-size: 100%;
 }
-/* line 789, ../sass/screen.scss */
+/* line 792, ../sass/screen.scss */
 .main-picture.pic-main-title {
   width: 719px;
   height: 340px;
@@ -1204,7 +1208,7 @@ html, body {
   top: 125px;
   background-image: url(../images/main_title.png);
 }
-/* line 797, ../sass/screen.scss */
+/* line 800, ../sass/screen.scss */
 .main-picture.pic-money {
   width: 496px;
   height: 116px;
@@ -1213,7 +1217,7 @@ html, body {
   z-index: 51;
   background-image: url(../images/money.png);
 }
-/* line 807, ../sass/screen.scss */
+/* line 810, ../sass/screen.scss */
 .main-picture.pic-gift {
   width: 357px;
   height: 185.25px;
@@ -1222,7 +1226,7 @@ html, body {
   z-index: 52;
   background-image: url(../images/ruii_big2.png);
 }
-/* line 815, ../sass/screen.scss */
+/* line 818, ../sass/screen.scss */
 .main-picture.pic-2015 {
   height: 96.915px;
   width: 328.8719px;
@@ -1231,7 +1235,7 @@ html, body {
   background-image: url(../images/2015big.png);
 }
 
-/* line 825, ../sass/screen.scss */
+/* line 828, ../sass/screen.scss */
 .gift-add {
   transition: left 0.3s ease-in;
   position: relative;
@@ -1241,15 +1245,15 @@ html, body {
   background-color: #570100;
   z-index: 2;
 }
-/* line 833, ../sass/screen.scss */
+/* line 836, ../sass/screen.scss */
 .gift-add.active {
   left: 0;
 }
-/* line 835, ../sass/screen.scss */
+/* line 838, ../sass/screen.scss */
 .gift-add.active ~ .gift-search {
   opacity: 0;
 }
-/* line 839, ../sass/screen.scss */
+/* line 842, ../sass/screen.scss */
 .gift-add .gift-add-button, .gift-add .gift-cancel-button {
   color: orange;
   background-image: linear-gradient(180deg, #ff0e0a, #a30300);
@@ -1259,20 +1263,20 @@ html, body {
   text-shadow: 0 -1px 0 black;
   font-size: 24px;
 }
-/* line 843, ../sass/screen.scss */
+/* line 846, ../sass/screen.scss */
 .gift-add .gift-cancel-button {
   background-image: linear-gradient(180deg, #700200, #3d0100);
   color: #888;
 }
 
-/* line 848, ../sass/screen.scss */
+/* line 851, ../sass/screen.scss */
 .gift-search {
   transition: opacity 0.3s ease-in;
   box-sizing: border-box;
   padding: 5px;
   position: relative;
 }
-/* line 853, ../sass/screen.scss */
+/* line 856, ../sass/screen.scss */
 .gift-search:after {
   font-family: 'icomoon';
   speak: none;
@@ -1289,7 +1293,7 @@ html, body {
   color: brown;
 }
 
-/* line 863, ../sass/screen.scss */
+/* line 866, ../sass/screen.scss */
 .gift-input {
   box-sizing: border-box;
   font-size: 24px;
@@ -1320,24 +1324,24 @@ html, body {
   color: red;
   letter-spacing: 1px;
 }
-/* line 876, ../sass/screen.scss */
+/* line 879, ../sass/screen.scss */
 .gift-input:focus {
   box-shadow: 0 0 5px gold;
 }
-/* line 879, ../sass/screen.scss */
+/* line 882, ../sass/screen.scss */
 .gift-input.gift-search-sn {
   width: 100%;
 }
-/* line 882, ../sass/screen.scss */
+/* line 885, ../sass/screen.scss */
 .gift-input.gift-add-title, .gift-input.gift-add-content {
   width: calc(49% - 110px);
 }
-/* line 885, ../sass/screen.scss */
+/* line 888, ../sass/screen.scss */
 .gift-input.gift-add-count {
   width: 80px;
 }
 
-/* line 889, ../sass/screen.scss */
+/* line 892, ../sass/screen.scss */
 .gift-item {
   overflow: hidden;
   *zoom: 1;
@@ -1349,42 +1353,42 @@ html, body {
   height: 60px;
   text-shadow: 0 -1px 0 black;
 }
-/* line 899, ../sass/screen.scss */
+/* line 902, ../sass/screen.scss */
 .gift-item:hover {
   background-color: #bd0300;
 }
-/* line 902, ../sass/screen.scss */
+/* line 905, ../sass/screen.scss */
 .gift-item div {
   float: left;
 }
-/* line 905, ../sass/screen.scss */
+/* line 908, ../sass/screen.scss */
 .gift-item.done {
   border: 1px solid #5a5a5a;
   border-top-color: #1a1a1a;
   background-color: #433;
 }
-/* line 910, ../sass/screen.scss */
+/* line 913, ../sass/screen.scss */
 .gift-item.done .gift-sn {
   background-color: rgba(255, 0, 0, 0.1);
 }
-/* line 913, ../sass/screen.scss */
+/* line 916, ../sass/screen.scss */
 .gift-item.done .gift-start {
   background: gray;
 }
-/* line 915, ../sass/screen.scss */
+/* line 918, ../sass/screen.scss */
 .gift-item.done .gift-start:before {
   content: '結果';
 }
-/* line 920, ../sass/screen.scss */
+/* line 923, ../sass/screen.scss */
 .gift-item.gift-bonus {
   display: none !important;
 }
-/* line 923, ../sass/screen.scss */
+/* line 926, ../sass/screen.scss */
 .gift-item.gift-show {
   display: block !important;
 }
 
-/* line 927, ../sass/screen.scss */
+/* line 930, ../sass/screen.scss */
 .gift-sn {
   box-sizing: border-box;
   width: 50px;
@@ -1395,7 +1399,7 @@ html, body {
   box-shadow: -3px 0 3px -3px black inset;
 }
 
-/* line 936, ../sass/screen.scss */
+/* line 939, ../sass/screen.scss */
 .gift-title {
   white-space: nowrap;
   overflow: hidden;
@@ -1411,7 +1415,7 @@ html, body {
   box-shadow: 0 -1px 0px rgba(0, 0, 0, 0.5) inset;
 }
 
-/* line 946, ../sass/screen.scss */
+/* line 949, ../sass/screen.scss */
 .gift-content {
   white-space: nowrap;
   overflow: hidden;
@@ -1423,7 +1427,7 @@ html, body {
   width: calc(100% - 50px);
 }
 
-/* line 952, ../sass/screen.scss */
+/* line 955, ../sass/screen.scss */
 .gift-start {
   transition: right 0.1s ease-in;
   box-sizing: border-box;
@@ -1438,20 +1442,20 @@ html, body {
   right: -60px;
   top: 0;
 }
-/* line 964, ../sass/screen.scss */
+/* line 967, ../sass/screen.scss */
 .gift-start:hover {
   text-shadow: 0 0 3px yellow, 0 -1px 0 black;
 }
-/* line 967, ../sass/screen.scss */
+/* line 970, ../sass/screen.scss */
 .gift-item:hover .gift-start {
   right: 0;
 }
-/* line 970, ../sass/screen.scss */
+/* line 973, ../sass/screen.scss */
 .gift-start:before {
   content: '載入';
 }
 
-/* line 974, ../sass/screen.scss */
+/* line 977, ../sass/screen.scss */
 .gift-count {
   position: absolute;
   right: 0;
@@ -1460,7 +1464,7 @@ html, body {
   color: #AAA;
 }
 
-/* line 981, ../sass/screen.scss */
+/* line 984, ../sass/screen.scss */
 .drawtype-item {
   margin: 5px;
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjAlIiBjeT0iMCUiIHI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMC4zIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZmY3MjAwIi8+PC9yYWRpYWxHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
@@ -1478,7 +1482,7 @@ html, body {
   vertical-align: top;
   text-shadow: 0 -1px 0 black;
 }
-/* line 995, ../sass/screen.scss */
+/* line 998, ../sass/screen.scss */
 .drawtype-item .drawtype-info {
   transition: opacity 0.3s ease-in;
   opacity: 0;
@@ -1495,11 +1499,11 @@ html, body {
   padding: 5px;
   z-index: 10;
 }
-/* line 1009, ../sass/screen.scss */
+/* line 1012, ../sass/screen.scss */
 .drawtype-item.active {
   box-shadow: 0 0 0 5px red inset;
 }
-/* line 1011, ../sass/screen.scss */
+/* line 1014, ../sass/screen.scss */
 .drawtype-item.active:after {
   content: 'NOW!!';
   position: absolute;
@@ -1513,7 +1517,7 @@ html, body {
   float: left;
   transform: rotate(-45deg);
 }
-/* line 1022, ../sass/screen.scss */
+/* line 1025, ../sass/screen.scss */
 .drawtype-item.active:before {
   content: ' ';
   position: absolute;
@@ -1523,11 +1527,11 @@ html, body {
   width: 60px;
   height: 60px;
 }
-/* line 1029, ../sass/screen.scss */
+/* line 1032, ../sass/screen.scss */
 .drawtype-item:hover .drawtype-info {
   opacity: 1;
 }
-/* line 1032, ../sass/screen.scss */
+/* line 1035, ../sass/screen.scss */
 .drawtype-item .drawtype-title {
   box-sizing: border-box;
   position: absolute;
@@ -1538,7 +1542,7 @@ html, body {
   font-size: 36px;
 }
 
-/* line 1041, ../sass/screen.scss */
+/* line 1044, ../sass/screen.scss */
 .drawtype-icon {
   position: absolute;
   width: 180px;
@@ -1553,34 +1557,34 @@ html, body {
   opacity: 0.8;
 }
 
-/* line 1052, ../sass/screen.scss */
+/* line 1055, ../sass/screen.scss */
 .table {
   display: table;
   margin: 0 auto;
 }
-/* line 1055, ../sass/screen.scss */
+/* line 1058, ../sass/screen.scss */
 .table .tr {
   display: table-row;
 }
-/* line 1056, ../sass/screen.scss */
+/* line 1059, ../sass/screen.scss */
 .table .tr.th .td {
   text-align: center;
   font-size: 16px;
 }
-/* line 1061, ../sass/screen.scss */
+/* line 1064, ../sass/screen.scss */
 .table .tr:nth-child(2n+1) {
   color: white;
 }
-/* line 1064, ../sass/screen.scss */
+/* line 1067, ../sass/screen.scss */
 .table .tr:nth-child(2n) {
   color: #FFC;
   background-color: rgba(84, 21, 21, 0.5);
 }
-/* line 1069, ../sass/screen.scss */
+/* line 1072, ../sass/screen.scss */
 .table .tr:hover .icon-sms {
   opacity: 1;
 }
-/* line 1073, ../sass/screen.scss */
+/* line 1076, ../sass/screen.scss */
 .table .tr .icon-sms {
   transition: opacity 0.3s ease-in;
   font-size: 2em;
@@ -1589,17 +1593,17 @@ html, body {
   text-shadow: 0 -1px 0 black;
   opacity: 0;
 }
-/* line 1080, ../sass/screen.scss */
+/* line 1083, ../sass/screen.scss */
 .table .tr .icon-sms.sms-sent {
   color: gray;
   opacity: 0.5;
 }
-/* line 1084, ../sass/screen.scss */
+/* line 1087, ../sass/screen.scss */
 .table .tr .icon-sms:hover {
   -webkit-animation: shake 0.3s ease-in infinite;
   animation: shake 0.3s ease-in infinite;
 }
-/* line 1090, ../sass/screen.scss */
+/* line 1093, ../sass/screen.scss */
 .table .td {
   display: table-cell;
   padding: 16px 2px;
@@ -1608,39 +1612,39 @@ html, body {
   border-bottom: 1px solid #FF0E0A;
   text-align: center;
 }
-/* line 1097, ../sass/screen.scss */
+/* line 1100, ../sass/screen.scss */
 .table .td.user-id, .table .td.gift-result-id {
   font-size: 16px;
   color: white;
 }
-/* line 1101, ../sass/screen.scss */
+/* line 1104, ../sass/screen.scss */
 .table .td.user-sn, .table .td.gift-result-sn {
   width: 100px;
 }
-/* line 1105, ../sass/screen.scss */
+/* line 1108, ../sass/screen.scss */
 .table .td.user-group, .table .td.gift-result-content {
   width: 180px;
   font-size: 20px;
 }
-/* line 1110, ../sass/screen.scss */
+/* line 1113, ../sass/screen.scss */
 .table .td.user-name {
   width: 100px;
 }
-/* line 1113, ../sass/screen.scss */
+/* line 1116, ../sass/screen.scss */
 .table .td.user-title {
   width: 140px;
   font-size: 20px;
 }
-/* line 1117, ../sass/screen.scss */
+/* line 1120, ../sass/screen.scss */
 .table .td.user-receive {
   font-size: 16px;
   width: 160px;
 }
-/* line 1121, ../sass/screen.scss */
+/* line 1124, ../sass/screen.scss */
 .table .td.gift-result-sn, .table .td.gift-result-id, .table .td.gift-result-content, .table .td.gift-result-count, .table .td.gift-result-who {
   vertical-align: top;
 }
-/* line 1129, ../sass/screen.scss */
+/* line 1132, ../sass/screen.scss */
 .table .td.gift-result-who {
   box-sizing: border-box;
   text-align: left;
@@ -1649,22 +1653,22 @@ html, body {
   width: 500px;
   padding-left: 20px;
 }
-/* line 1136, ../sass/screen.scss */
+/* line 1139, ../sass/screen.scss */
 .table .td.gift-result-who .gift-result-who-list {
   list-style: inside decimal-leading-zero none;
 }
-/* line 1139, ../sass/screen.scss */
+/* line 1142, ../sass/screen.scss */
 .table .td.gift-result-who .receiver {
   box-sizing: border-box;
   margin-left: 1em;
   padding: 0 5px;
 }
-/* line 1143, ../sass/screen.scss */
+/* line 1146, ../sass/screen.scss */
 .table .td.gift-result-who .receiver:nth-child(even) {
   color: white;
 }
 
-/* line 1151, ../sass/screen.scss */
+/* line 1154, ../sass/screen.scss */
 .drawing-page {
   -moz-user-select: -moz-none;
   -ms-user-select: none;
@@ -1676,7 +1680,7 @@ html, body {
   overflow: hidden;
 }
 
-/* line 1158, ../sass/screen.scss */
+/* line 1161, ../sass/screen.scss */
 .real-id-tips {
   position: absolute;
   left: 54px;
@@ -1685,7 +1689,7 @@ html, body {
   color: rgba(255, 255, 255, 0.3);
 }
 
-/* line 1164, ../sass/screen.scss */
+/* line 1167, ../sass/screen.scss */
 .drawing-slogan {
   transform-type: preserve-3d;
   perspective: 1000px;
@@ -1694,7 +1698,7 @@ html, body {
   left: 0;
   z-index: 105;
 }
-/* line 1170, ../sass/screen.scss */
+/* line 1173, ../sass/screen.scss */
 .drawing-slogan:before, .drawing-slogan:after {
   position: absolute;
   content: ' ';
@@ -1710,13 +1714,13 @@ html, body {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
 }
-/* line 1187, ../sass/screen.scss */
+/* line 1190, ../sass/screen.scss */
 .draw-start ~ .drawing-slogan.slogan1:before, .draw-start ~ .drawing-slogan.slogan1:after {
   width: 300px;
   height: 50px;
   content: '選我！選我！';
 }
-/* line 1191, ../sass/screen.scss */
+/* line 1194, ../sass/screen.scss */
 .draw-start ~ .drawing-slogan.slogan1:before {
   left: 30px;
   top: 70px;
@@ -1724,7 +1728,7 @@ html, body {
   -webkit-animation-name: slogan1;
   animation-name: slogan1;
 }
-/* line 1197, ../sass/screen.scss */
+/* line 1200, ../sass/screen.scss */
 .draw-start ~ .drawing-slogan.slogan1:after {
   left: 700px;
   top: 160px;
@@ -1732,7 +1736,7 @@ html, body {
   -webkit-animation-name: slogan2;
   animation-name: slogan2;
 }
-/* line 1205, ../sass/screen.scss */
+/* line 1208, ../sass/screen.scss */
 .draw-done ~ .drawing-slogan.slogan1:before {
   width: 420px;
   height: 50px;
@@ -1743,7 +1747,7 @@ html, body {
   -webkit-animation-name: slogan4;
   animation-name: slogan4;
 }
-/* line 1213, ../sass/screen.scss */
+/* line 1216, ../sass/screen.scss */
 .draw-done ~ .drawing-slogan.slogan1:after {
   width: 70px;
   height: 300px;
@@ -1759,7 +1763,7 @@ html, body {
   animation-name: slogan3;
 }
 
-/* line 1232, ../sass/screen.scss */
+/* line 1235, ../sass/screen.scss */
 .gone-ok-msg {
   position: absolute;
   width: 90%;
@@ -1775,34 +1779,34 @@ html, body {
   animation: opacity_flip 1s infinite;
   text-shadow: 0 0 10px white, 0 0 10px white, 0 0 10px white;
 }
-/* line 1233, ../sass/screen.scss */
+/* line 1236, ../sass/screen.scss */
 .gone-ok-msg:empty {
   display: none;
 }
-/* line 1250, ../sass/screen.scss */
+/* line 1253, ../sass/screen.scss */
 .gone-ok-msg:after {
   content: ' 可不在現場！';
 }
 
-/* line 1255, ../sass/screen.scss */
+/* line 1258, ../sass/screen.scss */
 .drawmode-basic {
   text-align: center;
   font-size: 96px;
   text-shadow: 0 -2px 0 black;
 }
-/* line 1259, ../sass/screen.scss */
+/* line 1262, ../sass/screen.scss */
 .drawmode-basic.draw-start .drawmode-group, .drawmode-basic.draw-start .drawmode-name, .drawmode-basic.draw-done .drawmode-stop {
   display: none;
 }
-/* line 1264, ../sass/screen.scss */
+/* line 1267, ../sass/screen.scss */
 .drawmode-basic.draw-start .drawmode-sn {
   font-size: 128px;
 }
-/* line 1267, ../sass/screen.scss */
+/* line 1270, ../sass/screen.scss */
 .drawmode-basic.draw-done h3 {
   visibility: hidden;
 }
-/* line 1270, ../sass/screen.scss */
+/* line 1273, ../sass/screen.scss */
 .drawmode-basic .drawmode-stop {
   font-size: 64px;
   border-radius: 20px;
@@ -2110,13 +2114,13 @@ html, body {
     transform: translateX(-10px);
   }
 }
-/* line 1398, ../sass/screen.scss */
+/* line 1401, ../sass/screen.scss */
 .drawmode-slots {
   position: relative;
   transition: transform ease-in 0.3s;
   transform: scale(0.9) translateY(-20px);
 }
-/* line 1402, ../sass/screen.scss */
+/* line 1405, ../sass/screen.scss */
 .drawmode-slots .slots-machine {
   padding: 30px;
   background: white;
@@ -2130,7 +2134,7 @@ html, body {
   transform: scale(0.9) translateY(-50px);
   z-index: 3;
 }
-/* line 1415, ../sass/screen.scss */
+/* line 1418, ../sass/screen.scss */
 .drawmode-slots .slot-outer {
   display: inline-block;
   width: 150px;
@@ -2139,7 +2143,7 @@ html, body {
   overflow: hidden;
   border-radius: 5px;
 }
-/* line 1422, ../sass/screen.scss */
+/* line 1425, ../sass/screen.scss */
 .drawmode-slots .slot-outer:after {
   content: ' ';
   position: absolute;
@@ -2153,7 +2157,7 @@ html, body {
   box-sizing: border-box;
   border-radius: 5px;
 }
-/* line 1433, ../sass/screen.scss */
+/* line 1436, ../sass/screen.scss */
 .drawmode-slots .slot-outer:before {
   content: ' ';
   width: 10px;
@@ -2166,7 +2170,7 @@ html, body {
   left: -5px;
   top: 50%;
 }
-/* line 1445, ../sass/screen.scss */
+/* line 1448, ../sass/screen.scss */
 .drawmode-slots .slot {
   transition: transform 0.5s linear;
   display-inline: block;
@@ -2175,21 +2179,21 @@ html, body {
   background-image: url(../images/number.png);
   background-repeat: repeat-y;
 }
-/* line 1358, ../sass/screen.scss */
+/* line 1361, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-start, .drawmode-slots .slot-outer:nth-child(even) .slot.slot-turbo, .drawmode-slots .slot-outer:nth-child(even) .slot.slot-end {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
 }
-/* line 1364, ../sass/screen.scss */
+/* line 1367, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-start {
   -webkit-animation-name: start-rotateSlot1;
   animation-name: start-rotateSlot1;
   -webkit-animation-timing-function: cubic-bezier(0.78, -0.05, 0.61, 1.23);
   animation-timing-function: cubic-bezier(0.78, -0.05, 0.61, 1.23);
 }
-/* line 1370, ../sass/screen.scss */
+/* line 1373, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-turbo {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
@@ -2198,7 +2202,7 @@ html, body {
   -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
 }
-/* line 1378, ../sass/screen.scss */
+/* line 1381, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-end {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
@@ -2207,69 +2211,69 @@ html, body {
   -webkit-animation-timing-function: cubic-bezier(0, 1, 0, 1.012);
   animation-timing-function: cubic-bezier(0, 1, 0, 1.012);
 }
-/* line 1387, ../sass/screen.scss */
+/* line 1390, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-7 {
   transform: translateY(0px);
 }
-/* line 1387, ../sass/screen.scss */
+/* line 1390, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-8 {
   transform: translateY(-160px);
 }
-/* line 1387, ../sass/screen.scss */
+/* line 1390, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-9 {
   transform: translateY(-320px);
 }
-/* line 1387, ../sass/screen.scss */
+/* line 1390, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-0 {
   transform: translateY(-480px);
 }
-/* line 1387, ../sass/screen.scss */
+/* line 1390, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-1 {
   transform: translateY(-640px);
 }
-/* line 1387, ../sass/screen.scss */
+/* line 1390, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-2 {
   transform: translateY(-800px);
 }
-/* line 1387, ../sass/screen.scss */
+/* line 1390, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-3 {
   transform: translateY(-960px);
 }
-/* line 1387, ../sass/screen.scss */
+/* line 1390, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-4 {
   transform: translateY(-1120px);
 }
-/* line 1387, ../sass/screen.scss */
+/* line 1390, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-5 {
   transform: translateY(-1280px);
 }
-/* line 1387, ../sass/screen.scss */
+/* line 1390, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-6 {
   transform: translateY(-1440px);
 }
-/* line 1391, ../sass/screen.scss */
+/* line 1394, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-v {
   transform: translateY(-1600px);
 }
-/* line 1394, ../sass/screen.scss */
+/* line 1397, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-z {
   transform: translateY(-1760px);
 }
-/* line 1358, ../sass/screen.scss */
+/* line 1361, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-start, .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-turbo, .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-end {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
 }
-/* line 1364, ../sass/screen.scss */
+/* line 1367, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-start {
   -webkit-animation-name: start-rotateSlot2;
   animation-name: start-rotateSlot2;
   -webkit-animation-timing-function: cubic-bezier(0.78, -0.05, 0.61, 1.23);
   animation-timing-function: cubic-bezier(0.78, -0.05, 0.61, 1.23);
 }
-/* line 1370, ../sass/screen.scss */
+/* line 1373, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-turbo {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
@@ -2278,7 +2282,7 @@ html, body {
   -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
 }
-/* line 1378, ../sass/screen.scss */
+/* line 1381, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-end {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
@@ -2287,59 +2291,59 @@ html, body {
   -webkit-animation-timing-function: cubic-bezier(0, 1, 0, 1.012);
   animation-timing-function: cubic-bezier(0, 1, 0, 1.012);
 }
-/* line 1387, ../sass/screen.scss */
+/* line 1390, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-7 {
   transform: translateY(0px);
 }
-/* line 1387, ../sass/screen.scss */
+/* line 1390, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-8 {
   transform: translateY(-160px);
 }
-/* line 1387, ../sass/screen.scss */
+/* line 1390, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-9 {
   transform: translateY(-320px);
 }
-/* line 1387, ../sass/screen.scss */
+/* line 1390, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-0 {
   transform: translateY(-480px);
 }
-/* line 1387, ../sass/screen.scss */
+/* line 1390, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-1 {
   transform: translateY(-640px);
 }
-/* line 1387, ../sass/screen.scss */
+/* line 1390, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-2 {
   transform: translateY(-800px);
 }
-/* line 1387, ../sass/screen.scss */
+/* line 1390, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-3 {
   transform: translateY(-960px);
 }
-/* line 1387, ../sass/screen.scss */
+/* line 1390, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-4 {
   transform: translateY(-1120px);
 }
-/* line 1387, ../sass/screen.scss */
+/* line 1390, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-5 {
   transform: translateY(-1280px);
 }
-/* line 1387, ../sass/screen.scss */
+/* line 1390, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-6 {
   transform: translateY(-1440px);
 }
-/* line 1391, ../sass/screen.scss */
+/* line 1394, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-v {
   transform: translateY(-1600px);
 }
-/* line 1394, ../sass/screen.scss */
+/* line 1397, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-z {
   transform: translateY(-1760px);
 }
-/* line 1459, ../sass/screen.scss */
+/* line 1462, ../sass/screen.scss */
 .drawmode-slots .drawmode-group, .drawmode-slots .drawmode-name {
   font-size: 96px;
 }
-/* line 1462, ../sass/screen.scss */
+/* line 1465, ../sass/screen.scss */
 .drawmode-slots .slots-bar {
   transition: transform 0.3s ease-in;
   position: absolute;
@@ -2362,7 +2366,7 @@ html, body {
   transform-type: preserve-3d;
   perspective: 1000px;
 }
-/* line 1484, ../sass/screen.scss */
+/* line 1487, ../sass/screen.scss */
 .drawmode-slots .slots-bar-inner {
   width: 20px;
   height: 100%;
@@ -2372,7 +2376,7 @@ html, body {
   left: -10px;
   border-radius: 20px;
 }
-/* line 1493, ../sass/screen.scss */
+/* line 1496, ../sass/screen.scss */
 .drawmode-slots .slots-bar-button {
   transition: transform 0.3s ease-in;
   transform-origin: center center -250px;
@@ -2399,7 +2403,7 @@ html, body {
   -webkit-animation-name: slots-bar-init;
   animation-name: slots-bar-init;
 }
-/* line 1518, ../sass/screen.scss */
+/* line 1521, ../sass/screen.scss */
 .drawmode-slots .slots-bar-button:before {
   font-family: 'icomoon';
   speak: none;
@@ -2409,14 +2413,14 @@ html, body {
   text-transform: none;
   content: '\e608';
 }
-/* line 1523, ../sass/screen.scss */
+/* line 1526, ../sass/screen.scss */
 .drawmode-slots.draw-running .slots-bar-button {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
   -webkit-animation-name: slots-bar;
   animation-name: slots-bar;
 }
-/* line 1529, ../sass/screen.scss */
+/* line 1532, ../sass/screen.scss */
 .drawmode-slots .slots-result {
   transition: transform 0.3s ease-in;
   position: relative;
@@ -2435,14 +2439,14 @@ html, body {
   transform-origin: center 0;
   transform: translateX(-20px);
 }
-/* line 1548, ../sass/screen.scss */
+/* line 1551, ../sass/screen.scss */
 .drawmode-slots .slots-result-inner {
   border-radius: 20px;
   height: 290px;
   box-shadow: 0 0 5px orange, 0 0 5px gold inset, 5px 5px 5px brown inset;
   background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8));
 }
-/* line 1555, ../sass/screen.scss */
+/* line 1558, ../sass/screen.scss */
 .drawmode-slots .slots-result:before, .drawmode-slots .slots-result:after, .drawmode-slots .slots-result-inner:before, .drawmode-slots .slots-result-inner:after {
   font-family: 'icomoon';
   speak: none;
@@ -2457,25 +2461,25 @@ html, body {
   font-size: 50px;
   text-shadow: 2px 2px 2px black, 1px 1px 0 black, 1px -1px 0 black, -1px 1px 0 black, -1px -1px 0 black;
 }
-/* line 1569, ../sass/screen.scss */
+/* line 1572, ../sass/screen.scss */
 .drawmode-slots .slots-result:before, .drawmode-slots .slots-result-inner:before {
   left: 20px;
 }
-/* line 1572, ../sass/screen.scss */
+/* line 1575, ../sass/screen.scss */
 .drawmode-slots .slots-result:after, .drawmode-slots .slots-result-inner:after {
   right: 20px;
 }
-/* line 1577, ../sass/screen.scss */
+/* line 1580, ../sass/screen.scss */
 .drawmode-slots .slots-result:before, .drawmode-slots .slots-result:after {
   bottom: auto;
   top: -20px;
 }
-/* line 1583, ../sass/screen.scss */
+/* line 1586, ../sass/screen.scss */
 .drawmode-slots.draw-start ~ .drawing-slogan:before {
   left: 0px;
   top: 500px;
 }
-/* line 1586, ../sass/screen.scss */
+/* line 1589, ../sass/screen.scss */
 .drawmode-slots.draw-start ~ .drawing-slogan:after {
   top: 520px;
 }
@@ -3008,7 +3012,7 @@ html, body {
     opacity: 0;
   }
 }
-/* line 1730, ../sass/screen.scss */
+/* line 1733, ../sass/screen.scss */
 .drawmode-guagua {
   transform-type: preserve-3d;
   perspective: 1000px;
@@ -3018,7 +3022,7 @@ html, body {
   text-align: center;
   color: black;
 }
-/* line 1737, ../sass/screen.scss */
+/* line 1740, ../sass/screen.scss */
 .drawmode-guagua .guagua-tips {
   -webkit-animation: font_color_flip 0.3s steps(3, start) infinite;
   animation: font_color_flip 0.3s steps(3, start) infinite;
@@ -3032,7 +3036,7 @@ html, body {
   padding-bottom: 350px;
   z-index: 2;
 }
-/* line 1750, ../sass/screen.scss */
+/* line 1753, ../sass/screen.scss */
 .drawmode-guagua .guagua-card {
   transition: margin-bottom 1s ease-in;
   display: block;
@@ -3050,7 +3054,7 @@ html, body {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 }
-/* line 1762, ../sass/screen.scss */
+/* line 1765, ../sass/screen.scss */
 .drawmode-guagua .guagua-card.card-final {
   width: 640px;
   height: 480px;
@@ -3088,44 +3092,44 @@ html, body {
   */
   background-image: url(../images/card2.jpg);
 }
-/* line 1799, ../sass/screen.scss */
+/* line 1802, ../sass/screen.scss */
 .drawmode-guagua.card-drawed .guagua-tips {
   z-index: -1;
   opacity: 0;
 }
-/* line 1803, ../sass/screen.scss */
+/* line 1806, ../sass/screen.scss */
 .drawmode-guagua.card-drawed .guagua-card {
   margin-bottom: 900px;
 }
-/* line 1806, ../sass/screen.scss */
+/* line 1809, ../sass/screen.scss */
 .drawmode-guagua.card-drawed .card-final {
   visibility: visible;
   margin-bottom: 50px;
   -webkit-animation-name: gua_final;
   animation-name: gua_final;
 }
-/* line 1813, ../sass/screen.scss */
+/* line 1816, ../sass/screen.scss */
 .drawmode-guagua .card1 {
   -webkit-animation-duration: 8s;
   animation-duration: 8s;
   -webkit-animation-name: gua_flip1;
   animation-name: gua_flip1;
 }
-/* line 1819, ../sass/screen.scss */
+/* line 1822, ../sass/screen.scss */
 .drawmode-guagua .card2 {
   -webkit-animation-duration: 7s;
   animation-duration: 7s;
   -webkit-animation-name: gua_flip2;
   animation-name: gua_flip2;
 }
-/* line 1825, ../sass/screen.scss */
+/* line 1828, ../sass/screen.scss */
 .drawmode-guagua .card3 {
   -webkit-animation-duration: 7.5s;
   animation-duration: 7.5s;
   -webkit-animation-name: gua_flip3;
   animation-name: gua_flip3;
 }
-/* line 1831, ../sass/screen.scss */
+/* line 1834, ../sass/screen.scss */
 .drawmode-guagua .card4,
 .drawmode-guagua .card5,
 .drawmode-guagua .card6 {
@@ -3133,59 +3137,59 @@ html, body {
   -webkit-animation-name: gua_flip4;
   animation-name: gua_flip4;
 }
-/* line 1838, ../sass/screen.scss */
+/* line 1841, ../sass/screen.scss */
 .drawmode-guagua .card4 {
   -webkit-animation-duration: 7s;
   animation-duration: 7s;
   -webkit-animation-delay: 2s;
   animation-delay: 2s;
 }
-/* line 1844, ../sass/screen.scss */
+/* line 1847, ../sass/screen.scss */
 .drawmode-guagua .card5 {
   -webkit-animation-duration: 8s;
   animation-duration: 8s;
   -webkit-animation-delay: 4s;
   animation-delay: 4s;
 }
-/* line 1850, ../sass/screen.scss */
+/* line 1853, ../sass/screen.scss */
 .drawmode-guagua .card6 {
   -webkit-animation-duration: 9s;
   animation-duration: 9s;
 }
-/* line 1854, ../sass/screen.scss */
+/* line 1857, ../sass/screen.scss */
 .drawmode-guagua .guagua-canvas {
   cursor: url(../images/coin.png) 24 24, auto;
   position: absolute;
   left: 0;
   top: 0;
 }
-/* line 1859, ../sass/screen.scss */
+/* line 1862, ../sass/screen.scss */
 .drawmode-guagua .guagua-img {
   display: none;
 }
-/* line 1863, ../sass/screen.scss */
+/* line 1866, ../sass/screen.scss */
 .drawmode-guagua .drawmode-group {
   font-size: 68px;
   font-weight: bold;
   line-height: 120px;
   color: #333;
 }
-/* line 1869, ../sass/screen.scss */
+/* line 1872, ../sass/screen.scss */
 .drawmode-guagua .drawmode-sn, .drawmode-guagua .drawmode-name {
   font-size: 100px;
   font-weight: bold;
   color: #333;
 }
-/* line 1874, ../sass/screen.scss */
+/* line 1877, ../sass/screen.scss */
 .drawmode-guagua .drawmode-name {
   line-height: 200px;
 }
-/* line 1877, ../sass/screen.scss */
+/* line 1880, ../sass/screen.scss */
 .drawmode-guagua .drawmode-sn {
   font-family: 'Arial';
   line-height: 180px;
 }
-/* line 1881, ../sass/screen.scss */
+/* line 1884, ../sass/screen.scss */
 .drawmode-guagua .guagua-cursor {
   transition: visibility 0.3s ease-in, opacity 0.3s ease-in;
   position: absolute;
@@ -3195,33 +3199,33 @@ html, body {
   opacity: 0;
   visibility: hidden;
 }
-/* line 1889, ../sass/screen.scss */
+/* line 1892, ../sass/screen.scss */
 .drawmode-guagua .card-final .guagua-cursor.show-coin {
   opacity: 1;
   visibility: visible;
   z-index: 10;
 }
-/* line 1894, ../sass/screen.scss */
+/* line 1897, ../sass/screen.scss */
 .drawmode-guagua.draw-done .guagua-canvas {
   opacity: 0;
 }
-/* line 1898, ../sass/screen.scss */
+/* line 1901, ../sass/screen.scss */
 .drawmode-guagua.draw-start ~ .drawing-slogan:before {
   left: 740px;
   top: 500px;
 }
-/* line 1901, ../sass/screen.scss */
+/* line 1904, ../sass/screen.scss */
 .drawmode-guagua.draw-start ~ .drawing-slogan:after {
   left: 40px;
   top: 520px;
 }
 
-/* line 1906, ../sass/screen.scss */
+/* line 1909, ../sass/screen.scss */
 .config-page {
   overflow: auto;
   height: 610px;
 }
-/* line 1909, ../sass/screen.scss */
+/* line 1912, ../sass/screen.scss */
 .config-page .config-group {
   overflow: hidden;
   *zoom: 1;
@@ -3233,7 +3237,7 @@ html, body {
   border-radius: 20px;
   position: relative;
 }
-/* line 1918, ../sass/screen.scss */
+/* line 1921, ../sass/screen.scss */
 .config-page .config-group:before {
   content: attr(title);
   font-size: 1.3em;
@@ -3242,17 +3246,17 @@ html, body {
   padding: 3px;
   color: orange;
 }
-/* line 1927, ../sass/screen.scss */
+/* line 1930, ../sass/screen.scss */
 .config-page .config-group input[type="text"] {
   font-size: 20px;
   width: 600px;
   background: rgba(255, 255, 255, 0.8);
 }
-/* line 1932, ../sass/screen.scss */
+/* line 1935, ../sass/screen.scss */
 .config-page .config-group .config-info {
   line-height: 1.6em;
 }
-/* line 1934, ../sass/screen.scss */
+/* line 1937, ../sass/screen.scss */
 .config-page .config-group .config-info em {
   background: red;
   color: yellow;
@@ -3260,32 +3264,32 @@ html, body {
   padding: 0 12px;
   border-radius: 4px;
 }
-/* line 1941, ../sass/screen.scss */
+/* line 1944, ../sass/screen.scss */
 .config-page .config-group .config-info span {
   font-weight: bold;
   font-family: courier;
   text-shadow: 0 0 3px white;
 }
-/* line 1946, ../sass/screen.scss */
+/* line 1949, ../sass/screen.scss */
 .config-page .config-group .config-info a {
   text-decoration: underline;
   color: pink;
 }
-/* line 1952, ../sass/screen.scss */
+/* line 1955, ../sass/screen.scss */
 .config-page .config-item {
   overflow: hidden;
   *zoom: 1;
   margin-top: 20px;
 }
-/* line 1955, ../sass/screen.scss */
+/* line 1958, ../sass/screen.scss */
 .config-page .config-item:nth-child(2n+1) {
   background: rgba(255, 0, 0, 0.4);
 }
-/* line 1958, ../sass/screen.scss */
+/* line 1961, ../sass/screen.scss */
 .config-page .config-item:nth-child(2n) {
   background: rgba(255, 0, 0, 0.2);
 }
-/* line 1962, ../sass/screen.scss */
+/* line 1965, ../sass/screen.scss */
 .config-page .to-remote-button, .config-page .back-to-import, .config-page .export-config {
   position: fixed;
   top: 600px;
@@ -3293,11 +3297,11 @@ html, body {
   width: 240px;
   font-size: 1.5em;
 }
-/* line 1969, ../sass/screen.scss */
+/* line 1972, ../sass/screen.scss */
 .config-page .back-to-import {
   top: 500px;
 }
-/* line 1972, ../sass/screen.scss */
+/* line 1975, ../sass/screen.scss */
 .config-page .export-config {
   font-size: 2em;
   display: block;
@@ -3305,31 +3309,31 @@ html, body {
   top: 650px;
 }
 
-/* line 1979, ../sass/screen.scss */
+/* line 1982, ../sass/screen.scss */
 .test-page {
   width: 100%;
   height: 100%;
 }
 
-/* line 1982, ../sass/screen.scss */
+/* line 1985, ../sass/screen.scss */
 .need-file-form {
   text-align: center;
 }
 
-/* line 1985, ../sass/screen.scss */
+/* line 1988, ../sass/screen.scss */
 .fake-data-button, .config-button {
   font-size: 32px;
   margin-bottom: 10px;
 }
 
-/* line 1989, ../sass/screen.scss */
+/* line 1992, ../sass/screen.scss */
 .need-file-list {
   overflow: hidden;
   *zoom: 1;
   width: 80%;
   margin: 0 auto;
 }
-/* line 1993, ../sass/screen.scss */
+/* line 1996, ../sass/screen.scss */
 .need-file-list .need-file-item {
   box-sizing: border-box;
   width: 45%;
@@ -3342,18 +3346,18 @@ html, body {
   line-height: 50px;
   background: rgba(0, 0, 0, 0.3);
 }
-/* line 2003, ../sass/screen.scss */
+/* line 2006, ../sass/screen.scss */
 .need-file-list .need-file-item label {
   font-size: 24px;
   display: block;
 }
-/* line 2008, ../sass/screen.scss */
+/* line 2011, ../sass/screen.scss */
 .need-file-list .need-file-item.success {
   color: yellow;
   line-height: 96px;
   border-color: yellow;
 }
-/* line 2012, ../sass/screen.scss */
+/* line 2015, ../sass/screen.scss */
 .need-file-list .need-file-item.success label:before {
   font-family: 'icomoon';
   speak: none;
@@ -3363,12 +3367,12 @@ html, body {
   text-transform: none;
   content: "\e60b";
 }
-/* line 2016, ../sass/screen.scss */
+/* line 2019, ../sass/screen.scss */
 .need-file-list .need-file-item.success input {
   display: none;
 }
 
-/* line 2022, ../sass/screen.scss */
+/* line 2025, ../sass/screen.scss */
 .restore-key {
   font-size: 32px;
   color: white;
@@ -3379,7 +3383,7 @@ html, body {
   width: 200px;
 }
 
-/* line 2031, ../sass/screen.scss */
+/* line 2034, ../sass/screen.scss */
 .start-system-button {
   font-size: 32px;
 }
@@ -3448,7 +3452,7 @@ html, body {
     opacity: 0;
   }
 }
-/* line 2041, ../sass/screen.scss */
+/* line 2044, ../sass/screen.scss */
 .ping {
   opacity: 0;
   position: fixed;
@@ -3462,7 +3466,7 @@ html, body {
   font-size: 40px;
   animation: signal 1s 1;
 }
-/* line 2050, ../sass/screen.scss */
+/* line 2053, ../sass/screen.scss */
 .ping.pong {
   animation: signal2 1s 1;
 }

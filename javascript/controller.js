@@ -1,7 +1,8 @@
 $.when(
-    $.getScript('javascript/config.js'),
-    $.getScript('javascript/config.info.js')
+    $.getScript('javascript/config.js?'+(new Date()).getTime()),
+    $.getScript('javascript/config.info.js?'+(new Date()).getTime())
 ).then(function(){
+    firebase.initializeApp(firebase_conf);
     //{{ 設定檔介面戴入
     (function initConfig(){
         $.getScript(msg_conf.url);
@@ -113,7 +114,14 @@ $.when(
             $('.page.import-page').removeClass('inactive').addClass('active');
         });
         $('.to-remote-button').bind('click', function(){
-            window.open(`http://grassboy.github.io/lotteryButton/index.html?${$('#firebase_conf #server-value').val()}?${$('#firebase_conf #email-value').val()}`)
+            window.open(`http://grassboy.github.io/Lottery/button.html#${JSON.stringify({
+                email: firebase_conf.email,
+                apiKey: firebase_conf.apiKey,
+                authDomain: firebase_conf.authDomain,
+                databaseURL: firebase_conf.databaseURL,
+                storageBucket: firebase_conf.storageBucket,
+                messagingSenderId: firebase_conf.messagingSenderId
+            })}`)
         });
         $('.msg-test').bind('click', function(){
             sendMSG([msg_conf.admin_sn], '訊息達人測試', function(is_success, msg){
@@ -146,10 +154,10 @@ $.when(
 
     var browser_id = 'b'+(Math.random()*10000000).toFixed(0);
     var globalLog = function(data){
-        myFirebaseRef.child(firebase_conf.sync).push($.extend(data, {from: browser_id}));
+        myFirebaseRef.ref(firebase_conf.sync).push($.extend(data, {from: browser_id}));
         if(data.action == 'log') {
             var user = user_array[data.user_index];
-            myFirebaseRef.child(firebase_conf.get).push({
+            myFirebaseRef.ref(firebase_conf.get).push({
                 action: 'draw-result',
                 sn: user.sn,
                 name: user.name,
@@ -397,11 +405,12 @@ $.when(
         removeSummary: function($tr){
             var that = this;
             $tr.animate({opacity: 0}, {complete: function(){
-                if(that.award_to.length == 0){
-                    _dom.summary_list.empty();
+                    if(that.award_to.length == 0){
+                        _dom.summary_list.empty();
+                    }
+                    $tr.remove();
                 }
-                $tr.remove();
-            }});
+            });
             that.$dom.removeClass('done');
             _dom.summary_page.removeClass('done');
             _dom.gift_count_now.text(that.award_to.length);
@@ -561,7 +570,7 @@ $.when(
             document.body.mozRequestFullScreen();
         });
         $('.footer').bind('click', function(){
-            myFirebaseRef.child(firebase_conf.get).push({action:'ping'});
+            myFirebaseRef.ref(firebase_conf.get).push({action:'ping'});
         });
 
         //{{Gift Page
@@ -1043,8 +1052,8 @@ $.when(
                         dom.find('.drawmode-sn').text(data.sn);
                         dom.find('.drawmode-group').text(data.group);
                         dom.find('.drawmode-name').text(data.name);
-                        myFirebaseRef.child(firebase_conf.response).remove();
-                        myFirebaseRef.child(firebase_conf.response).push(data);
+                        myFirebaseRef.ref(firebase_conf.response).remove();
+                        myFirebaseRef.ref(firebase_conf.response).push(data);
                     });
                     $canvas.unbind('scratch').bind('scratch', function (e, x, y, is_local) {
                         if(!clear_timer) {
@@ -1089,7 +1098,7 @@ $.when(
                     } else {
                         deferred.resolve(-1);
                     }
-                    myFirebaseRef.child(firebase_conf.response).push({
+                    myFirebaseRef.ref(firebase_conf.response).push({
                         action: 'clearscratch'
                     });
                 });
@@ -1285,94 +1294,96 @@ $.when(
     //{{ init Firebase
     var initFirebase = function(){ //Firebase sync
         firebase_conf.sync+=$('.restore-key').val();
-        myFirebaseRef = new Firebase(firebase_conf.server);
-        var authCallback = function (error, authData){
-            if(error){
-                delete localStorage['pass'];
-                alert('登入失敗，可能是密碼有誤，請重新整理後再輸入密碼');
-            } else {
-                alert('登入成功');
-                myFirebaseRef.child(firebase_conf.get).remove()
-                myFirebaseRef.child(firebase_conf.response).remove();
-                myFirebaseRef.child(firebase_conf.sync).on("child_added", function(snapshot) {
-                    _dom.ping.toggleClass('pong');
-                    var value = snapshot.val();
-                    if(value.from == browser_id) {
-                        return; //略過自己觸發的 sync 事件
-                    }
-                    if(value.action == 'log') { // a 同仁得到 b 獎
-                        var user = user_array[value.user_index];
-                        var gift = gift_array[value.gift_index];
-                        console.log(user._id, ' 得到 ', gift._id);
-                        if(!user.receive_gift) {
-                            user.receiveGift(gift, true);
-                            if(_dom.drawing_page.data('gift_id') == gift._id) { //如果目前有載入此筆獎項資訊，則要更新 summary page
-                                gift.insertSummary(user, gift.award_to.length);
-                            }
-                        }
-                    } else if (value.action == 'fail') { // 同仁因不在現場改列普獎
-                        var user = user_array[value.user_index];
-                        var gift = gift_array[value.gift_index];
-                        console.log(user._id, ' 無法得到 ', gift._id);
-                        if(user.receive_gift != NOT_EXIST_STR) {
-                            user.receiveFail(gift, true);
-                        }
-                    } else if (value.action == 'gift_change') { // 臨時改列獎項
-                        var user = user_array[value.user_index];
-                        var gift = gift_array[value.gift_index];
-                        console.log(user._id, ' 改列 ', gift._id);
-                        if(user.receive_gift && user.receive_gift._id != gift._id) {
-                            user.changeGift(gift, true);
-                        }
-                    } else if (value.action == 'gift_add') { // 臨時追加獎項
-                        console.log('追加獎項 ', value.sn, value.title);
-                        if(gift_array.filter(function(item){
-                            return item.sn == value.sn;
-                        }).length == 0) {
-                            new Gift({
-                                sn: value.sn,
-                                title: value.title,
-                                content: value.content,
-                                count: value.count
-                            });
-                        }
-                    }
-                });
-                myFirebaseRef.child(firebase_conf.get).on("child_added", function(snapshot) {
-                    _dom.ping.toggleClass('pong');
-                    var value = snapshot.val();
-                    if(value.action == 'draw-stop') {
-                        if(current_drawmode.$dom.is('.draw-start')) {
-                            current_drawmode.remoteDraw();
-                        }
-                    }
-                    if(value.action == 'scratch') {
-                        var $canvas = $('.guagua-canvas');
-                        if($canvas.length) {
-                            $canvas.trigger('scratch', [value.x, value.y]);
-                        }
-                    }
-                });
+        var authCallback = function (error){
+            if(error == -1) {
+                return;
             }
+            alert('登入成功');
+            myFirebaseRef = firebase.database();
+            myFirebaseRef.ref(firebase_conf.get).remove()
+            myFirebaseRef.ref(firebase_conf.response).remove();
+            initStartUpEvent();
+            myFirebaseRef.ref(firebase_conf.sync).on("child_added", function(snapshot) {
+                _dom.ping.toggleClass('pong');
+                var value = snapshot.val();
+                if(value.from == browser_id) {
+                    return; //略過自己觸發的 sync 事件
+                }
+                if(value.action == 'log') { // a 同仁得到 b 獎
+                    var user = user_array[value.user_index];
+                    var gift = gift_array[value.gift_index];
+                    console.log(user._id, ' 得到 ', gift._id);
+                    if(!user.receive_gift) {
+                        user.receiveGift(gift, true);
+                        if(_dom.drawing_page.data('gift_id') == gift._id) { //如果目前有載入此筆獎項資訊，則要更新 summary page
+                            gift.insertSummary(user, gift.award_to.length);
+                        }
+                    }
+                } else if (value.action == 'fail') { // 同仁因不在現場改列普獎
+                    var user = user_array[value.user_index];
+                    var gift = gift_array[value.gift_index];
+                    console.log(user._id, ' 無法得到 ', gift._id);
+                    if(user.receive_gift != NOT_EXIST_STR) {
+                        user.receiveFail(gift, true);
+                    }
+                } else if (value.action == 'gift_change') { // 臨時改列獎項
+                    var user = user_array[value.user_index];
+                    var gift = gift_array[value.gift_index];
+                    console.log(user._id, ' 改列 ', gift._id);
+                    if(user.receive_gift && user.receive_gift._id != gift._id) {
+                        user.changeGift(gift, true);
+                    }
+                } else if (value.action == 'gift_add') { // 臨時追加獎項
+                    console.log('追加獎項 ', value.sn, value.title);
+                    if(gift_array.filter(function(item){
+                        return item.sn == value.sn;
+                    }).length == 0) {
+                        new Gift({
+                            sn: value.sn,
+                            title: value.title,
+                            content: value.content,
+                            count: value.count
+                        });
+                    }
+                }
+            });
+            myFirebaseRef.ref(firebase_conf.get).on("child_added", function(snapshot) {
+                _dom.ping.toggleClass('pong');
+                var value = snapshot.val();
+                if(value.action == 'draw-stop') {
+                    if(current_drawmode.$dom.is('.draw-start')) {
+                        current_drawmode.remoteDraw();
+                    }
+                }
+                if(value.action == 'scratch') {
+                    var $canvas = $('.guagua-canvas');
+                    if($canvas.length) {
+                        $canvas.trigger('scratch', [value.x, value.y]);
+                    }
+                }
+            });
         };
-        myFirebaseRef.child(firebase_conf.check).push({test: (new Date()).getTime()}, function(error){
-            if(error) {
+        firebase.auth().signInAnonymously().catch(function(error){
+            return -1;
+        }).then(function(error){
+            if(error == -1) {
                 var pass = localStorage['pass'];
                 if(!pass) {
                     pass = localStorage['pass'] = prompt('請輸入同步機制所需的密碼');
                 }
-                myFirebaseRef.authWithPassword({
-                    email: firebase_conf.email,
-                    password: pass
-                }, authCallback, {
-                    remember: 'sessionOnly'
-                });
+                firebase.auth().signInWithEmailAndPassword(firebase_conf.email, pass).catch(function(error) {
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    console.log('登入失敗：', errorCode, errorMessage);
+                    delete localStorage['pass'];
+                    alert('登入失敗，可能是密碼有誤，請重新整理後再輸入密碼');
+                    return -1;
+                }).then(authCallback);
             } else {
-                authCallback();
                 alert('注意，您的 firebase 設定尚未修改，\n所以應該是位於 demo 模式下\ndemo 模式下的同步機制不保證永遠有效，\n請至設定頁設定您自己的 firebase 主機、帳號資訊');
+                authCallback();
             }
         });
-
     };
     //}}
     //{{ init JustFont
@@ -1426,7 +1437,6 @@ $.when(
                 alert('請指定備援金鑰');
                 return;
             }
-            initStartUpEvent();
             initFirebase();
             initJustFont();
             $(this).hide();

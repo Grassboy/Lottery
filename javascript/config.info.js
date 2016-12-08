@@ -28,7 +28,7 @@ var setting_info = {
         訊息系統密碼
     `,
     'msg_conf.post_text': `
-        領獎辦法文字：<br/>屆時訊息格式為<em> [活動名稱] 您中的獎是 [獎項編號] [獎項標題]：[獎項內容]，[領獎辦法文字]</em>
+        領獎辦法文字，屆時訊息格式為<br /><em> [活動名稱] 您中的獎是 [獎項編號] [獎項標題]：[獎項內容]，[領獎辦法文字]</em>
     `,
     'msg_conf.url': `
         sendMSG([user.sn array], [msg content], [callback]) 函數的位置
@@ -36,9 +36,11 @@ var setting_info = {
     'firebase_conf.email': `
         firebase 所使用的 email
     `,
-    'firebase_conf.server': `
-        firebase 同步機制所需連上的 server 位址，詳見 <a href="https://github.com/Grassboy/Lottery/wiki/FirebaseAccountSetting" target="_blank">FirebaseAccountSetting</a>
-    `,
+    'firebase_conf.apiKey': `Firebase 網站的 apiKey`,
+    'firebase_conf.authDomain': `Firebase 網站的 authDomain`,
+    'firebase_conf.databaseURL': `Firebase 網站的 databaseURL`,
+    'firebase_conf.storageBucket': `Firebase 網站的 storageBucket`,
+    'firebase_conf.messagingSenderId': `Firebase 網站的 messagingSenderId`,
     'justfont_conf': `
         justfont 的 html tag 設定，詳見 <a href="https://github.com/Grassboy/Lottery/wiki/JustFontAccountSetting" target="_blank">JustFontAccountSetting</a>
     `

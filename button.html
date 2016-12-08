@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta property="og:title" content="Lottery 抽獎系統 - 抽獎按鈕" />
+	<meta property="og:site_name" content="Lottery 抽獎系統 - 抽獎按鈕" />
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<link href="stylesheets/remote_draw.css" media="screen, projection" rel="stylesheet" type="text/css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
+	<title>Lottery 抽獎系統 - 抽獎按鈕</title>
+    <!-- //開發模式下，可能需要 compass livereload 環境
+    <script src="http://localhost:35729/livereload.js"></script>
+	<link onerror="this.href='stylesheets/screen.css'" href="http://localhost:24680/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    -->
+</head>
+<body>
+    <div class="ping">(正常連線)</div>
+    <div class="draw-result">
+        <div class="user-sn">000000</div>
+        <div class="user-group">不知何處</div>
+        <div class="user-name">誰誰誰</div>
+        <div class="user-real_id">12</div>
+    </div>
+	<div class="remote-draw-button">抽出</div>
+    <div class="guagua-card">
+        <div class="guagua-result">
+            <div class="drawmode-sn"></div>
+            <div class="drawmode-group"></div>
+            <div class="drawmode-name"></div>
+        </div>
+        <canvas class="guagua-canvas" width="640" height="480"></canvas>
+        <img class="guagua-img" src="images/card1.jpg" />
+    </div>
+	<script>
+    var is_ok = false;
+    var config = location.href.toString().split('#')[1];
+    var err_postfix = '此頁網址格式應為\n'+
+                      'http://grassboy.github.io/lotteryButton/index.html?[firebase 主機資訊]';
+    if(!config) {
+        alert(
+            '錯誤：未指定 firebase 主機資訊，\n'+err_postfix
+        );
+    }
+    try {
+        config = JSON.parse(decodeURIComponent(config));
+    } catch (e) {
+        config = null;
+    }
+
+    if(!(config && config.apiKey && config.authDomain && config.databaseURL && config.storageBucket && config.messagingSenderId)) {
+        alert('Firebase 主機資訊有誤');
+    } else if (config.email.indexOf('@') == -1) {
+        alert('錯誤：firebase 使用者 email 有誤\n'+err_postfix);
+    } else {
+        is_ok = true;
+    }
+    if(is_ok) {
+        var firebase_conf = {   //Firebase 的設定檔
+            server: config,
+            check: 'auth/check/',
+            get: 'auth/draw/',
+            response: 'auth/gua_result/'
+        };
+
+        firebase.initializeApp(firebase_conf.server);
+        var myFirebaseRef = firebase.database();
+        var authCallback = function (error, authData) {
+            if(error == -1) {
+                return;
+            }
+            alert('登入成功');
+            myFirebaseRef.ref(firebase_conf.get).remove()
+            $('.ping').bind('touchstart', function(){
+                myFirebaseRef.ref(firebase_conf.get).push({action:'ping'});
+            });
+            myFirebaseRef.ref(firebase_conf.get).on('child_added', function(snapshot){
+                var value = snapshot.val();
+                $('.ping').toggleClass('pong');
+                if(value.action == 'draw-result'){
+                    $('.user-sn').text(value.sn);
+                    $('.user-group').text(value.group);
+                    $('.user-name').text(value.name);
+                    $('.user-real_id').text(value.real_id);
+                    $('.draw-result').toggleClass('pong');
+                }
+            });
+            myFirebaseRef.ref(firebase_conf.response).on('child_added', function(snapshot){
+                var value = snapshot.val();
+                if(value.action == 'initscratch') {
+                    $('body').addClass('scratching');
+                    $('.guagua-canvas').trigger('initscratch', [value]);
+                } else if(value.action == 'clearscratch') {
+                    $('body').removeClass('scratching');
+                }
+            });
+            $('.remote-draw-button').bind('touchstart', function(){
+                myFirebaseRef.ref(firebase_conf.get).push({
+                    action: 'draw-stop'
+                });
+            });
+        };
+        firebase.auth().signInAnonymously().catch(function(error){
+            return -1;
+        }).then(function(error){
+            if(error == -1) {
+                var pass = localStorage['pass'];
+                if(!pass) {
+                    pass = localStorage['pass'] = prompt('請輸入同步機制所需的密碼');
+                }
+                firebase.auth().signInWithEmailAndPassword(config.email, pass).catch(function(error) {
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    console.log('登入失敗：', errorCode, errorMessage);
+                    delete localStorage['pass'];
+                    alert('登入失敗，可能是密碼有誤，請重新整理後再輸入密碼');
+                    return -1;
+                }).then(authCallback);
+            } else {
+                alert('注意，您的 firebase 設定尚未修改，\n所以應該是位於 demo 模式下\ndemo 模式下的同步機制不保證永遠有效，\n請至設定頁設定您自己的 firebase 主機、帳號資訊');
+                authCallback();
+            }
+        });
+
+        (function(){
+            $img = $('.guagua-img'), $canvas = $('.guagua-canvas');
+            (function(){
+                var deferred = $.Deferred();
+                if(!$img[0].naturalWidth) {
+                    $img.attr('src', 'images/card1.jpg').load(function(){
+                        deferred.resolve($img);
+                    });
+                } else {
+                    deferred.resolve($img);
+                }
+                return deferred.promise();
+            })().then(function($img){
+                var count = 0;
+                var ctx = $canvas[0].getContext('2d');
+                var mouseHandler = function (e) {
+                    e = e.originalEvent;
+                    var touches = e.touches;
+                    e.preventDefault();
+                    var $this = $(this);
+                    var offset = $this.offset();
+                    var width = $this.width();
+                    var height = $this.height();
+                    for(var i = 0, n = touches.length; i < n; ++i){
+                        var t = touches[i];
+                        var x = (t.pageX - offset.left);
+                        var y = (t.pageY - offset.top);
+                        $canvas.trigger('scratch', [x,y]);
+                    }
+                };
+                $canvas.bind('initscratch', function(e, data){
+                    ctx.clearRect(0, 0, 640, 480);
+                    ctx.globalCompositeOperation = 'source-over';
+                    ctx.drawImage($img[0], 0, 0, 640, 480);
+                    ctx.fillStyle = 'rgba(0, 0, 0, 1)';
+                    $('.drawmode-sn').text(data.sn);
+                    $('.drawmode-group').text(data.group);
+                    $('.drawmode-name').text(data.name);
+                });
+                $canvas.bind('scratch', function (e, x, y) {
+                    ctx.globalCompositeOperation = "destination-out";
+                    ctx.beginPath();
+                    ctx.arc(x, y, 24, 0, Math.PI * 2, true);
+                    ctx.fill();
+                    myFirebaseRef.ref(firebase_conf.get).push({
+                        action: 'scratch',
+                        x: x, y: y
+                    });
+                });
+                $canvas.bind('touchmove', mouseHandler).bind('touchstart', mouseHandler);
+            });
+            $('.draw-result').bind('touchstart', function(){
+                $(this).toggleClass('pong');
+            });
+        })();
+    }
+    </script>
+</body>
+</html>

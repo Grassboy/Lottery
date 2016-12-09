@@ -33,6 +33,7 @@
 
             // scene
             scene = new THREE.Scene();
+            scene.fog = new THREE.Fog( 0x000000, 500, 10000 );
 
             // camera
             camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight, 0.5, 10000 );
@@ -67,7 +68,7 @@
             scene.add( light );
 
             // floor
-            geometry = new THREE.PlaneGeometry( 20, 20, 1, 1 );
+            geometry = new THREE.PlaneGeometry( 100, 100, 1, 1 );
             //geometry.applyMatrix( new THREE.Matrix4().makeRotationX( -Math.PI / 2 ) );
             material = new THREE.MeshLambertMaterial( { color: 0x777777 } );
             markerMaterial = new THREE.MeshLambertMaterial( { color: 0xff0000 } );
@@ -78,7 +79,7 @@
             mesh.receiveShadow = true;
             scene.add(mesh);
             // sphere
-            var ballGeo = new THREE.SphereGeometry( ballSize, 6, 6 );
+            var ballGeo = new THREE.SphereGeometry( ballSize, 20, 20 );
             var ballMaterial = new THREE.MeshPhongMaterial( { color: 0x888888 } );
             ballMaterial.map = THREE.ImageUtils.loadTexture('images/ball.jpg');
 
@@ -90,6 +91,7 @@
 
             renderer = new THREE.WebGLRenderer( { antialias: true } );
             renderer.setSize( window.innerWidth, window.innerHeight );
+            renderer.setClearColor( scene.fog.color );
 
             container.appendChild( renderer.domElement );
 

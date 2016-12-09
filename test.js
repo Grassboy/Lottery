@@ -101,9 +101,9 @@
 
             window.addEventListener( 'resize', onWindowResize, false );
 
-            window.addEventListener("mousemove", onMouseMove, false );
-            window.addEventListener("mousedown", onMouseDown, false );
-            window.addEventListener("mouseup", onMouseUp, false );
+            window.addEventListener("touchmove", onMouseMove, false );
+            window.addEventListener("touchstart", onMouseDown, false );
+            window.addEventListener("touchend", onMouseUp, false );
         }
 
         function setClickMarker(x,y,z) {
@@ -121,6 +121,7 @@
         }
 
         function onMouseMove(e){
+            e = e.touches[0];
             // Move and project on the plane
             if (gplane && mouseConstraint) {
                 var pos = projectOntoPlane(e.clientX,e.clientY,gplane,camera);
@@ -132,6 +133,7 @@
         }
 
         function onMouseDown(e){
+            e = e.touches[0];
             // Find mesh from a ray
             var entity = findNearestIntersectingObject(e.clientX,e.clientY,camera,meshes);
             var pos = entity.point;

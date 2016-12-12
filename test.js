@@ -68,11 +68,11 @@
             scene.add( light );
 
             // floor
-            geometry = new THREE.PlaneGeometry( 8, 8, 1, 1 );
+            geometry = new THREE.PlaneGeometry( 100, 100, 1, 1 );
             //geometry.applyMatrix( new THREE.Matrix4().makeRotationX( -Math.PI / 2 ) );
             var texture = THREE.ImageUtils.loadTexture('images/grass.png');
             texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-            texture.repeat.set(10,10);
+            texture.repeat.set(5,5);
             material = new THREE.MeshBasicMaterial( {map:texture, side: THREE.DoubleSide} );
             markerMaterial = new THREE.MeshLambertMaterial( { color: 0xff0000 } );
             //THREE.ColorUtils.adjustHSV( material.color, 0, 0, 0.9 );

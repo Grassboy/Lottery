@@ -201,7 +201,7 @@
           v = (v > 10 ? 10 : v);
           sphereBody.velocity.set(  shootDirection.x * v,
                                     shootDirection.y * v,
-                                    shootDirection.z * v);
+                                    shootDirection.z * v*2);
           world.defaultContactMaterial.restitution = 0.8;
           return false;
         }

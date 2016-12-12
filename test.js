@@ -131,6 +131,7 @@
                 }
             }
             e.preventDefault();
+            e.stopPropagation();
         }
 
         function onMouseDown(e){
@@ -152,6 +153,7 @@
                 }
             }
             e.preventDefault();
+            e.stopPropagation();
         }
 
         // This function creates a virtual movement plane for the mouseJoint to move in

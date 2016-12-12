@@ -36,7 +36,7 @@
             scene.fog = new THREE.Fog( 0x000000, 500, 10000 );
 
             // camera
-            camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight, 0.01, 60 );
+            camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight, 0.01, 1000 );
             camera.position.set(7, 2, 0);
             camera.quaternion.setFromAxisAngle(new THREE.Vector3(0,1,0), Math.PI/2);
             scene.add(camera);

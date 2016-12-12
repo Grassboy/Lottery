@@ -268,7 +268,7 @@
             world.quatNormalizeSkip = 0;
             world.quatNormalizeFast = false;
 
-            world.gravity.set(0,-10,0);
+            world.gravity.set(0,-12,0);
             world.broadphase = new CANNON.NaiveBroadphase();
             world.defaultContactMaterial.restitution = 0.96;
             world.defaultContactMaterial.friction = 0;
@@ -281,6 +281,9 @@
             });
             sphereBody.addShape(sphereShape);
             sphereBody.position.set(0,0,0);
+            sphereBody.addEventListener("collide",function(e){ console.log('collide') });
+            sphereBody.angularVelocity.set(0,3,10);
+
             world.add(sphereBody);
             bodies.push(sphereBody);
 

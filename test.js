@@ -4,7 +4,7 @@
 
         var constraintDown = false;
         var throwed = false;
-        var touch = true;
+        var touch = (location.href.indexOf('touch')!=-1?true:false);
         var camera, scene, renderer, gplane=false, clickMarker=false;
         var geometry, material, mesh, ballMaterial;
         var controls,time = Date.now();
@@ -38,8 +38,8 @@
             scene.fog = new THREE.Fog( 0x44B8EE, 500, 10000 );
 
             // camera
-            camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight, 0.01, 1000 );
-            camera.position.set(7, 2, 0);
+            camera = new THREE.PerspectiveCamera( 20, window.innerWidth / window.innerHeight, 0.01, 1000 );
+            camera.position.set(10, 2, 0);
             camera.quaternion.setFromAxisAngle(new THREE.Vector3(0,1,0), Math.PI/2);
             scene.add(camera);
 
@@ -201,8 +201,8 @@
           v = (v > 10 ? 10 : v);
           sphereBody.velocity.set(  shootDirection.x * v,
                                     shootDirection.y * v,
-                                    shootDirection.z * v*2);
-          world.defaultContactMaterial.restitution = 0.8;
+                                    shootDirection.z * v*3);
+          world.defaultContactMaterial.restitution = 0.9;
           return false;
         }
 
@@ -293,9 +293,9 @@
             sphereBody.position.set(0,3,0);
             sphereBody.addEventListener("collide",function(e){
                 if(throwed) {
-                    sphereBody.velocity.x*=0.6;
-                    sphereBody.velocity.y*=0.6;
-                    sphereBody.velocity.z*=0.6;
+                    sphereBody.velocity.x*=0.9;
+                    sphereBody.velocity.y*=0.9;
+                    sphereBody.velocity.z*=0.9;
                     sphereBody.angularVelocity.x*=0.6;
                     sphereBody.angularVelocity.y*=0.6;
                     sphereBody.angularVelocity.z*=0.6;

@@ -280,7 +280,7 @@
                 mass: mass
             });
             sphereBody.addShape(sphereShape);
-            sphereBody.position.set(0,0,0);
+            sphereBody.position.set(0,3,0);
             sphereBody.addEventListener("collide",function(e){ console.log('collide') });
             sphereBody.angularVelocity.set(0,3,10);
 

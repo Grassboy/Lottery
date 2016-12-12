@@ -101,9 +101,9 @@
 
             window.addEventListener( 'resize', onWindowResize, false );
 
-            document.body.addEventListener("touchmove", onMouseMove, false );
-            document.body.addEventListener("touchstart", onMouseDown, false );
-            document.body.addEventListener("touchend", onMouseUp, false );
+            window.addEventListener("touchmove", onMouseMove, false );
+            window.addEventListener("touchstart", onMouseDown, false );
+            window.addEventListener("touchend", onMouseUp, false );
         }
 
         function setClickMarker(x,y,z) {
@@ -121,6 +121,8 @@
         }
 
         function onMouseMove(e){
+            e.preventDefault();
+            e.stopPropagation();
             e = e.touches[0];
             // Move and project on the plane
             if (gplane && mouseConstraint) {
@@ -130,12 +132,12 @@
                     moveJointToPoint(pos.x,pos.y,pos.z);
                 }
             }
-            e.preventDefault();
-            e.stopPropagation();
             return false;
         }
 
         function onMouseDown(e){
+            e.preventDefault();
+            e.stopPropagation();
             e = e.touches[0];
             // Find mesh from a ray
             var entity = findNearestIntersectingObject(e.clientX,e.clientY,camera,meshes);
@@ -153,8 +155,6 @@
                     addMouseConstraint(pos.x,pos.y,pos.z,bodies[idx]);
                 }
             }
-            e.preventDefault();
-            e.stopPropagation();
             return false;
         }
 

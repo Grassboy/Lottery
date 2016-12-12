@@ -3,6 +3,7 @@
         var dt = 1 / 60;
 
         var constraintDown = false;
+        var throwed = false;
         var camera, scene, renderer, gplane=false, clickMarker=false;
         var geometry, material, mesh, ballMaterial;
         var controls,time = Date.now();
@@ -33,7 +34,7 @@
 
             // scene
             scene = new THREE.Scene();
-            scene.fog = new THREE.Fog( 0x000000, 500, 10000 );
+            scene.fog = new THREE.Fog( 0x44B8EE, 500, 10000 );
 
             // camera
             camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight, 0.01, 1000 );
@@ -104,9 +105,9 @@
 
             window.addEventListener( 'resize', onWindowResize, false );
 
-            window.addEventListener("touchmove", onMouseMove, false );
-            window.addEventListener("touchstart", onMouseDown, false );
-            window.addEventListener("touchend", onMouseUp, false );
+            window.addEventListener("mousemove", onMouseMove, false );
+            window.addEventListener("mousedown", onMouseDown, false );
+            window.addEventListener("mouseup", onMouseUp, false );
         }
 
         function setClickMarker(x,y,z) {
@@ -124,9 +125,7 @@
         }
 
         function onMouseMove(e){
-            e.preventDefault();
-            e.stopPropagation();
-            e = e.touches[0];
+            e = e.touches && e.touches[0] || e;
             // Move and project on the plane
             if (gplane && mouseConstraint) {
                 var pos = projectOntoPlane(e.clientX,e.clientY,gplane,camera);
@@ -139,9 +138,7 @@
         }
 
         function onMouseDown(e){
-            e.preventDefault();
-            e.stopPropagation();
-            e = e.touches[0];
+            e = e.touches && e.touches[0] || e;
             // Find mesh from a ray
             var entity = findNearestIntersectingObject(e.clientX,e.clientY,camera,meshes);
             var pos = entity.point;
@@ -180,6 +177,7 @@
 
         function onMouseUp(e) {
           constraintDown = false;
+          throwed = true;
           // remove the marker
           removeClickMarker();
 
@@ -187,12 +185,14 @@
           removeJointConstraint();
 
           var shootDirection = new THREE.Vector3();
-          getShootDir(shootDirection);
           var v = sphereBody.velocity;
+          getShootDir(shootDirection, v);
           v = Math.sqrt(v.x*v.x+v.y*v.y+v.z*v.z)*1.3;
+          v = (v > 10 ? 10 : v);
           sphereBody.velocity.set(  shootDirection.x * v,
                                     shootDirection.y * v,
                                     shootDirection.z * v);
+          world.defaultContactMaterial.restitution = 0.8;
           return false;
         }
 
@@ -281,7 +281,16 @@
             });
             sphereBody.addShape(sphereShape);
             sphereBody.position.set(0,3,0);
-            sphereBody.addEventListener("collide",function(e){ console.log('collide') });
+            sphereBody.addEventListener("collide",function(e){
+                if(throwed) {
+                    sphereBody.velocity.x*=0.6;
+                    sphereBody.velocity.y*=0.6;
+                    sphereBody.velocity.z*=0.6;
+                    sphereBody.angularVelocity.x*=0.6;
+                    sphereBody.angularVelocity.y*=0.6;
+                    sphereBody.angularVelocity.z*=0.6;
+                }
+            });
             sphereBody.angularVelocity.set(0,3,10);
 
             world.add(sphereBody);
@@ -339,9 +348,9 @@
           mouseConstraint = false;
         }
 
-        function getShootDir(targetVec){
+        function getShootDir(targetVec, v){
             var vector = targetVec;
-            targetVec.set(0,0,1);
+            targetVec.set(0, v.y, 1);
             projector.unprojectVector(vector, camera);
             var ray = new THREE.Ray(sphereBody.position, vector.sub(sphereBody.position).normalize() );
             targetVec.x = ray.direction.x;

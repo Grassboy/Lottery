@@ -132,6 +132,7 @@
 
         function onMouseMove(e){
             e.preventDefault();
+            e.stopPropagation();
             e = e.touches && e.touches[0] || e;
             // Move and project on the plane
             if (gplane && mouseConstraint) {
@@ -146,6 +147,7 @@
 
         function onMouseDown(e){
             e.preventDefault();
+            e.stopPropagation();
             e = e.touches && e.touches[0] || e;
             // Find mesh from a ray
             var entity = findNearestIntersectingObject(e.clientX,e.clientY,camera,meshes);

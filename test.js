@@ -1,10 +1,10 @@
 
-        var world;
+        var world, sphereBody;
         var dt = 1 / 60;
 
         var constraintDown = false;
         var camera, scene, renderer, gplane=false, clickMarker=false;
-        var geometry, material, mesh;
+        var geometry, material, mesh, ballMaterial;
         var controls,time = Date.now();
 
         var jointBody, constrainedBody, mouseConstraint;
@@ -36,8 +36,8 @@
             scene.fog = new THREE.Fog( 0x000000, 500, 10000 );
 
             // camera
-            camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight, 0.5, 10000 );
-            camera.position.set(10, 2, 0);
+            camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight, 0.01, 60 );
+            camera.position.set(7, 2, 0);
             camera.quaternion.setFromAxisAngle(new THREE.Vector3(0,1,0), Math.PI/2);
             scene.add(camera);
 
@@ -80,7 +80,7 @@
             scene.add(mesh);
             // sphere
             var ballGeo = new THREE.SphereGeometry( ballSize, 20, 20 );
-            var ballMaterial = new THREE.MeshPhongMaterial( { color: 0x888888 } );
+            ballMaterial = new THREE.MeshPhongMaterial( { color: 0x888888 } );
             ballMaterial.map = THREE.ImageUtils.loadTexture('images/ball.jpg');
 
             sphereMesh = new THREE.Mesh( ballGeo, ballMaterial );
@@ -130,6 +130,7 @@
                     moveJointToPoint(pos.x,pos.y,pos.z);
                 }
             }
+            e.preventDefault();
         }
 
         function onMouseDown(e){
@@ -150,6 +151,7 @@
                     addMouseConstraint(pos.x,pos.y,pos.z,bodies[idx]);
                 }
             }
+            e.preventDefault();
         }
 
         // This function creates a virtual movement plane for the mouseJoint to move in
@@ -176,6 +178,14 @@
 
           // Send the remove mouse joint to server
           removeJointConstraint();
+
+          var shootDirection = new THREE.Vector3();
+          getShootDir(shootDirection);
+          var v = sphereBody.velocity;
+          v = Math.sqrt(v.x*v.x+v.y*v.y+v.z*v.z)*1.3;
+          sphereBody.velocity.set(  shootDirection.x * v,
+                                    shootDirection.y * v,
+                                    shootDirection.z * v);
         }
 
         var lastx,lasty,last;
@@ -252,7 +262,8 @@
 
             world.gravity.set(0,-10,0);
             world.broadphase = new CANNON.NaiveBroadphase();
-            world.defaultContactMaterial.restitution = 0.9;
+            world.defaultContactMaterial.restitution = 0.96;
+            world.defaultContactMaterial.friction = 0;
 
             var mass = 5;
             // Create sphere
@@ -317,3 +328,13 @@
           mouseConstraint = false;
         }
 
+        function getShootDir(targetVec){
+            var vector = targetVec;
+            targetVec.set(0,0,1);
+            projector.unprojectVector(vector, camera);
+            var ray = new THREE.Ray(sphereBody.position, vector.sub(sphereBody.position).normalize() );
+            targetVec.x = ray.direction.x;
+            targetVec.y = ray.direction.y;
+            targetVec.z = ray.direction.z;
+        }
+        

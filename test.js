@@ -132,6 +132,7 @@
             }
             e.preventDefault();
             e.stopPropagation();
+            return false;
         }
 
         function onMouseDown(e){
@@ -154,6 +155,7 @@
             }
             e.preventDefault();
             e.stopPropagation();
+            return false;
         }
 
         // This function creates a virtual movement plane for the mouseJoint to move in
@@ -188,6 +190,7 @@
           sphereBody.velocity.set(  shootDirection.x * v,
                                     shootDirection.y * v,
                                     shootDirection.z * v);
+          return false;
         }
 
         var lastx,lasty,last;

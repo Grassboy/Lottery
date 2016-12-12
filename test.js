@@ -10,7 +10,7 @@
         var jointBody, constrainedBody, mouseConstraint;
 
         var N = 1;
-        var ballSize = 0.5;
+        var ballSize = 0.3;
 
         var container, camera, scene, renderer, projector;
 
@@ -270,7 +270,7 @@
 
             world.gravity.set(0,-12,0);
             world.broadphase = new CANNON.NaiveBroadphase();
-            world.defaultContactMaterial.restitution = 0.96;
+            world.defaultContactMaterial.restitution = 1;
             world.defaultContactMaterial.friction = 0;
 
             var mass = 5;

@@ -101,9 +101,9 @@
 
             window.addEventListener( 'resize', onWindowResize, false );
 
-            window.addEventListener("touchmove", onMouseMove, false );
-            window.addEventListener("touchstart", onMouseDown, false );
-            window.addEventListener("touchend", onMouseUp, false );
+            document.body.addEventListener("touchmove", onMouseMove, false );
+            document.body.addEventListener("touchstart", onMouseDown, false );
+            document.body.addEventListener("touchend", onMouseUp, false );
         }
 
         function setClickMarker(x,y,z) {

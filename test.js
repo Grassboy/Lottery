@@ -4,6 +4,7 @@
 
         var constraintDown = false;
         var throwed = false;
+        var touch = true;
         var camera, scene, renderer, gplane=false, clickMarker=false;
         var geometry, material, mesh, ballMaterial;
         var controls,time = Date.now();
@@ -104,10 +105,15 @@
             renderer.shadowMapEnabled = true;
 
             window.addEventListener( 'resize', onWindowResize, false );
-
-            window.addEventListener("mousemove", onMouseMove, false );
-            window.addEventListener("mousedown", onMouseDown, false );
-            window.addEventListener("mouseup", onMouseUp, false );
+            if(touch){
+                window.addEventListener("touchmove", onMouseMove, false );
+                window.addEventListener("touchstart", onMouseDown, false );
+                window.addEventListener("touchend", onMouseUp, false );
+            } else {
+                window.addEventListener("mousemove", onMouseMove, false );
+                window.addEventListener("mousedown", onMouseDown, false );
+                window.addEventListener("mouseup", onMouseUp, false );
+            }
         }
 
         function setClickMarker(x,y,z) {

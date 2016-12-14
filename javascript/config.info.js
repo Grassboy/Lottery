@@ -34,7 +34,7 @@ var setting_info = {
         sendMSG([user.sn array], [msg content], [callback]) 函數的位置
     `,
     'firebase_conf.email': `
-        firebase 所使用的 email
+        用來作為 Firebase email Authentication 所使用的 email
     `,
     'firebase_conf.apiKey': `Firebase 網站的 apiKey`,
     'firebase_conf.authDomain': `Firebase 網站的 authDomain`,

@@ -958,18 +958,21 @@ $.when(
                         dom.find('.drawmode-name').text('緊張！緊張！');
                         dom.addClass('draw-running');
                         setTimeout(function() {
+                            console.log((new Date()).getTime(), 'Queue 1');
                             $(_).dequeue();
                         },
                         100);
                     }).queue(function(_) {
                         dom.find('.slot').removeClass('slot-start slot-end slot-turbo').addClass('slot-start');
                         setTimeout(function() {
+                            console.log((new Date()).getTime(), 'Queue 2');
                             $(_).dequeue();
                         },
-                        500);
+                        100);
                     }).queue(function(_) {
                         dom.find('.slot').removeClass('slot-start slot-end slot-turbo').addClass('slot-turbo');
                         setTimeout(function() {
+                            console.log((new Date()).getTime(), 'Queue 3');
                             $(_).dequeue();
                         },
                         100);
@@ -984,8 +987,9 @@ $.when(
                             return 'slot slot-end slot-' + sn.substr(-(6-i), 1).toLowerCase();
                         });
                         setTimeout(function(){
+                            console.log((new Date()).getTime(), 'Queue 4');
                             $(_).dequeue();
-                        }, 1000);
+                        }, 500);
                     }).queue(function(_){
                         dom.removeClass('draw-running');
                         if(!_dom.drawing_page.is('.active')) {  //如果過程中切到別頁，則把號碼歸零，名字不 show
@@ -1303,6 +1307,7 @@ $.when(
             myFirebaseRef.ref(firebase_conf.get).remove()
             myFirebaseRef.ref(firebase_conf.response).remove();
             initStartUpEvent();
+            $('.btn .icon-home').click();
             myFirebaseRef.ref(firebase_conf.sync).on("child_added", function(snapshot) {
                 _dom.ping.toggleClass('pong');
                 var value = snapshot.val();

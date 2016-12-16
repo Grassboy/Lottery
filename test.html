@@ -14,13 +14,6 @@
                 overflow: hidden;
             }
             .boom {
-                position: absolute;
-                left: 0; top:0;
-                width: 32px; height: 32px;
-                margin: -16px 0 0 -16px;
-                box-shadow: 0 0 10px yellow;
-                border-radius: 100%;
-                display: none;
             }
             .toucharea {
                 width: 512px; height: 300px;
@@ -28,14 +21,44 @@
                 display: none;
             }
         </style>
+        <!-- //開發模式下，可能需要 compass livereload 環境
+        -->
+        <script src="http://localhost:35729/livereload.js"></script>
+	    <link href="stylesheets/animate.css" media="screen, projection" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="fonts/style.css">
+        <link onerror="this.href='stylesheets/test.css'" href="http://localhost:24680/stylesheets/test.css" media="screen, projection" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <script src="http://schteppe.github.io/cannon.js/libs/Three.js"></script>
         <script src="http://schteppe.github.io/cannon.js/libs/Detector.js"></script>
         <script src="http://schteppe.github.io/cannon.js/build/cannon.js"></script>
         <script src="http://is.gy/jquery.js"></script>
-        <script src="test.js"></script>
+        <script src="pokemon.drawmode.js"></script>
         <div class="toucharea"></div>
-        <div class="boom"></div>
+        <div class="drawmode-pokemon">
+            <div class="pokemon-container">
+                <div class="boom_outer" style="display:none;">
+                    <div class="boom">
+                        <div class="fake_ball"></div>
+                    </div>
+                </div>
+                <div class="reset-area">
+                    <i class="icon-poke-ball"></i>
+                </div>
+            </div>
+            <div class="pokemon-result">
+                <div class="pokemon-result-inner">
+                    <div class="drawmode-group"></div>
+                    <div class="drawmode-name"></div>
+                </div>
+            </div>
+        </div>
     </body>
+    <script>
+        $(function(){
+            $('body').dblclick(function(){
+                $('.boom_outer').show().toggleClass('animation_toggle');
+            });
+        })
+    </script>
 </html>

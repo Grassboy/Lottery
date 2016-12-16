@@ -258,6 +258,21 @@ body.scratching .guagua-card {
 }
 
 /* line 164, ../sass/remote_draw.scss */
+.pokemon-area {
+  display: none;
+  background: red;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+/* line 169, ../sass/remote_draw.scss */
+.pokemoning .pokemon-area {
+  display: block;
+}
+
+/* line 173, ../sass/remote_draw.scss */
 .ping {
   opacity: 0.2;
   font-size: 16px;
@@ -271,7 +286,7 @@ body.scratching .guagua-card {
   -webkit-animation: signal 1s 1;
   animation: signal 1s 1;
 }
-/* line 175, ../sass/remote_draw.scss */
+/* line 184, ../sass/remote_draw.scss */
 .ping.pong {
   -webkit-animation: signal2 1s 1;
   animation: signal2 1s 1;

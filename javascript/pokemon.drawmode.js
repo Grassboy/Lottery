@@ -1,4 +1,5 @@
 var PokemonGo = function(div, opts){
+    var _size = {w: 1024, h: 608};
     var world, sphereBody, cylinderBody, pokemon, ball, pokemon_texture, ball_texture;
     var dt = 1 / 60;
     var touch = (location.href.indexOf('touch') != - 1 ? true: false);
@@ -8,7 +9,7 @@ var PokemonGo = function(div, opts){
     var jointBody, constrainedBody, mouseConstraint;
     var ballSize = 0.6;
     var states = {
-        is_active: true,
+        is_active: opts.is_active || false,
         cylinder_mode: false,
         start_collision: false,
         collision: false,
@@ -43,7 +44,7 @@ var PokemonGo = function(div, opts){
         scene.fog = new THREE.Fog(0xFF8300, 500, 10000);
 
         // camera
-        that.camera = camera = new THREE.PerspectiveCamera(20, 1024 / 600, 0.01, 1000);
+        that.camera = camera = new THREE.PerspectiveCamera(20, _size.w / _size.h, 0.01, 1000);
         camera.position.set(10, 10, 0);
         camera.quaternion.setFromAxisAngle(new THREE.Vector3(0, 1, 0), Math.PI / 2);
         scene.add(camera);
@@ -113,7 +114,7 @@ var PokemonGo = function(div, opts){
             antialias: true,
             alpha: true
         });
-        renderer.setSize(1024, 600);
+        renderer.setSize(_size.w, _size.h);
         //renderer.setClearColor( 0xffffff, 0 );
         renderer.setClearColor(0x000000, 0); // the default
         container.appendChild(renderer.domElement);
@@ -178,10 +179,6 @@ var PokemonGo = function(div, opts){
                             $ball_boom.show().offset({left: pos.x, top: pos.y}).toggleClass('animation_toggle');
                         },
                         2000);
-                        setTimeout(function() {
-                            that.resetAll();
-                        },
-                        5000);
                     }
                 }
             });
@@ -198,10 +195,12 @@ var PokemonGo = function(div, opts){
             container.addEventListener("mousemove", onMouseMove, false);
             container.addEventListener("mousedown", onMouseDown, false);
             container.addEventListener("mouseup", onMouseUp, false);
+            /*
             var container2 = $('.toucharea')[0];
             container2.addEventListener("mousemove", fakeTouchHandler.move, false);
             container2.addEventListener("mousedown", fakeTouchHandler.down, false);
             container2.addEventListener("mouseup", fakeTouchHandler.up, false);
+            */
         }
         //controls = new THREE.OrbitControls(camera, renderer.domElement);
     }
@@ -276,36 +275,34 @@ var PokemonGo = function(div, opts){
         handler.mouseup();
         return false;
     }
-    var fakeTouchHandler = (function() {
+    that.fakeTouchHandler = (function() {
         var x0, y0;
         return {
             down: function(e) {
-                e.preventDefault();
-                e.stopPropagation();
+                e.preventDefault && e.preventDefault();
+                e.stopPropagation && e.stopPropagation();
                 e = e.touches && e.touches[0] || e;
-                var offset = $('.toucharea').offset();
-                var offset2 = $('#pokemon').offset();
+                var offset = $('#pokemon').offset();
                 var pos_self = {
-                    x: e.clientX - offset.left,
-                    y: e.clientY - offset.top
+                    x: e.clientX,
+                    y: e.clientY
                 };
                 var pos0 = get2DPos(meshes[0].position, camera, renderer.domElement);
                 x0 = pos0.x - pos_self.x;
                 y0 = pos0.y - pos_self.y;
-                handler.mousedown(pos_self.x + x0 - offset2.left, pos_self.y + y0 - offset2.top);
+                handler.mousedown(pos_self.x + x0 - offset.left, pos_self.y + y0 - offset.top);
                 return false;
             },
             move: function(e) {
-                e.preventDefault();
-                e.stopPropagation();
+                e.preventDefault && e.preventDefault();
+                e.stopPropagation && e.stopPropagation();
                 e = e.touches && e.touches[0] || e;
-                var offset = $('.toucharea').offset();
-                var offset2 = $('#pokemon').offset();
+                var offset = $('#pokemon').offset();
                 var pos_self = {
-                    x: e.clientX - offset.left,
-                    y: e.clientY - offset.top
+                    x: e.clientX,
+                    y: e.clientY
                 };
-                handler.mousemove(pos_self.x + x0 - offset2.left, pos_self.y + y0 - offset2.top);
+                handler.mousemove(pos_self.x + x0 - offset.left, pos_self.y + y0 - offset.top);
                 return false;
             },
             up: function() {
@@ -366,8 +363,8 @@ var PokemonGo = function(div, opts){
     function getRayCasterFromScreenCoord(screenX, screenY, camera, projector) {
         var mouse3D = new THREE.Vector3();
         // Get 3D point form the client x y
-        mouse3D.x = (screenX / 1024) * 2 - 1;
-        mouse3D.y = - (screenY / 600) * 2 + 1;
+        mouse3D.x = (screenX / _size.w) * 2 - 1;
+        mouse3D.y = - (screenY / _size.h) * 2 + 1;
         mouse3D.z = 0.5;
         return projector.pickingRay(mouse3D, camera);
     }
@@ -548,6 +545,8 @@ var PokemonGo = function(div, opts){
                         e.stopPropagation();
                         $ball_boom.hide();
                         ball.visible = true;
+                        pokemon.visible = false;
+                        $div.trigger('gotcha');
                     });
         initCannon();
         init();
@@ -602,6 +601,7 @@ PokemonGo.prototype = {
         cylinderBody.position.set( - 15, h / 2 + 10, 0);
         cylinderBody.quaternion.set(0, 0, 0, 1);
         pokemon.scale.set(1, 1, 1);
+        pokemon.visible = true;
         pokemon.material.map = pokemon_texture[that.current_pokemon_id].normal;
 
         that._ballReset();
@@ -619,6 +619,7 @@ PokemonGo.prototype = {
             pokemon_id = parseInt(Math.random()*pokemon_texture.length, 10);
         }
         if(pokemon_id != that.current_pokemon_id && pokemon_texture[pokemon_id]) {
+            that.$div.attr('data-pokemon-id', pokemon_id);
             that.current_pokemon_id = pokemon_id;
             that.pokemon.material.map = pokemon_texture[that.current_pokemon_id].normal;
         }
@@ -630,22 +631,10 @@ PokemonGo.prototype = {
             ball_id = parseInt(Math.random()*ball_texture.length, 10);
         }
         if(ball_id != that.current_ball_id && ball_texture[ball_id]) {
+            that.$div.attr('data-ball-id', ball_id);
             that.current_ball_id = ball_id;
             that.ball.material.map = ball_texture[that.current_ball_id];
         }
     }
 };
-$(function(){
-    var pokemonGo = new PokemonGo($('.drawmode-pokemon')[0], {
-        pokemon: [
-            {normal: 'ivs_normal.png', hit: 'ivs_hit.png', desc: '前方有隻野生的大目千歲'},
-            {normal: 'hicloud_normal.png', hit: 'hicloud_hit.png', desc: '前方有隻野生的雲小獅'}
-        ],
-        ball: [
-            'ball.jpg', 'ball2.jpg', 'ball3.jpg'
-        ],
-        collisionCallback: function(){
-            
-        }
-    });
-});
+

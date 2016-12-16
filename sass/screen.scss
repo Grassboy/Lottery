@@ -983,7 +983,7 @@ html, body {
 
 .drawtype-item {
     $orange: #FF7200;
-    $q: 250px;
+    $q: 245px;
     margin: 5px;
     @include background-image(radial-gradient(left top, rgba(white, 0.3), $orange));
     box-sizing: border-box;
@@ -1215,7 +1215,7 @@ html, body {
             }
             &:after {
                 width: 70px; height: 300px;
-                left: 90px; top: 220px;
+                left: 60px; top: 220px;
                 text-align: center;
                 word-break: break-all;
                 font-size: 64px;
@@ -1906,6 +1906,7 @@ html, body {
         }
     }
 }
+@import "pokemon.scss";
 .config-page {
     overflow: auto;
     height: 610px;
@@ -2054,3 +2055,4 @@ html, body {
         animation: signal2 1s 1;
     }
 }
+

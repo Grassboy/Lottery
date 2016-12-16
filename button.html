@@ -6,14 +6,14 @@
 	<meta property="og:title" content="Lottery 抽獎系統 - 抽獎按鈕" />
 	<meta property="og:site_name" content="Lottery 抽獎系統 - 抽獎按鈕" />
 	<link rel="shortcut icon" href="/favicon.ico" />
-	<link href="stylesheets/remote_draw.css" media="screen, projection" rel="stylesheet" type="text/css" />
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
     <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
 	<title>Lottery 抽獎系統 - 抽獎按鈕</title>
     <!-- //開發模式下，可能需要 compass livereload 環境
-    <script src="http://localhost:35729/livereload.js"></script>
-	<link onerror="this.href='stylesheets/screen.css'" href="http://localhost:24680/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+	<link href="stylesheets/remote_draw.css" media="screen, projection" rel="stylesheet" type="text/css" />
     -->
+	<link onerror="this.href='stylesheets/remote_draw.css'" href="http://localhost:24680/stylesheets/remote_draw.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <script src="http://localhost:35729/livereload.js"></script>
 </head>
 <body>
     <div class="ping">(正常連線)</div>
@@ -33,6 +33,7 @@
         <canvas class="guagua-canvas" width="640" height="480"></canvas>
         <img class="guagua-img" src="images/card1.jpg" />
     </div>
+    <div class="pokemon-area"></div>
 	<script>
     var is_ok = false;
     var config = location.href.toString().split('#')[1];
@@ -93,6 +94,10 @@
                     $('.guagua-canvas').trigger('initscratch', [value]);
                 } else if(value.action == 'clearscratch') {
                     $('body').removeClass('scratching');
+                } else if(value.action == 'initpoke') {
+                    $('body').addClass('pokemoning');
+                } else if(value.action == 'clearpoke') {
+                    $('body').removeClass('pokemoning');
                 }
             });
             $('.remote-draw-button').bind('touchstart', function(){
@@ -176,6 +181,44 @@
             });
             $('.draw-result').bind('touchstart', function(){
                 $(this).toggleClass('pong');
+            });
+        })();
+        (function(){
+            var prev_x = 0; prev_y = 0, threshold = 100;
+            var mouseHandler = function (e, action) {
+                myFirebaseRef.ref(firebase_conf.get).push({
+                    action: action,
+                    x: (e.clientX || 0), y: (e.clientY || 0)
+                });
+            };
+            $pokemon_area = $('.pokemon-area');
+            $pokemon_area.bind('touchstart', function(e){
+                prev_x = prev_y = 0;
+                e = e.originalEvent;
+                e.preventDefault();
+                e.stopPropagation();
+                e = e.touches && e.touches[0] || e;
+                mouseHandler(e, 'pokedown');
+            });
+            $pokemon_area.bind('touchmove', function(e){
+                e = e.originalEvent;
+                e.preventDefault();
+                e.stopPropagation();
+                e = e.touches && e.touches[0] || e;
+                if((e.clientX - prev_x)*(e.clientX - prev_x) + (e.clientY - prev_y)*(e.clientY - prev_y) > threshold*threshold) {
+                    prev_x = e.clientX;
+                    prev_y = e.clientY;
+                    console.log('move');
+                    mouseHandler(e, 'pokemove');
+                }
+            });
+            $pokemon_area.bind('touchend', function(e){
+                prev_x = prev_y = 0;
+                e = e.originalEvent;
+                e.preventDefault();
+                e.stopPropagation();
+                e = e.touches && e.touches[0] || e;
+                mouseHandler(e, 'pokeup');
             });
         })();
     }

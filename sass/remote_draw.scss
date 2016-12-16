@@ -161,6 +161,15 @@ body.scratching {
         color: gray;
     }
 }
+.pokemon-area {
+    display: none;
+    background: red;
+    position: fixed;
+    left: 0; top: 0; right: 0; bottom: 0;
+    .pokemoning & {
+        display: block;
+    }
+}
 .ping {
     opacity: 0.2;
     font-size: 16px;

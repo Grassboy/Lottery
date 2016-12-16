@@ -1,92 +1,93 @@
 @font-face {
-	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot?o86uuk');
-	src:url('fonts/icomoon.eot?o86uuk#iefix') format('embedded-opentype'),
-		url('fonts/icomoon.ttf?o86uuk') format('truetype'),
-		url('fonts/icomoon.woff?o86uuk') format('woff'),
-		url('fonts/icomoon.svg?o86uuk#icomoon') format('svg');
-	font-weight: normal;
-	font-style: normal;
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?31r32z');
+  src:  url('fonts/icomoon.eot?31r32z#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?31r32z') format('truetype'),
+    url('fonts/icomoon.woff?31r32z') format('woff'),
+    url('fonts/icomoon.svg?31r32z#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
 [class^="icon-"], [class*=" icon-"] {
-	font-family: 'icomoon';
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
 
-	/* Better Font Rendering =========== */
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-poke-ball:before {
+  content: "\e901";
+}
 .icon-sms:before {
-	content: "\e900";
+  content: "\e900";
 }
 .icon-coin-dollar:before {
-	content: "\e60c";
+  content: "\e60c";
 }
 .icon-ok:before {
-	content: "\e60b";
+  content: "\e60b";
 }
 .icon-close:before {
-	content: "\e606";
+  content: "\e606";
 }
 .icon-gift:before {
-	content: "\e600";
+  content: "\e600";
 }
 .icon-quick-draw:before {
-	content: "\e609";
+  content: "\e609";
 }
 .icon-start-draw:before {
-	content: "\e60a";
+  content: "\e60a";
 }
 .icon-files:before {
-	content: "\e605";
-}
-.icon-award:before {
-	content: "\f091";
+  content: "\e605";
 }
 .icon-signal:before {
-	content: "\f012";
+  content: "\f012";
 }
 .icon-home:before {
-	content: "\f015";
+  content: "\f015";
 }
 .icon-pause:before {
-	content: "\f04c";
+  content: "\f04c";
 }
 .icon-award:before {
-	content: "\f091";
+  content: "\f091";
 }
 .icon-user:before {
-	content: "\f0c0";
+  content: "\f0c0";
 }
 .icon-back:before {
-	content: "\f100";
+  content: "\f100";
 }
 .icon-search:before {
-	content: "\e607";
+  content: "\e607";
 }
 .icon-arrow:before {
-	content: "\e603";
+  content: "\e603";
 }
 .icon-draw:before {
-	content: "\e60d";
+  content: "\e60d";
 }
 .icon-money:before {
-	content: "\e608";
+  content: "\e608";
 }
 .icon-ticket:before {
-	content: "\e604";
+  content: "\e604";
 }
 .icon-settings:before {
-	content: "\e601";
+  content: "\e601";
 }
 .icon-single:before {
-	content: "\e602";
+  content: "\e602";
 }
 

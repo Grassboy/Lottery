@@ -15,12 +15,18 @@
     <link rel="stylesheet" href="fonts/style.css">
 	<link href="stylesheets/animate.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
-	<link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
 	<link href="stylesheets/fix.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <!-- //開發模式下，可能需要 compass livereload 環境
     <script src="http://localhost:35729/livereload.js"></script>
 	<link onerror="this.href='stylesheets/screen.css'" href="http://localhost:24680/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
     -->
+	<link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <script src="javascript/Three.js"></script>
+    <script src="javascript/Projector.js"></script>
+    <script src="javascript/cannon.js"></script>
+    <script src="javascript/pokemon.drawmode.js"></script>
+    <script src="javascript/DeviceOrientationControls.js"></script>
+    <script src="javascript/vr.drawmode.js"></script>
 	<title>年終感恩餐會</title>
 </head>
 <body>
@@ -169,6 +175,39 @@
                         <div class="slots-result-inner">
                             <div class="drawmode-group"></div>
                             <div class="drawmode-name"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="drawmode-pokemon tpl-data">
+                    <div class="pokemon-container">
+                        <div class="boom_outer" style="display:none;">
+                            <div class="boom">
+                                <div class="fake_ball"></div>
+                            </div>
+                        </div>
+                        <div class="reset-area">
+                            <i class="icon-poke-ball"></i>
+                        </div>
+                    </div>
+                    <div class="pokemon-result inactive">
+                        <div class="drawmode-name">瘋狂小胖</div>
+                        <div class="drawmode-group">智慧聯網處</div>
+                        <div class="drawmode-sn">832803</div>
+                        <div class="pokemon-hp">HP <span>144</span>/<span>144</span></div>
+                    </div>
+                </div>
+                <div class="drawmode-vr tpl-data">
+                    <div class="vr-main">
+                        <div class="vr-focus">
+                            <div class="vr-arrow"></div>
+                        </div>
+                        <ol class="vr-digits">
+                            <li class="vr-digit tpl-data">?</li>
+                        </ol>
+                        <div class="vr-result inactive">
+                            <div class="drawmode-name">瘋狂小胖</div>
+                            <div class="drawmode-group">智慧聯網處</div>
+                            <div class="drawmode-sn">832803</div>
                         </div>
                     </div>
                 </div>

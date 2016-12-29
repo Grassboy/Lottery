@@ -1236,6 +1236,7 @@ html, body {
     &:empty {
         display: none;
     }
+    z-index: 50;
     position: absolute;
     width: 90%;
     left: 0; top: 50%; margin: -0.5em 5% 0 5%;
@@ -1907,6 +1908,7 @@ html, body {
     }
 }
 @import "pokemon.scss";
+@import "vr.scss";
 .config-page {
     overflow: auto;
     height: 610px;

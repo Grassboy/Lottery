@@ -135,9 +135,10 @@ body.scratching .guagua-card {
   display: block;
   text-align: center;
   transform: translateX(-200px);
+  height: 1em;
 }
 
-/* line 90, ../sass/remote_draw.scss */
+/* line 91, ../sass/remote_draw.scss */
 .guagua-card {
   display: none;
   text-align: center;
@@ -153,7 +154,7 @@ body.scratching .guagua-card {
   background-image: url(../images/card2.jpg);
 }
 
-/* line 110, ../sass/remote_draw.scss */
+/* line 111, ../sass/remote_draw.scss */
 .guagua-canvas {
   cursor: url(http://i.imgur.com/7ZGwfbu.png) 32 32, auto;
   position: absolute;
@@ -161,22 +162,22 @@ body.scratching .guagua-card {
   top: 0;
 }
 
-/* line 115, ../sass/remote_draw.scss */
+/* line 116, ../sass/remote_draw.scss */
 .guagua-img {
   display: none;
 }
 
-/* line 118, ../sass/remote_draw.scss */
+/* line 119, ../sass/remote_draw.scss */
 .drawmode-group {
   font-size: 84px;
 }
 
-/* line 121, ../sass/remote_draw.scss */
+/* line 122, ../sass/remote_draw.scss */
 .drawmode-sn, .drawmode-name {
   font-size: 128px;
 }
 
-/* line 124, ../sass/remote_draw.scss */
+/* line 125, ../sass/remote_draw.scss */
 .drawmode-sn {
   font-family: 'courier new';
   font-weight: bold;
@@ -231,7 +232,7 @@ body.scratching .guagua-card {
     opacity: 0;
   }
 }
-/* line 144, ../sass/remote_draw.scss */
+/* line 145, ../sass/remote_draw.scss */
 .draw-result {
   opacity: 0;
   font-size: 72px;
@@ -243,12 +244,12 @@ body.scratching .guagua-card {
   -webkit-animation: signal 5s 1;
   animation: signal 5s 1;
 }
-/* line 153, ../sass/remote_draw.scss */
+/* line 154, ../sass/remote_draw.scss */
 .draw-result.pong {
   -webkit-animation: signal2 5s 1;
   animation: signal2 5s 1;
 }
-/* line 157, ../sass/remote_draw.scss */
+/* line 158, ../sass/remote_draw.scss */
 .draw-result:before {
   content: '前次結果';
   font-size: 24px;
@@ -257,7 +258,7 @@ body.scratching .guagua-card {
   color: gray;
 }
 
-/* line 164, ../sass/remote_draw.scss */
+/* line 165, ../sass/remote_draw.scss */
 .pokemon-area {
   display: none;
   background: red;
@@ -267,12 +268,12 @@ body.scratching .guagua-card {
   right: 0;
   bottom: 0;
 }
-/* line 169, ../sass/remote_draw.scss */
+/* line 170, ../sass/remote_draw.scss */
 .pokemoning .pokemon-area {
   display: block;
 }
 
-/* line 173, ../sass/remote_draw.scss */
+/* line 174, ../sass/remote_draw.scss */
 .ping {
   opacity: 0.2;
   font-size: 16px;
@@ -286,8 +287,362 @@ body.scratching .guagua-card {
   -webkit-animation: signal 1s 1;
   animation: signal 1s 1;
 }
-/* line 184, ../sass/remote_draw.scss */
+/* line 175, ../sass/remote_draw.scss */
+.vring .ping {
+  display: none;
+}
+/* line 188, ../sass/remote_draw.scss */
 .ping.pong {
   -webkit-animation: signal2 1s 1;
   animation: signal2 1s 1;
+}
+
+@-webkit-keyframes vr_arrow {
+  0%,10%,60%,100% {
+    border-bottom-color: rgba(255, 255, 0, 0);
+  }
+  35% {
+    border-bottom-color: rgba(255, 255, 0, 0.6);
+  }
+}
+@keyframes vr_arrow {
+  0%,10%,60%,100% {
+    border-bottom-color: rgba(255, 255, 0, 0);
+  }
+  35% {
+    border-bottom-color: rgba(255, 255, 0, 0.6);
+  }
+}
+@-webkit-keyframes vr_arrow2 {
+  0%,30%,80%,100% {
+    border-bottom-color: rgba(255, 255, 0, 0);
+  }
+  55% {
+    border-bottom-color: rgba(255, 255, 0, 0.6);
+  }
+}
+@keyframes vr_arrow2 {
+  0%,30%,80%,100% {
+    border-bottom-color: rgba(255, 255, 0, 0);
+  }
+  55% {
+    border-bottom-color: rgba(255, 255, 0, 0.6);
+  }
+}
+@-webkit-keyframes vr_arrow3 {
+  0%,50%,100% {
+    border-bottom-color: rgba(255, 255, 0, 0);
+  }
+  75% {
+    border-bottom-color: rgba(255, 255, 0, 0.6);
+  }
+}
+@keyframes vr_arrow3 {
+  0%,50%,100% {
+    border-bottom-color: rgba(255, 255, 0, 0);
+  }
+  75% {
+    border-bottom-color: rgba(255, 255, 0, 0.6);
+  }
+}
+@-webkit-keyframes vr_focus {
+  0% {
+    box-shadow: 0 0 0 2px transparent inset, 0 0 0 4px transparent inset, 0 0 0 6px transparent inset, 0 0 0 8px transparent inset, 0 0 0 10px transparent inset;
+  }
+  20% {
+    box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.1) inset, 0 0 0 4px transparent inset, 0 0 0 6px transparent inset, 0 0 0 8px transparent inset, 0 0 0 10px transparent inset;
+  }
+  40% {
+    box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.1) inset, 0 0 0 4px rgba(255, 0, 0, 0.1) inset, 0 0 0 6px transparent inset, 0 0 0 8px transparent inset, 0 0 0 10px transparent inset;
+  }
+  60% {
+    box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.1) inset, 0 0 0 4px rgba(255, 0, 0, 0.1) inset, 0 0 0 6px rgba(255, 0, 0, 0.1) inset, 0 0 0 8px transparent inset, 0 0 0 10px transparent inset;
+  }
+  80% {
+    box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.1) inset, 0 0 0 4px rgba(255, 0, 0, 0.1) inset, 0 0 0 6px rgba(255, 0, 0, 0.1) inset, 0 0 0 8px rgba(255, 0, 0, 0.1) inset, 0 0 0 10px transparent inset;
+  }
+  100% {
+    box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.1) inset, 0 0 0 4px rgba(255, 0, 0, 0.1) inset, 0 0 0 6px rgba(255, 0, 0, 0.1) inset, 0 0 0 8px rgba(255, 0, 0, 0.1) inset, 0 0 0 10px rgba(255, 0, 0, 0.1) inset;
+  }
+}
+@keyframes vr_focus {
+  0% {
+    box-shadow: 0 0 0 2px transparent inset, 0 0 0 4px transparent inset, 0 0 0 6px transparent inset, 0 0 0 8px transparent inset, 0 0 0 10px transparent inset;
+  }
+  20% {
+    box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.1) inset, 0 0 0 4px transparent inset, 0 0 0 6px transparent inset, 0 0 0 8px transparent inset, 0 0 0 10px transparent inset;
+  }
+  40% {
+    box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.1) inset, 0 0 0 4px rgba(255, 0, 0, 0.1) inset, 0 0 0 6px transparent inset, 0 0 0 8px transparent inset, 0 0 0 10px transparent inset;
+  }
+  60% {
+    box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.1) inset, 0 0 0 4px rgba(255, 0, 0, 0.1) inset, 0 0 0 6px rgba(255, 0, 0, 0.1) inset, 0 0 0 8px transparent inset, 0 0 0 10px transparent inset;
+  }
+  80% {
+    box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.1) inset, 0 0 0 4px rgba(255, 0, 0, 0.1) inset, 0 0 0 6px rgba(255, 0, 0, 0.1) inset, 0 0 0 8px rgba(255, 0, 0, 0.1) inset, 0 0 0 10px transparent inset;
+  }
+  100% {
+    box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.1) inset, 0 0 0 4px rgba(255, 0, 0, 0.1) inset, 0 0 0 6px rgba(255, 0, 0, 0.1) inset, 0 0 0 8px rgba(255, 0, 0, 0.1) inset, 0 0 0 10px rgba(255, 0, 0, 0.1) inset;
+  }
+}
+/* line 76, ../sass/vr.scss */
+.drawmode-vr {
+  position: relative;
+  background-color: black;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+/* line 81, ../sass/vr.scss */
+.drawmode-vr.vr-waiting:after {
+  content: '正在等待遠端裝置';
+  position: absolute;
+  display: block;
+  width: 11.6em;
+  height: 2em;
+  line-height: 1.8em;
+  padding: 0.2em;
+  text-align: center;
+  background-color: black;
+  color: white;
+  left: 50%;
+  top: 50%;
+  margin-left: -5.8em;
+  margin-top: -1em;
+  box-sizing: border-box;
+  letter-spacing: 0.2em;
+  font-size: 24px;
+}
+/* line 99, ../sass/vr.scss */
+.drawmode-vr.vr-waiting .vr-main {
+  opacity: 0.6;
+}
+
+/* line 104, ../sass/vr.scss */
+.vr-main {
+  transition: opacity 0.2s ease-in;
+}
+
+/* line 107, ../sass/vr.scss */
+.vr-focus {
+  box-sizing: border-box;
+  width: 10px;
+  height: 10px;
+  border: 1px solid white;
+  border-radius: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -5px;
+  margin-left: -5px;
+  z-index: 20;
+  color: white;
+  text-align: center;
+  line-height: 10px;
+}
+/* line 120, ../sass/vr.scss */
+.vr-focus:after, .vr-focus:before {
+  content: ' ';
+  box-sizing: border-box;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -15px;
+  margin-left: -15px;
+  border: 1px solid transparent;
+  border-radius: 100%;
+}
+/* line 130, ../sass/vr.scss */
+.vr-focus:after {
+  transition: all 0.2s cubic-bezier(0.5, 1, 0, 1);
+}
+/* line 133, ../sass/vr.scss */
+.vr-focus:before {
+  transition: all 0.2s cubic-bezier(0.5, 1, 0, 1) 0.1s;
+}
+/* line 136, ../sass/vr.scss */
+.vr-focus.vr-no-arrow .vr-arrow {
+  display: none;
+}
+/* line 139, ../sass/vr.scss */
+.vr-focus .vr-arrow {
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 8px solid rgba(255, 255, 0, 0.6);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -4px;
+  margin-top: -16px;
+  animation: vr_arrow 1s infinite linear;
+}
+/* line 151, ../sass/vr.scss */
+.draw-done .vr-focus .vr-arrow {
+  display: none;
+}
+/* line 154, ../sass/vr.scss */
+.vr-focus .vr-arrow:before, .vr-focus .vr-arrow:after {
+  content: ' ';
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 8px solid rgba(255, 255, 0, 0.6);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -4px;
+}
+/* line 165, ../sass/vr.scss */
+.vr-focus .vr-arrow:before {
+  margin-top: -8px;
+  transform: scale(0.8);
+  animation: vr_arrow2 1s infinite linear;
+}
+/* line 170, ../sass/vr.scss */
+.vr-focus .vr-arrow:after {
+  margin-top: -16px;
+  transform: scale(0.5);
+  animation: vr_arrow3 1s infinite linear;
+}
+/* line 176, ../sass/vr.scss */
+.vr-focus.vr-focusing {
+  border-color: rgba(255, 0, 0, 0.6);
+  animation: vr_focus 0.3s forwards 1;
+}
+/* line 179, ../sass/vr.scss */
+.vr-focus.vr-focusing:after {
+  border-color: yellow;
+  transform: scale(0.4);
+}
+/* line 183, ../sass/vr.scss */
+.vr-focus.vr-focusing:before {
+  border-color: orange;
+  transform: scale(0.5);
+}
+/* line 187, ../sass/vr.scss */
+.vr-focus.vr-focusing .vr-arrow {
+  display: none;
+}
+
+/* line 192, ../sass/vr.scss */
+.vr-digits {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  right: 0;
+  top: 60%;
+  transform: scale(0.5);
+  z-index: 10;
+  padding: 2px;
+  perspective: 100px;
+}
+/* line 201, ../sass/vr.scss */
+.draw-done .vr-digits {
+  display: none;
+}
+/* line 204, ../sass/vr.scss */
+.vr-digits .vr-digit {
+  display: inline-block;
+  font-family: "Fredoka One",cursive;
+  transition: all 0.3s;
+  opacity: 0.6;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.6);
+  margin: 3px;
+  border-radius: 12px;
+  border: 2px solid brown;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.6) inset, 0 0 0 3px brown inset;
+  text-align: center;
+  color: #666;
+}
+@media screen and (min-width: 800px) {
+  /* line 204, ../sass/vr.scss */
+  .vr-digits .vr-digit {
+    width: 64px;
+    height: 89.6px;
+    font-size: 64px;
+    line-height: 89.6px;
+  }
+}
+@media screen and (max-width: 799px) {
+  /* line 204, ../sass/vr.scss */
+  .vr-digits .vr-digit {
+    width: 12vmin;
+    height: 16.8vmin;
+    font-size: 12vmin;
+    line-height: 16.8vmin;
+  }
+}
+/* line 231, ../sass/vr.scss */
+.vr-digits .vr-digit.active {
+  opacity: 1;
+  background-color: gold;
+  color: black;
+  text-shadow: 0 -2px 0 white;
+  box-shadow: 0 0 0 2px rgba(255, 255, 0, 0.6) inset, 0 0 0 3px brown inset;
+}
+
+/* line 243, ../sass/vr.scss */
+.vr-dual {
+  transition: opacity 0.3s ease-in;
+  position: fixed;
+  top: 0;
+}
+/* line 247, ../sass/vr.scss */
+.vr-dual.vr-dual-left {
+  left: 0;
+}
+/* line 250, ../sass/vr.scss */
+.vr-dual.vr-dual-right {
+  right: 0;
+}
+
+/* line 254, ../sass/vr.scss */
+.vr-cleared {
+  background: black;
+}
+/* line 256, ../sass/vr.scss */
+.vr-cleared .vr-dual {
+  opacity: 0.5;
+}
+
+/* line 260, ../sass/vr.scss */
+.vr-result {
+  position: absolute;
+  z-index: 30;
+  font-size: 96px;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  padding: 20px;
+  border-radius: 36px;
+  text-align: center;
+  width: 800px;
+  margin-left: -480px;
+  left: 50%;
+  top: 60px;
+  line-height: 1.4em;
+  text-shadow: 0 0 10px black;
+}
+/* line 275, ../sass/vr.scss */
+.vr-result.inactive {
+  display: none;
+}
+/* line 278, ../sass/vr.scss */
+.vr-result .drawmode-group {
+  font-size: 72px;
+}
+
+/* line 194, ../sass/remote_draw.scss */
+.drawmode-vr {
+  display: none;
+}
+/* line 196, ../sass/remote_draw.scss */
+.vring .drawmode-vr {
+  display: block;
 }

@@ -153,7 +153,6 @@
     left: 50%; top: 50%;
     margin-left: $size/-2;
     margin-top: $size/-2;
-    background: #0087B7;
     border-radius: $size*4 $size*4 100% 100%;
     border-bottom: $size/20 solid black;
     @include background-image(radial-gradient(left top, rgba(white, 0.8), rgba(white, 0)));
@@ -161,6 +160,12 @@
     @include animation_toggle(ball_open1) {
         animation: ball_open1 0.6s steps(30, start) forwards;
     }
+    background: red;
+    div[data-ball-id="1"] &,
+    div[data-ball-id="2"] & {
+        background: #0087B7;
+    }
+
     &:after {
         display: inline-block;
         content: ' ';
@@ -180,7 +185,7 @@
 .reset-area {
     transition: color 0.3s ease-in;
     position: absolute;
-    left: 4px; top: 64px;
+    left: 8px; top: 64px;
     font-size: 32px;
     width: 1em; height: 1em;
     color: rgba(white, 0.4);

@@ -1109,7 +1109,170 @@ $.when(
             },
             thumb: 'images/drawmode3.png'
         });
-        drawmodes['guagua'].setCurrent();
+        new DrawMode({
+            id: 'pokemon',
+            title: '精靈寶可夢',
+            info: '2016正夯的遊戲，你今天抓寶了嗎？想要得大獎？一起來被長官的寶貝球收服吧！',
+            $dom: $('.drawmode-pokemon').detach().removeClass('tpl-data'),
+            preProcess: function(){
+                this.pokemonGo = new PokemonGo(this.$dom[0], {
+                    pokemon: [
+                        {normal: 'ivs_normal.png', hit: 'ivs_hit.png', desc: '前方有隻野生的大目千歲'},
+                        {normal: 'hicloud_normal.png', hit: 'hicloud_hit.png', desc: '前方有隻野生的雲小獅'}
+                    ],
+                    ball: [
+                        'ball.jpg', 'ball2.jpg', 'ball3.jpg'
+                    ],
+                    is_active: false
+                });
+            },
+            remoteDraw: function(){
+                var new_log = [PokemonGoMouseGesture[0][0]];
+                var s = parseInt((PokemonGoMouseGesture[0].length-21)*Math.random())+1;
+                new_log.push.apply(new_log, PokemonGoMouseGesture[0].slice(s, s+20))
+                this.pokemonGo.replayLog(new_log);
+            },
+            onDraw: function(deferred){
+                var that = this, dom = this.$dom;
+                var user = null;
+                that.pokemonGo.resetAll();
+                that.pokemonGo.setActive(true);
+                that.pokemonGo.setBall();
+                that.pokemonGo.setPokemon();
+                myFirebaseRef.ref(firebase_conf.response).push({
+                    action: 'initpoke'
+                });
+                dom.find('.pokemon-result').addClass('inactive').removeClass('animated bounceInDown');
+                dom.unbind('pokedown').bind('pokedown', function(e, x, y){
+                    that.pokemonGo.fakeTouchHandler.down({clientX: x, clientY: y});
+                });
+                dom.unbind('pokemove').bind('pokemove', function(e, x, y){
+                    that.pokemonGo.fakeTouchHandler.move({clientX: x, clientY: y});
+                });
+                dom.unbind('pokeup').bind('pokeup', function(e, x, y){
+                    that.pokemonGo.fakeTouchHandler.up();
+                });
+                dom.one('gotcha', function(){
+                    that.pokemonGo.setActive(false);
+                    user = that.getUser();
+                    dom.find('.pokemon-hp span').text(parseInt(Math.random()*800+50,10));
+                    dom.find('.drawmode-sn').text(user.sn);
+                    dom.find('.drawmode-group').text(user.group);
+                    dom.find('.drawmode-name').text(user.name);
+                    dom.find('.pokemon-result').removeClass('inactive').addClass('animated bounceInDown');
+                    deferred.resolve(user);
+                    myFirebaseRef.ref(firebase_conf.response).push({
+                        action: 'clearpoke'
+                    });
+                });
+            },
+            thumb: 'images/drawmode4.png'
+        });
+        new DrawMode({
+            id: 'vr',
+            title: '虛擬實境',
+            info: '結合 VR 眼鏡的抽獎模式，找出散佈於各處的員工編號，準備好一起天旋地轉了嗎？',
+            $dom: $('.drawmode-vr').detach().removeClass('tpl-data'),
+            preProcess: function(){
+                window.vrDraw = this.vrDraw = new VRDraw(this.$dom[0], {
+                    width: 1024, height: 608,
+                    skip_euler_rotation: true,
+                    is_active: false
+                });
+            },
+            remoteDraw: function(){
+                //no-op
+            },
+            onDraw: function(deferred){
+                var that = this, dom = this.$dom;
+                that.vrDraw.setActive(true);
+                dom.find('.vr-result').addClass('inactive').removeClass('animated bounceInDown');
+                dom.addClass('vr-waiting');
+                setTimeout(function(){
+                    var user = that.getUser();
+                    that.vrDraw.resetAll();
+                    var sn = '0'+user.sn;
+                    for(var i = 0; i < 6; i++) {
+                        that.vrDraw.putRandomGift(user.sn.substr(-(6-i), 1));
+                    }
+                    dom.unbind('dblclick').one('dblclick', function(){
+                        that.vrDraw.setActive(true);
+                        dom.removeClass('vr-waiting');
+                    });
+                    var prev_moveto_time, move_to_timer;
+                    dom.unbind('vrmoveto').bind('vrmoveto', function(e, data){
+                        console.log({
+                            alpha: that.vrDraw.controls.deviceOrientation.alpha.toFixed(2), 
+                            beta: that.vrDraw.controls.deviceOrientation.beta.toFixed(2), 
+                            gamma: that.vrDraw.controls.deviceOrientation.gamma.toFixed(2)
+                        });
+                        //that.vrDraw.controls.screenOrientation = data.euler.orient;
+                        //{{regularing deviceOrientation
+                        while(that.vrDraw.controls.deviceOrientation.alpha > 360) that.vrDraw.controls.deviceOrientation.alpha -= 360;
+                        while(that.vrDraw.controls.deviceOrientation.alpha < 0) that.vrDraw.controls.deviceOrientation.alpha += 360;
+                        while(that.vrDraw.controls.deviceOrientation.beta > 180) that.vrDraw.controls.deviceOrientation.beta -= 360;
+                        while(that.vrDraw.controls.deviceOrientation.beta < -180) that.vrDraw.controls.deviceOrientation.beta += 360;
+                        //}}
+                        if(prev_moveto_time) {
+                            clearTimeout(move_to_timer);
+                            (function(from_time, to_time, now_pos, next_pos){
+                                //{{ 改繞最短路徑
+                                var skip = false;
+                                if( now_pos.alpha > next_pos.alpha && now_pos.alpha - next_pos.alpha >  180 ) next_pos.alpha+=360;
+                                if( now_pos.alpha < next_pos.alpha && now_pos.alpha - next_pos.alpha < -180 ) next_pos.alpha-=360;
+                                if( now_pos.beta > next_pos.beta && now_pos.beta - next_pos.beta >  180 ) next_pos.beta+=360;
+                                if( now_pos.beta < next_pos.beta && now_pos.beta - next_pos.beta < -180 ) next_pos.beta-=360;
+                                //}}
+                                (function tickTo(tick){
+                                    var d = tick/(to_time - from_time);
+                                    if(d>1) d = 1;
+                                    var new_alpha = now_pos.alpha*(1-d) + next_pos.alpha*d;
+                                    var new_beta = now_pos.beta*(1-d) + next_pos.beta*d;
+                                    that.vrDraw.setEuler(
+                                        new_alpha, new_beta, 0
+                                    );
+                                    if(d!=1) {
+                                        clearTimeout(move_to_timer);
+                                        move_to_timer = setTimeout(function(){
+                                            var new_tick = ((new Date()).getTime() - to_time);
+                                            tickTo(new_tick);
+                                        }, 16);
+                                    }
+                                })(16);
+                            })(prev_moveto_time, (new Date()).getTime(), {
+                                    alpha: that.vrDraw.controls.deviceOrientation.alpha, 
+                                    beta: that.vrDraw.controls.deviceOrientation.beta 
+                                }, {
+                                    alpha: data.euler.alpha,
+                                    beta: data.euler.beta
+                                }
+                            );
+                            prev_moveto_time = (new Date()).getTime();
+                        } else {
+                            that.vrDraw.setEuler(data.euler.alpha, data.euler.beta, 0);
+                            prev_moveto_time = (new Date()).getTime();
+                        }
+                    });
+                    dom.unbind('allclear').one('allclear', function(){
+                        that.vrDraw.setActive(false);
+                        dom.find('.drawmode-sn').text(user.sn);
+                        dom.find('.drawmode-group').text(user.group);
+                        dom.find('.drawmode-name').text(user.name);
+                        dom.find('.vr-result').removeClass('inactive').addClass('animated bounceInDown');
+                        myFirebaseRef.ref(firebase_conf.response).push({
+                            action: 'clearvr'
+                        });
+                        deferred.resolve(user);
+                    });
+                    myFirebaseRef.ref(firebase_conf.response).push({
+                        action: 'initvr',
+                        pos_array: that.vrDraw.getGiftsPos()
+                    });
+                }, 100);
+            },
+            thumb: 'images/drawmode5.png'
+        });
+        drawmodes['vr'].setCurrent();
     })();
     ////}}
 
@@ -1365,6 +1528,19 @@ $.when(
                     if($canvas.length) {
                         $canvas.trigger('scratch', [value.x, value.y]);
                     }
+                }
+                if(value.action.indexOf('poke')===0) {
+                    var $area = $('.drawmode-pokemon');
+                    if($area.length) {
+                        $area.trigger(value.action, [value.x, value.y]);
+                        document.title = [value.action, value.x, value.y].join(' ');
+                    }
+                }
+                if(value.action == 'vrinited') {
+                    current_drawmode.$dom.trigger('dblclick');
+                }
+                if(value.action == 'vrmoveto') {
+                    current_drawmode.$dom.trigger('vrmoveto', {euler: value.euler});
                 }
             });
         };

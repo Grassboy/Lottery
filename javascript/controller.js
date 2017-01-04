@@ -374,7 +374,7 @@ $.when(
                     }
                     _dom.summary_page.addClass('ready');
                 }
-            }, 1000);
+            }, current_drawmode.id=='basic'?100:1000);
         },
         delUser: function(user){
             for(var i = 0, n = this.award_to.length; i < n; ++i){
@@ -547,7 +547,7 @@ $.when(
                 if(that.under_auto_draw) {
                     setTimeout(function(){
                         $('.summary-page.ready .button-start').click();
-                    }, 2000);
+                    }, current_drawmode.id=='basic'?500:2000);
                 }
                 return user;
             });
@@ -664,16 +664,16 @@ $.when(
                 if(!is_back) {
                     if(now >= scroll_to){
                         setTimeout(function(){
-                            scrollFunc(now - 5, true);
+                            scrollFunc(now - 10, true);
                         }, 2000);
                     } else {
                         setTimeout(function(){
-                            scrollFunc(now + 5);
+                            scrollFunc(now + 10);
                         }, 30);
                     }
                 } else if(is_back && now > 0) {
                     setTimeout(function(){
-                        scrollFunc(now - 5, true);
+                        scrollFunc(now - 10, true);
                     }, 30);
                 }
             };
@@ -907,7 +907,7 @@ $.when(
                 //這支的目的是要讓 DrawMode.prototype.draw() 有抽出一個 user，讓[開始] button 再次出現
                 setTimeout(function(){
                     $('.drawmode-basic .drawmode-stop').click();
-                }, 300);
+                }, 100);
             },
             remoteDraw: function(){
                 $('.drawmode-basic .drawmode-stop').click();

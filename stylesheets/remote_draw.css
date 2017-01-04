@@ -99,13 +99,14 @@ body.scratching .guagua-card {
   -ms-user-select: none;
   -webkit-user-select: none;
   user-select: none;
-  transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+  transition: margin-left 0.1s ease-out, margin-top 0.1s ease-out, box-shadow 0.1s ease-out;
   border: 3px solid black;
   text-align: center;
   position: absolute;
   left: 50%;
   top: 40%;
-  transform: translateX(-150px) translateY(-150px);
+  margin-left: -150px;
+  margin-top: -150px;
   padding: 100px;
   width: 300px;
   height: 300px;
@@ -119,15 +120,16 @@ body.scratching .guagua-card {
   font-size: 120px;
   box-shadow: 2px 2px 0 red inset, 4px 4px 0 white inset, -2px -2px 0 #FF0000 inset, -10px -10px 30px #660000 inset, 10px 10px 30px brown;
 }
-/* line 75, ../sass/remote_draw.scss */
+/* line 76, ../sass/remote_draw.scss */
 .remote-draw-button:active {
   transition: none;
   background-image: linear-gradient(180deg, rgba(214, 95, 95, 0.5), rgba(165, 42, 42, 0.6) 30%, rgba(165, 42, 42, 0.3));
   box-shadow: 2px 2px 0 red inset, 4px 4px 0 white inset, -2px -2px 0 #FF0000 inset, -10px -10px 30px #660000 inset, 5px 5px 20px brown;
   background-color: gold;
-  transform: translateX(-130px) translateY(-130px);
+  margin-left: -130px;
+  margin-top: -130px;
 }
-/* line 82, ../sass/remote_draw.scss */
+/* line 84, ../sass/remote_draw.scss */
 .remote-draw-button:after {
   content: '請按按鈕';
   font-size: 0.5em;
@@ -137,7 +139,7 @@ body.scratching .guagua-card {
   height: 1em;
 }
 
-/* line 91, ../sass/remote_draw.scss */
+/* line 93, ../sass/remote_draw.scss */
 .guagua-card {
   display: none;
   text-align: center;
@@ -153,7 +155,7 @@ body.scratching .guagua-card {
   background-image: url(../images/card2.jpg);
 }
 
-/* line 111, ../sass/remote_draw.scss */
+/* line 113, ../sass/remote_draw.scss */
 .guagua-canvas {
   cursor: url(http://i.imgur.com/7ZGwfbu.png) 32 32, auto;
   position: absolute;
@@ -161,22 +163,22 @@ body.scratching .guagua-card {
   top: 0;
 }
 
-/* line 116, ../sass/remote_draw.scss */
+/* line 118, ../sass/remote_draw.scss */
 .guagua-img {
   display: none;
 }
 
-/* line 119, ../sass/remote_draw.scss */
+/* line 121, ../sass/remote_draw.scss */
 .drawmode-group {
   font-size: 84px;
 }
 
-/* line 122, ../sass/remote_draw.scss */
+/* line 124, ../sass/remote_draw.scss */
 .drawmode-sn, .drawmode-name {
   font-size: 128px;
 }
 
-/* line 125, ../sass/remote_draw.scss */
+/* line 127, ../sass/remote_draw.scss */
 .drawmode-sn {
   font-family: 'courier new';
   font-weight: bold;
@@ -231,7 +233,7 @@ body.scratching .guagua-card {
     opacity: 0;
   }
 }
-/* line 145, ../sass/remote_draw.scss */
+/* line 147, ../sass/remote_draw.scss */
 .draw-result {
   opacity: 0;
   font-size: 72px;
@@ -243,12 +245,12 @@ body.scratching .guagua-card {
   -webkit-animation: signal 5s 1;
   animation: signal 5s 1;
 }
-/* line 154, ../sass/remote_draw.scss */
+/* line 156, ../sass/remote_draw.scss */
 .draw-result.pong {
   -webkit-animation: signal2 5s 1;
   animation: signal2 5s 1;
 }
-/* line 158, ../sass/remote_draw.scss */
+/* line 160, ../sass/remote_draw.scss */
 .draw-result:before {
   content: '前次結果';
   font-size: 24px;
@@ -268,7 +270,7 @@ body.scratching .guagua-card {
     }
 }
 */
-/* line 176, ../sass/remote_draw.scss */
+/* line 178, ../sass/remote_draw.scss */
 .ping {
   opacity: 0.2;
   font-size: 16px;
@@ -282,11 +284,11 @@ body.scratching .guagua-card {
   -webkit-animation: signal 1s 1;
   animation: signal 1s 1;
 }
-/* line 177, ../sass/remote_draw.scss */
+/* line 179, ../sass/remote_draw.scss */
 .vring .ping {
   display: none;
 }
-/* line 190, ../sass/remote_draw.scss */
+/* line 192, ../sass/remote_draw.scss */
 .ping.pong {
   -webkit-animation: signal2 1s 1;
   animation: signal2 1s 1;

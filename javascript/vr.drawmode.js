@@ -193,30 +193,10 @@ mesh.quaternion.copy(controls.object.getWorldQuaternion())
             }
         });
     }
-    var toggleFullscreen = function(){
-        if(document.webkitIsFullScreen) {
-            document.body.webkitExitFullscreen && document.webkitExitFullscreen();
-            screen && screen.orientation && screen.orientation.unlock();
-        } else {
-            document.body.webkitRequestFullscreen && document.body.webkitRequestFullscreen();
-            screen && screen.orientation && screen.orientation.lock('landscape');
-        }
-    };
     var viewHandler = (function(){
         var x0, y0, alpha0 = null, beta0 = null;
         return {
             mousedown: function(e){
-                if(e.touches && !that.states.checked_fullscreen && !document.webkitIsFullScreen) {
-                    that.states.checked_fullscreen = true;
-                    try{
-                        toggleFullscreen();
-                    } catch(e) {
-                        alert(e);
-                    }
-                }
-                if(e.touches && e.touches.length == 4) {
-                    toggleFullscreen();
-                }
                 if(!touch) {
                     e = e.touches && e.touches[0] || e;
                     x0 = e.clientX; y0 = e.clientY;

@@ -17,10 +17,10 @@
     <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
 	<link href="stylesheets/fix.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <!-- //開發模式下，可能需要 compass livereload 環境
+	<link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    -->
     <script src="http://localhost:35729/livereload.js"></script>
 	<link onerror="this.href='stylesheets/screen.css'" href="http://localhost:24680/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
-    -->
-	<link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <script src="javascript/Three.js"></script>
     <script src="javascript/Projector.js"></script>
     <script src="javascript/cannon.js"></script>
@@ -234,6 +234,37 @@
                     </li>
                 </ol>
             </div>
+            <div class="page ps-page inactive">
+                <h3>可不在現場的員工清單</h3>
+                <ol class="table ps-list ps-noshow-list">
+                    <li class="tr th ps-item">
+                        <div class="td">序號</div>
+                        <div class="td ps-sn">員工代號</div>
+                        <div class="td ps-content">可不在現場的原因</div>
+                    </li>
+                    <li class="tr ps-item tpl-data">
+                        <div class="td ps-id"></div>
+                        <div class="td ps-sn"></div>
+                        <div class="td ps-content"></div>
+                    </li>
+                </ol>
+                <h3>只能領某些獎的員工清單</h3>
+                <ol class="table ps-list ps-only-list">
+                    <li class="tr th ps-item">
+                        <div class="td">序號</div>
+                        <div class="td ps-sn">員工代號</div>
+                        <div class="td ps-content">只能領取…</div>
+                    </li>
+                </ol>
+                <h3>不得領某些獎的員工清單</h3>
+                <ol class="table ps-list ps-skip-list">
+                    <li class="tr th ps-item">
+                        <div class="td">序號</div>
+                        <div class="td ps-sn">員工代號</div>
+                        <div class="td ps-content">不得領取…</div>
+                    </li>
+                </ol>
+            </div>
             <div class="page gift-result inactive">
                 <h3>所有獎項清單</h3>
                 <ol class="table gift-result-list">
@@ -274,6 +305,7 @@
             <ul class="toolbox">
                 <li class="btn"><i class="icon-user"></i><label>員工清單</label></li><li 
                     class="btn"><i class="icon-award"></i><label>抽獎統計</label></li><li 
+                    class="btn"><i class="icon-notice"></i><label>特殊清單</label></li><li 
                     class="btn"><i class="icon-ticket"></i><label>抽獎模式</label></li><li 
                     class="btn"><i class="icon-draw"></i><label>匯出檔案</label></li><li 
                     class="btn"><i class="icon-settings"></i><label>系統設定</label></li><li 

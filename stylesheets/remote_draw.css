@@ -627,14 +627,45 @@ body.scratching .guagua-card {
 }
 /* line 9, ../sass/vr.mobile.scss */
 .drawmode-vr {
-  display: none;
+  position: relative;
 }
 /* line 11, ../sass/vr.mobile.scss */
-.vring .drawmode-vr {
+.drawmode-vr .vr-main {
+  background-image: url(../images/vr_bg.gif);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+/* line 16, ../sass/vr.mobile.scss */
+.drawmode-vr .vr-main canvas, .drawmode-vr .vr-main .vr-focus {
+  display: none;
+}
+/* line 18, ../sass/vr.mobile.scss */
+.vring .drawmode-vr .vr-main canvas, .vring .drawmode-vr .vr-main .vr-focus {
   display: block;
 }
+/* line 22, ../sass/vr.mobile.scss */
+.drawmode-vr .vr-main:after {
+  content: '目前位於 VR 模式下，\A調整眼鏡上方旋鈕\A可以讓畫面更加清楚';
+  display: block;
+  background: white;
+  padding: 0.5em;
+  box-sizing: border-box;
+  position: absolute;
+  color: black;
+  line-height: 1.4em;
+  text-align: left;
+  font-size: 1vmin;
+  right: 15%;
+  bottom: 25%;
+  width: 40%;
+}
+/* line 35, ../sass/vr.mobile.scss */
+.vring .drawmode-vr .vr-main:after {
+  display: none;
+}
 
-/* line 15, ../sass/vr.mobile.scss */
+/* line 41, ../sass/vr.mobile.scss */
 .vr-result {
   position: absolute;
   z-index: 30;
@@ -652,16 +683,16 @@ body.scratching .guagua-card {
   text-shadow: 0 0 10px black;
   animation: vr_result 3s 1 forwards;
 }
-/* line 31, ../sass/vr.mobile.scss */
+/* line 57, ../sass/vr.mobile.scss */
 .vr-result.inactive {
   display: none;
   animation: none;
 }
-/* line 35, ../sass/vr.mobile.scss */
+/* line 61, ../sass/vr.mobile.scss */
 .vr-result .drawmode-group {
   font-size: 5vmin;
 }
-/* line 38, ../sass/vr.mobile.scss */
+/* line 64, ../sass/vr.mobile.scss */
 .vr-result .drawmode-name, .vr-result .drawmode-sn {
   font-size: 5vmin;
   text-shadow: none;

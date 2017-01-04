@@ -196,6 +196,15 @@
             });
             */
         })();
+        var toggleFullscreen = function(){
+            if(document.webkitIsFullScreen) {
+                document.webkitExitFullscreen && document.webkitExitFullscreen();
+                screen && screen.orientation && screen.orientation.unlock();
+            } else {
+                document.body.webkitRequestFullscreen && document.body.webkitRequestFullscreen();
+                screen && screen.orientation && screen.orientation.lock('landscape');
+            }
+        };
         $(window).bind('touchstart', function(e){
             e = e.originalEvent;
             if(e.touches.length == 5) {
@@ -207,13 +216,15 @@
                     localStorage.vr_enable = 'yes';
                 }
                 location.reload();
+            } else if (e.touches.length == 4) {
+                toggleFullscreen();
             }
         });
         if(localStorage.vr_enable) {
             (function(){
                 //var clear_timer;
                 var vrDraw = new VRDraw($('.drawmode-vr')[0], {
-                    fullscreen: true, dualmode: !(window.innerWidth >= 800 || window.innerHeight >= 800), arrow_delay: 2000, touch: true,
+                    fullscreen: true, dualmode: !(window.innerWidth >= 800 || window.innerHeight >= 800), arrow_delay: 1000, touch: true,
                     onClearGift: function(current_length, index) {
                         myFirebaseRef.ref(firebase_conf.get).push({
                             action: 'vrcleargift',
@@ -281,6 +292,7 @@
                     $('body').addClass('vring');
                 });
             })();
+        } else {
+            $('.drawmode-vr').hide();
         }
     }
-    

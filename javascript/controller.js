@@ -190,6 +190,7 @@ $.when(
     var _tpl = {
         user_data: null,
         gift_data: null,
+        ps_data: null,
         gift_result_data: null,
         gift_owner: null
     };
@@ -217,6 +218,7 @@ $.when(
         this.title = opts.title;                //職稱
         this.gone_ok = opts.gone_ok || false;   //是否不在現場亦可領獎
         this.receive_gift = null;               //得到的獎項
+        this.allow_gift = '';                   //只能領取的獎項，如果為空，表示所有獎項皆可領取
         this.removed = false;
         user_array.push(this);
 
@@ -558,12 +560,13 @@ $.when(
     (function initTemplate(){       //先把頁面需暫存的元素取出
         _tpl.user_data = $('.user-item.tpl-data').detach().removeClass('tpl-data');
         _tpl.gift_data = $('.gift-item.tpl-data').detach().removeClass('tpl-data');
+        _tpl.ps_data = $('.ps-item.tpl-data').detach().removeClass('tpl-data');
         _tpl.gift_result_data = $('.gift-result-item.tpl-data').detach().removeClass('tpl-data');
         _tpl.drawtype_item = $('.drawtype-item.tpl-data').detach().removeClass('tpl-data');
         _tpl.summary_th = $('.summary-item.th.tpl-data').detach().removeClass('tpl-data');
         _tpl.summary_item = $('.summary-item.tpl-data').detach().removeClass('tpl-data');
     })();
-    
+
     //{{ init StartUp Event Listener
     var initStartUpEvent = function(){ //要啟動系統後才會監聽的事件
         $('.back-to-import').hide();
@@ -845,6 +848,8 @@ $.when(
                 $('.page.drawtype-page').removeClass('inactive').addClass('active');
             } else if ($this.is('.icon-settings')) {
                 $('.page.config-page').removeClass('inactive').addClass('active');
+            } else if ($this.is('.icon-notice')) {
+                $('.page.ps-page').removeClass('inactive').addClass('active');
             } else if ($this.is('.icon-home')) {
                 $('.page.main-page').removeClass('inactive').addClass('active');
             } else if ($this.is('.icon-draw')) {
@@ -1382,9 +1387,11 @@ $.when(
                 alert('您設定不能領 '+gift_id+'，\n但該獎項編號並不存在您的獎項清單！');
             } else {
                 data[i] = gift.skip = []; //把 data 拿來當該 gift 的 skip 屬性的捷徑
+                data[i]._gift_sn = gift.sn //把 gift.skip 加個 sn 的 reference (這種寫法好醜0rz...以後應該要比照 allow_gift_column 的寫法才對)
             }
         }
         
+        var noshow_count = only_count = skip_count = 0;
         for(var i = 1, n = users.length; i < n; ++i){
             var ps_user = $.trim(users[i]).split(',');
             if(ps_user[1]){
@@ -1396,17 +1403,37 @@ $.when(
                 } else {
                     if($.trim(ps_user[2])) {
                         user.gone_ok = $.trim(ps_user[2]);
+                        //在 ps-page 下列出可不在現場原因
+                        var ps_item = _tpl.ps_data.clone().appendTo('.ps-noshow-list');
+                        ps_item.find('.ps-id').text(++noshow_count);
+                        ps_item.find('.ps-sn').text(ps_user[1]);
+                        ps_item.find('.ps-content').text(user.gone_ok);
                     }
+                    var skip_gift_array = [];
                     for(var j = 3, n2 = ps_user.length; j < n2 && data[j]; ++j){
                         if(j == allow_gift_column_index) {
-                            if($.trim(ps_user[allow_gift_column_index]) != '') {
+                            if($.trim(ps_user[allow_gift_column_index]) != '') { //如果該用戶只被允許領某些獎
                                 user.allow_gift = '|'+$.trim(ps_user[allow_gift_column_index]).split(' ').join('|')+'|';
+                                //在 ps-page 下列出該員工只能領取的獎項清單
+                                var ps_item = _tpl.ps_data.clone().appendTo('.ps-only-list');
+                                ps_item.find('.ps-id').text(++only_count);
+                                ps_item.find('.ps-sn').text(ps_user[1]);
+                                ps_item.find('.ps-content').text(user.allow_gift.replace(/\|/g, ' '));
                             }
                             continue;
                         }
                         if($.trim(ps_user[j])) {
                             data[j].push(user.sn);  //data[i] 為前面指定的 gift.skip 清單
+                            //將此獎項的 id 列出 
+                            skip_gift_array.push(data[j]._gift_sn);
                         }
+                    }
+                    if(skip_gift_array.length != 0) {
+                        //在 ps-page 下列出必需 skip 的獎項清單
+                        var ps_item = _tpl.ps_data.clone().appendTo('.ps-skip-list');
+                        ps_item.find('.ps-id').text(++skip_count);
+                        ps_item.find('.ps-sn').text(ps_user[1]);
+                        ps_item.find('.ps-content').text(skip_gift_array.join(' '));
                     }
                 }
             }

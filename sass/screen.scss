@@ -181,10 +181,10 @@ html, body {
 }
 .toolbox {
     display: inline-block;
-    width: 490px;
+    width: 550px;
     transition: left 0.3s ease-in;
     position: relative;
-    left: -420px;
+    left: -480px;
     z-index: 103;
     &.active {
         left: 0;
@@ -1102,7 +1102,8 @@ html, body {
             color: white;
         }
         &.user-sn, 
-        &.gift-result-sn {
+        &.gift-result-sn,
+        &.ps-sn {
             width: 100px;
         }
         &.user-group, 
@@ -1148,9 +1149,15 @@ html, body {
                 }
             }
         }
+        &.ps-content {
+            width: 300px;
+            text-align: left;
+        }
     }
 }
-
+.ps-list {
+    margin-bottom: 3em;
+}
 .drawing-page {
     @include user-select(none);
     position: relative;

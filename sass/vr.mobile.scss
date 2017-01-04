@@ -7,9 +7,35 @@
     }
 }
 .drawmode-vr {
-    display: none;
-    .vring & {
-        display: block;
+    position: relative;
+    .vr-main {
+        background-image: url(../images/vr_bg.gif);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+        canvas, .vr-focus {
+            display: none;
+            .vring & {
+                display: block;
+            }
+        }
+        &:after {
+            content: '目前位於 VR 模式下，\A調整眼鏡上方旋鈕\A可以讓畫面更加清楚';
+            display: block;
+            background: white;
+            padding: 0.5em;
+            box-sizing: border-box;
+            position: absolute;
+            color: black;
+            line-height: 1.4em;
+            text-align: left;
+            font-size: 1vmin;
+            right: 15%; bottom: 25%;
+            width: 40%;
+            .vring & {
+                display: none;
+            }
+        }
     }
 }
 .vr-result {

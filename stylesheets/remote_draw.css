@@ -99,13 +99,13 @@ body.scratching .guagua-card {
   -ms-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
   border: 3px solid black;
   text-align: center;
   position: absolute;
   left: 50%;
   top: 40%;
-  margin-top: -150px;
-  margin-left: -150px;
+  transform: translateX(-150px) translateY(-150px);
   padding: 100px;
   width: 300px;
   height: 300px;
@@ -117,24 +117,23 @@ body.scratching .guagua-card {
   background-image: linear-gradient(180deg, rgba(235, 176, 176, 0.8), rgba(165, 42, 42, 0.4) 30%, rgba(165, 42, 42, 0.7));
   padding: 5px;
   font-size: 120px;
-  box-shadow: 2px 2px 0 red inset, 4px 4px 0 white inset, -2px -2px 0 #FF0000 inset, -10px -10px 30px #660000 inset, 20px 20px 50px brown;
+  box-shadow: 2px 2px 0 red inset, 4px 4px 0 white inset, -2px -2px 0 #FF0000 inset, -10px -10px 30px #660000 inset, 10px 10px 30px brown;
 }
-/* line 74, ../sass/remote_draw.scss */
+/* line 75, ../sass/remote_draw.scss */
 .remote-draw-button:active {
+  transition: none;
   background-image: linear-gradient(180deg, rgba(214, 95, 95, 0.5), rgba(165, 42, 42, 0.6) 30%, rgba(165, 42, 42, 0.3));
-  box-shadow: -1px -1px 0 #FF0000 inset, 0 0 3px red;
+  box-shadow: 2px 2px 0 red inset, 4px 4px 0 white inset, -2px -2px 0 #FF0000 inset, -10px -10px 30px #660000 inset, 5px 5px 20px brown;
   background-color: gold;
-  margin-top: -130px;
-  margin-left: -130px;
+  transform: translateX(-130px) translateY(-130px);
 }
-/* line 81, ../sass/remote_draw.scss */
+/* line 82, ../sass/remote_draw.scss */
 .remote-draw-button:after {
   content: '請按按鈕';
   font-size: 0.5em;
   color: black;
   display: block;
   text-align: center;
-  transform: translateX(-200px);
   height: 1em;
 }
 
@@ -258,22 +257,18 @@ body.scratching .guagua-card {
   color: gray;
 }
 
-/* line 165, ../sass/remote_draw.scss */
+/*
 .pokemon-area {
-  display: none;
-  background: red;
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
+    display: none;
+    background: red;
+    position: fixed;
+    left: 0; top: 0; right: 0; bottom: 0;
+    .pokemoning & {
+        display: block;
+    }
 }
-/* line 170, ../sass/remote_draw.scss */
-.pokemoning .pokemon-area {
-  display: block;
-}
-
-/* line 174, ../sass/remote_draw.scss */
+*/
+/* line 176, ../sass/remote_draw.scss */
 .ping {
   opacity: 0.2;
   font-size: 16px;
@@ -287,11 +282,11 @@ body.scratching .guagua-card {
   -webkit-animation: signal 1s 1;
   animation: signal 1s 1;
 }
-/* line 175, ../sass/remote_draw.scss */
+/* line 177, ../sass/remote_draw.scss */
 .vring .ping {
   display: none;
 }
-/* line 188, ../sass/remote_draw.scss */
+/* line 190, ../sass/remote_draw.scss */
 .ping.pong {
   -webkit-animation: signal2 1s 1;
   animation: signal2 1s 1;
@@ -612,37 +607,60 @@ body.scratching .guagua-card {
   opacity: 0.5;
 }
 
-/* line 260, ../sass/vr.scss */
-.vr-result {
-  position: absolute;
-  z-index: 30;
-  font-size: 96px;
-  background: rgba(0, 0, 0, 0.4);
-  color: white;
-  padding: 20px;
-  border-radius: 36px;
-  text-align: center;
-  width: 800px;
-  margin-left: -480px;
-  left: 50%;
-  top: 60px;
-  line-height: 1.4em;
-  text-shadow: 0 0 10px black;
+@-webkit-keyframes vr_result {
+  0%,80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
-/* line 275, ../sass/vr.scss */
-.vr-result.inactive {
-  display: none;
+@keyframes vr_result {
+  0%,80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
-/* line 278, ../sass/vr.scss */
-.vr-result .drawmode-group {
-  font-size: 72px;
-}
-
-/* line 194, ../sass/remote_draw.scss */
+/* line 9, ../sass/vr.mobile.scss */
 .drawmode-vr {
   display: none;
 }
-/* line 196, ../sass/remote_draw.scss */
+/* line 11, ../sass/vr.mobile.scss */
 .vring .drawmode-vr {
   display: block;
+}
+
+/* line 15, ../sass/vr.mobile.scss */
+.vr-result {
+  position: absolute;
+  z-index: 30;
+  font-size: 24px;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  padding: 10px;
+  border-radius: 12px;
+  text-align: center;
+  box-sizing: border-box;
+  width: 40vmin;
+  left: calc(50% - 20vmin);
+  top: 40%;
+  line-height: 6vmin;
+  text-shadow: 0 0 10px black;
+  animation: vr_result 3s 1 forwards;
+}
+/* line 31, ../sass/vr.mobile.scss */
+.vr-result.inactive {
+  display: none;
+  animation: none;
+}
+/* line 35, ../sass/vr.mobile.scss */
+.vr-result .drawmode-group {
+  font-size: 5vmin;
+}
+/* line 38, ../sass/vr.mobile.scss */
+.vr-result .drawmode-name, .vr-result .drawmode-sn {
+  font-size: 5vmin;
+  text-shadow: none;
 }

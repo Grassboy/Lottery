@@ -35,7 +35,7 @@
                 return;
             }
             alert('登入成功');
-            myFirebaseRef.ref(firebase_conf.get).remove()
+            myFirebaseRef.ref(firebase_conf.get).remove();
             $('.ping').bind('touchstart', function(){
                 myFirebaseRef.ref(firebase_conf.get).push({action:'ping'});
             });
@@ -57,14 +57,18 @@
                     $('.guagua-canvas').trigger('initscratch', [value]);
                 } else if(value.action == 'clearscratch') {
                     $('body').removeClass('scratching');
+                /*
                 } else if(value.action == 'initpoke') {
                     $('body').addClass('pokemoning');
                 } else if(value.action == 'clearpoke') {
                     $('body').removeClass('pokemoning');
+                */
                 } else if(value.action == 'initvr') {
-                    $('.drawmode-vr').trigger('initvr', {pos_array: value.pos_array});
+                    $('.drawmode-vr').trigger('initvr', {pos_array: value.pos_array, name: value.name, sn: value.sn, group: value.group});
                 } else if(value.action == 'clearvr') {
-                    $('.drawmode-vr').trigger('clearvr', {pos_array: value.pos_array});
+                    $('.drawmode-vr').trigger('clearvr');
+                } else if(value.action == 'vrcleargift') {
+                    $('.drawmode-vr').trigger('vrcleargift', {current_length: value.current_length, index: value.index});
                 } else {
                     console.log('new action', value.action, value);
                 }
@@ -153,7 +157,8 @@
             });
         })();
         (function(){
-            var prev_x = 0; prev_y = 0, threshold = 100;
+            /*
+            var prev_x = 0; prev_y = 0, threshold = 50;
             var mouseHandler = function (e, action) {
                 myFirebaseRef.ref(firebase_conf.get).push({
                     action: action,
@@ -189,48 +194,93 @@
                 e = e.touches && e.touches[0] || e;
                 mouseHandler(e, 'pokeup');
             });
+            */
         })();
-        (function(){
-            var clear_timer;
-            var vrDraw = window.vrDraw = new VRDraw($('.drawmode-vr')[0], {
-                fullscreen: true, dualmode: true, arrow_delay: 2000, touch: true,
-                onChange: function(orient) {
-                    if(vrDraw.states.is_active) {
-                        var angle = vrDraw.getAlphaBeta(vrDraw.controls.object.getWorldDirection());
-                        angle.alpha = -angle.alpha-90;
-                        if(angle.alpha<0) angle.alpha+=360;
-                        angle.beta += 90;
-                        myFirebaseRef.ref(firebase_conf.get).push({
-                            action: 'vrmoveto',
-                            euler: {
-                                alpha: angle.alpha,
-                                beta: angle.beta
-                            }
-                        });
-                    }
+        $(window).bind('touchstart', function(e){
+            e = e.originalEvent;
+            if(e.touches.length == 5) {
+                if(localStorage.vr_enable == 'yes') {
+                    alert('關閉 VR 抽獎頁');
+                    delete localStorage.vr_enable;
+                } else {
+                    alert('啟動 VR 抽獎頁');
+                    localStorage.vr_enable = 'yes';
                 }
-            });
-            vrDraw.$div.bind('clearvr', function(){
-                vrDraw.resetAll();
-                vrDraw.setActive(true);
-                clearTimeout(clear_timer);
-                clear_timer = setTimeout(function(){
-                    $('body').removeClass('vring');
-                    vrDraw.setActive(false);
-                }, 2000);
-            });
-            vrDraw.$div.bind('initvr', function(e, data){
-                vrDraw.resetAll();
-                data.pos_array.forEach(function(pos){
-                    vrDraw.putGift(new THREE.Vector3(pos.x, pos.y, pos.z), pos.digit);
+                location.reload();
+            }
+        });
+        if(localStorage.vr_enable) {
+            (function(){
+                //var clear_timer;
+                var vrDraw = new VRDraw($('.drawmode-vr')[0], {
+                    fullscreen: true, dualmode: !(window.innerWidth >= 800 || window.innerHeight >= 800), arrow_delay: 2000, touch: true,
+                    onClearGift: function(current_length, index) {
+                        myFirebaseRef.ref(firebase_conf.get).push({
+                            action: 'vrcleargift',
+                            current_length: current_length,
+                            index: index
+                        });
+                    },
+                    onChange: function(orient) {
+                        if(vrDraw.states.is_active && vrDraw.gifts.length+vrDraw.gifts_done.length > 0) {
+                            var angle = vrDraw.getAlphaBeta(vrDraw.controls.object.getWorldDirection());
+                            angle.alpha = -angle.alpha-90;
+                            if(angle.alpha<0) angle.alpha+=360;
+                            angle.beta += 90;
+                            myFirebaseRef.ref(firebase_conf.get).push({
+                                action: 'vrmoveto',
+                                euler: {
+                                    alpha: angle.alpha,
+                                    beta: angle.beta
+                                }
+                            });
+                        }
+                    }
                 });
-                vrDraw.setActive(true);
-                myFirebaseRef.ref(firebase_conf.get).push({
-                    action: 'vrinited'
+                vrDraw.$div.bind('vrcleargift', function(e, data){
+                    vrDraw.clearGift(data.current_length, data.index);
                 });
-                clearTimeout(clear_timer);
-                $('body').addClass('vring');
-            });
-        })();
+                vrDraw.$div.bind('clearvr', function(){
+                    vrDraw.resetAll();
+                    vrDraw.setActive(true);
+                    vrDraw.$main.find('.vr-result').removeClass('inactive');
+                    /*
+                    clearTimeout(clear_timer);
+                    clear_timer = setTimeout(function(){
+                        $('body').removeClass('vring');
+                        vrDraw.setActive(false);
+                    }, 2000);
+                    */
+                });
+                vrDraw.$div.bind('clearvr', function(){
+                    vrDraw.resetAll();
+                    vrDraw.setActive(true);
+                    vrDraw.$main.find('.vr-result').removeClass('inactive');
+                    /*
+                    clearTimeout(clear_timer);
+                    clear_timer = setTimeout(function(){
+                        $('body').removeClass('vring');
+                        vrDraw.setActive(false);
+                    }, 2000);
+                    */
+                });
+                vrDraw.$div.bind('initvr', function(e, data){
+                    vrDraw.resetAll();
+                    data.pos_array.forEach(function(pos){
+                        vrDraw.putGift(new THREE.Vector3(pos.x, pos.y, pos.z), pos.digit);
+                    });
+                    vrDraw.setActive(true);
+                    vrDraw.$main.find('.vr-result').addClass('inactive');
+                    vrDraw.$main.find('.drawmode-name').text(data.name);
+                    vrDraw.$main.find('.drawmode-sn').text(data.sn);
+                    vrDraw.$main.find('.drawmode-group').text(data.group);
+                    myFirebaseRef.ref(firebase_conf.get).push({
+                        action: 'vrinited'
+                    });
+                    //clearTimeout(clear_timer);
+                    $('body').addClass('vring');
+                });
+            })();
+        }
     }
     

@@ -1909,6 +1909,8 @@ html, body {
 }
 @import "pokemon.scss";
 @import "vr.scss";
+@import "vr.desktop.scss";
+
 .config-page {
     overflow: auto;
     height: 610px;

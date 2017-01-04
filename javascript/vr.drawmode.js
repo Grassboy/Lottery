@@ -1,4 +1,3 @@
-
 var VRDraw = function(div, opts){
     var animation_frame_id;
     var _size = {w: opts.width || window.innerWidth, h: opts.height || window.innerHeight};
@@ -7,6 +6,7 @@ var VRDraw = function(div, opts){
     }
     var touch = opts.touch || false;
     opts.arrow_delay = opts.arrow_delay || 0;
+    opts.min_arrow_scale = opts.min_arrow_scale || 0.2;
 
     var that = this;
     var container, camera, scene, renderer, renderer2, controls, geometry, mesh, candidate_digit;
@@ -44,7 +44,7 @@ var VRDraw = function(div, opts){
                 that.$focus.removeClass('vr-focusing').data('min-index', null);
             }
         }
-        var scale = ((1-Math.sin(min_angle/180*Math.PI/2))*3+0.2);
+        var scale = ((1-Math.sin(min_angle/180*Math.PI/2))*3+opts.min_arrow_scale);
         if(scale != that.states.current_scale && that.gifts[min_index]) {
             that.states.current_scale = scale;
             var pos0 = that.getAlphaBeta(controls.object.getWorldDirection());
@@ -67,7 +67,7 @@ var VRDraw = function(div, opts){
             }
         }
     };
-    that.candidate_digit = candidate_digit = "0123456789YZ";
+    that.candidate_digit = candidate_digit = "0123456789VZ";
     that.scene = scene = new THREE.Scene();
     that.$div = $(div).css({
         width: (opts.dualmode?_size.w*2:_size.w), height: _size.h
@@ -88,6 +88,7 @@ var VRDraw = function(div, opts){
     that.gifts = [];
     that.gifts_done = [];
     that.num_textures = [];
+    that.onClearGift = opts.onClearGift || function(){ /*no-op*/};
     for(var i = 0; i < candidate_digit.length; i++) {
         that.num_textures.push(new THREE.TextureLoader().load( 'images/vr_num'+candidate_digit[i]+'.png' ));
     }
@@ -153,19 +154,7 @@ mesh.quaternion.copy(controls.object.getWorldQuaternion())
     that.$focus.eq(0).bind('animationend', function(){
         if(that.states.is_active) {
             var index = $(this).data('min-index');
-            var gift = that.gifts[index];
-            if(candidate_digit.indexOf(gift.digit)!=-1){
-                gift.material.map = that.num_textures[candidate_digit.toLowerCase().indexOf(gift.digit.toLowerCase())];
-            } else {
-                alert('不存在的號碼 "'+digit+'"');
-                scene.remove(gift);
-            }
-            gift.$digit.addClass('active animated bounceInUp').text(gift.digit);
-            that.gifts_done.push.apply(that.gifts_done, that.gifts.splice(index, 1));
-            if(that.$digit_container.eq(0).children().length == that.$digit_container.eq(0).find('.active').length) {
-                that.$div.addClass('vr-cleared').trigger('allclear');
-            }
-            that.states.arrow_time = (new Date()).getTime();
+            that.clearGift(that.gifts.length, index);
         }
     });
     if(opts.fullscreen) {
@@ -206,11 +195,11 @@ mesh.quaternion.copy(controls.object.getWorldQuaternion())
     }
     var toggleFullscreen = function(){
         if(document.webkitIsFullScreen) {
-            document.webkitExitFullscreen();
-            screen.orientation.unlock();
+            document.body.webkitExitFullscreen && document.webkitExitFullscreen();
+            screen && screen.orientation && screen.orientation.unlock();
         } else {
-            document.body.webkitRequestFullscreen();
-            screen.orientation.lock('landscape');
+            document.body.webkitRequestFullscreen && document.body.webkitRequestFullscreen();
+            screen && screen.orientation && screen.orientation.lock('landscape');
         }
     };
     var viewHandler = (function(){
@@ -219,7 +208,11 @@ mesh.quaternion.copy(controls.object.getWorldQuaternion())
             mousedown: function(e){
                 if(e.touches && !that.states.checked_fullscreen && !document.webkitIsFullScreen) {
                     that.states.checked_fullscreen = true;
-                    toggleFullscreen();
+                    try{
+                        toggleFullscreen();
+                    } catch(e) {
+                        alert(e);
+                    }
                 }
                 if(e.touches && e.touches.length == 4) {
                     toggleFullscreen();
@@ -352,6 +345,27 @@ VRDraw.prototype = {
             that.putGift(new THREE.Vector3(pos.x, pos.y, pos.z), pos.digit);
         });
     },
+    clearGift: function(current_length, index) {
+        var that = this;
+        if(that.gifts.length == current_length) {
+            var gift = that.gifts[index];
+            var candidate_digit = that.candidate_digit;
+            var scene = that.scene;
+            if(candidate_digit.indexOf(gift.digit)!=-1){
+                gift.material.map = that.num_textures[candidate_digit.toLowerCase().indexOf(gift.digit.toLowerCase())];
+            } else {
+                alert('不存在的號碼 "'+digit+'"');
+                scene.remove(gift);
+            }
+            gift.$digit.addClass('active animated bounceInUp').text(gift.digit);
+            that.gifts_done.push.apply(that.gifts_done, that.gifts.splice(index, 1));
+            if(that.$digit_container.eq(0).children().length == that.$digit_container.eq(0).find('.active').length) {
+                that.$div.addClass('vr-cleared').trigger('allclear');
+            }
+            that.states.arrow_time = (new Date()).getTime();
+            that.onClearGift.apply(that, [current_length, index]);
+        }
+    },
     getGiftsPos: function(){
         var that = this;
         return that.gifts.map(function (g) {
@@ -426,47 +440,6 @@ VRDraw.prototype = {
         that.states.is_focusing = false;
         that.states.current_scale = 0;
         that.setActive(false);
-    },
-    _worldReset: function(){
-        var that = this;
-        var world = that.world;
-        world.defaultContactMaterial.restitution = 1;
-        world.defaultContactMaterial.friction = 0;
-        world.gravity.y = - 10;
-    },
-    _ballReset: function(){
-        var that = this;
-        var sphereBody = that.sphereBody;
-        sphereBody.velocity.set(0, 0, 0);
-        sphereBody.angularVelocity.set(0, 3, 10);
-        sphereBody.position.set(0, 3, 0);
-        sphereBody.quaternion.set(0, 0, 0, 1);
-    },
-    _statesReset: function(){
-        var that = this;
-        var states = that.states;
-        states.collision = false;
-        states.gotcha = false;
-        states.throwed = false;
-        states.start_collision = false;
-    },
-    resetBall: function(){
-        var that = this;
-        that._worldReset();
-        that._statesReset();
-        that._ballReset();
-    },
-    setPokemon: function(pokemon_id){
-        var that = this;
-        var pokemon_texture = that.pokemon_texture;
-        if(pokemon_id === undefined) {
-            pokemon_id = parseInt(Math.random()*pokemon_texture.length, 10);
-        }
-        if(pokemon_id != that.current_pokemon_id && pokemon_texture[pokemon_id]) {
-            that.$div.attr('data-pokemon-id', pokemon_id);
-            that.current_pokemon_id = pokemon_id;
-            that.pokemon.material.map = pokemon_texture[that.current_pokemon_id].normal;
-        }
     }
 };
 /*

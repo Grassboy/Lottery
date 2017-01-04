@@ -2,6 +2,7 @@ $.when(
     $.getScript('javascript/config.js?'+(new Date()).getTime()),
     $.getScript('javascript/config.info.js?'+(new Date()).getTime())
 ).then(function(){
+    var addition_gift_index = 0;
     firebase.initializeApp(firebase_conf);
     //{{ 設定檔介面戴入
     (function initConfig(){
@@ -308,7 +309,7 @@ $.when(
         dom.find('.gift-content').text(this.content || "？？？");
         dom.find('.gift-count').text(this.count?["(",this.count,"人)"].join(''):"(？人)");
         dom.find('.gift-start').data('for', this._id);
-        if(this.title.indexOf('加碼')!=-1) {
+        if(this.title.indexOf('加碼')!=-1 && this.sn.toLowerCase().indexOf('x') == -1) {
             dom.addClass('gift-bonus');
         }
 
@@ -589,11 +590,10 @@ $.when(
             $('.gift-add-title').select();
         });
         $('.gift-add-button').bind('click', (function(){
-            var addition_gift_index = 0;
             return function(){
                 addition_gift_index++;
                 var args = {
-                    sn: (addition_gift_index < 10?'x0':'x1')+addition_gift_index+'0',
+                    sn: (addition_gift_index < 10?'x0':'x')+addition_gift_index+'0',
                     title: $('.gift-add-title').val(),
                     content: $('.gift-add-content').val(),
                     count: $('.gift-add-count').val() || 1
@@ -1056,6 +1056,7 @@ $.when(
                         dom.find('.drawmode-sn').text(data.sn);
                         dom.find('.drawmode-group').text(data.group);
                         dom.find('.drawmode-name').text(data.name);
+                        myFirebaseRef.ref(firebase_conf.get).remove();
                         myFirebaseRef.ref(firebase_conf.response).remove();
                         myFirebaseRef.ref(firebase_conf.response).push(data);
                     });
@@ -1177,6 +1178,14 @@ $.when(
                 window.vrDraw = this.vrDraw = new VRDraw(this.$dom[0], {
                     width: 1024, height: 608,
                     skip_euler_rotation: true,
+                    min_arrow_scale: 3,
+                    onClearGift: function(current_length, index){
+                        myFirebaseRef.ref(firebase_conf.response).push({
+                            action: 'vrcleargift',
+                            current_length: current_length,
+                            index: index
+                        });
+                    },
                     is_active: false
                 });
             },
@@ -1201,12 +1210,6 @@ $.when(
                     });
                     var prev_moveto_time, move_to_timer;
                     dom.unbind('vrmoveto').bind('vrmoveto', function(e, data){
-                        console.log({
-                            alpha: that.vrDraw.controls.deviceOrientation.alpha.toFixed(2), 
-                            beta: that.vrDraw.controls.deviceOrientation.beta.toFixed(2), 
-                            gamma: that.vrDraw.controls.deviceOrientation.gamma.toFixed(2)
-                        });
-                        //that.vrDraw.controls.screenOrientation = data.euler.orient;
                         //{{regularing deviceOrientation
                         while(that.vrDraw.controls.deviceOrientation.alpha > 360) that.vrDraw.controls.deviceOrientation.alpha -= 360;
                         while(that.vrDraw.controls.deviceOrientation.alpha < 0) that.vrDraw.controls.deviceOrientation.alpha += 360;
@@ -1264,8 +1267,13 @@ $.when(
                         });
                         deferred.resolve(user);
                     });
+                    myFirebaseRef.ref(firebase_conf.get).remove();
+                    myFirebaseRef.ref(firebase_conf.response).remove();
                     myFirebaseRef.ref(firebase_conf.response).push({
                         action: 'initvr',
+                        sn: user.sn,
+                        group: user.group,
+                        name: user.name,
                         pos_array: that.vrDraw.getGiftsPos()
                     });
                 }, 100);
@@ -1503,6 +1511,7 @@ $.when(
                     }
                 } else if (value.action == 'gift_add') { // 臨時追加獎項
                     console.log('追加獎項 ', value.sn, value.title);
+                    addition_gift_index++;
                     if(gift_array.filter(function(item){
                         return item.sn == value.sn;
                     }).length == 0) {
@@ -1516,31 +1525,30 @@ $.when(
                 }
             });
             myFirebaseRef.ref(firebase_conf.get).on("child_added", function(snapshot) {
-                _dom.ping.toggleClass('pong');
                 var value = snapshot.val();
+                if(value.action != 'vrmoveto') { //不理會 vrmoveto 的 ping 訊號
+                    _dom.ping.toggleClass('pong');
+                }
                 if(value.action == 'draw-stop') {
                     if(current_drawmode.$dom.is('.draw-start')) {
                         current_drawmode.remoteDraw();
                     }
-                }
-                if(value.action == 'scratch') {
+                } else if(value.action == 'scratch') {
                     var $canvas = $('.guagua-canvas');
                     if($canvas.length) {
                         $canvas.trigger('scratch', [value.x, value.y]);
                     }
-                }
-                if(value.action.indexOf('poke')===0) {
+                } else if(value.action.indexOf('poke')===0) {
                     var $area = $('.drawmode-pokemon');
                     if($area.length) {
                         $area.trigger(value.action, [value.x, value.y]);
-                        document.title = [value.action, value.x, value.y].join(' ');
                     }
-                }
-                if(value.action == 'vrinited') {
+                } else if(value.action == 'vrinited') {
                     current_drawmode.$dom.trigger('dblclick');
-                }
-                if(value.action == 'vrmoveto') {
+                } else if(value.action == 'vrmoveto') {
                     current_drawmode.$dom.trigger('vrmoveto', {euler: value.euler});
+                } else if(value.action == 'vrcleargift') {
+                    vrDraw.clearGift(value.current_length, value.index);
                 }
             });
         };

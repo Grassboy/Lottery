@@ -344,7 +344,7 @@ $.when(
             _dom.gift_count_all.text(this.count);
             _dom.gift_count_now.text('0');
             _dom.summary_page.removeClass('done');
-            _dom.summary_list.empty();
+            _dom.summary_list.attr('style', null).empty();
             $('.summary-page .back-to-statics').trigger('click');
             for(var i = 0, n = this.award_to.length; i < n; ++i){
                 var user = user_array[this.award_to[i]];
@@ -543,8 +543,9 @@ $.when(
             }
             return that.deferred.promise().then(function(user){
                 that.deferred = null;  //清空前一次的抽獎流程
-                that.$dom.removeClass('draw-start').addClass('draw-done');
+                that.$dom.removeClass('draw-start');
                 if(user == -1) return -1; //前一次抽獎流程中斷
+                that.$dom.addClass('draw-done');
                 if(user.gone_ok) {  //如果可以不在現場，則把理由 show 出來
                     $('.gone-ok-msg').text(user.gone_ok);
                 }
@@ -656,39 +657,33 @@ $.when(
         //{{Summary Page
         $('.summary-page .back-to-statics').bind('click', function(){
             _dom.summary_page.removeClass('ready').addClass('active');
-            $('.summary-list').attr('style', null);
+            _dom.summary_list.attr('style', null);
             $('.summary-list-outer').attr('class', 'summary-list-outer');
             current_drawmode.under_auto_draw = false;
         });
 
         (function(){ //處理 summary 清單的跑馬
-            var $page = _dom.summary_page, $outer = $('.summary-list-outer'), scroll_to;
-            var scrollFunc = function(now, is_back){
-                now = now || 0;
-                if(!$page.is('.active')) return; // 非 active 終止捲動
-                $outer[0].scrollTop = now;
-                if(!is_back) {
-                    if(now >= scroll_to){
-                        setTimeout(function(){
-                            scrollFunc(now - 10, true);
-                        }, 2000);
-                    } else {
-                        setTimeout(function(){
-                            scrollFunc(now + 10);
-                        }, 30);
-                    }
-                } else if(is_back && now > 0) {
-                    setTimeout(function(){
-                        scrollFunc(now - 10, true);
-                    }, 30);
-                }
-            };
+            var $outer = $('.summary-list-outer'), scroll_to;
             $('.summary-page .button-display').bind('click', function(){
                 scroll_to = $outer[0].scrollHeight - $outer[0].offsetHeight;
-                setTimeout(scrollFunc, 100);
+                var pixcel_per_sec = 200;
+                $outer[0].scrollTop = 0;
+                _dom.summary_list.css({
+                    transition: 'transform '+(scroll_to/pixcel_per_sec)+'s linear',
+                    transform: 'translateY('+(-scroll_to)+'px)'
+                });
             });
         })();
-        $('.summary-list').on('click', '.summary-remove', function(){
+        _dom.summary_list.bind('transitionend', function(){
+            if(_dom.summary_list.css('transform')=='matrix(1, 0, 0, 1, 0, 0)') {
+                _dom.summary_list.attr('style', null);
+            } else {
+                setTimeout(function(){
+                    _dom.summary_list.css('transform', 'matrix(1, 0, 0, 1, 0, 0)');
+                }, 2000)
+            }
+        });
+        _dom.summary_list.on('click', '.summary-remove', function(){
             var $this = $(this), $tr = $this.parents('.tr');
             if($tr.is('.check')) {
                 $tr.removeClass('check');
@@ -702,7 +697,7 @@ $.when(
                 $tr.addClass('check');
             }
         });
-        $('.summary-list').on('click', '.summary-cancel', function(){
+        _dom.summary_list.on('click', '.summary-cancel', function(){
             var $this = $(this), $tr = $this.parents('.tr');
             $tr.removeClass('check');
         });
@@ -1402,7 +1397,7 @@ $.when(
             },
             thumb: 'images/drawmode5.png'
         });
-        drawmodes['vr'].setCurrent();
+        drawmodes['pokemon'].setCurrent();
     })();
     ////}}
 

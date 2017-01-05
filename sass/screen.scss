@@ -637,16 +637,8 @@ html, body {
 .summary-list-outer {
     height: 555px;overflow: auto;
     margin-right: 136px;
-    &.scrolling {
-        overflow: hidden;
-        .summary-list {
-            bottom: 0px;
-            position: relative;
-            transition: bottom linear 0s;
-        }
-        & ~ .button-display {
-            display: none;
-        }
+    .summary-list {
+        transform: scale(1);
     }
 }
 .summary-list.table {

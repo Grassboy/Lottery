@@ -1001,25 +1001,15 @@ html, body {
   margin-right: 136px;
 }
 /* line 640, ../sass/screen.scss */
-.summary-list-outer.scrolling {
-  overflow: hidden;
-}
-/* line 642, ../sass/screen.scss */
-.summary-list-outer.scrolling .summary-list {
-  bottom: 0px;
-  position: relative;
-  transition: bottom linear 0s;
-}
-/* line 647, ../sass/screen.scss */
-.summary-list-outer.scrolling ~ .button-display {
-  display: none;
+.summary-list-outer .summary-list {
+  transform: scale(1);
 }
 
-/* line 652, ../sass/screen.scss */
+/* line 644, ../sass/screen.scss */
 .summary-list.table {
   margin: 10px auto 0 auto;
 }
-/* line 654, ../sass/screen.scss */
+/* line 646, ../sass/screen.scss */
 .summary-list.table:empty:after {
   content: '尚未開始抽獎，請按 [開始] 進行抽獎';
   font-size: 30px;
@@ -1029,27 +1019,27 @@ html, body {
   letter-spacing: 5px;
   margin: 100px;
 }
-/* line 663, ../sass/screen.scss */
+/* line 655, ../sass/screen.scss */
 .summary-list.table .tr {
   position: relative;
 }
-/* line 666, ../sass/screen.scss */
+/* line 658, ../sass/screen.scss */
 .summary-list.table .tr.th .td {
   padding: 10px 0 10px 0;
   text-shadow: none;
   font-weight: normal;
 }
-/* line 671, ../sass/screen.scss */
+/* line 663, ../sass/screen.scss */
 .summary-list.table .td {
   padding: 24px 0;
   font-size: 36px;
   overflow: hidden;
 }
-/* line 676, ../sass/screen.scss */
+/* line 668, ../sass/screen.scss */
 .summary-list.table .tr:hover .summary-remove:after {
   opacity: 0.5;
 }
-/* line 680, ../sass/screen.scss */
+/* line 672, ../sass/screen.scss */
 .summary-list.table .tr.check .summary-name:after {
   box-sizing: border-box;
   position: absolute;
@@ -1066,11 +1056,11 @@ html, body {
   line-height: 48px;
   z-index: 2;
 }
-/* line 693, ../sass/screen.scss */
+/* line 685, ../sass/screen.scss */
 .can-back .summary-list.table .tr.check .summary-name:after {
   content: "如此一來這名同仁的摸彩券將置回摸彩箱，確定嗎？";
 }
-/* line 697, ../sass/screen.scss */
+/* line 689, ../sass/screen.scss */
 .summary-list.table .tr.check .summary-name .summary-remove {
   opacity: 1;
   position: absolute;
@@ -1086,16 +1076,16 @@ html, body {
   margin-bottom: 0px;
   z-index: 3;
 }
-/* line 707, ../sass/screen.scss */
+/* line 699, ../sass/screen.scss */
 .summary-list.table .tr.check .summary-name .summary-remove:after {
   opacity: 1;
   content: "\e60b";
 }
-/* line 711, ../sass/screen.scss */
+/* line 703, ../sass/screen.scss */
 .summary-list.table .tr.check .summary-name .summary-remove:hover:after {
   color: black;
 }
-/* line 715, ../sass/screen.scss */
+/* line 707, ../sass/screen.scss */
 .summary-list.table .tr.check .summary-cancel {
   display: block;
   color: black;
@@ -1108,7 +1098,7 @@ html, body {
   bottom: 5px;
   z-index: 3;
 }
-/* line 724, ../sass/screen.scss */
+/* line 716, ../sass/screen.scss */
 .summary-list.table .tr.check .summary-cancel:after {
   font-family: 'icomoon';
   speak: none;
@@ -1118,18 +1108,18 @@ html, body {
   text-transform: none;
   content: "\e606";
 }
-/* line 728, ../sass/screen.scss */
+/* line 720, ../sass/screen.scss */
 .summary-list.table .tr.check .summary-cancel:hover:after {
   text-shadow: 0 0 3px white;
 }
-/* line 733, ../sass/screen.scss */
+/* line 725, ../sass/screen.scss */
 .summary-list.table .summary-sn {
   font-size: 48px;
   position: relative;
   width: 160px;
   overflow: visible;
 }
-/* line 738, ../sass/screen.scss */
+/* line 730, ../sass/screen.scss */
 .summary-list.table .summary-sn:before {
   color: rgba(255, 255, 255, 0.3);
   content: attr(data-real-id);
@@ -1138,17 +1128,17 @@ html, body {
   left: 0px;
   top: -3px;
 }
-/* line 746, ../sass/screen.scss */
+/* line 738, ../sass/screen.scss */
 .summary-list.table .summary-group {
   width: 300px;
   font-size: 30px;
 }
-/* line 750, ../sass/screen.scss */
+/* line 742, ../sass/screen.scss */
 .summary-list.table .summary-name {
   width: 240px;
   font-size: 50px;
 }
-/* line 753, ../sass/screen.scss */
+/* line 745, ../sass/screen.scss */
 .summary-list.table .summary-name .summary-remove {
   color: red;
   position: absolute;
@@ -1158,7 +1148,7 @@ html, body {
   top: 0;
   margin-bottom: -16px;
 }
-/* line 760, ../sass/screen.scss */
+/* line 752, ../sass/screen.scss */
 .summary-list.table .summary-name .summary-remove:after {
   opacity: 0;
   font-family: 'icomoon';
@@ -1169,31 +1159,31 @@ html, body {
   text-transform: none;
   content: '\e606';
 }
-/* line 765, ../sass/screen.scss */
+/* line 757, ../sass/screen.scss */
 .summary-list.table .summary-name .summary-remove:hover:after {
   opacity: 1;
   color: white;
   text-shadow: 0 0 3px white;
 }
-/* line 771, ../sass/screen.scss */
+/* line 763, ../sass/screen.scss */
 .summary-list.table .summary-name .summary-cancel {
   display: none;
 }
-/* line 775, ../sass/screen.scss */
+/* line 767, ../sass/screen.scss */
 .summary-list.table .summary-title {
   width: 150px;
   font-size: 30px;
   padding: 0 3px;
 }
 
-/* line 782, ../sass/screen.scss */
+/* line 774, ../sass/screen.scss */
 .main-page {
   overflow: hidden;
   height: 610px;
   background-image: url(../images/main_bg.png);
 }
 
-/* line 788, ../sass/screen.scss */
+/* line 780, ../sass/screen.scss */
 .gift-add {
   transition: left 0.3s ease-in;
   position: relative;
@@ -1203,15 +1193,15 @@ html, body {
   background-color: #570100;
   z-index: 2;
 }
-/* line 796, ../sass/screen.scss */
+/* line 788, ../sass/screen.scss */
 .gift-add.active {
   left: 0;
 }
-/* line 798, ../sass/screen.scss */
+/* line 790, ../sass/screen.scss */
 .gift-add.active ~ .gift-search {
   opacity: 0;
 }
-/* line 802, ../sass/screen.scss */
+/* line 794, ../sass/screen.scss */
 .gift-add .gift-add-button, .gift-add .gift-cancel-button {
   color: orange;
   background-image: linear-gradient(180deg, #ff0e0a, #a30300);
@@ -1221,20 +1211,20 @@ html, body {
   text-shadow: 0 -1px 0 black;
   font-size: 24px;
 }
-/* line 806, ../sass/screen.scss */
+/* line 798, ../sass/screen.scss */
 .gift-add .gift-cancel-button {
   background-image: linear-gradient(180deg, #700200, #3d0100);
   color: #888;
 }
 
-/* line 811, ../sass/screen.scss */
+/* line 803, ../sass/screen.scss */
 .gift-search {
   transition: opacity 0.3s ease-in;
   box-sizing: border-box;
   padding: 5px;
   position: relative;
 }
-/* line 816, ../sass/screen.scss */
+/* line 808, ../sass/screen.scss */
 .gift-search:after {
   font-family: 'icomoon';
   speak: none;
@@ -1251,7 +1241,7 @@ html, body {
   color: brown;
 }
 
-/* line 826, ../sass/screen.scss */
+/* line 818, ../sass/screen.scss */
 .gift-input {
   box-sizing: border-box;
   font-size: 24px;
@@ -1282,24 +1272,24 @@ html, body {
   color: red;
   letter-spacing: 1px;
 }
-/* line 839, ../sass/screen.scss */
+/* line 831, ../sass/screen.scss */
 .gift-input:focus {
   box-shadow: 0 0 5px gold;
 }
-/* line 842, ../sass/screen.scss */
+/* line 834, ../sass/screen.scss */
 .gift-input.gift-search-sn {
   width: 100%;
 }
-/* line 845, ../sass/screen.scss */
+/* line 837, ../sass/screen.scss */
 .gift-input.gift-add-title, .gift-input.gift-add-content {
   width: calc(49% - 110px);
 }
-/* line 848, ../sass/screen.scss */
+/* line 840, ../sass/screen.scss */
 .gift-input.gift-add-count {
   width: 80px;
 }
 
-/* line 852, ../sass/screen.scss */
+/* line 844, ../sass/screen.scss */
 .gift-item {
   overflow: hidden;
   *zoom: 1;
@@ -1311,42 +1301,42 @@ html, body {
   height: 60px;
   text-shadow: 0 -1px 0 black;
 }
-/* line 862, ../sass/screen.scss */
+/* line 854, ../sass/screen.scss */
 .gift-item:hover {
   background-color: #bd0300;
 }
-/* line 865, ../sass/screen.scss */
+/* line 857, ../sass/screen.scss */
 .gift-item div {
   float: left;
 }
-/* line 868, ../sass/screen.scss */
+/* line 860, ../sass/screen.scss */
 .gift-item.done {
   border: 1px solid #5a5a5a;
   border-top-color: #1a1a1a;
   background-color: #433;
 }
-/* line 873, ../sass/screen.scss */
+/* line 865, ../sass/screen.scss */
 .gift-item.done .gift-sn {
   background-color: rgba(255, 0, 0, 0.1);
 }
-/* line 876, ../sass/screen.scss */
+/* line 868, ../sass/screen.scss */
 .gift-item.done .gift-start {
   background: gray;
 }
-/* line 878, ../sass/screen.scss */
+/* line 870, ../sass/screen.scss */
 .gift-item.done .gift-start:before {
   content: '結果';
 }
-/* line 883, ../sass/screen.scss */
+/* line 875, ../sass/screen.scss */
 .gift-item.gift-bonus {
   display: none !important;
 }
-/* line 886, ../sass/screen.scss */
+/* line 878, ../sass/screen.scss */
 .gift-item.gift-show {
   display: block !important;
 }
 
-/* line 890, ../sass/screen.scss */
+/* line 882, ../sass/screen.scss */
 .gift-sn {
   box-sizing: border-box;
   width: 50px;
@@ -1357,7 +1347,7 @@ html, body {
   box-shadow: -3px 0 3px -3px black inset;
 }
 
-/* line 899, ../sass/screen.scss */
+/* line 891, ../sass/screen.scss */
 .gift-title {
   white-space: nowrap;
   overflow: hidden;
@@ -1373,7 +1363,7 @@ html, body {
   box-shadow: 0 -1px 0px rgba(0, 0, 0, 0.5) inset;
 }
 
-/* line 909, ../sass/screen.scss */
+/* line 901, ../sass/screen.scss */
 .gift-content {
   white-space: nowrap;
   overflow: hidden;
@@ -1385,7 +1375,7 @@ html, body {
   width: calc(100% - 50px);
 }
 
-/* line 915, ../sass/screen.scss */
+/* line 907, ../sass/screen.scss */
 .gift-start {
   transition: right 0.1s ease-in;
   box-sizing: border-box;
@@ -1400,20 +1390,20 @@ html, body {
   right: -60px;
   top: 0;
 }
-/* line 927, ../sass/screen.scss */
+/* line 919, ../sass/screen.scss */
 .gift-start:hover {
   text-shadow: 0 0 3px yellow, 0 -1px 0 black;
 }
-/* line 930, ../sass/screen.scss */
+/* line 922, ../sass/screen.scss */
 .gift-item:hover .gift-start {
   right: 0;
 }
-/* line 933, ../sass/screen.scss */
+/* line 925, ../sass/screen.scss */
 .gift-start:before {
   content: '載入';
 }
 
-/* line 937, ../sass/screen.scss */
+/* line 929, ../sass/screen.scss */
 .gift-count {
   position: absolute;
   right: 0;
@@ -1422,7 +1412,7 @@ html, body {
   color: #AAA;
 }
 
-/* line 944, ../sass/screen.scss */
+/* line 936, ../sass/screen.scss */
 .drawtype-item {
   margin: 5px;
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjAlIiBjeT0iMCUiIHI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMC4zIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZmY3MjAwIi8+PC9yYWRpYWxHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
@@ -1440,7 +1430,7 @@ html, body {
   vertical-align: top;
   text-shadow: 0 -1px 0 black;
 }
-/* line 958, ../sass/screen.scss */
+/* line 950, ../sass/screen.scss */
 .drawtype-item .drawtype-info {
   transition: opacity 0.3s ease-in;
   opacity: 0;
@@ -1457,11 +1447,11 @@ html, body {
   padding: 5px;
   z-index: 10;
 }
-/* line 972, ../sass/screen.scss */
+/* line 964, ../sass/screen.scss */
 .drawtype-item.active {
   box-shadow: 0 0 0 5px red inset;
 }
-/* line 974, ../sass/screen.scss */
+/* line 966, ../sass/screen.scss */
 .drawtype-item.active:after {
   content: 'NOW!!';
   position: absolute;
@@ -1475,7 +1465,7 @@ html, body {
   float: left;
   transform: rotate(-45deg);
 }
-/* line 985, ../sass/screen.scss */
+/* line 977, ../sass/screen.scss */
 .drawtype-item.active:before {
   content: ' ';
   position: absolute;
@@ -1485,11 +1475,11 @@ html, body {
   width: 60px;
   height: 60px;
 }
-/* line 992, ../sass/screen.scss */
+/* line 984, ../sass/screen.scss */
 .drawtype-item:hover .drawtype-info {
   opacity: 1;
 }
-/* line 995, ../sass/screen.scss */
+/* line 987, ../sass/screen.scss */
 .drawtype-item .drawtype-title {
   box-sizing: border-box;
   position: absolute;
@@ -1500,7 +1490,7 @@ html, body {
   font-size: 36px;
 }
 
-/* line 1004, ../sass/screen.scss */
+/* line 996, ../sass/screen.scss */
 .drawtype-icon {
   position: absolute;
   width: 180px;
@@ -1515,34 +1505,34 @@ html, body {
   opacity: 0.8;
 }
 
-/* line 1015, ../sass/screen.scss */
+/* line 1007, ../sass/screen.scss */
 .table {
   display: table;
   margin: 0 auto;
 }
-/* line 1018, ../sass/screen.scss */
+/* line 1010, ../sass/screen.scss */
 .table .tr {
   display: table-row;
 }
-/* line 1019, ../sass/screen.scss */
+/* line 1011, ../sass/screen.scss */
 .table .tr.th .td {
   text-align: center;
   font-size: 16px;
 }
-/* line 1024, ../sass/screen.scss */
+/* line 1016, ../sass/screen.scss */
 .table .tr:nth-child(2n+1) {
   color: white;
 }
-/* line 1027, ../sass/screen.scss */
+/* line 1019, ../sass/screen.scss */
 .table .tr:nth-child(2n) {
   color: #FFC;
   background-color: rgba(84, 21, 21, 0.5);
 }
-/* line 1032, ../sass/screen.scss */
+/* line 1024, ../sass/screen.scss */
 .table .tr:hover .icon-sms {
   opacity: 1;
 }
-/* line 1036, ../sass/screen.scss */
+/* line 1028, ../sass/screen.scss */
 .table .tr .icon-sms {
   transition: opacity 0.3s ease-in;
   font-size: 2em;
@@ -1551,17 +1541,17 @@ html, body {
   text-shadow: 0 -1px 0 black;
   opacity: 0;
 }
-/* line 1043, ../sass/screen.scss */
+/* line 1035, ../sass/screen.scss */
 .table .tr .icon-sms.sms-sent {
   color: gray;
   opacity: 0.5;
 }
-/* line 1047, ../sass/screen.scss */
+/* line 1039, ../sass/screen.scss */
 .table .tr .icon-sms:hover {
   -webkit-animation: shake 0.3s ease-in infinite;
   animation: shake 0.3s ease-in infinite;
 }
-/* line 1052, ../sass/screen.scss */
+/* line 1044, ../sass/screen.scss */
 .table .tr .icon-award {
   display: inline-block;
   margin: 5px 0.5em;
@@ -1569,19 +1559,19 @@ html, body {
   border-radius: 3px;
   padding: 1px;
 }
-/* line 1058, ../sass/screen.scss */
+/* line 1050, ../sass/screen.scss */
 .table .tr .icon-award:before {
   opacity: 0.1;
 }
-/* line 1061, ../sass/screen.scss */
+/* line 1053, ../sass/screen.scss */
 .table .tr .icon-award:hover:before, .table .tr .icon-award.half-active:before {
   opacity: 0.5;
 }
-/* line 1064, ../sass/screen.scss */
+/* line 1056, ../sass/screen.scss */
 .table .tr .icon-award.active:before {
   opacity: 1;
 }
-/* line 1069, ../sass/screen.scss */
+/* line 1061, ../sass/screen.scss */
 .table .td {
   display: table-cell;
   padding: 16px 2px;
@@ -1590,39 +1580,39 @@ html, body {
   border-bottom: 1px solid #FF0E0A;
   text-align: center;
 }
-/* line 1076, ../sass/screen.scss */
+/* line 1068, ../sass/screen.scss */
 .table .td.user-id, .table .td.gift-result-id {
   font-size: 16px;
   color: white;
 }
-/* line 1080, ../sass/screen.scss */
+/* line 1072, ../sass/screen.scss */
 .table .td.user-sn, .table .td.gift-result-sn, .table .td.ps-sn {
   width: 100px;
 }
-/* line 1085, ../sass/screen.scss */
+/* line 1077, ../sass/screen.scss */
 .table .td.user-group, .table .td.gift-result-content {
   width: 180px;
   font-size: 20px;
 }
-/* line 1090, ../sass/screen.scss */
+/* line 1082, ../sass/screen.scss */
 .table .td.user-name {
   width: 100px;
 }
-/* line 1093, ../sass/screen.scss */
+/* line 1085, ../sass/screen.scss */
 .table .td.user-title {
   width: 140px;
   font-size: 20px;
 }
-/* line 1097, ../sass/screen.scss */
+/* line 1089, ../sass/screen.scss */
 .table .td.user-receive {
   font-size: 16px;
   width: 160px;
 }
-/* line 1101, ../sass/screen.scss */
+/* line 1093, ../sass/screen.scss */
 .table .td.gift-result-sn, .table .td.gift-result-id, .table .td.gift-result-content, .table .td.gift-result-count, .table .td.gift-result-who {
   vertical-align: top;
 }
-/* line 1109, ../sass/screen.scss */
+/* line 1101, ../sass/screen.scss */
 .table .td.gift-result-who {
   box-sizing: border-box;
   text-align: left;
@@ -1631,27 +1621,27 @@ html, body {
   width: 500px;
   padding-left: 20px;
 }
-/* line 1116, ../sass/screen.scss */
+/* line 1108, ../sass/screen.scss */
 .table .td.gift-result-who .gift-result-who-list {
   list-style: inside decimal-leading-zero none;
 }
-/* line 1119, ../sass/screen.scss */
+/* line 1111, ../sass/screen.scss */
 .table .td.gift-result-who .receiver {
   box-sizing: border-box;
   margin-left: 1em;
   padding: 0 5px;
 }
-/* line 1123, ../sass/screen.scss */
+/* line 1115, ../sass/screen.scss */
 .table .td.gift-result-who .receiver:nth-child(even) {
   color: white;
 }
-/* line 1128, ../sass/screen.scss */
+/* line 1120, ../sass/screen.scss */
 .table .td.ps-content {
   width: 300px;
   text-align: left;
 }
 
-/* line 1134, ../sass/screen.scss */
+/* line 1126, ../sass/screen.scss */
 .gift-chart {
   overflow: auto;
   width: 480px;
@@ -1659,24 +1649,24 @@ html, body {
   background: #EECCAA;
   color: black;
 }
-/* line 1135, ../sass/screen.scss */
+/* line 1127, ../sass/screen.scss */
 .active .gift-chart {
   position: fixed;
   left: 520px;
   top: 115px;
 }
-/* line 1144, ../sass/screen.scss */
+/* line 1136, ../sass/screen.scss */
 .gift-chart.inactive {
   background: none;
   height: 32px;
   width: 32px;
   left: 968px;
 }
-/* line 1148, ../sass/screen.scss */
+/* line 1140, ../sass/screen.scss */
 .gift-chart.inactive h3, .gift-chart.inactive .gift-chart-reload, .gift-chart.inactive .gift-chart-switch-outer, .gift-chart.inactive .gift-chart-group-list {
   display: none;
 }
-/* line 1151, ../sass/screen.scss */
+/* line 1143, ../sass/screen.scss */
 .gift-chart.inactive .gift-chart-expand {
   right: 0;
   top: 3px;
@@ -1684,30 +1674,30 @@ html, body {
   line-height: 32px;
   color: white;
 }
-/* line 1156, ../sass/screen.scss */
+/* line 1148, ../sass/screen.scss */
 .gift-chart.inactive .gift-chart-expand:before {
   content: "\e904";
 }
-/* line 1159, ../sass/screen.scss */
+/* line 1151, ../sass/screen.scss */
 .gift-chart.inactive .gift-chart-expand:hover:before {
   color: yellow;
   text-shadow: 0 0 3px brown;
 }
-/* line 1165, ../sass/screen.scss */
+/* line 1157, ../sass/screen.scss */
 .gift-chart h3 {
   font-weight: bold;
   letter-spacing: 5px;
 }
-/* line 1169, ../sass/screen.scss */
+/* line 1161, ../sass/screen.scss */
 .gift-chart .gift-chart-switch-outer {
   text-align: right;
   margin-bottom: 1em;
 }
-/* line 1173, ../sass/screen.scss */
+/* line 1165, ../sass/screen.scss */
 .gift-chart[data-focus="rate"] .gift-chart-switch-rate, .gift-chart[data-focus="count"] .gift-chart-switch-count {
   color: black;
 }
-/* line 1177, ../sass/screen.scss */
+/* line 1169, ../sass/screen.scss */
 .gift-chart .gift-chart-switch {
   color: gray;
   display: inline-block;
@@ -1715,43 +1705,43 @@ html, body {
   padding: 0.2em;
   border-bottom: 1px dashed rgba(128, 128, 128, 0);
 }
-/* line 1183, ../sass/screen.scss */
+/* line 1175, ../sass/screen.scss */
 .gift-chart .gift-chart-switch:hover {
   color: black;
 }
-/* line 1186, ../sass/screen.scss */
+/* line 1178, ../sass/screen.scss */
 .gift-chart .gift-chart-switch:hover {
   border-bottom: 1px dashed gray;
 }
-/* line 1190, ../sass/screen.scss */
+/* line 1182, ../sass/screen.scss */
 .gift-chart .gift-chart-group-list {
   display: table;
 }
-/* line 1193, ../sass/screen.scss */
+/* line 1185, ../sass/screen.scss */
 .gift-chart .gift-chart-group-item {
   display: table-row;
 }
-/* line 1195, ../sass/screen.scss */
+/* line 1187, ../sass/screen.scss */
 .gift-chart .gift-chart-group-item .gift-chart-group, .gift-chart .gift-chart-group-item .gift-chart-count, .gift-chart .gift-chart-group-item .gift-chart-bar {
   display: table-cell;
 }
-/* line 1198, ../sass/screen.scss */
+/* line 1190, ../sass/screen.scss */
 .gift-chart .gift-chart-group-item .gift-chart-group {
   width: 10em;
   line-height: 1.4em;
   text-align: right;
 }
-/* line 1203, ../sass/screen.scss */
+/* line 1195, ../sass/screen.scss */
 .gift-chart .gift-chart-group-item .gift-chart-count {
   width: 70px;
   text-align: center;
 }
-/* line 1207, ../sass/screen.scss */
+/* line 1199, ../sass/screen.scss */
 .gift-chart .gift-chart-group-item .gift-chart-bar {
   width: 240px;
   position: relative;
 }
-/* line 1211, ../sass/screen.scss */
+/* line 1203, ../sass/screen.scss */
 .gift-chart .gift-chart-group-item .gift-chart-bar-outer {
   overflow: hidden;
   *zoom: 1;
@@ -1762,7 +1752,7 @@ html, body {
   box-sizing: border-box;
   border-radius: 10px;
 }
-/* line 1220, ../sass/screen.scss */
+/* line 1212, ../sass/screen.scss */
 .gift-chart .gift-chart-group-item .gift-chart-bar-inner {
   float: left;
   width: 60%;
@@ -1770,14 +1760,14 @@ html, body {
   background: red;
   height: 12px;
 }
-/* line 1228, ../sass/screen.scss */
+/* line 1220, ../sass/screen.scss */
 .gift-chart .gift-chart-btn {
   position: absolute;
   top: 1.5em;
   font-weight: bold;
   color: gray;
 }
-/* line 1233, ../sass/screen.scss */
+/* line 1225, ../sass/screen.scss */
 .gift-chart .gift-chart-btn:before {
   font-family: 'icomoon';
   speak: none;
@@ -1786,34 +1776,34 @@ html, body {
   font-variant: normal;
   text-transform: none;
 }
-/* line 1236, ../sass/screen.scss */
+/* line 1228, ../sass/screen.scss */
 .gift-chart .gift-chart-btn:hover {
   color: black;
   text-shadow: 0 0 3px yellow;
 }
-/* line 1241, ../sass/screen.scss */
+/* line 1233, ../sass/screen.scss */
 .gift-chart .gift-chart-reload {
   right: 3em;
 }
-/* line 1243, ../sass/screen.scss */
+/* line 1235, ../sass/screen.scss */
 .gift-chart .gift-chart-reload:before {
   content: "\e903";
 }
-/* line 1247, ../sass/screen.scss */
+/* line 1239, ../sass/screen.scss */
 .gift-chart .gift-chart-expand {
   right: 1em;
 }
-/* line 1249, ../sass/screen.scss */
+/* line 1241, ../sass/screen.scss */
 .gift-chart .gift-chart-expand:before {
   content: "\e606";
 }
 
-/* line 1254, ../sass/screen.scss */
+/* line 1246, ../sass/screen.scss */
 .ps-list {
   margin-bottom: 3em;
 }
 
-/* line 1257, ../sass/screen.scss */
+/* line 1249, ../sass/screen.scss */
 .drawing-page {
   -moz-user-select: -moz-none;
   -ms-user-select: none;
@@ -1825,7 +1815,7 @@ html, body {
   overflow: hidden;
 }
 
-/* line 1264, ../sass/screen.scss */
+/* line 1256, ../sass/screen.scss */
 .real-id-tips {
   position: absolute;
   left: 54px;
@@ -1834,7 +1824,7 @@ html, body {
   color: rgba(255, 255, 255, 0.3);
 }
 
-/* line 1270, ../sass/screen.scss */
+/* line 1262, ../sass/screen.scss */
 .drawing-slogan {
   transform-type: preserve-3d;
   perspective: 1000px;
@@ -1843,7 +1833,7 @@ html, body {
   left: 0;
   z-index: 105;
 }
-/* line 1276, ../sass/screen.scss */
+/* line 1268, ../sass/screen.scss */
 .drawing-slogan:before, .drawing-slogan:after {
   position: absolute;
   content: ' ';
@@ -1859,13 +1849,13 @@ html, body {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
 }
-/* line 1293, ../sass/screen.scss */
+/* line 1285, ../sass/screen.scss */
 .draw-start ~ .drawing-slogan.slogan1:before, .draw-start ~ .drawing-slogan.slogan1:after {
   width: 300px;
   height: 50px;
   content: '選我！選我！';
 }
-/* line 1297, ../sass/screen.scss */
+/* line 1289, ../sass/screen.scss */
 .draw-start ~ .drawing-slogan.slogan1:before {
   left: 30px;
   top: 70px;
@@ -1873,7 +1863,7 @@ html, body {
   -webkit-animation-name: slogan1;
   animation-name: slogan1;
 }
-/* line 1303, ../sass/screen.scss */
+/* line 1295, ../sass/screen.scss */
 .draw-start ~ .drawing-slogan.slogan1:after {
   left: 700px;
   top: 160px;
@@ -1881,7 +1871,7 @@ html, body {
   -webkit-animation-name: slogan2;
   animation-name: slogan2;
 }
-/* line 1311, ../sass/screen.scss */
+/* line 1303, ../sass/screen.scss */
 .draw-done ~ .drawing-slogan.slogan1:before {
   width: 420px;
   height: 50px;
@@ -1892,7 +1882,7 @@ html, body {
   -webkit-animation-name: slogan4;
   animation-name: slogan4;
 }
-/* line 1319, ../sass/screen.scss */
+/* line 1311, ../sass/screen.scss */
 .draw-done ~ .drawing-slogan.slogan1:after {
   width: 70px;
   height: 300px;
@@ -1908,7 +1898,7 @@ html, body {
   animation-name: slogan3;
 }
 
-/* line 1338, ../sass/screen.scss */
+/* line 1330, ../sass/screen.scss */
 .gone-ok-msg {
   z-index: 50;
   position: absolute;
@@ -1925,34 +1915,34 @@ html, body {
   animation: opacity_flip 1s infinite;
   text-shadow: 0 0 10px white, 0 0 10px white, 0 0 10px white;
 }
-/* line 1339, ../sass/screen.scss */
+/* line 1331, ../sass/screen.scss */
 .gone-ok-msg:empty {
   display: none;
 }
-/* line 1357, ../sass/screen.scss */
+/* line 1349, ../sass/screen.scss */
 .gone-ok-msg:after {
   content: ' 可不在現場！';
 }
 
-/* line 1362, ../sass/screen.scss */
+/* line 1354, ../sass/screen.scss */
 .drawmode-basic {
   text-align: center;
   font-size: 96px;
   text-shadow: 0 -2px 0 black;
 }
-/* line 1366, ../sass/screen.scss */
+/* line 1358, ../sass/screen.scss */
 .drawmode-basic.draw-start .drawmode-group, .drawmode-basic.draw-start .drawmode-name, .drawmode-basic.draw-done .drawmode-stop {
   display: none;
 }
-/* line 1371, ../sass/screen.scss */
+/* line 1363, ../sass/screen.scss */
 .drawmode-basic.draw-start .drawmode-sn {
   font-size: 128px;
 }
-/* line 1374, ../sass/screen.scss */
+/* line 1366, ../sass/screen.scss */
 .drawmode-basic.draw-done h3 {
   visibility: hidden;
 }
-/* line 1377, ../sass/screen.scss */
+/* line 1369, ../sass/screen.scss */
 .drawmode-basic .drawmode-stop {
   font-size: 64px;
   border-radius: 20px;
@@ -2260,13 +2250,13 @@ html, body {
     transform: translateX(-10px);
   }
 }
-/* line 1505, ../sass/screen.scss */
+/* line 1497, ../sass/screen.scss */
 .drawmode-slots {
   position: relative;
   transition: transform ease-in 0.3s;
   transform: scale(0.9) translateY(-20px);
 }
-/* line 1509, ../sass/screen.scss */
+/* line 1501, ../sass/screen.scss */
 .drawmode-slots .slots-machine {
   padding: 30px;
   background: white;
@@ -2280,7 +2270,7 @@ html, body {
   transform: scale(0.9) translateY(-50px);
   z-index: 3;
 }
-/* line 1522, ../sass/screen.scss */
+/* line 1514, ../sass/screen.scss */
 .drawmode-slots .slot-outer {
   display: inline-block;
   width: 150px;
@@ -2289,7 +2279,7 @@ html, body {
   overflow: hidden;
   border-radius: 5px;
 }
-/* line 1529, ../sass/screen.scss */
+/* line 1521, ../sass/screen.scss */
 .drawmode-slots .slot-outer:after {
   content: ' ';
   position: absolute;
@@ -2303,7 +2293,7 @@ html, body {
   box-sizing: border-box;
   border-radius: 5px;
 }
-/* line 1540, ../sass/screen.scss */
+/* line 1532, ../sass/screen.scss */
 .drawmode-slots .slot-outer:before {
   content: ' ';
   width: 10px;
@@ -2316,7 +2306,7 @@ html, body {
   left: -5px;
   top: 50%;
 }
-/* line 1552, ../sass/screen.scss */
+/* line 1544, ../sass/screen.scss */
 .drawmode-slots .slot {
   transition: transform 0.5s linear;
   display-inline: block;
@@ -2325,21 +2315,21 @@ html, body {
   background-image: url(../images/number.png);
   background-repeat: repeat-y;
 }
-/* line 1465, ../sass/screen.scss */
+/* line 1457, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-start, .drawmode-slots .slot-outer:nth-child(even) .slot.slot-turbo, .drawmode-slots .slot-outer:nth-child(even) .slot.slot-end {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
 }
-/* line 1471, ../sass/screen.scss */
+/* line 1463, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-start {
   -webkit-animation-name: start-rotateSlot1;
   animation-name: start-rotateSlot1;
   -webkit-animation-timing-function: cubic-bezier(0.78, -0.05, 0.61, 1.23);
   animation-timing-function: cubic-bezier(0.78, -0.05, 0.61, 1.23);
 }
-/* line 1477, ../sass/screen.scss */
+/* line 1469, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-turbo {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
@@ -2348,7 +2338,7 @@ html, body {
   -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
 }
-/* line 1485, ../sass/screen.scss */
+/* line 1477, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-end {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
@@ -2357,69 +2347,69 @@ html, body {
   -webkit-animation-timing-function: cubic-bezier(0, 1, 0, 1.012);
   animation-timing-function: cubic-bezier(0, 1, 0, 1.012);
 }
-/* line 1494, ../sass/screen.scss */
+/* line 1486, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-7 {
   transform: translateY(0px);
 }
-/* line 1494, ../sass/screen.scss */
+/* line 1486, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-8 {
   transform: translateY(-160px);
 }
-/* line 1494, ../sass/screen.scss */
+/* line 1486, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-9 {
   transform: translateY(-320px);
 }
-/* line 1494, ../sass/screen.scss */
+/* line 1486, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-0 {
   transform: translateY(-480px);
 }
-/* line 1494, ../sass/screen.scss */
+/* line 1486, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-1 {
   transform: translateY(-640px);
 }
-/* line 1494, ../sass/screen.scss */
+/* line 1486, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-2 {
   transform: translateY(-800px);
 }
-/* line 1494, ../sass/screen.scss */
+/* line 1486, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-3 {
   transform: translateY(-960px);
 }
-/* line 1494, ../sass/screen.scss */
+/* line 1486, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-4 {
   transform: translateY(-1120px);
 }
-/* line 1494, ../sass/screen.scss */
+/* line 1486, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-5 {
   transform: translateY(-1280px);
 }
-/* line 1494, ../sass/screen.scss */
+/* line 1486, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-6 {
   transform: translateY(-1440px);
 }
-/* line 1498, ../sass/screen.scss */
+/* line 1490, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-v {
   transform: translateY(-1600px);
 }
-/* line 1501, ../sass/screen.scss */
+/* line 1493, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-z {
   transform: translateY(-1760px);
 }
-/* line 1465, ../sass/screen.scss */
+/* line 1457, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-start, .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-turbo, .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-end {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
 }
-/* line 1471, ../sass/screen.scss */
+/* line 1463, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-start {
   -webkit-animation-name: start-rotateSlot2;
   animation-name: start-rotateSlot2;
   -webkit-animation-timing-function: cubic-bezier(0.78, -0.05, 0.61, 1.23);
   animation-timing-function: cubic-bezier(0.78, -0.05, 0.61, 1.23);
 }
-/* line 1477, ../sass/screen.scss */
+/* line 1469, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-turbo {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
@@ -2428,7 +2418,7 @@ html, body {
   -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
 }
-/* line 1485, ../sass/screen.scss */
+/* line 1477, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-end {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
@@ -2437,59 +2427,59 @@ html, body {
   -webkit-animation-timing-function: cubic-bezier(0, 1, 0, 1.012);
   animation-timing-function: cubic-bezier(0, 1, 0, 1.012);
 }
-/* line 1494, ../sass/screen.scss */
+/* line 1486, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-7 {
   transform: translateY(0px);
 }
-/* line 1494, ../sass/screen.scss */
+/* line 1486, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-8 {
   transform: translateY(-160px);
 }
-/* line 1494, ../sass/screen.scss */
+/* line 1486, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-9 {
   transform: translateY(-320px);
 }
-/* line 1494, ../sass/screen.scss */
+/* line 1486, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-0 {
   transform: translateY(-480px);
 }
-/* line 1494, ../sass/screen.scss */
+/* line 1486, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-1 {
   transform: translateY(-640px);
 }
-/* line 1494, ../sass/screen.scss */
+/* line 1486, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-2 {
   transform: translateY(-800px);
 }
-/* line 1494, ../sass/screen.scss */
+/* line 1486, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-3 {
   transform: translateY(-960px);
 }
-/* line 1494, ../sass/screen.scss */
+/* line 1486, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-4 {
   transform: translateY(-1120px);
 }
-/* line 1494, ../sass/screen.scss */
+/* line 1486, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-5 {
   transform: translateY(-1280px);
 }
-/* line 1494, ../sass/screen.scss */
+/* line 1486, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-6 {
   transform: translateY(-1440px);
 }
-/* line 1498, ../sass/screen.scss */
+/* line 1490, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-v {
   transform: translateY(-1600px);
 }
-/* line 1501, ../sass/screen.scss */
+/* line 1493, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-z {
   transform: translateY(-1760px);
 }
-/* line 1566, ../sass/screen.scss */
+/* line 1558, ../sass/screen.scss */
 .drawmode-slots .drawmode-group, .drawmode-slots .drawmode-name {
   font-size: 96px;
 }
-/* line 1569, ../sass/screen.scss */
+/* line 1561, ../sass/screen.scss */
 .drawmode-slots .slots-bar {
   transition: transform 0.3s ease-in;
   position: absolute;
@@ -2512,7 +2502,7 @@ html, body {
   transform-type: preserve-3d;
   perspective: 1000px;
 }
-/* line 1591, ../sass/screen.scss */
+/* line 1583, ../sass/screen.scss */
 .drawmode-slots .slots-bar-inner {
   width: 20px;
   height: 100%;
@@ -2522,7 +2512,7 @@ html, body {
   left: -10px;
   border-radius: 20px;
 }
-/* line 1600, ../sass/screen.scss */
+/* line 1592, ../sass/screen.scss */
 .drawmode-slots .slots-bar-button {
   transition: transform 0.3s ease-in;
   transform-origin: center center -250px;
@@ -2549,7 +2539,7 @@ html, body {
   -webkit-animation-name: slots-bar-init;
   animation-name: slots-bar-init;
 }
-/* line 1625, ../sass/screen.scss */
+/* line 1617, ../sass/screen.scss */
 .drawmode-slots .slots-bar-button:before {
   font-family: 'icomoon';
   speak: none;
@@ -2559,14 +2549,14 @@ html, body {
   text-transform: none;
   content: '\e608';
 }
-/* line 1630, ../sass/screen.scss */
+/* line 1622, ../sass/screen.scss */
 .drawmode-slots.draw-running .slots-bar-button {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
   -webkit-animation-name: slots-bar;
   animation-name: slots-bar;
 }
-/* line 1636, ../sass/screen.scss */
+/* line 1628, ../sass/screen.scss */
 .drawmode-slots .slots-result {
   transition: transform 0.3s ease-in;
   position: relative;
@@ -2585,14 +2575,14 @@ html, body {
   transform-origin: center 0;
   transform: translateX(-20px);
 }
-/* line 1655, ../sass/screen.scss */
+/* line 1647, ../sass/screen.scss */
 .drawmode-slots .slots-result-inner {
   border-radius: 20px;
   height: 290px;
   box-shadow: 0 0 5px orange, 0 0 5px gold inset, 5px 5px 5px brown inset;
   background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8));
 }
-/* line 1662, ../sass/screen.scss */
+/* line 1654, ../sass/screen.scss */
 .drawmode-slots .slots-result:before, .drawmode-slots .slots-result:after, .drawmode-slots .slots-result-inner:before, .drawmode-slots .slots-result-inner:after {
   font-family: 'icomoon';
   speak: none;
@@ -2607,25 +2597,25 @@ html, body {
   font-size: 50px;
   text-shadow: 2px 2px 2px black, 1px 1px 0 black, 1px -1px 0 black, -1px 1px 0 black, -1px -1px 0 black;
 }
-/* line 1676, ../sass/screen.scss */
+/* line 1668, ../sass/screen.scss */
 .drawmode-slots .slots-result:before, .drawmode-slots .slots-result-inner:before {
   left: 20px;
 }
-/* line 1679, ../sass/screen.scss */
+/* line 1671, ../sass/screen.scss */
 .drawmode-slots .slots-result:after, .drawmode-slots .slots-result-inner:after {
   right: 20px;
 }
-/* line 1684, ../sass/screen.scss */
+/* line 1676, ../sass/screen.scss */
 .drawmode-slots .slots-result:before, .drawmode-slots .slots-result:after {
   bottom: auto;
   top: -20px;
 }
-/* line 1690, ../sass/screen.scss */
+/* line 1682, ../sass/screen.scss */
 .drawmode-slots.draw-start ~ .drawing-slogan:before {
   left: 0px;
   top: 500px;
 }
-/* line 1693, ../sass/screen.scss */
+/* line 1685, ../sass/screen.scss */
 .drawmode-slots.draw-start ~ .drawing-slogan:after {
   top: 520px;
 }
@@ -3158,7 +3148,7 @@ html, body {
     opacity: 0;
   }
 }
-/* line 1837, ../sass/screen.scss */
+/* line 1829, ../sass/screen.scss */
 .drawmode-guagua {
   transform-type: preserve-3d;
   perspective: 1000px;
@@ -3168,7 +3158,7 @@ html, body {
   text-align: center;
   color: black;
 }
-/* line 1844, ../sass/screen.scss */
+/* line 1836, ../sass/screen.scss */
 .drawmode-guagua .guagua-tips {
   -webkit-animation: font_color_flip 0.3s steps(3, start) infinite;
   animation: font_color_flip 0.3s steps(3, start) infinite;
@@ -3182,7 +3172,7 @@ html, body {
   padding-bottom: 350px;
   z-index: 2;
 }
-/* line 1857, ../sass/screen.scss */
+/* line 1849, ../sass/screen.scss */
 .drawmode-guagua .guagua-card {
   transition: margin-bottom 1s ease-in;
   display: block;
@@ -3200,7 +3190,7 @@ html, body {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 }
-/* line 1869, ../sass/screen.scss */
+/* line 1861, ../sass/screen.scss */
 .drawmode-guagua .guagua-card.card-final {
   width: 640px;
   height: 480px;
@@ -3238,44 +3228,44 @@ html, body {
   */
   background-image: url(../images/card2.jpg);
 }
-/* line 1906, ../sass/screen.scss */
+/* line 1898, ../sass/screen.scss */
 .drawmode-guagua.card-drawed .guagua-tips {
   z-index: -1;
   opacity: 0;
 }
-/* line 1910, ../sass/screen.scss */
+/* line 1902, ../sass/screen.scss */
 .drawmode-guagua.card-drawed .guagua-card {
   margin-bottom: 900px;
 }
-/* line 1913, ../sass/screen.scss */
+/* line 1905, ../sass/screen.scss */
 .drawmode-guagua.card-drawed .card-final {
   visibility: visible;
   margin-bottom: 50px;
   -webkit-animation-name: gua_final;
   animation-name: gua_final;
 }
-/* line 1920, ../sass/screen.scss */
+/* line 1912, ../sass/screen.scss */
 .drawmode-guagua .card1 {
   -webkit-animation-duration: 8s;
   animation-duration: 8s;
   -webkit-animation-name: gua_flip1;
   animation-name: gua_flip1;
 }
-/* line 1926, ../sass/screen.scss */
+/* line 1918, ../sass/screen.scss */
 .drawmode-guagua .card2 {
   -webkit-animation-duration: 7s;
   animation-duration: 7s;
   -webkit-animation-name: gua_flip2;
   animation-name: gua_flip2;
 }
-/* line 1932, ../sass/screen.scss */
+/* line 1924, ../sass/screen.scss */
 .drawmode-guagua .card3 {
   -webkit-animation-duration: 7.5s;
   animation-duration: 7.5s;
   -webkit-animation-name: gua_flip3;
   animation-name: gua_flip3;
 }
-/* line 1938, ../sass/screen.scss */
+/* line 1930, ../sass/screen.scss */
 .drawmode-guagua .card4,
 .drawmode-guagua .card5,
 .drawmode-guagua .card6 {
@@ -3283,59 +3273,59 @@ html, body {
   -webkit-animation-name: gua_flip4;
   animation-name: gua_flip4;
 }
-/* line 1945, ../sass/screen.scss */
+/* line 1937, ../sass/screen.scss */
 .drawmode-guagua .card4 {
   -webkit-animation-duration: 7s;
   animation-duration: 7s;
   -webkit-animation-delay: 2s;
   animation-delay: 2s;
 }
-/* line 1951, ../sass/screen.scss */
+/* line 1943, ../sass/screen.scss */
 .drawmode-guagua .card5 {
   -webkit-animation-duration: 8s;
   animation-duration: 8s;
   -webkit-animation-delay: 4s;
   animation-delay: 4s;
 }
-/* line 1957, ../sass/screen.scss */
+/* line 1949, ../sass/screen.scss */
 .drawmode-guagua .card6 {
   -webkit-animation-duration: 9s;
   animation-duration: 9s;
 }
-/* line 1961, ../sass/screen.scss */
+/* line 1953, ../sass/screen.scss */
 .drawmode-guagua .guagua-canvas {
   cursor: url(../images/coin.png) 24 24, auto;
   position: absolute;
   left: 0;
   top: 0;
 }
-/* line 1966, ../sass/screen.scss */
+/* line 1958, ../sass/screen.scss */
 .drawmode-guagua .guagua-img {
   display: none;
 }
-/* line 1970, ../sass/screen.scss */
+/* line 1962, ../sass/screen.scss */
 .drawmode-guagua .drawmode-group {
   font-size: 68px;
   font-weight: bold;
   line-height: 120px;
   color: #333;
 }
-/* line 1976, ../sass/screen.scss */
+/* line 1968, ../sass/screen.scss */
 .drawmode-guagua .drawmode-sn, .drawmode-guagua .drawmode-name {
   font-size: 100px;
   font-weight: bold;
   color: #333;
 }
-/* line 1981, ../sass/screen.scss */
+/* line 1973, ../sass/screen.scss */
 .drawmode-guagua .drawmode-name {
   line-height: 200px;
 }
-/* line 1984, ../sass/screen.scss */
+/* line 1976, ../sass/screen.scss */
 .drawmode-guagua .drawmode-sn {
   font-family: 'Arial';
   line-height: 180px;
 }
-/* line 1988, ../sass/screen.scss */
+/* line 1980, ../sass/screen.scss */
 .drawmode-guagua .guagua-cursor {
   transition: visibility 0.3s ease-in, opacity 0.3s ease-in;
   position: absolute;
@@ -3345,22 +3335,22 @@ html, body {
   opacity: 0;
   visibility: hidden;
 }
-/* line 1996, ../sass/screen.scss */
+/* line 1988, ../sass/screen.scss */
 .drawmode-guagua .card-final .guagua-cursor.show-coin {
   opacity: 1;
   visibility: visible;
   z-index: 10;
 }
-/* line 2001, ../sass/screen.scss */
+/* line 1993, ../sass/screen.scss */
 .drawmode-guagua.draw-done .guagua-canvas {
   opacity: 0;
 }
-/* line 2005, ../sass/screen.scss */
+/* line 1997, ../sass/screen.scss */
 .drawmode-guagua.draw-start ~ .drawing-slogan:before {
   left: 740px;
   top: 500px;
 }
-/* line 2008, ../sass/screen.scss */
+/* line 2000, ../sass/screen.scss */
 .drawmode-guagua.draw-start ~ .drawing-slogan:after {
   left: 40px;
   top: 520px;
@@ -4735,12 +4725,12 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   font-size: 72px;
 }
 
-/* line 2017, ../sass/screen.scss */
+/* line 2009, ../sass/screen.scss */
 .config-page {
   overflow: auto;
   height: 610px;
 }
-/* line 2020, ../sass/screen.scss */
+/* line 2012, ../sass/screen.scss */
 .config-page .config-group {
   overflow: hidden;
   *zoom: 1;
@@ -4752,7 +4742,7 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   border-radius: 20px;
   position: relative;
 }
-/* line 2029, ../sass/screen.scss */
+/* line 2021, ../sass/screen.scss */
 .config-page .config-group:before {
   content: attr(title);
   font-size: 1.3em;
@@ -4761,17 +4751,17 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   padding: 3px;
   color: orange;
 }
-/* line 2038, ../sass/screen.scss */
+/* line 2030, ../sass/screen.scss */
 .config-page .config-group input[type="text"] {
   font-size: 20px;
   width: 600px;
   background: rgba(255, 255, 255, 0.8);
 }
-/* line 2043, ../sass/screen.scss */
+/* line 2035, ../sass/screen.scss */
 .config-page .config-group .config-info {
   line-height: 1.6em;
 }
-/* line 2045, ../sass/screen.scss */
+/* line 2037, ../sass/screen.scss */
 .config-page .config-group .config-info em {
   background: red;
   color: yellow;
@@ -4779,32 +4769,32 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   padding: 0 12px;
   border-radius: 4px;
 }
-/* line 2052, ../sass/screen.scss */
+/* line 2044, ../sass/screen.scss */
 .config-page .config-group .config-info span {
   font-weight: bold;
   font-family: courier;
   text-shadow: 0 0 3px white;
 }
-/* line 2057, ../sass/screen.scss */
+/* line 2049, ../sass/screen.scss */
 .config-page .config-group .config-info a {
   text-decoration: underline;
   color: pink;
 }
-/* line 2063, ../sass/screen.scss */
+/* line 2055, ../sass/screen.scss */
 .config-page .config-item {
   overflow: hidden;
   *zoom: 1;
   margin-top: 20px;
 }
-/* line 2066, ../sass/screen.scss */
+/* line 2058, ../sass/screen.scss */
 .config-page .config-item:nth-child(2n+1) {
   background: rgba(255, 0, 0, 0.4);
 }
-/* line 2069, ../sass/screen.scss */
+/* line 2061, ../sass/screen.scss */
 .config-page .config-item:nth-child(2n) {
   background: rgba(255, 0, 0, 0.2);
 }
-/* line 2073, ../sass/screen.scss */
+/* line 2065, ../sass/screen.scss */
 .config-page .to-remote-button, .config-page .back-to-import, .config-page .export-config {
   position: fixed;
   top: 600px;
@@ -4812,11 +4802,11 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   width: 240px;
   font-size: 1.5em;
 }
-/* line 2080, ../sass/screen.scss */
+/* line 2072, ../sass/screen.scss */
 .config-page .back-to-import {
   top: 500px;
 }
-/* line 2083, ../sass/screen.scss */
+/* line 2075, ../sass/screen.scss */
 .config-page .export-config {
   font-size: 2em;
   display: block;
@@ -4824,31 +4814,31 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   top: 650px;
 }
 
-/* line 2090, ../sass/screen.scss */
+/* line 2082, ../sass/screen.scss */
 .test-page {
   width: 100%;
   height: 100%;
 }
 
-/* line 2093, ../sass/screen.scss */
+/* line 2085, ../sass/screen.scss */
 .need-file-form {
   text-align: center;
 }
 
-/* line 2096, ../sass/screen.scss */
+/* line 2088, ../sass/screen.scss */
 .fake-data-button, .config-button {
   font-size: 32px;
   margin-bottom: 10px;
 }
 
-/* line 2100, ../sass/screen.scss */
+/* line 2092, ../sass/screen.scss */
 .need-file-list {
   overflow: hidden;
   *zoom: 1;
   width: 80%;
   margin: 0 auto;
 }
-/* line 2104, ../sass/screen.scss */
+/* line 2096, ../sass/screen.scss */
 .need-file-list .need-file-item {
   box-sizing: border-box;
   width: 45%;
@@ -4861,18 +4851,18 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   line-height: 50px;
   background: rgba(0, 0, 0, 0.3);
 }
-/* line 2114, ../sass/screen.scss */
+/* line 2106, ../sass/screen.scss */
 .need-file-list .need-file-item label {
   font-size: 24px;
   display: block;
 }
-/* line 2119, ../sass/screen.scss */
+/* line 2111, ../sass/screen.scss */
 .need-file-list .need-file-item.success {
   color: yellow;
   line-height: 96px;
   border-color: yellow;
 }
-/* line 2123, ../sass/screen.scss */
+/* line 2115, ../sass/screen.scss */
 .need-file-list .need-file-item.success label:before {
   font-family: 'icomoon';
   speak: none;
@@ -4882,12 +4872,12 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   text-transform: none;
   content: "\e60b";
 }
-/* line 2127, ../sass/screen.scss */
+/* line 2119, ../sass/screen.scss */
 .need-file-list .need-file-item.success input {
   display: none;
 }
 
-/* line 2133, ../sass/screen.scss */
+/* line 2125, ../sass/screen.scss */
 .restore-key {
   font-size: 32px;
   color: white;
@@ -4898,7 +4888,7 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   width: 200px;
 }
 
-/* line 2142, ../sass/screen.scss */
+/* line 2134, ../sass/screen.scss */
 .start-system-button {
   font-size: 32px;
 }
@@ -4967,7 +4957,7 @@ div[data-pokemon-id="1"] .pokemon-result:before {
     opacity: 0;
   }
 }
-/* line 2152, ../sass/screen.scss */
+/* line 2144, ../sass/screen.scss */
 .ping {
   opacity: 0;
   position: fixed;
@@ -4981,7 +4971,7 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   font-size: 40px;
   animation: signal 1s 1;
 }
-/* line 2161, ../sass/screen.scss */
+/* line 2153, ../sass/screen.scss */
 .ping.pong {
   animation: signal2 1s 1;
 }

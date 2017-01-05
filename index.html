@@ -17,10 +17,10 @@
     <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
 	<link href="stylesheets/fix.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <!-- //開發模式下，可能需要 compass livereload 環境
-	<link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
-    -->
     <script src="http://localhost:35729/livereload.js"></script>
 	<link onerror="this.href='stylesheets/screen.css'" href="http://localhost:24680/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    -->
+	<link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <script src="javascript/Three.js"></script>
     <script src="javascript/Projector.js"></script>
     <script src="javascript/cannon.js"></script>
@@ -269,14 +269,14 @@
                 <h3>所有獎項清單</h3>
                 <ol class="table gift-result-list">
                     <li class="tr th gift-result-item">
-                        <div class="td">序號</div>
+                        <div class="td">序號<i title="標示為大獎" class="icon-award"></i></div>
                         <div class="td gift-result-sn">獎項代號</div>
                         <div class="td gift-result-content">獎別/獎品內容</div>
                         <div class="td gift-result-count">數量</div>
                         <div class="td gift-result-who">得獎人(依抽出順序排列)</div>
                     </li>
                     <li class="tr gift-result-item tpl-data">
-                        <div class="td gift-result-id"></div>
+                        <div class="td gift-result-id"><span></span><i title="標示為大獎" class="icon-award"></i></div>
                         <div class="td gift-result-sn"><span></span><i title="發送得獎訊息" class="icon-sms"></i></div>
                         <div class="td gift-result-content"></div>
                         <div class="td gift-result-count"></div>
@@ -286,6 +286,24 @@
                         </div>
                     </li>
                 </ol>
+                <div class="gift-chart inactive" data-focus="rate">
+                    <h3>各處室中大獎統計</h3>
+                    <span class="gift-chart-btn gift-chart-expand" title="顯示/隱藏統計表"></span>
+                    <span class="gift-chart-btn gift-chart-reload" title="更新統計表"></span>
+                    <div class="gift-chart-switch-outer">
+                        <span class="gift-chart-switch gift-chart-switch-count">人數排名</span><span class="gift-chart-switch gift-chart-switch-rate">處內比例排名</span>
+                    </div>
+                    <ol class="gift-chart-group-list">
+                        <li class="gift-chart-group-item tpl-data" title="">
+                            <span class="gift-chart-group"></span><span class="gift-chart-count"></span>
+                            <div class="gift-chart-bar">
+                                <div class="gift-chart-bar-outer">
+                                    <div class="gift-chart-bar-inner"></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
             </div>
             <div class="page drawtype-page inactive">
                 <h3>獎項抽出方式</h3>

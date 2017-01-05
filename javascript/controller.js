@@ -177,6 +177,7 @@ $.when(
         summary_list: $('.summary-list'),
         gift_result_list: $('.gift-result-list'),
         gift_list: $('.gift-list'),
+        gift_chart: $('.gift-chart'),
         gift_count_all: $('.summary-gift-count em'),
         gift_count_now: $('.summary-gift-count-now em'),
         drawing_page: $('.drawing-page'),
@@ -190,6 +191,7 @@ $.when(
     var _tpl = {
         user_data: null,
         gift_data: null,
+        gift_chart_data: null,
         ps_data: null,
         gift_result_data: null,
         gift_owner: null
@@ -317,7 +319,7 @@ $.when(
 
         //獎項清單頁 DOM
         dom = this.$dom_result = _tpl.gift_result_data.clone().appendTo(_dom.gift_result_list);
-        dom.find('.gift-result-id').text(this._id+1);
+        dom.find('.gift-result-id span').text(this._id+1);
         dom.find('.gift-result-sn span').text(this.sn);
         dom.find('.gift-result-content').text([this.title, this.content || "？？？"].join(' - '));
         dom.find('.gift-result-count').text(this.count);
@@ -560,6 +562,7 @@ $.when(
     (function initTemplate(){       //先把頁面需暫存的元素取出
         _tpl.user_data = $('.user-item.tpl-data').detach().removeClass('tpl-data');
         _tpl.gift_data = $('.gift-item.tpl-data').detach().removeClass('tpl-data');
+        _tpl.gift_chart_data = $('.gift-chart-group-item.tpl-data').detach().removeClass('tpl-data');
         _tpl.ps_data = $('.ps-item.tpl-data').detach().removeClass('tpl-data');
         _tpl.gift_result_data = $('.gift-result-item.tpl-data').detach().removeClass('tpl-data');
         _tpl.drawtype_item = $('.drawtype-item.tpl-data').detach().removeClass('tpl-data');
@@ -821,7 +824,108 @@ $.when(
         });
         //}}
 
-        
+        //{{ 大獎統計 checkbox
+        var total_group_count = {};
+        (function(){
+            user_array.forEach(function(user, i){
+                var group_data = total_group_count[user.group] = total_group_count[user.group] || {count: 0, all: 0} ;
+                group_data.all++;
+            });
+            for(var k in total_group_count) {
+                var $chart_item = _tpl.gift_chart_data.clone().appendTo(_dom.gift_chart.find('.gift-chart-group-list'));
+                $chart_item.attr('title', k).find('.gift-chart-group').html(k+' ('+total_group_count[k].all+') ');
+            }
+            var countGiftChartList = function(){
+                for(var k in total_group_count) {
+                    total_group_count[k].count = 0;
+                }
+                $('.gift-result-list').find('.gift-result-id .icon-award.active').map(function(){
+                    var $this = $(this), $gift_item = $this.parents('.gift-result-item');
+                    var gift_sn = $gift_item.find('.gift-result-sn span').text();
+                    var gift = filterOne(gift_array, function(gift){
+                        return gift.sn == gift_sn;
+                    });
+                    gift.award_to.forEach(function(id){
+                        var user = user_array[id];
+                        total_group_count[user.group].count++;
+                    });
+                });
+            };
+            var updateGiftChartList = function(){
+                var is_count = (_dom.gift_chart.attr('data-focus') == 'count');
+                var max_count = 0;
+                for(var k in total_group_count) {
+                    if(total_group_count[k].count > max_count) {
+                        max_count = total_group_count[k].count;
+                    }
+                }
+                for(var k in total_group_count) {
+                    var $chart_item = $('.gift-chart-group-item[title="'+k+'"]');
+                    $chart_item.find('.gift-chart-count').attr('title', ['中獎人數/處室人數：', total_group_count[k].count, '/', total_group_count[k].all].join(' ')).text(
+                        is_count?
+                            total_group_count[k].count:
+                            ((total_group_count[k].count*100/total_group_count[k].all).toFixed(1)+'%')
+                    );
+                    $chart_item.find('.gift-chart-bar-inner').css(
+                        'width', is_count?
+                            ((total_group_count[k].count*100 / max_count)+'%'):
+                            ((total_group_count[k].count*100/total_group_count[k].all)+'%')
+                    );
+                }
+                var t = $('.gift-chart-group-item').sort(function (a, b) {
+                    var $a = $(a);
+                    var $b = $(b);
+                    return (parseFloat($(a).find('.gift-chart-count').text()) >= parseFloat($(b).find('.gift-chart-count').text()))?-1:1;
+                });
+                t.map(function () {
+                    $(this).appendTo(this.parentNode);
+                });
+            };
+            $('.gift-chart-switch-outer').on('click', '.gift-chart-switch', function(){
+                var $this = $(this);
+                if($this.is('.gift-chart-switch-count')){
+                    _dom.gift_chart.attr('data-focus', 'count');
+                } else {
+                    _dom.gift_chart.attr('data-focus', 'rate');
+                }
+                updateGiftChartList();
+            });
+            $('.gift-result-list').on('click', '.icon-award', function(){
+                var $this = $(this), $gift_item = $this.parents('.gift-result-item');
+                if($gift_item.is('.th')) {
+                    if($this.is('.active')) {
+                        $this.removeClass('active');
+                        _dom.gift_result_list.find('.icon-award').removeClass('active');
+                    } else {
+                        $this.removeClass('half-active').addClass('active');
+                        _dom.gift_result_list.find('.icon-award').addClass('active');
+                    }
+                } else {
+                    $this.toggleClass('active');
+                    var active_length = _dom.gift_result_list.find('.gift-result-id .icon-award.active').length;
+                    var all_length =  _dom.gift_result_list.find('.gift-result-id .icon-award').length;
+                    if(active_length == 0) {
+                        _dom.gift_result_list.find('.th .icon-award').removeClass('active half-active');
+                    } else if(active_length == all_length) {
+                        _dom.gift_result_list.find('.th .icon-award').removeClass('half-active').addClass('active');
+                    } else {
+                        _dom.gift_result_list.find('.th .icon-award').removeClass('active').addClass('half-active');
+                    }
+                }
+                countGiftChartList();
+                updateGiftChartList();
+            });
+            $('.gift-chart-expand').bind('click', function(){
+                _dom.gift_chart.toggleClass('inactive');
+            });
+            $('.gift-chart-reload').bind('click', function(){
+                countGiftChartList();
+                updateGiftChartList();
+            });
+            countGiftChartList();
+            updateGiftChartList();
+        })();
+        //}}
         //{{bottom bar icons
         $('.toolbox').on('click', '.btn i', function(){
             if($('.draw-start').length != 0){
@@ -853,6 +957,13 @@ $.when(
             } else if ($this.is('.icon-home')) {
                 $('.page.main-page').removeClass('inactive').addClass('active');
             } else if ($this.is('.icon-draw')) {
+                //{{ 將處室統計結果也更新到 csv 檔
+                var gift_chart_rows = [['處室名稱','處室內人數','抽中大獎人數','比例'].join(',')];
+                $('.gift-chart-reload').trigger('click'); //更新獎項清單
+                for(var k in total_group_count) {
+                    gift_chart_rows.push([k,total_group_count[k].all,total_group_count[k].count,(total_group_count[k].count*100/total_group_count[k].all).toFixed(1)].join(','))
+                }
+                //}}
                 var cellStr = function(str){
                     if(str.indexOf(',')==-1){
                         return str;
@@ -860,7 +971,7 @@ $.when(
                         return '"'+str.replace(/\"/g, '＂')+'"'
                     }
                 }
-                var csvRows = [['抽獎聯編號', '員工代號','姓名','職務','1級單位','獎項編號','獎項名稱','獎項內容'].join(',')], line;
+                var csvRows = [['抽獎聯編號', '員工代號','姓名','職務','1級單位','獎項編號','獎項名稱','獎項內容'].join(',')+',,'+gift_chart_rows[0]], line;
                 for(var i = 0, n = user_array.length; i < n; ++i){
                     var user = user_array[i];
                     line = [];
@@ -869,8 +980,14 @@ $.when(
                         line.push('', NOT_EXIST_STR,'');
                     } else if(user.receive_gift){
                         line.push(cellStr(user.receive_gift.sn), cellStr(user.receive_gift.title), cellStr(user.receive_gift.content));
+                    } else {
+                        line.push(',,');
                     }
-                    csvRows.push(line.join(','));
+                    if(gift_chart_rows[i+1]) {
+                        csvRows.push(line.join(',')+',,'+gift_chart_rows[i+1]);
+                    } else {
+                        csvRows.push(line.join(','));
+                    }
                 }
                 var csvString = csvRows.join("%0A");
                 var a         = document.createElement('a');

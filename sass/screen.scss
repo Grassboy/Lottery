@@ -784,46 +784,6 @@ html, body {
     height: 610px;
     background-image: url(../images/main_bg.png);
 }
-.main-picture {
-    display: inline-block;
-    position: absolute;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    &.pic-main-title {
-        $x: 1;
-        width: 719px * $x;
-        height: 340px * $x;
-        left: 172px;
-        top: 125px;
-        background-image: url(../images/main_title.png);
-    }
-    &.pic-money {
-        $x: 1;
-        width: 496px * $x;
-        height: 116px * $x;
-        left: 521px;
-        top: 643px;
-        z-index: 51;
-
-        background-image: url(../images/money.png);
-    }
-    &.pic-gift {
-        $x: 0.75;
-        width: 476px * $x;
-        height: 247px * $x;
-        bottom: 50px; right: 60px;
-        z-index: 52;
-        background-image: url(../images/ruii_big2.png);
-    }
-    &.pic-2015 {
-        $x: 0.7;
-        height: 138.45px * $x;
-        width: 469.817px * $x;
-        left: 180px;
-        top: 490px;
-        background-image: url(../images/2015big.png);
-    }
-}
 
 .gift-add {
     transition: left 0.3s ease-in;
@@ -1089,6 +1049,22 @@ html, body {
                         animation: shake 0.3s ease-in infinite;
             }
         }
+        .icon-award {
+            display: inline-block;
+            margin: 5px 0.5em;
+            border: 1px solid white;
+            border-radius: 3px;
+            padding: 1px;
+            &:before {
+                opacity: 0.1;
+            }
+            &:hover:before, &.half-active:before {
+                opacity: 0.5;
+            }
+            &.active:before {
+                opacity: 1;
+            }
+        }
     }
     .td {
         display: table-cell;
@@ -1152,6 +1128,126 @@ html, body {
         &.ps-content {
             width: 300px;
             text-align: left;
+        }
+    }
+}
+.gift-chart {
+    .active & {
+        position: fixed;
+        left: 520px; top: 115px;
+    }
+    overflow: auto;
+    width: 480px; height: 600px;
+    background: #EECCAA;
+    color: black;
+
+    &.inactive {
+        background: none;
+        height: 32px; width: 32px;
+        left: 968px;
+        h3, .gift-chart-reload, .gift-chart-switch-outer, .gift-chart-group-list {
+            display: none;
+        }
+        .gift-chart-expand {
+            right: 0; top: 3px;
+            font-size: 32px;
+            line-height: 32px;
+            color: white;
+            &:before {
+                content: "\e904";
+            }
+            &:hover:before {
+                color: yellow;
+                text-shadow: 0 0 3px brown;
+            }
+        }
+    }
+    h3 {
+        font-weight: bold;
+        letter-spacing: 5px;
+    }
+    .gift-chart-switch-outer {
+        text-align: right;
+        margin-bottom: 1em;
+    }
+    &[data-focus="rate"] .gift-chart-switch-rate,
+    &[data-focus="count"] .gift-chart-switch-count {
+        color: black;
+    }
+    .gift-chart-switch {
+        color: gray;
+        display: inline-block;
+        margin: 0 5px;
+        padding: 0.2em;
+        border-bottom: 1px dashed rgba(gray, 0);
+        &:hover {
+            color: black;
+        }
+        &:hover {
+            border-bottom: 1px dashed gray;
+        }
+    }
+    .gift-chart-group-list {
+        display: table;
+    }
+    .gift-chart-group-item {
+        display: table-row;
+        .gift-chart-group, .gift-chart-count, .gift-chart-bar {
+            display: table-cell;
+        }
+        .gift-chart-group {
+            width: 10em;
+            line-height: 1.4em;
+            text-align: right;
+        }
+        .gift-chart-count {
+            width: 70px;
+            text-align: center;
+        }
+        .gift-chart-bar {
+            width: 240px;
+            position: relative;
+        }
+        .gift-chart-bar-outer {
+            @include clearfix;
+            display: inline-block;
+            background: #FAA;
+            height: 12px;
+            width: 100%;
+            box-sizing: border-box;
+            border-radius: 10px;
+        }
+        .gift-chart-bar-inner {
+            float: left;
+            width: 60%;
+            border-radius: 10px;
+            background: red;
+            height: 12px;
+        }
+    }
+    .gift-chart-btn {
+        position: absolute;
+        top: 1.5em;
+        font-weight: bold;
+        color:gray;
+        &:before {
+            @include icomoon;
+        }
+        &:hover {
+            color: black;
+            text-shadow: 0 0 3px yellow;
+        }
+    }
+    .gift-chart-reload {
+        right: 3em;
+        &:before {
+            content: "\e903";
+        }
+    }
+    .gift-chart-expand {
+        right: 1em;
+        &:before {
+            content: "\e606";
         }
     }
 }

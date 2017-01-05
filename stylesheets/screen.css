@@ -1193,49 +1193,7 @@ html, body {
   background-image: url(../images/main_bg.png);
 }
 
-/* line 787, ../sass/screen.scss */
-.main-picture {
-  display: inline-block;
-  position: absolute;
-  background-repeat: no-repeat;
-  background-size: 100%;
-}
-/* line 792, ../sass/screen.scss */
-.main-picture.pic-main-title {
-  width: 719px;
-  height: 340px;
-  left: 172px;
-  top: 125px;
-  background-image: url(../images/main_title.png);
-}
-/* line 800, ../sass/screen.scss */
-.main-picture.pic-money {
-  width: 496px;
-  height: 116px;
-  left: 521px;
-  top: 643px;
-  z-index: 51;
-  background-image: url(../images/money.png);
-}
-/* line 810, ../sass/screen.scss */
-.main-picture.pic-gift {
-  width: 357px;
-  height: 185.25px;
-  bottom: 50px;
-  right: 60px;
-  z-index: 52;
-  background-image: url(../images/ruii_big2.png);
-}
-/* line 818, ../sass/screen.scss */
-.main-picture.pic-2015 {
-  height: 96.915px;
-  width: 328.8719px;
-  left: 180px;
-  top: 490px;
-  background-image: url(../images/2015big.png);
-}
-
-/* line 828, ../sass/screen.scss */
+/* line 788, ../sass/screen.scss */
 .gift-add {
   transition: left 0.3s ease-in;
   position: relative;
@@ -1245,15 +1203,15 @@ html, body {
   background-color: #570100;
   z-index: 2;
 }
-/* line 836, ../sass/screen.scss */
+/* line 796, ../sass/screen.scss */
 .gift-add.active {
   left: 0;
 }
-/* line 838, ../sass/screen.scss */
+/* line 798, ../sass/screen.scss */
 .gift-add.active ~ .gift-search {
   opacity: 0;
 }
-/* line 842, ../sass/screen.scss */
+/* line 802, ../sass/screen.scss */
 .gift-add .gift-add-button, .gift-add .gift-cancel-button {
   color: orange;
   background-image: linear-gradient(180deg, #ff0e0a, #a30300);
@@ -1263,20 +1221,20 @@ html, body {
   text-shadow: 0 -1px 0 black;
   font-size: 24px;
 }
-/* line 846, ../sass/screen.scss */
+/* line 806, ../sass/screen.scss */
 .gift-add .gift-cancel-button {
   background-image: linear-gradient(180deg, #700200, #3d0100);
   color: #888;
 }
 
-/* line 851, ../sass/screen.scss */
+/* line 811, ../sass/screen.scss */
 .gift-search {
   transition: opacity 0.3s ease-in;
   box-sizing: border-box;
   padding: 5px;
   position: relative;
 }
-/* line 856, ../sass/screen.scss */
+/* line 816, ../sass/screen.scss */
 .gift-search:after {
   font-family: 'icomoon';
   speak: none;
@@ -1293,7 +1251,7 @@ html, body {
   color: brown;
 }
 
-/* line 866, ../sass/screen.scss */
+/* line 826, ../sass/screen.scss */
 .gift-input {
   box-sizing: border-box;
   font-size: 24px;
@@ -1324,24 +1282,24 @@ html, body {
   color: red;
   letter-spacing: 1px;
 }
-/* line 879, ../sass/screen.scss */
+/* line 839, ../sass/screen.scss */
 .gift-input:focus {
   box-shadow: 0 0 5px gold;
 }
-/* line 882, ../sass/screen.scss */
+/* line 842, ../sass/screen.scss */
 .gift-input.gift-search-sn {
   width: 100%;
 }
-/* line 885, ../sass/screen.scss */
+/* line 845, ../sass/screen.scss */
 .gift-input.gift-add-title, .gift-input.gift-add-content {
   width: calc(49% - 110px);
 }
-/* line 888, ../sass/screen.scss */
+/* line 848, ../sass/screen.scss */
 .gift-input.gift-add-count {
   width: 80px;
 }
 
-/* line 892, ../sass/screen.scss */
+/* line 852, ../sass/screen.scss */
 .gift-item {
   overflow: hidden;
   *zoom: 1;
@@ -1353,42 +1311,42 @@ html, body {
   height: 60px;
   text-shadow: 0 -1px 0 black;
 }
-/* line 902, ../sass/screen.scss */
+/* line 862, ../sass/screen.scss */
 .gift-item:hover {
   background-color: #bd0300;
 }
-/* line 905, ../sass/screen.scss */
+/* line 865, ../sass/screen.scss */
 .gift-item div {
   float: left;
 }
-/* line 908, ../sass/screen.scss */
+/* line 868, ../sass/screen.scss */
 .gift-item.done {
   border: 1px solid #5a5a5a;
   border-top-color: #1a1a1a;
   background-color: #433;
 }
-/* line 913, ../sass/screen.scss */
+/* line 873, ../sass/screen.scss */
 .gift-item.done .gift-sn {
   background-color: rgba(255, 0, 0, 0.1);
 }
-/* line 916, ../sass/screen.scss */
+/* line 876, ../sass/screen.scss */
 .gift-item.done .gift-start {
   background: gray;
 }
-/* line 918, ../sass/screen.scss */
+/* line 878, ../sass/screen.scss */
 .gift-item.done .gift-start:before {
   content: '結果';
 }
-/* line 923, ../sass/screen.scss */
+/* line 883, ../sass/screen.scss */
 .gift-item.gift-bonus {
   display: none !important;
 }
-/* line 926, ../sass/screen.scss */
+/* line 886, ../sass/screen.scss */
 .gift-item.gift-show {
   display: block !important;
 }
 
-/* line 930, ../sass/screen.scss */
+/* line 890, ../sass/screen.scss */
 .gift-sn {
   box-sizing: border-box;
   width: 50px;
@@ -1399,7 +1357,7 @@ html, body {
   box-shadow: -3px 0 3px -3px black inset;
 }
 
-/* line 939, ../sass/screen.scss */
+/* line 899, ../sass/screen.scss */
 .gift-title {
   white-space: nowrap;
   overflow: hidden;
@@ -1415,7 +1373,7 @@ html, body {
   box-shadow: 0 -1px 0px rgba(0, 0, 0, 0.5) inset;
 }
 
-/* line 949, ../sass/screen.scss */
+/* line 909, ../sass/screen.scss */
 .gift-content {
   white-space: nowrap;
   overflow: hidden;
@@ -1427,7 +1385,7 @@ html, body {
   width: calc(100% - 50px);
 }
 
-/* line 955, ../sass/screen.scss */
+/* line 915, ../sass/screen.scss */
 .gift-start {
   transition: right 0.1s ease-in;
   box-sizing: border-box;
@@ -1442,20 +1400,20 @@ html, body {
   right: -60px;
   top: 0;
 }
-/* line 967, ../sass/screen.scss */
+/* line 927, ../sass/screen.scss */
 .gift-start:hover {
   text-shadow: 0 0 3px yellow, 0 -1px 0 black;
 }
-/* line 970, ../sass/screen.scss */
+/* line 930, ../sass/screen.scss */
 .gift-item:hover .gift-start {
   right: 0;
 }
-/* line 973, ../sass/screen.scss */
+/* line 933, ../sass/screen.scss */
 .gift-start:before {
   content: '載入';
 }
 
-/* line 977, ../sass/screen.scss */
+/* line 937, ../sass/screen.scss */
 .gift-count {
   position: absolute;
   right: 0;
@@ -1464,7 +1422,7 @@ html, body {
   color: #AAA;
 }
 
-/* line 984, ../sass/screen.scss */
+/* line 944, ../sass/screen.scss */
 .drawtype-item {
   margin: 5px;
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjAlIiBjeT0iMCUiIHI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMC4zIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZmY3MjAwIi8+PC9yYWRpYWxHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
@@ -1482,7 +1440,7 @@ html, body {
   vertical-align: top;
   text-shadow: 0 -1px 0 black;
 }
-/* line 998, ../sass/screen.scss */
+/* line 958, ../sass/screen.scss */
 .drawtype-item .drawtype-info {
   transition: opacity 0.3s ease-in;
   opacity: 0;
@@ -1499,11 +1457,11 @@ html, body {
   padding: 5px;
   z-index: 10;
 }
-/* line 1012, ../sass/screen.scss */
+/* line 972, ../sass/screen.scss */
 .drawtype-item.active {
   box-shadow: 0 0 0 5px red inset;
 }
-/* line 1014, ../sass/screen.scss */
+/* line 974, ../sass/screen.scss */
 .drawtype-item.active:after {
   content: 'NOW!!';
   position: absolute;
@@ -1517,7 +1475,7 @@ html, body {
   float: left;
   transform: rotate(-45deg);
 }
-/* line 1025, ../sass/screen.scss */
+/* line 985, ../sass/screen.scss */
 .drawtype-item.active:before {
   content: ' ';
   position: absolute;
@@ -1527,11 +1485,11 @@ html, body {
   width: 60px;
   height: 60px;
 }
-/* line 1032, ../sass/screen.scss */
+/* line 992, ../sass/screen.scss */
 .drawtype-item:hover .drawtype-info {
   opacity: 1;
 }
-/* line 1035, ../sass/screen.scss */
+/* line 995, ../sass/screen.scss */
 .drawtype-item .drawtype-title {
   box-sizing: border-box;
   position: absolute;
@@ -1542,7 +1500,7 @@ html, body {
   font-size: 36px;
 }
 
-/* line 1044, ../sass/screen.scss */
+/* line 1004, ../sass/screen.scss */
 .drawtype-icon {
   position: absolute;
   width: 180px;
@@ -1557,34 +1515,34 @@ html, body {
   opacity: 0.8;
 }
 
-/* line 1055, ../sass/screen.scss */
+/* line 1015, ../sass/screen.scss */
 .table {
   display: table;
   margin: 0 auto;
 }
-/* line 1058, ../sass/screen.scss */
+/* line 1018, ../sass/screen.scss */
 .table .tr {
   display: table-row;
 }
-/* line 1059, ../sass/screen.scss */
+/* line 1019, ../sass/screen.scss */
 .table .tr.th .td {
   text-align: center;
   font-size: 16px;
 }
-/* line 1064, ../sass/screen.scss */
+/* line 1024, ../sass/screen.scss */
 .table .tr:nth-child(2n+1) {
   color: white;
 }
-/* line 1067, ../sass/screen.scss */
+/* line 1027, ../sass/screen.scss */
 .table .tr:nth-child(2n) {
   color: #FFC;
   background-color: rgba(84, 21, 21, 0.5);
 }
-/* line 1072, ../sass/screen.scss */
+/* line 1032, ../sass/screen.scss */
 .table .tr:hover .icon-sms {
   opacity: 1;
 }
-/* line 1076, ../sass/screen.scss */
+/* line 1036, ../sass/screen.scss */
 .table .tr .icon-sms {
   transition: opacity 0.3s ease-in;
   font-size: 2em;
@@ -1593,17 +1551,37 @@ html, body {
   text-shadow: 0 -1px 0 black;
   opacity: 0;
 }
-/* line 1083, ../sass/screen.scss */
+/* line 1043, ../sass/screen.scss */
 .table .tr .icon-sms.sms-sent {
   color: gray;
   opacity: 0.5;
 }
-/* line 1087, ../sass/screen.scss */
+/* line 1047, ../sass/screen.scss */
 .table .tr .icon-sms:hover {
   -webkit-animation: shake 0.3s ease-in infinite;
   animation: shake 0.3s ease-in infinite;
 }
-/* line 1093, ../sass/screen.scss */
+/* line 1052, ../sass/screen.scss */
+.table .tr .icon-award {
+  display: inline-block;
+  margin: 5px 0.5em;
+  border: 1px solid white;
+  border-radius: 3px;
+  padding: 1px;
+}
+/* line 1058, ../sass/screen.scss */
+.table .tr .icon-award:before {
+  opacity: 0.1;
+}
+/* line 1061, ../sass/screen.scss */
+.table .tr .icon-award:hover:before, .table .tr .icon-award.half-active:before {
+  opacity: 0.5;
+}
+/* line 1064, ../sass/screen.scss */
+.table .tr .icon-award.active:before {
+  opacity: 1;
+}
+/* line 1069, ../sass/screen.scss */
 .table .td {
   display: table-cell;
   padding: 16px 2px;
@@ -1612,39 +1590,39 @@ html, body {
   border-bottom: 1px solid #FF0E0A;
   text-align: center;
 }
-/* line 1100, ../sass/screen.scss */
+/* line 1076, ../sass/screen.scss */
 .table .td.user-id, .table .td.gift-result-id {
   font-size: 16px;
   color: white;
 }
-/* line 1104, ../sass/screen.scss */
+/* line 1080, ../sass/screen.scss */
 .table .td.user-sn, .table .td.gift-result-sn, .table .td.ps-sn {
   width: 100px;
 }
-/* line 1109, ../sass/screen.scss */
+/* line 1085, ../sass/screen.scss */
 .table .td.user-group, .table .td.gift-result-content {
   width: 180px;
   font-size: 20px;
 }
-/* line 1114, ../sass/screen.scss */
+/* line 1090, ../sass/screen.scss */
 .table .td.user-name {
   width: 100px;
 }
-/* line 1117, ../sass/screen.scss */
+/* line 1093, ../sass/screen.scss */
 .table .td.user-title {
   width: 140px;
   font-size: 20px;
 }
-/* line 1121, ../sass/screen.scss */
+/* line 1097, ../sass/screen.scss */
 .table .td.user-receive {
   font-size: 16px;
   width: 160px;
 }
-/* line 1125, ../sass/screen.scss */
+/* line 1101, ../sass/screen.scss */
 .table .td.gift-result-sn, .table .td.gift-result-id, .table .td.gift-result-content, .table .td.gift-result-count, .table .td.gift-result-who {
   vertical-align: top;
 }
-/* line 1133, ../sass/screen.scss */
+/* line 1109, ../sass/screen.scss */
 .table .td.gift-result-who {
   box-sizing: border-box;
   text-align: left;
@@ -1653,32 +1631,189 @@ html, body {
   width: 500px;
   padding-left: 20px;
 }
-/* line 1140, ../sass/screen.scss */
+/* line 1116, ../sass/screen.scss */
 .table .td.gift-result-who .gift-result-who-list {
   list-style: inside decimal-leading-zero none;
 }
-/* line 1143, ../sass/screen.scss */
+/* line 1119, ../sass/screen.scss */
 .table .td.gift-result-who .receiver {
   box-sizing: border-box;
   margin-left: 1em;
   padding: 0 5px;
 }
-/* line 1147, ../sass/screen.scss */
+/* line 1123, ../sass/screen.scss */
 .table .td.gift-result-who .receiver:nth-child(even) {
   color: white;
 }
-/* line 1152, ../sass/screen.scss */
+/* line 1128, ../sass/screen.scss */
 .table .td.ps-content {
   width: 300px;
   text-align: left;
 }
 
-/* line 1158, ../sass/screen.scss */
+/* line 1134, ../sass/screen.scss */
+.gift-chart {
+  overflow: auto;
+  width: 480px;
+  height: 600px;
+  background: #EECCAA;
+  color: black;
+}
+/* line 1135, ../sass/screen.scss */
+.active .gift-chart {
+  position: fixed;
+  left: 520px;
+  top: 115px;
+}
+/* line 1144, ../sass/screen.scss */
+.gift-chart.inactive {
+  background: none;
+  height: 32px;
+  width: 32px;
+  left: 968px;
+}
+/* line 1148, ../sass/screen.scss */
+.gift-chart.inactive h3, .gift-chart.inactive .gift-chart-reload, .gift-chart.inactive .gift-chart-switch-outer, .gift-chart.inactive .gift-chart-group-list {
+  display: none;
+}
+/* line 1151, ../sass/screen.scss */
+.gift-chart.inactive .gift-chart-expand {
+  right: 0;
+  top: 3px;
+  font-size: 32px;
+  line-height: 32px;
+  color: white;
+}
+/* line 1156, ../sass/screen.scss */
+.gift-chart.inactive .gift-chart-expand:before {
+  content: "\e904";
+}
+/* line 1159, ../sass/screen.scss */
+.gift-chart.inactive .gift-chart-expand:hover:before {
+  color: yellow;
+  text-shadow: 0 0 3px brown;
+}
+/* line 1165, ../sass/screen.scss */
+.gift-chart h3 {
+  font-weight: bold;
+  letter-spacing: 5px;
+}
+/* line 1169, ../sass/screen.scss */
+.gift-chart .gift-chart-switch-outer {
+  text-align: right;
+  margin-bottom: 1em;
+}
+/* line 1173, ../sass/screen.scss */
+.gift-chart[data-focus="rate"] .gift-chart-switch-rate, .gift-chart[data-focus="count"] .gift-chart-switch-count {
+  color: black;
+}
+/* line 1177, ../sass/screen.scss */
+.gift-chart .gift-chart-switch {
+  color: gray;
+  display: inline-block;
+  margin: 0 5px;
+  padding: 0.2em;
+  border-bottom: 1px dashed rgba(128, 128, 128, 0);
+}
+/* line 1183, ../sass/screen.scss */
+.gift-chart .gift-chart-switch:hover {
+  color: black;
+}
+/* line 1186, ../sass/screen.scss */
+.gift-chart .gift-chart-switch:hover {
+  border-bottom: 1px dashed gray;
+}
+/* line 1190, ../sass/screen.scss */
+.gift-chart .gift-chart-group-list {
+  display: table;
+}
+/* line 1193, ../sass/screen.scss */
+.gift-chart .gift-chart-group-item {
+  display: table-row;
+}
+/* line 1195, ../sass/screen.scss */
+.gift-chart .gift-chart-group-item .gift-chart-group, .gift-chart .gift-chart-group-item .gift-chart-count, .gift-chart .gift-chart-group-item .gift-chart-bar {
+  display: table-cell;
+}
+/* line 1198, ../sass/screen.scss */
+.gift-chart .gift-chart-group-item .gift-chart-group {
+  width: 10em;
+  line-height: 1.4em;
+  text-align: right;
+}
+/* line 1203, ../sass/screen.scss */
+.gift-chart .gift-chart-group-item .gift-chart-count {
+  width: 70px;
+  text-align: center;
+}
+/* line 1207, ../sass/screen.scss */
+.gift-chart .gift-chart-group-item .gift-chart-bar {
+  width: 240px;
+  position: relative;
+}
+/* line 1211, ../sass/screen.scss */
+.gift-chart .gift-chart-group-item .gift-chart-bar-outer {
+  overflow: hidden;
+  *zoom: 1;
+  display: inline-block;
+  background: #FAA;
+  height: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+/* line 1220, ../sass/screen.scss */
+.gift-chart .gift-chart-group-item .gift-chart-bar-inner {
+  float: left;
+  width: 60%;
+  border-radius: 10px;
+  background: red;
+  height: 12px;
+}
+/* line 1228, ../sass/screen.scss */
+.gift-chart .gift-chart-btn {
+  position: absolute;
+  top: 1.5em;
+  font-weight: bold;
+  color: gray;
+}
+/* line 1233, ../sass/screen.scss */
+.gift-chart .gift-chart-btn:before {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+}
+/* line 1236, ../sass/screen.scss */
+.gift-chart .gift-chart-btn:hover {
+  color: black;
+  text-shadow: 0 0 3px yellow;
+}
+/* line 1241, ../sass/screen.scss */
+.gift-chart .gift-chart-reload {
+  right: 3em;
+}
+/* line 1243, ../sass/screen.scss */
+.gift-chart .gift-chart-reload:before {
+  content: "\e903";
+}
+/* line 1247, ../sass/screen.scss */
+.gift-chart .gift-chart-expand {
+  right: 1em;
+}
+/* line 1249, ../sass/screen.scss */
+.gift-chart .gift-chart-expand:before {
+  content: "\e606";
+}
+
+/* line 1254, ../sass/screen.scss */
 .ps-list {
   margin-bottom: 3em;
 }
 
-/* line 1161, ../sass/screen.scss */
+/* line 1257, ../sass/screen.scss */
 .drawing-page {
   -moz-user-select: -moz-none;
   -ms-user-select: none;
@@ -1690,7 +1825,7 @@ html, body {
   overflow: hidden;
 }
 
-/* line 1168, ../sass/screen.scss */
+/* line 1264, ../sass/screen.scss */
 .real-id-tips {
   position: absolute;
   left: 54px;
@@ -1699,7 +1834,7 @@ html, body {
   color: rgba(255, 255, 255, 0.3);
 }
 
-/* line 1174, ../sass/screen.scss */
+/* line 1270, ../sass/screen.scss */
 .drawing-slogan {
   transform-type: preserve-3d;
   perspective: 1000px;
@@ -1708,7 +1843,7 @@ html, body {
   left: 0;
   z-index: 105;
 }
-/* line 1180, ../sass/screen.scss */
+/* line 1276, ../sass/screen.scss */
 .drawing-slogan:before, .drawing-slogan:after {
   position: absolute;
   content: ' ';
@@ -1724,13 +1859,13 @@ html, body {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
 }
-/* line 1197, ../sass/screen.scss */
+/* line 1293, ../sass/screen.scss */
 .draw-start ~ .drawing-slogan.slogan1:before, .draw-start ~ .drawing-slogan.slogan1:after {
   width: 300px;
   height: 50px;
   content: '選我！選我！';
 }
-/* line 1201, ../sass/screen.scss */
+/* line 1297, ../sass/screen.scss */
 .draw-start ~ .drawing-slogan.slogan1:before {
   left: 30px;
   top: 70px;
@@ -1738,7 +1873,7 @@ html, body {
   -webkit-animation-name: slogan1;
   animation-name: slogan1;
 }
-/* line 1207, ../sass/screen.scss */
+/* line 1303, ../sass/screen.scss */
 .draw-start ~ .drawing-slogan.slogan1:after {
   left: 700px;
   top: 160px;
@@ -1746,7 +1881,7 @@ html, body {
   -webkit-animation-name: slogan2;
   animation-name: slogan2;
 }
-/* line 1215, ../sass/screen.scss */
+/* line 1311, ../sass/screen.scss */
 .draw-done ~ .drawing-slogan.slogan1:before {
   width: 420px;
   height: 50px;
@@ -1757,7 +1892,7 @@ html, body {
   -webkit-animation-name: slogan4;
   animation-name: slogan4;
 }
-/* line 1223, ../sass/screen.scss */
+/* line 1319, ../sass/screen.scss */
 .draw-done ~ .drawing-slogan.slogan1:after {
   width: 70px;
   height: 300px;
@@ -1773,7 +1908,7 @@ html, body {
   animation-name: slogan3;
 }
 
-/* line 1242, ../sass/screen.scss */
+/* line 1338, ../sass/screen.scss */
 .gone-ok-msg {
   z-index: 50;
   position: absolute;
@@ -1790,34 +1925,34 @@ html, body {
   animation: opacity_flip 1s infinite;
   text-shadow: 0 0 10px white, 0 0 10px white, 0 0 10px white;
 }
-/* line 1243, ../sass/screen.scss */
+/* line 1339, ../sass/screen.scss */
 .gone-ok-msg:empty {
   display: none;
 }
-/* line 1261, ../sass/screen.scss */
+/* line 1357, ../sass/screen.scss */
 .gone-ok-msg:after {
   content: ' 可不在現場！';
 }
 
-/* line 1266, ../sass/screen.scss */
+/* line 1362, ../sass/screen.scss */
 .drawmode-basic {
   text-align: center;
   font-size: 96px;
   text-shadow: 0 -2px 0 black;
 }
-/* line 1270, ../sass/screen.scss */
+/* line 1366, ../sass/screen.scss */
 .drawmode-basic.draw-start .drawmode-group, .drawmode-basic.draw-start .drawmode-name, .drawmode-basic.draw-done .drawmode-stop {
   display: none;
 }
-/* line 1275, ../sass/screen.scss */
+/* line 1371, ../sass/screen.scss */
 .drawmode-basic.draw-start .drawmode-sn {
   font-size: 128px;
 }
-/* line 1278, ../sass/screen.scss */
+/* line 1374, ../sass/screen.scss */
 .drawmode-basic.draw-done h3 {
   visibility: hidden;
 }
-/* line 1281, ../sass/screen.scss */
+/* line 1377, ../sass/screen.scss */
 .drawmode-basic .drawmode-stop {
   font-size: 64px;
   border-radius: 20px;
@@ -2125,13 +2260,13 @@ html, body {
     transform: translateX(-10px);
   }
 }
-/* line 1409, ../sass/screen.scss */
+/* line 1505, ../sass/screen.scss */
 .drawmode-slots {
   position: relative;
   transition: transform ease-in 0.3s;
   transform: scale(0.9) translateY(-20px);
 }
-/* line 1413, ../sass/screen.scss */
+/* line 1509, ../sass/screen.scss */
 .drawmode-slots .slots-machine {
   padding: 30px;
   background: white;
@@ -2145,7 +2280,7 @@ html, body {
   transform: scale(0.9) translateY(-50px);
   z-index: 3;
 }
-/* line 1426, ../sass/screen.scss */
+/* line 1522, ../sass/screen.scss */
 .drawmode-slots .slot-outer {
   display: inline-block;
   width: 150px;
@@ -2154,7 +2289,7 @@ html, body {
   overflow: hidden;
   border-radius: 5px;
 }
-/* line 1433, ../sass/screen.scss */
+/* line 1529, ../sass/screen.scss */
 .drawmode-slots .slot-outer:after {
   content: ' ';
   position: absolute;
@@ -2168,7 +2303,7 @@ html, body {
   box-sizing: border-box;
   border-radius: 5px;
 }
-/* line 1444, ../sass/screen.scss */
+/* line 1540, ../sass/screen.scss */
 .drawmode-slots .slot-outer:before {
   content: ' ';
   width: 10px;
@@ -2181,7 +2316,7 @@ html, body {
   left: -5px;
   top: 50%;
 }
-/* line 1456, ../sass/screen.scss */
+/* line 1552, ../sass/screen.scss */
 .drawmode-slots .slot {
   transition: transform 0.5s linear;
   display-inline: block;
@@ -2190,21 +2325,21 @@ html, body {
   background-image: url(../images/number.png);
   background-repeat: repeat-y;
 }
-/* line 1369, ../sass/screen.scss */
+/* line 1465, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-start, .drawmode-slots .slot-outer:nth-child(even) .slot.slot-turbo, .drawmode-slots .slot-outer:nth-child(even) .slot.slot-end {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
 }
-/* line 1375, ../sass/screen.scss */
+/* line 1471, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-start {
   -webkit-animation-name: start-rotateSlot1;
   animation-name: start-rotateSlot1;
   -webkit-animation-timing-function: cubic-bezier(0.78, -0.05, 0.61, 1.23);
   animation-timing-function: cubic-bezier(0.78, -0.05, 0.61, 1.23);
 }
-/* line 1381, ../sass/screen.scss */
+/* line 1477, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-turbo {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
@@ -2213,7 +2348,7 @@ html, body {
   -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
 }
-/* line 1389, ../sass/screen.scss */
+/* line 1485, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-end {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
@@ -2222,69 +2357,69 @@ html, body {
   -webkit-animation-timing-function: cubic-bezier(0, 1, 0, 1.012);
   animation-timing-function: cubic-bezier(0, 1, 0, 1.012);
 }
-/* line 1398, ../sass/screen.scss */
+/* line 1494, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-7 {
   transform: translateY(0px);
 }
-/* line 1398, ../sass/screen.scss */
+/* line 1494, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-8 {
   transform: translateY(-160px);
 }
-/* line 1398, ../sass/screen.scss */
+/* line 1494, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-9 {
   transform: translateY(-320px);
 }
-/* line 1398, ../sass/screen.scss */
+/* line 1494, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-0 {
   transform: translateY(-480px);
 }
-/* line 1398, ../sass/screen.scss */
+/* line 1494, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-1 {
   transform: translateY(-640px);
 }
-/* line 1398, ../sass/screen.scss */
+/* line 1494, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-2 {
   transform: translateY(-800px);
 }
-/* line 1398, ../sass/screen.scss */
+/* line 1494, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-3 {
   transform: translateY(-960px);
 }
-/* line 1398, ../sass/screen.scss */
+/* line 1494, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-4 {
   transform: translateY(-1120px);
 }
-/* line 1398, ../sass/screen.scss */
+/* line 1494, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-5 {
   transform: translateY(-1280px);
 }
-/* line 1398, ../sass/screen.scss */
+/* line 1494, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-6 {
   transform: translateY(-1440px);
 }
-/* line 1402, ../sass/screen.scss */
+/* line 1498, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-v {
   transform: translateY(-1600px);
 }
-/* line 1405, ../sass/screen.scss */
+/* line 1501, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-z {
   transform: translateY(-1760px);
 }
-/* line 1369, ../sass/screen.scss */
+/* line 1465, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-start, .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-turbo, .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-end {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
 }
-/* line 1375, ../sass/screen.scss */
+/* line 1471, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-start {
   -webkit-animation-name: start-rotateSlot2;
   animation-name: start-rotateSlot2;
   -webkit-animation-timing-function: cubic-bezier(0.78, -0.05, 0.61, 1.23);
   animation-timing-function: cubic-bezier(0.78, -0.05, 0.61, 1.23);
 }
-/* line 1381, ../sass/screen.scss */
+/* line 1477, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-turbo {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
@@ -2293,7 +2428,7 @@ html, body {
   -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
 }
-/* line 1389, ../sass/screen.scss */
+/* line 1485, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-end {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
@@ -2302,59 +2437,59 @@ html, body {
   -webkit-animation-timing-function: cubic-bezier(0, 1, 0, 1.012);
   animation-timing-function: cubic-bezier(0, 1, 0, 1.012);
 }
-/* line 1398, ../sass/screen.scss */
+/* line 1494, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-7 {
   transform: translateY(0px);
 }
-/* line 1398, ../sass/screen.scss */
+/* line 1494, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-8 {
   transform: translateY(-160px);
 }
-/* line 1398, ../sass/screen.scss */
+/* line 1494, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-9 {
   transform: translateY(-320px);
 }
-/* line 1398, ../sass/screen.scss */
+/* line 1494, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-0 {
   transform: translateY(-480px);
 }
-/* line 1398, ../sass/screen.scss */
+/* line 1494, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-1 {
   transform: translateY(-640px);
 }
-/* line 1398, ../sass/screen.scss */
+/* line 1494, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-2 {
   transform: translateY(-800px);
 }
-/* line 1398, ../sass/screen.scss */
+/* line 1494, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-3 {
   transform: translateY(-960px);
 }
-/* line 1398, ../sass/screen.scss */
+/* line 1494, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-4 {
   transform: translateY(-1120px);
 }
-/* line 1398, ../sass/screen.scss */
+/* line 1494, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-5 {
   transform: translateY(-1280px);
 }
-/* line 1398, ../sass/screen.scss */
+/* line 1494, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-6 {
   transform: translateY(-1440px);
 }
-/* line 1402, ../sass/screen.scss */
+/* line 1498, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-v {
   transform: translateY(-1600px);
 }
-/* line 1405, ../sass/screen.scss */
+/* line 1501, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-z {
   transform: translateY(-1760px);
 }
-/* line 1470, ../sass/screen.scss */
+/* line 1566, ../sass/screen.scss */
 .drawmode-slots .drawmode-group, .drawmode-slots .drawmode-name {
   font-size: 96px;
 }
-/* line 1473, ../sass/screen.scss */
+/* line 1569, ../sass/screen.scss */
 .drawmode-slots .slots-bar {
   transition: transform 0.3s ease-in;
   position: absolute;
@@ -2377,7 +2512,7 @@ html, body {
   transform-type: preserve-3d;
   perspective: 1000px;
 }
-/* line 1495, ../sass/screen.scss */
+/* line 1591, ../sass/screen.scss */
 .drawmode-slots .slots-bar-inner {
   width: 20px;
   height: 100%;
@@ -2387,7 +2522,7 @@ html, body {
   left: -10px;
   border-radius: 20px;
 }
-/* line 1504, ../sass/screen.scss */
+/* line 1600, ../sass/screen.scss */
 .drawmode-slots .slots-bar-button {
   transition: transform 0.3s ease-in;
   transform-origin: center center -250px;
@@ -2414,7 +2549,7 @@ html, body {
   -webkit-animation-name: slots-bar-init;
   animation-name: slots-bar-init;
 }
-/* line 1529, ../sass/screen.scss */
+/* line 1625, ../sass/screen.scss */
 .drawmode-slots .slots-bar-button:before {
   font-family: 'icomoon';
   speak: none;
@@ -2424,14 +2559,14 @@ html, body {
   text-transform: none;
   content: '\e608';
 }
-/* line 1534, ../sass/screen.scss */
+/* line 1630, ../sass/screen.scss */
 .drawmode-slots.draw-running .slots-bar-button {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
   -webkit-animation-name: slots-bar;
   animation-name: slots-bar;
 }
-/* line 1540, ../sass/screen.scss */
+/* line 1636, ../sass/screen.scss */
 .drawmode-slots .slots-result {
   transition: transform 0.3s ease-in;
   position: relative;
@@ -2450,14 +2585,14 @@ html, body {
   transform-origin: center 0;
   transform: translateX(-20px);
 }
-/* line 1559, ../sass/screen.scss */
+/* line 1655, ../sass/screen.scss */
 .drawmode-slots .slots-result-inner {
   border-radius: 20px;
   height: 290px;
   box-shadow: 0 0 5px orange, 0 0 5px gold inset, 5px 5px 5px brown inset;
   background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8));
 }
-/* line 1566, ../sass/screen.scss */
+/* line 1662, ../sass/screen.scss */
 .drawmode-slots .slots-result:before, .drawmode-slots .slots-result:after, .drawmode-slots .slots-result-inner:before, .drawmode-slots .slots-result-inner:after {
   font-family: 'icomoon';
   speak: none;
@@ -2472,25 +2607,25 @@ html, body {
   font-size: 50px;
   text-shadow: 2px 2px 2px black, 1px 1px 0 black, 1px -1px 0 black, -1px 1px 0 black, -1px -1px 0 black;
 }
-/* line 1580, ../sass/screen.scss */
+/* line 1676, ../sass/screen.scss */
 .drawmode-slots .slots-result:before, .drawmode-slots .slots-result-inner:before {
   left: 20px;
 }
-/* line 1583, ../sass/screen.scss */
+/* line 1679, ../sass/screen.scss */
 .drawmode-slots .slots-result:after, .drawmode-slots .slots-result-inner:after {
   right: 20px;
 }
-/* line 1588, ../sass/screen.scss */
+/* line 1684, ../sass/screen.scss */
 .drawmode-slots .slots-result:before, .drawmode-slots .slots-result:after {
   bottom: auto;
   top: -20px;
 }
-/* line 1594, ../sass/screen.scss */
+/* line 1690, ../sass/screen.scss */
 .drawmode-slots.draw-start ~ .drawing-slogan:before {
   left: 0px;
   top: 500px;
 }
-/* line 1597, ../sass/screen.scss */
+/* line 1693, ../sass/screen.scss */
 .drawmode-slots.draw-start ~ .drawing-slogan:after {
   top: 520px;
 }
@@ -3023,7 +3158,7 @@ html, body {
     opacity: 0;
   }
 }
-/* line 1741, ../sass/screen.scss */
+/* line 1837, ../sass/screen.scss */
 .drawmode-guagua {
   transform-type: preserve-3d;
   perspective: 1000px;
@@ -3033,7 +3168,7 @@ html, body {
   text-align: center;
   color: black;
 }
-/* line 1748, ../sass/screen.scss */
+/* line 1844, ../sass/screen.scss */
 .drawmode-guagua .guagua-tips {
   -webkit-animation: font_color_flip 0.3s steps(3, start) infinite;
   animation: font_color_flip 0.3s steps(3, start) infinite;
@@ -3047,7 +3182,7 @@ html, body {
   padding-bottom: 350px;
   z-index: 2;
 }
-/* line 1761, ../sass/screen.scss */
+/* line 1857, ../sass/screen.scss */
 .drawmode-guagua .guagua-card {
   transition: margin-bottom 1s ease-in;
   display: block;
@@ -3065,7 +3200,7 @@ html, body {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 }
-/* line 1773, ../sass/screen.scss */
+/* line 1869, ../sass/screen.scss */
 .drawmode-guagua .guagua-card.card-final {
   width: 640px;
   height: 480px;
@@ -3103,44 +3238,44 @@ html, body {
   */
   background-image: url(../images/card2.jpg);
 }
-/* line 1810, ../sass/screen.scss */
+/* line 1906, ../sass/screen.scss */
 .drawmode-guagua.card-drawed .guagua-tips {
   z-index: -1;
   opacity: 0;
 }
-/* line 1814, ../sass/screen.scss */
+/* line 1910, ../sass/screen.scss */
 .drawmode-guagua.card-drawed .guagua-card {
   margin-bottom: 900px;
 }
-/* line 1817, ../sass/screen.scss */
+/* line 1913, ../sass/screen.scss */
 .drawmode-guagua.card-drawed .card-final {
   visibility: visible;
   margin-bottom: 50px;
   -webkit-animation-name: gua_final;
   animation-name: gua_final;
 }
-/* line 1824, ../sass/screen.scss */
+/* line 1920, ../sass/screen.scss */
 .drawmode-guagua .card1 {
   -webkit-animation-duration: 8s;
   animation-duration: 8s;
   -webkit-animation-name: gua_flip1;
   animation-name: gua_flip1;
 }
-/* line 1830, ../sass/screen.scss */
+/* line 1926, ../sass/screen.scss */
 .drawmode-guagua .card2 {
   -webkit-animation-duration: 7s;
   animation-duration: 7s;
   -webkit-animation-name: gua_flip2;
   animation-name: gua_flip2;
 }
-/* line 1836, ../sass/screen.scss */
+/* line 1932, ../sass/screen.scss */
 .drawmode-guagua .card3 {
   -webkit-animation-duration: 7.5s;
   animation-duration: 7.5s;
   -webkit-animation-name: gua_flip3;
   animation-name: gua_flip3;
 }
-/* line 1842, ../sass/screen.scss */
+/* line 1938, ../sass/screen.scss */
 .drawmode-guagua .card4,
 .drawmode-guagua .card5,
 .drawmode-guagua .card6 {
@@ -3148,59 +3283,59 @@ html, body {
   -webkit-animation-name: gua_flip4;
   animation-name: gua_flip4;
 }
-/* line 1849, ../sass/screen.scss */
+/* line 1945, ../sass/screen.scss */
 .drawmode-guagua .card4 {
   -webkit-animation-duration: 7s;
   animation-duration: 7s;
   -webkit-animation-delay: 2s;
   animation-delay: 2s;
 }
-/* line 1855, ../sass/screen.scss */
+/* line 1951, ../sass/screen.scss */
 .drawmode-guagua .card5 {
   -webkit-animation-duration: 8s;
   animation-duration: 8s;
   -webkit-animation-delay: 4s;
   animation-delay: 4s;
 }
-/* line 1861, ../sass/screen.scss */
+/* line 1957, ../sass/screen.scss */
 .drawmode-guagua .card6 {
   -webkit-animation-duration: 9s;
   animation-duration: 9s;
 }
-/* line 1865, ../sass/screen.scss */
+/* line 1961, ../sass/screen.scss */
 .drawmode-guagua .guagua-canvas {
   cursor: url(../images/coin.png) 24 24, auto;
   position: absolute;
   left: 0;
   top: 0;
 }
-/* line 1870, ../sass/screen.scss */
+/* line 1966, ../sass/screen.scss */
 .drawmode-guagua .guagua-img {
   display: none;
 }
-/* line 1874, ../sass/screen.scss */
+/* line 1970, ../sass/screen.scss */
 .drawmode-guagua .drawmode-group {
   font-size: 68px;
   font-weight: bold;
   line-height: 120px;
   color: #333;
 }
-/* line 1880, ../sass/screen.scss */
+/* line 1976, ../sass/screen.scss */
 .drawmode-guagua .drawmode-sn, .drawmode-guagua .drawmode-name {
   font-size: 100px;
   font-weight: bold;
   color: #333;
 }
-/* line 1885, ../sass/screen.scss */
+/* line 1981, ../sass/screen.scss */
 .drawmode-guagua .drawmode-name {
   line-height: 200px;
 }
-/* line 1888, ../sass/screen.scss */
+/* line 1984, ../sass/screen.scss */
 .drawmode-guagua .drawmode-sn {
   font-family: 'Arial';
   line-height: 180px;
 }
-/* line 1892, ../sass/screen.scss */
+/* line 1988, ../sass/screen.scss */
 .drawmode-guagua .guagua-cursor {
   transition: visibility 0.3s ease-in, opacity 0.3s ease-in;
   position: absolute;
@@ -3210,22 +3345,22 @@ html, body {
   opacity: 0;
   visibility: hidden;
 }
-/* line 1900, ../sass/screen.scss */
+/* line 1996, ../sass/screen.scss */
 .drawmode-guagua .card-final .guagua-cursor.show-coin {
   opacity: 1;
   visibility: visible;
   z-index: 10;
 }
-/* line 1905, ../sass/screen.scss */
+/* line 2001, ../sass/screen.scss */
 .drawmode-guagua.draw-done .guagua-canvas {
   opacity: 0;
 }
-/* line 1909, ../sass/screen.scss */
+/* line 2005, ../sass/screen.scss */
 .drawmode-guagua.draw-start ~ .drawing-slogan:before {
   left: 740px;
   top: 500px;
 }
-/* line 1912, ../sass/screen.scss */
+/* line 2008, ../sass/screen.scss */
 .drawmode-guagua.draw-start ~ .drawing-slogan:after {
   left: 40px;
   top: 520px;
@@ -4600,12 +4735,12 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   font-size: 72px;
 }
 
-/* line 1921, ../sass/screen.scss */
+/* line 2017, ../sass/screen.scss */
 .config-page {
   overflow: auto;
   height: 610px;
 }
-/* line 1924, ../sass/screen.scss */
+/* line 2020, ../sass/screen.scss */
 .config-page .config-group {
   overflow: hidden;
   *zoom: 1;
@@ -4617,7 +4752,7 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   border-radius: 20px;
   position: relative;
 }
-/* line 1933, ../sass/screen.scss */
+/* line 2029, ../sass/screen.scss */
 .config-page .config-group:before {
   content: attr(title);
   font-size: 1.3em;
@@ -4626,17 +4761,17 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   padding: 3px;
   color: orange;
 }
-/* line 1942, ../sass/screen.scss */
+/* line 2038, ../sass/screen.scss */
 .config-page .config-group input[type="text"] {
   font-size: 20px;
   width: 600px;
   background: rgba(255, 255, 255, 0.8);
 }
-/* line 1947, ../sass/screen.scss */
+/* line 2043, ../sass/screen.scss */
 .config-page .config-group .config-info {
   line-height: 1.6em;
 }
-/* line 1949, ../sass/screen.scss */
+/* line 2045, ../sass/screen.scss */
 .config-page .config-group .config-info em {
   background: red;
   color: yellow;
@@ -4644,32 +4779,32 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   padding: 0 12px;
   border-radius: 4px;
 }
-/* line 1956, ../sass/screen.scss */
+/* line 2052, ../sass/screen.scss */
 .config-page .config-group .config-info span {
   font-weight: bold;
   font-family: courier;
   text-shadow: 0 0 3px white;
 }
-/* line 1961, ../sass/screen.scss */
+/* line 2057, ../sass/screen.scss */
 .config-page .config-group .config-info a {
   text-decoration: underline;
   color: pink;
 }
-/* line 1967, ../sass/screen.scss */
+/* line 2063, ../sass/screen.scss */
 .config-page .config-item {
   overflow: hidden;
   *zoom: 1;
   margin-top: 20px;
 }
-/* line 1970, ../sass/screen.scss */
+/* line 2066, ../sass/screen.scss */
 .config-page .config-item:nth-child(2n+1) {
   background: rgba(255, 0, 0, 0.4);
 }
-/* line 1973, ../sass/screen.scss */
+/* line 2069, ../sass/screen.scss */
 .config-page .config-item:nth-child(2n) {
   background: rgba(255, 0, 0, 0.2);
 }
-/* line 1977, ../sass/screen.scss */
+/* line 2073, ../sass/screen.scss */
 .config-page .to-remote-button, .config-page .back-to-import, .config-page .export-config {
   position: fixed;
   top: 600px;
@@ -4677,11 +4812,11 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   width: 240px;
   font-size: 1.5em;
 }
-/* line 1984, ../sass/screen.scss */
+/* line 2080, ../sass/screen.scss */
 .config-page .back-to-import {
   top: 500px;
 }
-/* line 1987, ../sass/screen.scss */
+/* line 2083, ../sass/screen.scss */
 .config-page .export-config {
   font-size: 2em;
   display: block;
@@ -4689,31 +4824,31 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   top: 650px;
 }
 
-/* line 1994, ../sass/screen.scss */
+/* line 2090, ../sass/screen.scss */
 .test-page {
   width: 100%;
   height: 100%;
 }
 
-/* line 1997, ../sass/screen.scss */
+/* line 2093, ../sass/screen.scss */
 .need-file-form {
   text-align: center;
 }
 
-/* line 2000, ../sass/screen.scss */
+/* line 2096, ../sass/screen.scss */
 .fake-data-button, .config-button {
   font-size: 32px;
   margin-bottom: 10px;
 }
 
-/* line 2004, ../sass/screen.scss */
+/* line 2100, ../sass/screen.scss */
 .need-file-list {
   overflow: hidden;
   *zoom: 1;
   width: 80%;
   margin: 0 auto;
 }
-/* line 2008, ../sass/screen.scss */
+/* line 2104, ../sass/screen.scss */
 .need-file-list .need-file-item {
   box-sizing: border-box;
   width: 45%;
@@ -4726,18 +4861,18 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   line-height: 50px;
   background: rgba(0, 0, 0, 0.3);
 }
-/* line 2018, ../sass/screen.scss */
+/* line 2114, ../sass/screen.scss */
 .need-file-list .need-file-item label {
   font-size: 24px;
   display: block;
 }
-/* line 2023, ../sass/screen.scss */
+/* line 2119, ../sass/screen.scss */
 .need-file-list .need-file-item.success {
   color: yellow;
   line-height: 96px;
   border-color: yellow;
 }
-/* line 2027, ../sass/screen.scss */
+/* line 2123, ../sass/screen.scss */
 .need-file-list .need-file-item.success label:before {
   font-family: 'icomoon';
   speak: none;
@@ -4747,12 +4882,12 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   text-transform: none;
   content: "\e60b";
 }
-/* line 2031, ../sass/screen.scss */
+/* line 2127, ../sass/screen.scss */
 .need-file-list .need-file-item.success input {
   display: none;
 }
 
-/* line 2037, ../sass/screen.scss */
+/* line 2133, ../sass/screen.scss */
 .restore-key {
   font-size: 32px;
   color: white;
@@ -4763,7 +4898,7 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   width: 200px;
 }
 
-/* line 2046, ../sass/screen.scss */
+/* line 2142, ../sass/screen.scss */
 .start-system-button {
   font-size: 32px;
 }
@@ -4832,7 +4967,7 @@ div[data-pokemon-id="1"] .pokemon-result:before {
     opacity: 0;
   }
 }
-/* line 2056, ../sass/screen.scss */
+/* line 2152, ../sass/screen.scss */
 .ping {
   opacity: 0;
   position: fixed;
@@ -4846,7 +4981,7 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   font-size: 40px;
   animation: signal 1s 1;
 }
-/* line 2065, ../sass/screen.scss */
+/* line 2161, ../sass/screen.scss */
 .ping.pong {
   animation: signal2 1s 1;
 }

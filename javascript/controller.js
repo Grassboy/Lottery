@@ -235,6 +235,10 @@ $.when(
     User.prototype = {
         constructor: User,
         receiveGift: function(gift, restore_mode){
+            if(gift.award_to.length >= gift.count) {
+                console.log(['員工', this.sn, '獎項指定失敗', gift.sn, gift.title, '只允許', gift.count, '人抽到'].join(' '));
+                return -1;
+            }
             this.receive_gift = gift;
             this.$dom.find('.user-receive').text(gift.toString());
             gift.toUser(this, restore_mode);
@@ -401,8 +405,10 @@ $.when(
             if(drawing) {
                 drawing.then(function(user){
                     if(user != -1) {
-                        user.receiveGift(that);
-                        that.insertSummary(user, that.award_to.length);
+                        var result = user.receiveGift(that);
+                        if(result != -1) {
+                            that.insertSummary(user, that.award_to.length);
+                        }
                     }
                 });
             }
@@ -584,8 +590,11 @@ $.when(
         //{{Gift Page
         $('.icon-gift').bind('click', function(){
             if($('.draw-start').length != 0){
-                if(!confirm('抽獎過程尚未結束，確定要離開？'))
+                if(!confirm('抽獎過程尚未結束，確定要離開？')) {
                     return;
+                } else {
+                    current_drawmode.deferred && current_drawmode.deferred.resolve && current_drawmode.deferred.resolve(-1);
+                }
             }
             $('.gift-page').toggleClass('active');
             _dom.summary_page.removeClass('active ready');
@@ -924,8 +933,11 @@ $.when(
         //{{bottom bar icons
         $('.toolbox').on('click', '.btn i', function(){
             if($('.draw-start').length != 0){
-                if(!confirm('抽獎過程尚未結束，確定要離開？'))
+                if(!confirm('抽獎過程尚未結束，確定要離開？')) {
                     return;
+                } else {
+                    current_drawmode.deferred && current_drawmode.deferred.resolve && current_drawmode.deferred.resolve(-1);
+                }
             }
             var $this = $(this), current_page = $('.page.active');
             if(!$this.is('.icon-arrow')) {
@@ -1039,7 +1051,7 @@ $.when(
                     dom.find('.drawmode-name').text(user.name);
                 };
                 var timer = this.setInterval(updateView, 100);
-                this.$dom.find('.drawmode-stop').one('click', function(){
+                this.$dom.find('.drawmode-stop').unbind('click').one('click', function(){
                     clearInterval(timer);
                     updateView(true);
                     deferred.resolve(user);
@@ -1067,7 +1079,7 @@ $.when(
                 dom.removeClass('draw-running');
                 dom.find('.drawmode-group').text('請點拉霸鈕↗');
                 dom.find('.drawmode-name').text('');
-                this.$dom.find('.slots-bar-button').one('click', function(){
+                this.$dom.find('.slots-bar-button').unbind('click').one('click', function(){
                     var user = null;
                     $({}).queue(function(_) {
                         dom.find('.slot').removeClass('slot-start slot-end slot-turbo');
@@ -1270,7 +1282,7 @@ $.when(
                 dom.unbind('pokeup').bind('pokeup', function(e, x, y){
                     that.pokemonGo.fakeTouchHandler.up();
                 });
-                dom.one('gotcha', function(){
+                dom.unbind('gotcha').one('gotcha', function(){
                     that.pokemonGo.setActive(false);
                     user = that.getUser();
                     dom.find('.pokemon-hp span').text(parseInt(Math.random()*800+50,10));
@@ -1456,6 +1468,18 @@ $.when(
                     break;
                 case '3':
                     args.default_drawmode = 'guagua';
+                    break;
+                case '4':
+                    args.default_drawmode = 'pokemon';
+                    break;
+                case '5':
+                    args.default_drawmode = 'vr';
+                    break;
+                case '':
+                    //沒設定預設抽獎模式
+                    break;
+                default:
+                    alert(['獎項',args.sn,'未知的預設抽獎模式：', gift[5]].join(' '));
                     break;
                 }
                 new Gift(args);

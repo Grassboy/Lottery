@@ -106,7 +106,7 @@
             (function(){
                 var deferred = $.Deferred();
                 if(!$img[0].naturalWidth) {
-                    $img.attr('src', 'images/card1.jpg').load(function(){
+                    $img.attr('src', 'images/card1.jpg?v2').load(function(){
                         deferred.resolve($img);
                     });
                 } else {
@@ -224,7 +224,7 @@
             (function(){
                 //var clear_timer;
                 var vrDraw = new VRDraw($('.drawmode-vr')[0], {
-                    fullscreen: true, dualmode: !(window.innerWidth >= 800 || window.innerHeight >= 800), arrow_delay: 1000, touch: true,
+                    fullscreen: true, dualmode: !(window.innerWidth >= 800 || window.innerHeight >= 800), arrow_delay: 100, touch: true,
                     onClearGift: function(current_length, index) {
                         myFirebaseRef.ref(firebase_conf.get).push({
                             action: 'vrcleargift',

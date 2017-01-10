@@ -224,6 +224,7 @@
             (function(){
                 //var clear_timer;
                 var vrDraw = new VRDraw($('.drawmode-vr')[0], {
+                    min_arrow_scale: 1,
                     fullscreen: true, dualmode: !(window.innerWidth >= 800 || window.innerHeight >= 800), arrow_delay: 100, touch: true,
                     onClearGift: function(current_length, index) {
                         myFirebaseRef.ref(firebase_conf.get).push({

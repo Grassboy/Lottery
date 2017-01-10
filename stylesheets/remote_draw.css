@@ -296,50 +296,50 @@ body.scratching .guagua-card {
 
 @-webkit-keyframes vr_arrow {
   0%,10%,60%,100% {
-    border-bottom-color: rgba(255, 255, 0, 0);
+    border-bottom-color: rgba(255, 255, 0, 0.6);
   }
   35% {
-    border-bottom-color: rgba(255, 255, 0, 0.6);
+    border-bottom-color: rgba(255, 255, 0, 0.8);
   }
 }
 @keyframes vr_arrow {
   0%,10%,60%,100% {
-    border-bottom-color: rgba(255, 255, 0, 0);
+    border-bottom-color: rgba(255, 255, 0, 0.6);
   }
   35% {
-    border-bottom-color: rgba(255, 255, 0, 0.6);
+    border-bottom-color: rgba(255, 255, 0, 0.8);
   }
 }
 @-webkit-keyframes vr_arrow2 {
   0%,30%,80%,100% {
-    border-bottom-color: rgba(255, 255, 0, 0);
+    border-bottom-color: rgba(255, 255, 0, 0.6);
   }
   55% {
-    border-bottom-color: rgba(255, 255, 0, 0.6);
+    border-bottom-color: rgba(255, 255, 0, 0.8);
   }
 }
 @keyframes vr_arrow2 {
   0%,30%,80%,100% {
-    border-bottom-color: rgba(255, 255, 0, 0);
+    border-bottom-color: rgba(255, 255, 0, 0.6);
   }
   55% {
-    border-bottom-color: rgba(255, 255, 0, 0.6);
+    border-bottom-color: rgba(255, 255, 0, 0.8);
   }
 }
 @-webkit-keyframes vr_arrow3 {
   0%,50%,100% {
-    border-bottom-color: rgba(255, 255, 0, 0);
+    border-bottom-color: rgba(255, 255, 0, 0.6);
   }
   75% {
-    border-bottom-color: rgba(255, 255, 0, 0.6);
+    border-bottom-color: rgba(255, 255, 0, 0.8);
   }
 }
 @keyframes vr_arrow3 {
   0%,50%,100% {
-    border-bottom-color: rgba(255, 255, 0, 0);
+    border-bottom-color: rgba(255, 255, 0, 0.6);
   }
   75% {
-    border-bottom-color: rgba(255, 255, 0, 0.6);
+    border-bottom-color: rgba(255, 255, 0, 0.8);
   }
 }
 @-webkit-keyframes vr_focus {
@@ -497,13 +497,13 @@ body.scratching .guagua-card {
 }
 /* line 165, ../sass/vr.scss */
 .vr-focus .vr-arrow:before {
-  margin-top: -8px;
+  margin-top: -4.8px;
   transform: scale(0.8);
   animation: vr_arrow2 1s infinite linear;
 }
 /* line 170, ../sass/vr.scss */
 .vr-focus .vr-arrow:after {
-  margin-top: -16px;
+  margin-top: -8.8px;
   transform: scale(0.5);
   animation: vr_arrow3 1s infinite linear;
 }

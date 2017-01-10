@@ -1262,6 +1262,15 @@ $.when(
                 new_log.push.apply(new_log, PokemonGoMouseGesture[0].slice(s, s+20))
                 this.pokemonGo.replayLog(new_log);
             },
+            autoDraw: function(){
+                var that = this;
+                setTimeout(function(){
+                    var new_log = [PokemonGoMouseGesture[0][0]];
+                    var s = parseInt((PokemonGoMouseGesture[0].length-21)*Math.random())+1;
+                    new_log.push.apply(new_log, PokemonGoMouseGesture[0].slice(s, s+20))
+                    that.pokemonGo.replayLog(new_log);
+                }, 1000);
+            },
             onDraw: function(deferred){
                 var that = this, dom = this.$dom;
                 var user = null;

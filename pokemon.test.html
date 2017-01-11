@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+        <title>cannon.js mouse pick demo</title>
+        <style>
+            html, body {
+                background: #C60704;
+                width: 100%;
+                height: 100%;
+                margin:0;
+                padding:0;
+                overflow: hidden;
+            }
+            .boom {
+            }
+            .toucharea {
+                width: 512px; height: 300px;
+                background: black;
+                display: none;
+            }
+        </style>
+        <!-- //開發模式下，可能需要 compass livereload 環境
+        -->
+        <script src="http://localhost:35729/livereload.js"></script>
+	    <link href="stylesheets/animate.css" media="screen, projection" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="fonts/style.css">
+        <link href='//fonts.googleapis.com/css?family=Asap:700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Fredoka+One' rel='stylesheet' type='text/css'>
+        <link onerror="this.href='stylesheets/test.css'" href="http://localhost:24680/stylesheets/test.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <script src="javascript/Three.js"></script>
+        <script src="javascript/Projector.js"></script>
+        <script src="javascript/Detector.js"></script>
+        <script src="javascript/cannon.js"></script>
+        <script src="http://is.gy/jquery.js"></script>
+        <script src="javascript/pokemon.drawmode.js"></script>
+        <div class="toucharea"></div>
+        <div class="drawmode-pokemon">
+            <div class="pokemon-container">
+                <div class="boom_outer" style="display:none;">
+                    <div class="boom">
+                        <div class="fake_ball"></div>
+                    </div>
+                </div>
+                <div class="reset-area">
+                    <i class="icon-poke-ball"></i>
+                </div>
+            </div>
+            <div class="pokemon-result inactive">
+                <div class="drawmode-name">瘋狂小胖</div>
+                <div class="drawmode-group">智慧聯網處</div>
+                <div class="drawmode-sn">832803</div>
+                <div class="pokemon-hp">HP <span>144</span>/<span>144</span></div>
+            </div>
+        </div>
+    </body>
+    <script>
+        $(function(){
+            $('body').dblclick(function(){
+                $('.boom_outer').show().toggleClass('animation_toggle');
+                setTimeout(function(){
+                    $('.pokemon-result').addClass('inactive').removeClass('animated bounceInDown');
+                    window.pokemonGo.resetAll();
+                    window.pokemonGo.setActive(true);
+                }, 1000);
+            });
+        });
+        $(function(){
+            window.pokemonGo = new PokemonGo($('.drawmode-pokemon')[0], {
+                pokemon: [
+                    {normal: 'ivs_normal.png', hit: 'ivs_hit.png', desc: '前方有隻野生的大目千歲'},
+                    {normal: 'hicloud_normal.png', hit: 'hicloud_hit.png', desc: '前方有隻野生的雲小獅'}
+                ],
+                ball: [
+                    'ball.jpg', 'ball2.jpg', 'ball3.jpg'
+                ],
+                is_active: false
+            });
+            $('.drawmode-pokemon').bind('gotcha', function(){
+                $('.pokemon-result').removeClass('inactive').addClass('animated bounceInDown');
+            });
+            $(function(){
+                //pokemonGo.setActive(true);
+            });
+        });
+    </script>
+</html>

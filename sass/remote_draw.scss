@@ -91,6 +91,7 @@ body.scratching {
     }
 }
 .guagua-card {
+    @include user-select(none);
     display: none;
     text-align: center;
     line-height: 160px;
@@ -108,7 +109,6 @@ body.scratching {
     $color6: hsla(35, 91%, 65%, 0.5);
     $color7: hsla(35, 91%, 65%, 0);
     background-color: $color1;
-    background-image: url(../images/card2.jpg);
 }
 .guagua-canvas {
     cursor: url(http://i.imgur.com/7ZGwfbu.png) 32 32, auto;
@@ -145,6 +145,7 @@ body.scratching {
     0%, 80% { opacity: 1; } 100% { opacity: 0; }
 }
 .draw-result {
+    @include user-select(none);
     opacity: 0;
     font-size: 72px;
     text-align: right;
@@ -176,6 +177,7 @@ body.scratching {
 }
 */
 .ping {
+    @include user-select(none);
     .vring & {
         display: none;
     }

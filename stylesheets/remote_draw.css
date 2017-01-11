@@ -141,6 +141,10 @@ body.scratching .guagua-card {
 
 /* line 93, ../sass/remote_draw.scss */
 .guagua-card {
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
   display: none;
   text-align: center;
   line-height: 160px;
@@ -152,7 +156,6 @@ body.scratching .guagua-card {
   height: 480px;
   margin: 100px auto;
   background-color: white;
-  background-image: url(../images/card2.jpg);
 }
 
 /* line 113, ../sass/remote_draw.scss */
@@ -235,6 +238,10 @@ body.scratching .guagua-card {
 }
 /* line 147, ../sass/remote_draw.scss */
 .draw-result {
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
   opacity: 0;
   font-size: 72px;
   text-align: right;
@@ -245,12 +252,12 @@ body.scratching .guagua-card {
   -webkit-animation: signal 5s 1;
   animation: signal 5s 1;
 }
-/* line 156, ../sass/remote_draw.scss */
+/* line 157, ../sass/remote_draw.scss */
 .draw-result.pong {
   -webkit-animation: signal2 5s 1;
   animation: signal2 5s 1;
 }
-/* line 160, ../sass/remote_draw.scss */
+/* line 161, ../sass/remote_draw.scss */
 .draw-result:before {
   content: '前次結果';
   font-size: 24px;
@@ -270,8 +277,12 @@ body.scratching .guagua-card {
     }
 }
 */
-/* line 178, ../sass/remote_draw.scss */
+/* line 179, ../sass/remote_draw.scss */
 .ping {
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
   opacity: 0.2;
   font-size: 16px;
   position: absolute;
@@ -284,11 +295,11 @@ body.scratching .guagua-card {
   -webkit-animation: signal 1s 1;
   animation: signal 1s 1;
 }
-/* line 179, ../sass/remote_draw.scss */
+/* line 181, ../sass/remote_draw.scss */
 .vring .ping {
   display: none;
 }
-/* line 192, ../sass/remote_draw.scss */
+/* line 194, ../sass/remote_draw.scss */
 .ping.pong {
   -webkit-animation: signal2 1s 1;
   animation: signal2 1s 1;

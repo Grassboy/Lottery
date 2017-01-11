@@ -2,6 +2,10 @@
     var config = location.href.toString().split('#')[1];
     var err_postfix = '此頁網址格式應為\n'+
                       'http://grassboy.github.io/lotteryButton/index.html?[firebase 主機資訊]';
+    var guagua_src = {
+        card1: 'images/card1.jpg',
+        card2: 'images/card2.jpg'
+    };
     if(!config) {
         alert(
             '錯誤：未指定 firebase 主機資訊，\n'+err_postfix
@@ -12,7 +16,6 @@
     } catch (e) {
         config = null;
     }
-
     if(!(config && config.apiKey && config.authDomain && config.databaseURL && config.storageBucket && config.messagingSenderId)) {
         alert('Firebase 主機資訊有誤');
     } else if (config.email.indexOf('@') == -1) {
@@ -20,6 +23,14 @@
     } else {
         is_ok = true;
     }
+    if(config.card1) {
+        guagua_src.card1 = config.card1;
+    }
+    if(config.card2) {
+        guagua_src.card2 = config.card2;
+    }
+    $('.guagua-card').css({'background-image': 'url('+guagua_src.card2+')'});
+    $('.guagua-img').attr('src', guagua_src.card1);
     if(is_ok) {
         var firebase_conf = {   //Firebase 的設定檔
             server: config,
@@ -106,7 +117,7 @@
             (function(){
                 var deferred = $.Deferred();
                 if(!$img[0].naturalWidth) {
-                    $img.attr('src', 'images/card1.jpg?v2').load(function(){
+                    $img.attr('src', guagua_src.card1).load(function(){
                         deferred.resolve($img);
                     });
                 } else {

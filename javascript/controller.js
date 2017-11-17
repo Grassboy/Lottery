@@ -1484,10 +1484,11 @@ $.when(
                 case '5':
                     args.default_drawmode = 'vr';
                     break;
+                case '':
+                    //沒設定預設抽獎模式
+                    break;
                 default:
-                    if(gift[5]){ //如果有指定抽獎模式編號，但對不上的話…
-                        alert(['獎項',args.sn,'未知的預設抽獎模式：', gift[5]].join(' '));
-                    }
+                    alert(['獎項',args.sn,'未知的預設抽獎模式：', gift[5]].join(' '));
                     break;
                 }
                 new Gift(args);

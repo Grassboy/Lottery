@@ -286,6 +286,15 @@ $.when(
                 });
             }
         },
+        backToBox: function(restore_mode){
+            if(this.receive_gift == NOT_EXIST_STR) {
+                this.receive_gift = null
+                this.$dom.find('.user-receive').text('');
+                console.log('TODO: firebase sync');
+            } else {
+                alert('此人並非"不在現場的普獎"');
+            }
+        },
         toString: function(){
             return [this.sn, ' ', this.group, ' - ', this.name, ' (' , this.real_id,')' ].join('');
         }
@@ -778,12 +787,25 @@ $.when(
                     alert('該同仁已得獎');
                 } else {
                     if(user && confirm(['****警告，這個功能是為了補救已抽出的獎項沒有同步到其他瀏覽器而設計的，不要亂用！****\n您確定要將 ',gift.title, ' 這個獎項交給 ',user.sn,'-',user.name,' ？！'].join(''))){
-                        user.receiveGift(gift);
+                        user.receiveGift(gift, true);
                     }
                 }
             }
         });
         //}}
+
+        //手動將已不在現場的普獎的籤放回籤筒
+        //**************************************
+        //此功能亂用的話，的確有可能作弊！請操作者別亂玩！
+        //設計目的：如果好死不死，主要瀏覽器網路掛掉，
+        //          抽出的獎項手動 sync 過來的過程輸入錯誤，
+        //          且把此得獎者刪掉後變普獎，
+        //          就必需要把這個人的普獎拿掉，並把他的籤放回籤筒
+        //**************************************
+        $('.user-list').on('dblclick', '.user-receive:contains("'+NOT_EXIST_STR+'")', function(){
+            var $this = $(this);
+            console.log('TODO: backToBox');
+        });
 
         //{{ SMS handler
         $('.gift-result-list').on('click', '.gift-result-sn .icon-sms', function(){

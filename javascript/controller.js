@@ -504,6 +504,12 @@ $.when(
         getUser: function(){
             return randomOf(this.LotteryBox);
         },
+        getUserBySn: function(user_sn){
+            var user = filterOne(this.LotteryBox, function(user){
+                return user.sn == user_sn;
+            });
+            return user;
+        },
         setCurrent: function() {
             if(current_drawmode) {
                 if(current_drawmode.id == this.id) { //如果已是目前抽獎模式，則略過
@@ -1440,7 +1446,67 @@ $.when(
             },
             thumb: 'images/drawmode5.png'
         });
-        drawmodes['pokemon'].setCurrent();
+        new DrawMode({
+            id: 'manual',
+            title: '人工抽獎',
+            info: '抽獎過程中，取決於長官的手氣，你準備好了嗎！',
+            $dom: $([
+                '<div class="drawmode-basic">',
+                    '<h3>(請輸入得獎者員工代碼)</h3>',
+                    '<div class="drawmode-sn"></div>',
+                    '<div class="drawmode-group"></div>',
+                    '<div class="drawmode-name"></div>',
+                    '<input class="drawmode-inputSn">',
+                    '<button class="drawmode-stop">輸入</button>',
+                '</div>'
+            ].join('')),
+            autoDraw: function(){
+                //ToDo
+            },
+            remoteDraw: function(){
+                //no-op
+            },
+            onDraw: function(deferred){
+                var that = this, dom = this.$dom;
+                var userSn;
+                var user = {
+                    sn: '得獎者是…',
+                    group: '',
+                    name: ''
+                };
+
+                var updateView = function(){
+                    dom.find('.drawmode-sn').text(user.sn);
+                    dom.find('.drawmode-group').text(user.group);
+                    dom.find('.drawmode-name').text(user.name);
+                };
+                updateView();
+                that.$dom.find('.drawmode-inputSn').bind('keydown', function(e){
+                    if(e.keyCode == '13') {
+                        that.$dom.find('.drawmode-stop').trigger('click');
+                    }
+                }).val('').focus();
+                that.$dom.find('.drawmode-stop').unbind('click').one('click', function clickHandler(){
+                    userSn= that.$dom.find('.drawmode-inputSn').val();
+                    user = that.getUserBySn(userSn); //輸入中獎者
+                    if(user) {
+                        updateView();
+                        deferred.resolve(user);
+                    } else {
+                        alert('此員工編號並不在籤筒裡，\n請確認他是否具有領獎資格');
+                        user = {
+                            sn: '！他能領獎嗎？',
+                            group: '',
+                            name: ''
+                        };
+                        updateView();
+                        $(this).one('click', clickHandler);
+                    }
+                });
+            },
+            thumb: 'images/drawmode6.png'
+        }); 
+        drawmodes['slots'].setCurrent();
     })();
     ////}}
 
@@ -1505,6 +1571,9 @@ $.when(
                     break;
                 case '5':
                     args.default_drawmode = 'vr';
+                    break;
+                case '6':
+                    args.default_drawmode = 'manual';
                     break;
                 case '':
                     //沒設定預設抽獎模式

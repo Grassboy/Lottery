@@ -1357,6 +1357,7 @@ html, body {
     text-shadow: 0 -2px 0 black;
     &.draw-start .drawmode-group,
     &.draw-start .drawmode-name,
+    &.draw-done .drawmode-inputSn,
     &.draw-done .drawmode-stop {
         display: none;
     }
@@ -1365,6 +1366,12 @@ html, body {
     }
     &.draw-done h3 {
         visibility: hidden;
+    }
+    .drawmode-inputSn {
+        font-size: 64px;
+        width: 4em;
+        border-radius: 20px;
+        margin: 3px;
     }
     .drawmode-stop {
         font-size: 64px;

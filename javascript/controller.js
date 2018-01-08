@@ -290,7 +290,12 @@ $.when(
             if(this.receive_gift == NOT_EXIST_STR) {
                 this.receive_gift = null
                 this.$dom.find('.user-receive').text('');
-                console.log('TODO: firebase sync');
+                if(!restore_mode){
+                    globalLog({
+                        action: 'back_to_box',
+                        user_index: this._id
+                    });
+                }
             } else {
                 alert('此人並非"不在現場的普獎"');
             }
@@ -809,8 +814,13 @@ $.when(
         //          就必需要把這個人的普獎拿掉，並把他的籤放回籤筒
         //**************************************
         $('.user-list').on('dblclick', '.user-receive:contains("'+NOT_EXIST_STR+'")', function(){
-            var $this = $(this);
-            console.log('TODO: backToBox');
+            var $this = $(this), user_sn = $this.prevAll('.user-sn').text();
+            var user = filterOne(user_array, function(user){
+                    return user.sn == user_sn;
+                });
+            if(user && confirm(['****警告，這個功能是為了補救手動 sync 得獎者時輸入錯誤，不能被放成普獎而設計的，不要亂用！****\n您確定要將 ',user.sn,'-',user.name,' 的籤從不在現場的普獎放回籤筒？！'].join(''))){
+                user.backToBox();
+            }
         });
 
         //{{ SMS handler
@@ -1766,6 +1776,12 @@ $.when(
                     console.log(user._id, ' 無法得到 ', gift._id);
                     if(user.receive_gift != NOT_EXIST_STR) {
                         user.receiveFail(gift, true);
+                    }
+                } else if (value.action == 'back_to_box') { // 同仁從不在現場改列普獎改放回籤筒
+                    var user = user_array[value.user_index];
+                    console.log(user._id, ' 從普獎回籤筒 ');
+                    if(user.receive_gift == NOT_EXIST_STR) {
+                        user.backToBox(true);
                     }
                 } else if (value.action == 'gift_change') { // 臨時改列獎項
                     var user = user_array[value.user_index];

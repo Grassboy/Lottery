@@ -147,6 +147,7 @@ $.when(
         check: 'auth/check/', //檢查目前的 server 是否需要輸入密碼
         get: 'auth/draw/',
         response: 'auth/gua_result/',
+        connection: 'auth/connection',
         sync: 'auth/sync/'  //Sync 的位置，預期會再加入一層 restore key
                             //送的資料格式： {from: [本機random_id], user: [user_array index], gift: [gift_array index]}
     });
@@ -446,6 +447,7 @@ $.when(
             }
             var dom = _tpl.summary_item.clone().appendTo(_dom.summary_list);
             dom.data('user_id', user._id);
+            if(user.gone_ok) dom.attr('data-gone-ok-msg', user.gone_ok);
             dom.find('.summary-sn').text(user.sn);
             dom.find('.summary-sn').attr({'data-real-id': user.real_id, 'data-index': index});
             dom.find('.summary-group').text(user.group);
@@ -1751,6 +1753,37 @@ $.when(
             alert('登入成功');
             myFirebaseRef = firebase.database();
             myFirebaseRef.ref(firebase_conf.get).remove()
+            myFirebaseRef.ref(firebase_conf.connection).remove()
+            var bindOfflineAlert = function() {
+                myFirebaseRef.ref(firebase_conf.connection+'/'+browser_id).onDisconnect().set({
+                    action: 'connect_error',
+                    from: browser_id
+                });
+            };
+            bindOfflineAlert();
+            myFirebaseRef.ref(firebase_conf.connection).on("child_removed", function(snapshot) {
+                var value = snapshot.val();
+                console.log(value);
+                if(value.from == browser_id) {
+                    //重新接回線上 DB
+                    console.log('回到線上了');
+                    $('body').removeClass('bomb-self');
+                    bindOfflineAlert();
+                }
+            });
+            myFirebaseRef.ref(firebase_conf.connection).on("child_added", function(snapshot) {
+                var value = snapshot.val();
+                if(value.from != browser_id) {
+                    console.log('喔喔！有人斷線了！');
+                    $('body').addClass('bomb-other');
+                    setTimeout(function(){
+                        myFirebaseRef.ref(firebase_conf.connection+'/'+value.from).remove();
+                        $('body').removeClass('bomb-other');
+                    }, 3000);
+                } else {
+                    $('body').addClass('bomb-self');
+                }
+            });
             myFirebaseRef.ref(firebase_conf.response).remove();
             initStartUpEvent();
             $('.btn .icon-home').click();
@@ -1763,32 +1796,54 @@ $.when(
                 if(value.action == 'log') { // a 同仁得到 b 獎
                     var user = user_array[value.user_index];
                     var gift = gift_array[value.gift_index];
-                    console.log(user._id, ' 得到 ', gift._id);
-                    if(!user.receive_gift) {
-                        user.receiveGift(gift, true);
-                        if(_dom.drawing_page.data('gift_id') == gift._id) { //如果目前有載入此筆獎項資訊，則要更新 summary page
-                            gift.insertSummary(user, gift.award_to.length);
+                    if(!user) {
+                        console.log('第 ' + value.user_index + ' 名 User 不存在')
+                    } else if(!gift) {
+                        console.log('第 ' + value.gift_index + ' 個 Gift 不存在')
+                    } else {
+                        console.log(user._id, ' 得到 ', gift._id);
+                        if(!user.receive_gift) {
+                            user.receiveGift(gift, true);
+                            if(_dom.drawing_page.data('gift_id') == gift._id) { //如果目前有載入此筆獎項資訊，則要更新 summary page
+                                gift.insertSummary(user, gift.award_to.length);
+                            }
                         }
                     }
                 } else if (value.action == 'fail') { // 同仁因不在現場改列普獎
                     var user = user_array[value.user_index];
                     var gift = gift_array[value.gift_index];
-                    console.log(user._id, ' 無法得到 ', gift._id);
-                    if(user.receive_gift != NOT_EXIST_STR) {
-                        user.receiveFail(gift, true);
+                    if(!user) {
+                        console.log('第 ' + value.user_index + ' 名 User 不存在')
+                    } else if(!gift) {
+                        console.log('第 ' + value.gift_index + ' 個 Gift 不存在')
+                    } else {
+                        console.log(user._id, ' 無法得到 ', gift._id);
+                        if(user.receive_gift != NOT_EXIST_STR) {
+                            user.receiveFail(gift, true);
+                        }
                     }
                 } else if (value.action == 'back_to_box') { // 同仁從不在現場改列普獎改放回籤筒
                     var user = user_array[value.user_index];
-                    console.log(user._id, ' 從普獎回籤筒 ');
-                    if(user.receive_gift == NOT_EXIST_STR) {
-                        user.backToBox(true);
+                    if(!user) {
+                        console.log('第 ' + value.user_index + ' 名 User 不存在')
+                    } else {
+                        console.log(user._id, ' 從普獎回籤筒 ');
+                        if(user.receive_gift == NOT_EXIST_STR) {
+                            user.backToBox(true);
+                        }
                     }
                 } else if (value.action == 'gift_change') { // 臨時改列獎項
                     var user = user_array[value.user_index];
                     var gift = gift_array[value.gift_index];
-                    console.log(user._id, ' 改列 ', gift._id);
-                    if(user.receive_gift && user.receive_gift._id != gift._id) {
-                        user.changeGift(gift, true);
+                    if(!user) {
+                        console.log('第 ' + value.user_index + ' 名 User 不存在')
+                    } else if(!gift) {
+                        console.log('第 ' + value.gift_index + ' 個 Gift 不存在')
+                    } else {
+                        console.log(user._id, ' 改列 ', gift._id);
+                        if(user.receive_gift && user.receive_gift._id != gift._id) {
+                            user.changeGift(gift, true);
+                        }
                     }
                 } else if (value.action == 'gift_add') { // 臨時追加獎項
                     console.log('追加獎項 ', value.sn, value.title);

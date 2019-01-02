@@ -27,6 +27,23 @@
         @content;
     }
 }
+@mixin gone-ok-msg {
+    z-index: 50;
+    position: absolute;
+    width: 90%;
+    left: 0; top: 50%; margin: -0.5em 5% 0 5%;
+    text-align: center;
+    font-size: 72px;
+    color: red;
+    font-weight: bold;
+    transform: rotate(10deg);
+    -webkit-animation: opacity_flip 1s infinite;
+            animation: opacity_flip 1s infinite;
+    text-shadow: 
+        0 0 10px white,
+        0 0 10px white,
+        0 0 10px white;
+}
 @mixin gift-button {
     color: orange;
     background-image: linear-gradient(180deg, $gold, darken($gold, 20%));
@@ -55,6 +72,39 @@ html, body {
     background-image: url(../images/bg.png);
     overflow: hidden;
 }
+@include keyframes(bomb_rotate){
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(30deg);
+    }
+    75% {
+        transform: rotate(-30deg);
+    }
+}
+//{{ 連線掛掉時的醒目提示
+body {
+    &.bomb-self:before {
+        background-image: url(../images/bomb_self.png);
+    }
+    &.bomb-other:before {
+        background-image: url(../images/bomb_other.png);
+    }
+    &.bomb-self, &.bomb-other {
+        &:before {
+            display: inline-block;
+            width: 100px; height: 100px;
+            position: absolute;
+            left: 0; top: 0;
+            content: '';
+            z-index: 1;
+            transform-origin: 50% 0%;
+            animation: bomb_rotate 2s infinite linear;
+        }
+    }
+}
+//}}
 .tpl-data {
     display: none!important;
 }
@@ -512,6 +562,10 @@ html, body {
                         z-index: 10;
                     }
                 }
+                &[data-gone-ok-msg]:after {
+                    content: attr(data-gone-ok-msg) " 可不在現場";
+                    @include gone-ok-msg();
+                }
             }
         }
         .button-display {
@@ -519,6 +573,16 @@ html, body {
         }
         .button-start, .button-start-all{
             display: none;
+        }
+    }
+    .summary-item.tr {
+        &[data-gone-ok-msg]{
+            position: relative;
+            &:after {
+                content: attr(data-gone-ok-msg) " 可不在現場";
+                @include gone-ok-msg();
+                font-size: 3em;
+            }
         }
     }
     h3 {
@@ -1328,24 +1392,10 @@ html, body {
     }
 }
 .gone-ok-msg {
+    @include gone-ok-msg();
     &:empty {
         display: none;
     }
-    z-index: 50;
-    position: absolute;
-    width: 90%;
-    left: 0; top: 50%; margin: -0.5em 5% 0 5%;
-    text-align: center;
-    font-size: 72px;
-    color: red;
-    font-weight: bold;
-    transform: rotate(10deg);
-    -webkit-animation: opacity_flip 1s infinite;
-            animation: opacity_flip 1s infinite;
-    text-shadow: 
-        0 0 10px white,
-        0 0 10px white,
-        0 0 10px white;
     &:after {
         content: ' 可不在現場！';
     }

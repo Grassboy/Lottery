@@ -148,7 +148,7 @@
                     ctx.drawImage($img[0], 0, 0, 640, 480);
                     ctx.fillStyle = 'rgba(0, 0, 0, 1)';
                     $('.guagua-result .drawmode-sn').text(data.sn);
-                    $('.guagua-result .drawmode-group').text(data.group);
+                    $('.guagua-result .drawmode-group').text(data.group).attr('data-group-length', data.group.length);
                     $('.guagua-result .drawmode-name').text(data.name);
                 });
                 $canvas.bind('scratch', function (e, x, y) {

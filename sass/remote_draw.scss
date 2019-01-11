@@ -120,6 +120,24 @@ body.scratching {
 }
 .drawmode-group {
     font-size: 84px;
+    &[data-group-length="7"] {
+        font-size: 70px;
+    }
+    &[data-group-length="8"] {
+        font-size: 65px;
+    }
+    &[data-group-length="9"] {
+        font-size: 60px;
+    }
+    &[data-group-length="10"] {
+        font-size: 55px;
+    }
+    &[data-group-length="11"] {
+        font-size: 50px;
+    }
+    &[data-group-length="12"] {
+        font-size: 45px;
+    }
 }
 .drawmode-sn, .drawmode-name {
     font-size: 128px;

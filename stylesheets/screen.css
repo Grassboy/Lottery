@@ -3424,22 +3424,38 @@ body.bomb-self:before, body.bomb-other:before {
   line-height: 120px;
   color: #333;
 }
-/* line 2025, ../sass/screen.scss */
+/* line 2021, ../sass/screen.scss */
+.drawmode-guagua .drawmode-group[data-group-length="9"] {
+  font-size: 60px;
+}
+/* line 2024, ../sass/screen.scss */
+.drawmode-guagua .drawmode-group[data-group-length="10"] {
+  font-size: 55px;
+}
+/* line 2027, ../sass/screen.scss */
+.drawmode-guagua .drawmode-group[data-group-length="11"] {
+  font-size: 50px;
+}
+/* line 2030, ../sass/screen.scss */
+.drawmode-guagua .drawmode-group[data-group-length="12"] {
+  font-size: 45px;
+}
+/* line 2037, ../sass/screen.scss */
 .drawmode-guagua .drawmode-sn, .drawmode-guagua .drawmode-name {
   font-size: 100px;
   font-weight: bold;
   color: #333;
 }
-/* line 2030, ../sass/screen.scss */
+/* line 2042, ../sass/screen.scss */
 .drawmode-guagua .drawmode-name {
   line-height: 200px;
 }
-/* line 2033, ../sass/screen.scss */
+/* line 2045, ../sass/screen.scss */
 .drawmode-guagua .drawmode-sn {
   font-family: 'Arial';
   line-height: 180px;
 }
-/* line 2037, ../sass/screen.scss */
+/* line 2049, ../sass/screen.scss */
 .drawmode-guagua .guagua-cursor {
   transition: visibility 0.3s ease-in, opacity 0.3s ease-in;
   position: absolute;
@@ -3449,22 +3465,22 @@ body.bomb-self:before, body.bomb-other:before {
   opacity: 0;
   visibility: hidden;
 }
-/* line 2045, ../sass/screen.scss */
+/* line 2057, ../sass/screen.scss */
 .drawmode-guagua .card-final .guagua-cursor.show-coin {
   opacity: 1;
   visibility: visible;
   z-index: 10;
 }
-/* line 2050, ../sass/screen.scss */
+/* line 2062, ../sass/screen.scss */
 .drawmode-guagua.draw-done .guagua-canvas {
   opacity: 0;
 }
-/* line 2054, ../sass/screen.scss */
+/* line 2066, ../sass/screen.scss */
 .drawmode-guagua.draw-start ~ .drawing-slogan:before {
   left: 740px;
   top: 500px;
 }
-/* line 2057, ../sass/screen.scss */
+/* line 2069, ../sass/screen.scss */
 .drawmode-guagua.draw-start ~ .drawing-slogan:after {
   left: 40px;
   top: 520px;
@@ -4839,12 +4855,12 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   font-size: 72px;
 }
 
-/* line 2066, ../sass/screen.scss */
+/* line 2078, ../sass/screen.scss */
 .config-page {
   overflow: auto;
   height: 610px;
 }
-/* line 2069, ../sass/screen.scss */
+/* line 2081, ../sass/screen.scss */
 .config-page .config-group {
   overflow: hidden;
   *zoom: 1;
@@ -4856,7 +4872,7 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   border-radius: 20px;
   position: relative;
 }
-/* line 2078, ../sass/screen.scss */
+/* line 2090, ../sass/screen.scss */
 .config-page .config-group:before {
   content: attr(title);
   font-size: 1.3em;
@@ -4865,17 +4881,17 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   padding: 3px;
   color: orange;
 }
-/* line 2087, ../sass/screen.scss */
+/* line 2099, ../sass/screen.scss */
 .config-page .config-group input[type="text"] {
   font-size: 20px;
   width: 600px;
   background: rgba(255, 255, 255, 0.8);
 }
-/* line 2092, ../sass/screen.scss */
+/* line 2104, ../sass/screen.scss */
 .config-page .config-group .config-info {
   line-height: 1.6em;
 }
-/* line 2094, ../sass/screen.scss */
+/* line 2106, ../sass/screen.scss */
 .config-page .config-group .config-info em {
   background: red;
   color: yellow;
@@ -4883,32 +4899,32 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   padding: 0 12px;
   border-radius: 4px;
 }
-/* line 2101, ../sass/screen.scss */
+/* line 2113, ../sass/screen.scss */
 .config-page .config-group .config-info span {
   font-weight: bold;
   font-family: courier;
   text-shadow: 0 0 3px white;
 }
-/* line 2106, ../sass/screen.scss */
+/* line 2118, ../sass/screen.scss */
 .config-page .config-group .config-info a {
   text-decoration: underline;
   color: pink;
 }
-/* line 2112, ../sass/screen.scss */
+/* line 2124, ../sass/screen.scss */
 .config-page .config-item {
   overflow: hidden;
   *zoom: 1;
   margin-top: 20px;
 }
-/* line 2115, ../sass/screen.scss */
+/* line 2127, ../sass/screen.scss */
 .config-page .config-item:nth-child(2n+1) {
   background: rgba(255, 0, 0, 0.4);
 }
-/* line 2118, ../sass/screen.scss */
+/* line 2130, ../sass/screen.scss */
 .config-page .config-item:nth-child(2n) {
   background: rgba(255, 0, 0, 0.2);
 }
-/* line 2122, ../sass/screen.scss */
+/* line 2134, ../sass/screen.scss */
 .config-page .to-remote-button, .config-page .back-to-import, .config-page .export-config {
   position: fixed;
   top: 600px;
@@ -4916,11 +4932,11 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   width: 240px;
   font-size: 1.5em;
 }
-/* line 2129, ../sass/screen.scss */
+/* line 2141, ../sass/screen.scss */
 .config-page .back-to-import {
   top: 500px;
 }
-/* line 2132, ../sass/screen.scss */
+/* line 2144, ../sass/screen.scss */
 .config-page .export-config {
   font-size: 2em;
   display: block;
@@ -4928,31 +4944,31 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   top: 650px;
 }
 
-/* line 2139, ../sass/screen.scss */
+/* line 2151, ../sass/screen.scss */
 .test-page {
   width: 100%;
   height: 100%;
 }
 
-/* line 2142, ../sass/screen.scss */
+/* line 2154, ../sass/screen.scss */
 .need-file-form {
   text-align: center;
 }
 
-/* line 2145, ../sass/screen.scss */
+/* line 2157, ../sass/screen.scss */
 .fake-data-button, .config-button {
   font-size: 32px;
   margin-bottom: 10px;
 }
 
-/* line 2149, ../sass/screen.scss */
+/* line 2161, ../sass/screen.scss */
 .need-file-list {
   overflow: hidden;
   *zoom: 1;
   width: 80%;
   margin: 0 auto;
 }
-/* line 2153, ../sass/screen.scss */
+/* line 2165, ../sass/screen.scss */
 .need-file-list .need-file-item {
   box-sizing: border-box;
   width: 45%;
@@ -4965,18 +4981,18 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   line-height: 50px;
   background: rgba(0, 0, 0, 0.3);
 }
-/* line 2163, ../sass/screen.scss */
+/* line 2175, ../sass/screen.scss */
 .need-file-list .need-file-item label {
   font-size: 24px;
   display: block;
 }
-/* line 2168, ../sass/screen.scss */
+/* line 2180, ../sass/screen.scss */
 .need-file-list .need-file-item.success {
   color: yellow;
   line-height: 96px;
   border-color: yellow;
 }
-/* line 2172, ../sass/screen.scss */
+/* line 2184, ../sass/screen.scss */
 .need-file-list .need-file-item.success label:before {
   font-family: 'icomoon';
   speak: none;
@@ -4986,12 +5002,12 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   text-transform: none;
   content: "\e60b";
 }
-/* line 2176, ../sass/screen.scss */
+/* line 2188, ../sass/screen.scss */
 .need-file-list .need-file-item.success input {
   display: none;
 }
 
-/* line 2182, ../sass/screen.scss */
+/* line 2194, ../sass/screen.scss */
 .restore-key {
   font-size: 32px;
   color: white;
@@ -5002,7 +5018,7 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   width: 200px;
 }
 
-/* line 2191, ../sass/screen.scss */
+/* line 2203, ../sass/screen.scss */
 .start-system-button {
   font-size: 32px;
 }
@@ -5071,7 +5087,7 @@ div[data-pokemon-id="1"] .pokemon-result:before {
     opacity: 0;
   }
 }
-/* line 2201, ../sass/screen.scss */
+/* line 2213, ../sass/screen.scss */
 .ping {
   opacity: 0;
   position: fixed;
@@ -5085,7 +5101,7 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   font-size: 40px;
   animation: signal 1s 1;
 }
-/* line 2210, ../sass/screen.scss */
+/* line 2222, ../sass/screen.scss */
 .ping.pong {
   animation: signal2 1s 1;
 }

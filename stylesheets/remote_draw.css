@@ -175,13 +175,37 @@ body.scratching .guagua-card {
 .drawmode-group {
   font-size: 84px;
 }
+/* line 123, ../sass/remote_draw.scss */
+.drawmode-group[data-group-length="7"] {
+  font-size: 70px;
+}
+/* line 126, ../sass/remote_draw.scss */
+.drawmode-group[data-group-length="8"] {
+  font-size: 65px;
+}
+/* line 129, ../sass/remote_draw.scss */
+.drawmode-group[data-group-length="9"] {
+  font-size: 60px;
+}
+/* line 132, ../sass/remote_draw.scss */
+.drawmode-group[data-group-length="10"] {
+  font-size: 55px;
+}
+/* line 135, ../sass/remote_draw.scss */
+.drawmode-group[data-group-length="11"] {
+  font-size: 50px;
+}
+/* line 138, ../sass/remote_draw.scss */
+.drawmode-group[data-group-length="12"] {
+  font-size: 45px;
+}
 
-/* line 124, ../sass/remote_draw.scss */
+/* line 142, ../sass/remote_draw.scss */
 .drawmode-sn, .drawmode-name {
   font-size: 128px;
 }
 
-/* line 127, ../sass/remote_draw.scss */
+/* line 145, ../sass/remote_draw.scss */
 .drawmode-sn {
   font-family: 'courier new';
   font-weight: bold;
@@ -236,7 +260,7 @@ body.scratching .guagua-card {
     opacity: 0;
   }
 }
-/* line 147, ../sass/remote_draw.scss */
+/* line 165, ../sass/remote_draw.scss */
 .draw-result {
   -moz-user-select: -moz-none;
   -ms-user-select: none;
@@ -252,12 +276,12 @@ body.scratching .guagua-card {
   -webkit-animation: signal 5s 1;
   animation: signal 5s 1;
 }
-/* line 157, ../sass/remote_draw.scss */
+/* line 175, ../sass/remote_draw.scss */
 .draw-result.pong {
   -webkit-animation: signal2 5s 1;
   animation: signal2 5s 1;
 }
-/* line 161, ../sass/remote_draw.scss */
+/* line 179, ../sass/remote_draw.scss */
 .draw-result:before {
   content: '前次結果';
   font-size: 24px;
@@ -277,7 +301,7 @@ body.scratching .guagua-card {
     }
 }
 */
-/* line 179, ../sass/remote_draw.scss */
+/* line 197, ../sass/remote_draw.scss */
 .ping {
   -moz-user-select: -moz-none;
   -ms-user-select: none;
@@ -295,11 +319,11 @@ body.scratching .guagua-card {
   -webkit-animation: signal 1s 1;
   animation: signal 1s 1;
 }
-/* line 181, ../sass/remote_draw.scss */
+/* line 199, ../sass/remote_draw.scss */
 .vring .ping {
   display: none;
 }
-/* line 194, ../sass/remote_draw.scss */
+/* line 212, ../sass/remote_draw.scss */
 .ping.pong {
   -webkit-animation: signal2 1s 1;
   animation: signal2 1s 1;

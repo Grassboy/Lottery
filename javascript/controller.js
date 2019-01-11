@@ -1223,7 +1223,7 @@ $.when(
                         ctx.drawImage($img[0], 0, 0, 640, 480);
                         ctx.fillStyle = 'rgba(0, 0, 0, 1)';
                         dom.find('.drawmode-sn').text(data.sn);
-                        dom.find('.drawmode-group').text(data.group);
+                        dom.find('.drawmode-group').text(data.group).attr('data-group-length', data.group.length);
                         dom.find('.drawmode-name').text(data.name);
                         myFirebaseRef.ref(firebase_conf.get).remove();
                         myFirebaseRef.ref(firebase_conf.response).remove();
@@ -1253,7 +1253,7 @@ $.when(
                     });
                 });
                 dom.find('.drawmode-sn').text('');
-                dom.find('.drawmode-group').text('');
+                dom.find('.drawmode-group').text('').attr('data-group-length', null);
                 dom.find('.drawmode-name').text('');
                 dom.removeClass('card-drawed');
                 dom.find('.guagua-tips').one('click', function(){

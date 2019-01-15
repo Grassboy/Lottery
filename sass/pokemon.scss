@@ -247,6 +247,18 @@
     }
     .drawmode-group {
         font-size: 72px;
+        &[data-group-length="9"] {
+            font-size: 65px;
+        }
+        &[data-group-length="10"] {
+            font-size: 60px;
+        }
+        &[data-group-length="11"] {
+            font-size: 53px;
+        }
+        &[data-group-length="12"] {
+            font-size: 48px;
+        }
         text-align: center;
         position: absolute;
         right: 0px; top: 0.2em;

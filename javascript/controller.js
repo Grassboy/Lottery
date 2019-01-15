@@ -217,6 +217,7 @@ $.when(
         this.real_id = opts.real_id;            //抽獎單編號
         this.sn = sn(opts.sn);                  //員工編號
         this.group = opts.group;                //處室
+        this.sub_group = opts.sub_group;        //科級
         this.name = opts.name;                  //姓名
         this.title = opts.title;                //職稱
         this.gone_ok = opts.gone_ok || false;   //是否不在現場亦可領獎
@@ -1018,11 +1019,11 @@ $.when(
                         return '"'+str.replace(/\"/g, '＂')+'"'
                     }
                 }
-                var csvRows = [['抽獎聯編號', '員工代號','姓名','職務','1級單位','獎項編號','獎項名稱','獎項內容'].join(',')+',,'+gift_chart_rows[0]], line;
+                var csvRows = [['抽獎聯編號', '員工代號','姓名','職務','1級單位','2級單位','獎項編號','獎項名稱','獎項內容'].join(',')+',,'+gift_chart_rows[0]], line;
                 for(var i = 0, n = user_array.length; i < n; ++i){
                     var user = user_array[i];
                     line = [];
-                    line.push(cellStr(user.real_id), cellStr(user.sn), cellStr(user.name), cellStr(user.title), cellStr(user.group));
+                    line.push(cellStr(user.real_id), cellStr(user.sn), cellStr(user.name), cellStr(user.title), cellStr(user.group), cellStr(user.sub_group));
                     if(user.receive_gift == NOT_EXIST_STR){
                         line.push('', NOT_EXIST_STR,'');
                     } else if(user.receive_gift){
@@ -1087,7 +1088,7 @@ $.when(
                 var updateView = function(){
                     user = that.getUser(); //抽出!!
                     dom.find('.drawmode-sn').text(user.sn);
-                    dom.find('.drawmode-group').text(user.group);
+                    dom.find('.drawmode-group').text(user.group).attr('data-group-length', user.group.length);
                     dom.find('.drawmode-name').text(user.name);
                 };
                 var timer = this.setInterval(updateView, 100);
@@ -1123,7 +1124,7 @@ $.when(
                     var user = null;
                     $({}).queue(function(_) {
                         dom.find('.slot').removeClass('slot-start slot-end slot-turbo');
-                        dom.find('.drawmode-group').text('');
+                        dom.find('.drawmode-group').text('').attr('data-group-length', null);
                         dom.find('.drawmode-name').text('緊張！緊張！');
                         dom.addClass('draw-running');
                         setTimeout(function() {
@@ -1163,11 +1164,11 @@ $.when(
                         dom.removeClass('draw-running');
                         if(!_dom.drawing_page.is('.active')) {  //如果過程中切到別頁，則把號碼歸零，名字不 show
                             dom.find('.slot').attr('class', 'slot slot-end slot-0');
-                            dom.find('.drawmode-group').text('------');
+                            dom.find('.drawmode-group').text('------').attr('data-group-length', null);
                             dom.find('.drawmode-name').text('------');
                             user = null;
                         } else { //到這個時間點，名字有打出來，所以就一定要給獎，不論有沒有切到別頁去
-                            dom.find('.drawmode-group').text(user.group);
+                            dom.find('.drawmode-group').text(user.group).attr('data-group-length', user.group.length);
                             dom.find('.drawmode-name').text(user.name);
                         }
                         if(!user) {
@@ -1336,7 +1337,7 @@ $.when(
                     user = that.getUser();
                     dom.find('.pokemon-hp span').text(parseInt(Math.random()*800+50,10));
                     dom.find('.drawmode-sn').text(user.sn);
-                    dom.find('.drawmode-group').text(user.group);
+                    dom.find('.drawmode-group').text(user.group).attr('data-group-length', user.group.length);
                     dom.find('.drawmode-name').text(user.name);
                     dom.find('.pokemon-result').removeClass('inactive').addClass('animated bounceInDown');
                     deferred.resolve(user);
@@ -1437,7 +1438,7 @@ $.when(
                     dom.unbind('allclear').one('allclear', function(){
                         that.vrDraw.setActive(false);
                         dom.find('.drawmode-sn').text(user.sn);
-                        dom.find('.drawmode-group').text(user.group);
+                        dom.find('.drawmode-group').text(user.group).attr('data-group-length', user.group.length);
                         dom.find('.drawmode-name').text(user.name);
                         dom.find('.vr-result').removeClass('inactive').addClass('animated bounceInDown');
                         myFirebaseRef.ref(firebase_conf.response).push({
@@ -1489,7 +1490,7 @@ $.when(
 
                 var updateView = function(){
                     dom.find('.drawmode-sn').text(user.sn);
-                    dom.find('.drawmode-group').text(user.group);
+                    dom.find('.drawmode-group').text(user.group).attr('data-group-length', user.group.length);
                     dom.find('.drawmode-name').text(user.name);
                 };
                 updateView();
@@ -1609,6 +1610,7 @@ $.when(
                     real_id: $.trim(user[0]),
                     sn: $.trim(user[1]),
                     group: $.trim(user[4]),
+                    sub_group: $.trim(user[5]),
                     name: $.trim(user[2]),
                     title: $.trim(user[3])
                 });

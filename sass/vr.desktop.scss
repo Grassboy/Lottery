@@ -18,5 +18,8 @@
     }
     .drawmode-group {
         font-size: 72px;
+        &[data-group-length="12"] {
+            font-size: 65px;
+        }
     }
 }

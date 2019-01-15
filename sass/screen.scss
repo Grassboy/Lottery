@@ -1429,6 +1429,12 @@ body {
         text-shadow: 0 -1px 0 black;
         color: #666;
     }
+    .drawmode-group {
+        &[data-group-length="11"],
+        &[data-group-length="12"] {
+            font-size: 85px;
+        }
+    }
 }
 
 @mixin slotFrames($h) {
@@ -1612,8 +1618,26 @@ body {
     .slot-outer:nth-child(odd) .slot {
         @include addSlot(rotateSlot2);
     }
-    .drawmode-group, .drawmode-name {
+    .drawmode-name {
         font-size: 96px;
+    }
+    .drawmode-group {
+        font-size: 96px;
+        &[data-group-length="8"] {
+            font-size: 85px;
+        }
+        &[data-group-length="9"] {
+            font-size: 75px;
+        }
+        &[data-group-length="10"] {
+            font-size: 66px;
+        }
+        &[data-group-length="11"] {
+            font-size: 60px;
+        }
+        &[data-group-length="12"] {
+            font-size: 55px;
+        }
     }
     .slots-bar {
         transition: transform 0.3s ease-in;

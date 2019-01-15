@@ -2063,6 +2063,10 @@ body.bomb-self:before, body.bomb-other:before {
   text-shadow: 0 -1px 0 black;
   color: #666;
 }
+/* line 1433, ../sass/screen.scss */
+.drawmode-basic .drawmode-group[data-group-length="11"], .drawmode-basic .drawmode-group[data-group-length="12"] {
+  font-size: 85px;
+}
 
 @-webkit-keyframes start-rotateSlot1 {
   0% {
@@ -2364,13 +2368,13 @@ body.bomb-self:before, body.bomb-other:before {
     transform: translateX(-10px);
   }
 }
-/* line 1554, ../sass/screen.scss */
+/* line 1560, ../sass/screen.scss */
 .drawmode-slots {
   position: relative;
   transition: transform ease-in 0.3s;
   transform: scale(0.9) translateY(-20px);
 }
-/* line 1558, ../sass/screen.scss */
+/* line 1564, ../sass/screen.scss */
 .drawmode-slots .slots-machine {
   padding: 30px;
   background: white;
@@ -2384,7 +2388,7 @@ body.bomb-self:before, body.bomb-other:before {
   transform: scale(0.9) translateY(-50px);
   z-index: 3;
 }
-/* line 1571, ../sass/screen.scss */
+/* line 1577, ../sass/screen.scss */
 .drawmode-slots .slot-outer {
   display: inline-block;
   width: 150px;
@@ -2393,7 +2397,7 @@ body.bomb-self:before, body.bomb-other:before {
   overflow: hidden;
   border-radius: 5px;
 }
-/* line 1578, ../sass/screen.scss */
+/* line 1584, ../sass/screen.scss */
 .drawmode-slots .slot-outer:after {
   content: ' ';
   position: absolute;
@@ -2407,7 +2411,7 @@ body.bomb-self:before, body.bomb-other:before {
   box-sizing: border-box;
   border-radius: 5px;
 }
-/* line 1589, ../sass/screen.scss */
+/* line 1595, ../sass/screen.scss */
 .drawmode-slots .slot-outer:before {
   content: ' ';
   width: 10px;
@@ -2420,7 +2424,7 @@ body.bomb-self:before, body.bomb-other:before {
   left: -5px;
   top: 50%;
 }
-/* line 1601, ../sass/screen.scss */
+/* line 1607, ../sass/screen.scss */
 .drawmode-slots .slot {
   transition: transform 0.5s linear;
   display-inline: block;
@@ -2429,21 +2433,21 @@ body.bomb-self:before, body.bomb-other:before {
   background-image: url(../images/number.png);
   background-repeat: repeat-y;
 }
-/* line 1514, ../sass/screen.scss */
+/* line 1520, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-start, .drawmode-slots .slot-outer:nth-child(even) .slot.slot-turbo, .drawmode-slots .slot-outer:nth-child(even) .slot.slot-end {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
 }
-/* line 1520, ../sass/screen.scss */
+/* line 1526, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-start {
   -webkit-animation-name: start-rotateSlot1;
   animation-name: start-rotateSlot1;
   -webkit-animation-timing-function: cubic-bezier(0.78, -0.05, 0.61, 1.23);
   animation-timing-function: cubic-bezier(0.78, -0.05, 0.61, 1.23);
 }
-/* line 1526, ../sass/screen.scss */
+/* line 1532, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-turbo {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
@@ -2452,7 +2456,7 @@ body.bomb-self:before, body.bomb-other:before {
   -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
 }
-/* line 1534, ../sass/screen.scss */
+/* line 1540, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-end {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
@@ -2461,69 +2465,69 @@ body.bomb-self:before, body.bomb-other:before {
   -webkit-animation-timing-function: cubic-bezier(0, 1, 0, 1.012);
   animation-timing-function: cubic-bezier(0, 1, 0, 1.012);
 }
-/* line 1543, ../sass/screen.scss */
+/* line 1549, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-7 {
   transform: translateY(0px);
 }
-/* line 1543, ../sass/screen.scss */
+/* line 1549, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-8 {
   transform: translateY(-160px);
 }
-/* line 1543, ../sass/screen.scss */
+/* line 1549, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-9 {
   transform: translateY(-320px);
 }
-/* line 1543, ../sass/screen.scss */
+/* line 1549, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-0 {
   transform: translateY(-480px);
 }
-/* line 1543, ../sass/screen.scss */
+/* line 1549, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-1 {
   transform: translateY(-640px);
 }
-/* line 1543, ../sass/screen.scss */
+/* line 1549, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-2 {
   transform: translateY(-800px);
 }
-/* line 1543, ../sass/screen.scss */
+/* line 1549, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-3 {
   transform: translateY(-960px);
 }
-/* line 1543, ../sass/screen.scss */
+/* line 1549, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-4 {
   transform: translateY(-1120px);
 }
-/* line 1543, ../sass/screen.scss */
+/* line 1549, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-5 {
   transform: translateY(-1280px);
 }
-/* line 1543, ../sass/screen.scss */
+/* line 1549, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-6 {
   transform: translateY(-1440px);
 }
-/* line 1547, ../sass/screen.scss */
+/* line 1553, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-v {
   transform: translateY(-1600px);
 }
-/* line 1550, ../sass/screen.scss */
+/* line 1556, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(even) .slot.slot-z {
   transform: translateY(-1760px);
 }
-/* line 1514, ../sass/screen.scss */
+/* line 1520, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-start, .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-turbo, .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-end {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
 }
-/* line 1520, ../sass/screen.scss */
+/* line 1526, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-start {
   -webkit-animation-name: start-rotateSlot2;
   animation-name: start-rotateSlot2;
   -webkit-animation-timing-function: cubic-bezier(0.78, -0.05, 0.61, 1.23);
   animation-timing-function: cubic-bezier(0.78, -0.05, 0.61, 1.23);
 }
-/* line 1526, ../sass/screen.scss */
+/* line 1532, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-turbo {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
@@ -2532,7 +2536,7 @@ body.bomb-self:before, body.bomb-other:before {
   -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
 }
-/* line 1534, ../sass/screen.scss */
+/* line 1540, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-end {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
@@ -2541,59 +2545,83 @@ body.bomb-self:before, body.bomb-other:before {
   -webkit-animation-timing-function: cubic-bezier(0, 1, 0, 1.012);
   animation-timing-function: cubic-bezier(0, 1, 0, 1.012);
 }
-/* line 1543, ../sass/screen.scss */
+/* line 1549, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-7 {
   transform: translateY(0px);
 }
-/* line 1543, ../sass/screen.scss */
+/* line 1549, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-8 {
   transform: translateY(-160px);
 }
-/* line 1543, ../sass/screen.scss */
+/* line 1549, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-9 {
   transform: translateY(-320px);
 }
-/* line 1543, ../sass/screen.scss */
+/* line 1549, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-0 {
   transform: translateY(-480px);
 }
-/* line 1543, ../sass/screen.scss */
+/* line 1549, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-1 {
   transform: translateY(-640px);
 }
-/* line 1543, ../sass/screen.scss */
+/* line 1549, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-2 {
   transform: translateY(-800px);
 }
-/* line 1543, ../sass/screen.scss */
+/* line 1549, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-3 {
   transform: translateY(-960px);
 }
-/* line 1543, ../sass/screen.scss */
+/* line 1549, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-4 {
   transform: translateY(-1120px);
 }
-/* line 1543, ../sass/screen.scss */
+/* line 1549, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-5 {
   transform: translateY(-1280px);
 }
-/* line 1543, ../sass/screen.scss */
+/* line 1549, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-6 {
   transform: translateY(-1440px);
 }
-/* line 1547, ../sass/screen.scss */
+/* line 1553, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-v {
   transform: translateY(-1600px);
 }
-/* line 1550, ../sass/screen.scss */
+/* line 1556, ../sass/screen.scss */
 .drawmode-slots .slot-outer:nth-child(odd) .slot.slot-z {
   transform: translateY(-1760px);
 }
-/* line 1615, ../sass/screen.scss */
-.drawmode-slots .drawmode-group, .drawmode-slots .drawmode-name {
+/* line 1621, ../sass/screen.scss */
+.drawmode-slots .drawmode-name {
   font-size: 96px;
 }
-/* line 1618, ../sass/screen.scss */
+/* line 1624, ../sass/screen.scss */
+.drawmode-slots .drawmode-group {
+  font-size: 96px;
+}
+/* line 1626, ../sass/screen.scss */
+.drawmode-slots .drawmode-group[data-group-length="8"] {
+  font-size: 85px;
+}
+/* line 1629, ../sass/screen.scss */
+.drawmode-slots .drawmode-group[data-group-length="9"] {
+  font-size: 75px;
+}
+/* line 1632, ../sass/screen.scss */
+.drawmode-slots .drawmode-group[data-group-length="10"] {
+  font-size: 66px;
+}
+/* line 1635, ../sass/screen.scss */
+.drawmode-slots .drawmode-group[data-group-length="11"] {
+  font-size: 60px;
+}
+/* line 1638, ../sass/screen.scss */
+.drawmode-slots .drawmode-group[data-group-length="12"] {
+  font-size: 55px;
+}
+/* line 1642, ../sass/screen.scss */
 .drawmode-slots .slots-bar {
   transition: transform 0.3s ease-in;
   position: absolute;
@@ -2616,7 +2644,7 @@ body.bomb-self:before, body.bomb-other:before {
   transform-type: preserve-3d;
   perspective: 1000px;
 }
-/* line 1640, ../sass/screen.scss */
+/* line 1664, ../sass/screen.scss */
 .drawmode-slots .slots-bar-inner {
   width: 20px;
   height: 100%;
@@ -2626,7 +2654,7 @@ body.bomb-self:before, body.bomb-other:before {
   left: -10px;
   border-radius: 20px;
 }
-/* line 1649, ../sass/screen.scss */
+/* line 1673, ../sass/screen.scss */
 .drawmode-slots .slots-bar-button {
   transition: transform 0.3s ease-in;
   transform-origin: center center -250px;
@@ -2653,7 +2681,7 @@ body.bomb-self:before, body.bomb-other:before {
   -webkit-animation-name: slots-bar-init;
   animation-name: slots-bar-init;
 }
-/* line 1674, ../sass/screen.scss */
+/* line 1698, ../sass/screen.scss */
 .drawmode-slots .slots-bar-button:before {
   font-family: 'icomoon';
   speak: none;
@@ -2663,14 +2691,14 @@ body.bomb-self:before, body.bomb-other:before {
   text-transform: none;
   content: '\e608';
 }
-/* line 1679, ../sass/screen.scss */
+/* line 1703, ../sass/screen.scss */
 .drawmode-slots.draw-running .slots-bar-button {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
   -webkit-animation-name: slots-bar;
   animation-name: slots-bar;
 }
-/* line 1685, ../sass/screen.scss */
+/* line 1709, ../sass/screen.scss */
 .drawmode-slots .slots-result {
   transition: transform 0.3s ease-in;
   position: relative;
@@ -2689,14 +2717,14 @@ body.bomb-self:before, body.bomb-other:before {
   transform-origin: center 0;
   transform: translateX(-20px);
 }
-/* line 1704, ../sass/screen.scss */
+/* line 1728, ../sass/screen.scss */
 .drawmode-slots .slots-result-inner {
   border-radius: 20px;
   height: 290px;
   box-shadow: 0 0 5px orange, 0 0 5px gold inset, 5px 5px 5px brown inset;
   background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8));
 }
-/* line 1711, ../sass/screen.scss */
+/* line 1735, ../sass/screen.scss */
 .drawmode-slots .slots-result:before, .drawmode-slots .slots-result:after, .drawmode-slots .slots-result-inner:before, .drawmode-slots .slots-result-inner:after {
   font-family: 'icomoon';
   speak: none;
@@ -2711,25 +2739,25 @@ body.bomb-self:before, body.bomb-other:before {
   font-size: 50px;
   text-shadow: 2px 2px 2px black, 1px 1px 0 black, 1px -1px 0 black, -1px 1px 0 black, -1px -1px 0 black;
 }
-/* line 1725, ../sass/screen.scss */
+/* line 1749, ../sass/screen.scss */
 .drawmode-slots .slots-result:before, .drawmode-slots .slots-result-inner:before {
   left: 20px;
 }
-/* line 1728, ../sass/screen.scss */
+/* line 1752, ../sass/screen.scss */
 .drawmode-slots .slots-result:after, .drawmode-slots .slots-result-inner:after {
   right: 20px;
 }
-/* line 1733, ../sass/screen.scss */
+/* line 1757, ../sass/screen.scss */
 .drawmode-slots .slots-result:before, .drawmode-slots .slots-result:after {
   bottom: auto;
   top: -20px;
 }
-/* line 1739, ../sass/screen.scss */
+/* line 1763, ../sass/screen.scss */
 .drawmode-slots.draw-start ~ .drawing-slogan:before {
   left: 0px;
   top: 500px;
 }
-/* line 1742, ../sass/screen.scss */
+/* line 1766, ../sass/screen.scss */
 .drawmode-slots.draw-start ~ .drawing-slogan:after {
   top: 520px;
 }
@@ -3262,7 +3290,7 @@ body.bomb-self:before, body.bomb-other:before {
     opacity: 0;
   }
 }
-/* line 1886, ../sass/screen.scss */
+/* line 1910, ../sass/screen.scss */
 .drawmode-guagua {
   transform-type: preserve-3d;
   perspective: 1000px;
@@ -3272,7 +3300,7 @@ body.bomb-self:before, body.bomb-other:before {
   text-align: center;
   color: black;
 }
-/* line 1893, ../sass/screen.scss */
+/* line 1917, ../sass/screen.scss */
 .drawmode-guagua .guagua-tips {
   -webkit-animation: font_color_flip 0.3s steps(3, start) infinite;
   animation: font_color_flip 0.3s steps(3, start) infinite;
@@ -3286,7 +3314,7 @@ body.bomb-self:before, body.bomb-other:before {
   padding-bottom: 350px;
   z-index: 2;
 }
-/* line 1906, ../sass/screen.scss */
+/* line 1930, ../sass/screen.scss */
 .drawmode-guagua .guagua-card {
   transition: margin-bottom 1s ease-in;
   display: block;
@@ -3304,7 +3332,7 @@ body.bomb-self:before, body.bomb-other:before {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 }
-/* line 1918, ../sass/screen.scss */
+/* line 1942, ../sass/screen.scss */
 .drawmode-guagua .guagua-card.card-final {
   width: 640px;
   height: 480px;
@@ -3342,44 +3370,44 @@ body.bomb-self:before, body.bomb-other:before {
   */
   background-image: url(../images/card2.jpg);
 }
-/* line 1955, ../sass/screen.scss */
+/* line 1979, ../sass/screen.scss */
 .drawmode-guagua.card-drawed .guagua-tips {
   z-index: -1;
   opacity: 0;
 }
-/* line 1959, ../sass/screen.scss */
+/* line 1983, ../sass/screen.scss */
 .drawmode-guagua.card-drawed .guagua-card {
   margin-bottom: 900px;
 }
-/* line 1962, ../sass/screen.scss */
+/* line 1986, ../sass/screen.scss */
 .drawmode-guagua.card-drawed .card-final {
   visibility: visible;
   margin-bottom: 50px;
   -webkit-animation-name: gua_final;
   animation-name: gua_final;
 }
-/* line 1969, ../sass/screen.scss */
+/* line 1993, ../sass/screen.scss */
 .drawmode-guagua .card1 {
   -webkit-animation-duration: 8s;
   animation-duration: 8s;
   -webkit-animation-name: gua_flip1;
   animation-name: gua_flip1;
 }
-/* line 1975, ../sass/screen.scss */
+/* line 1999, ../sass/screen.scss */
 .drawmode-guagua .card2 {
   -webkit-animation-duration: 7s;
   animation-duration: 7s;
   -webkit-animation-name: gua_flip2;
   animation-name: gua_flip2;
 }
-/* line 1981, ../sass/screen.scss */
+/* line 2005, ../sass/screen.scss */
 .drawmode-guagua .card3 {
   -webkit-animation-duration: 7.5s;
   animation-duration: 7.5s;
   -webkit-animation-name: gua_flip3;
   animation-name: gua_flip3;
 }
-/* line 1987, ../sass/screen.scss */
+/* line 2011, ../sass/screen.scss */
 .drawmode-guagua .card4,
 .drawmode-guagua .card5,
 .drawmode-guagua .card6 {
@@ -3387,75 +3415,75 @@ body.bomb-self:before, body.bomb-other:before {
   -webkit-animation-name: gua_flip4;
   animation-name: gua_flip4;
 }
-/* line 1994, ../sass/screen.scss */
+/* line 2018, ../sass/screen.scss */
 .drawmode-guagua .card4 {
   -webkit-animation-duration: 7s;
   animation-duration: 7s;
   -webkit-animation-delay: 2s;
   animation-delay: 2s;
 }
-/* line 2000, ../sass/screen.scss */
+/* line 2024, ../sass/screen.scss */
 .drawmode-guagua .card5 {
   -webkit-animation-duration: 8s;
   animation-duration: 8s;
   -webkit-animation-delay: 4s;
   animation-delay: 4s;
 }
-/* line 2006, ../sass/screen.scss */
+/* line 2030, ../sass/screen.scss */
 .drawmode-guagua .card6 {
   -webkit-animation-duration: 9s;
   animation-duration: 9s;
 }
-/* line 2010, ../sass/screen.scss */
+/* line 2034, ../sass/screen.scss */
 .drawmode-guagua .guagua-canvas {
   cursor: url(../images/coin.png) 24 24, auto;
   position: absolute;
   left: 0;
   top: 0;
 }
-/* line 2015, ../sass/screen.scss */
+/* line 2039, ../sass/screen.scss */
 .drawmode-guagua .guagua-img {
   display: none;
 }
-/* line 2019, ../sass/screen.scss */
+/* line 2043, ../sass/screen.scss */
 .drawmode-guagua .drawmode-group {
   font-size: 68px;
   font-weight: bold;
   line-height: 120px;
   color: #333;
 }
-/* line 2021, ../sass/screen.scss */
+/* line 2045, ../sass/screen.scss */
 .drawmode-guagua .drawmode-group[data-group-length="9"] {
   font-size: 60px;
 }
-/* line 2024, ../sass/screen.scss */
+/* line 2048, ../sass/screen.scss */
 .drawmode-guagua .drawmode-group[data-group-length="10"] {
   font-size: 55px;
 }
-/* line 2027, ../sass/screen.scss */
+/* line 2051, ../sass/screen.scss */
 .drawmode-guagua .drawmode-group[data-group-length="11"] {
   font-size: 50px;
 }
-/* line 2030, ../sass/screen.scss */
+/* line 2054, ../sass/screen.scss */
 .drawmode-guagua .drawmode-group[data-group-length="12"] {
   font-size: 45px;
 }
-/* line 2037, ../sass/screen.scss */
+/* line 2061, ../sass/screen.scss */
 .drawmode-guagua .drawmode-sn, .drawmode-guagua .drawmode-name {
   font-size: 100px;
   font-weight: bold;
   color: #333;
 }
-/* line 2042, ../sass/screen.scss */
+/* line 2066, ../sass/screen.scss */
 .drawmode-guagua .drawmode-name {
   line-height: 200px;
 }
-/* line 2045, ../sass/screen.scss */
+/* line 2069, ../sass/screen.scss */
 .drawmode-guagua .drawmode-sn {
   font-family: 'Arial';
   line-height: 180px;
 }
-/* line 2049, ../sass/screen.scss */
+/* line 2073, ../sass/screen.scss */
 .drawmode-guagua .guagua-cursor {
   transition: visibility 0.3s ease-in, opacity 0.3s ease-in;
   position: absolute;
@@ -3465,22 +3493,22 @@ body.bomb-self:before, body.bomb-other:before {
   opacity: 0;
   visibility: hidden;
 }
-/* line 2057, ../sass/screen.scss */
+/* line 2081, ../sass/screen.scss */
 .drawmode-guagua .card-final .guagua-cursor.show-coin {
   opacity: 1;
   visibility: visible;
   z-index: 10;
 }
-/* line 2062, ../sass/screen.scss */
+/* line 2086, ../sass/screen.scss */
 .drawmode-guagua.draw-done .guagua-canvas {
   opacity: 0;
 }
-/* line 2066, ../sass/screen.scss */
+/* line 2090, ../sass/screen.scss */
 .drawmode-guagua.draw-start ~ .drawing-slogan:before {
   left: 740px;
   top: 500px;
 }
-/* line 2069, ../sass/screen.scss */
+/* line 2093, ../sass/screen.scss */
 .drawmode-guagua.draw-start ~ .drawing-slogan:after {
   left: 40px;
   top: 520px;
@@ -4362,7 +4390,23 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   width: 600px;
   height: 1.2em;
 }
-/* line 255, ../sass/pokemon.scss */
+/* line 250, ../sass/pokemon.scss */
+.pokemon-result .drawmode-group[data-group-length="9"] {
+  font-size: 65px;
+}
+/* line 253, ../sass/pokemon.scss */
+.pokemon-result .drawmode-group[data-group-length="10"] {
+  font-size: 60px;
+}
+/* line 256, ../sass/pokemon.scss */
+.pokemon-result .drawmode-group[data-group-length="11"] {
+  font-size: 53px;
+}
+/* line 259, ../sass/pokemon.scss */
+.pokemon-result .drawmode-group[data-group-length="12"] {
+  font-size: 48px;
+}
+/* line 267, ../sass/pokemon.scss */
 .pokemon-result .drawmode-sn {
   font-family: "Fredoka One",cursive;
   font-size: 128px;
@@ -4372,7 +4416,7 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   color: white;
   text-shadow: 0 0 10px black, 0 0 10px black,  0 0 10px black,  0 0 10px black;
 }
-/* line 262, ../sass/pokemon.scss */
+/* line 274, ../sass/pokemon.scss */
 .pokemon-result .drawmode-sn:before {
   content: 'CP';
   font-size: 64px;
@@ -4381,7 +4425,7 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   bottom: 0.25em;
   opacity: 0.8;
 }
-/* line 270, ../sass/pokemon.scss */
+/* line 282, ../sass/pokemon.scss */
 .pokemon-result .pokemon-hp {
   font-family: "Asap",cursive;
   letter-spacing: 5px;
@@ -4393,7 +4437,7 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   top: 120px;
   text-align: center;
 }
-/* line 279, ../sass/pokemon.scss */
+/* line 291, ../sass/pokemon.scss */
 .pokemon-result .pokemon-hp:after {
   content: 'POWER UP';
   background-image: linear-gradient(90deg, #aae599, #34dfae);
@@ -4409,7 +4453,7 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   font-size: 18px;
   box-shadow: 100px 0 0 #d0dcc5;
 }
-/* line 293, ../sass/pokemon.scss */
+/* line 305, ../sass/pokemon.scss */
 .pokemon-result .pokemon-hp:before {
   content: '100';
   padding: 12px;
@@ -4854,13 +4898,17 @@ div[data-pokemon-id="1"] .pokemon-result:before {
 .vr-result .drawmode-group {
   font-size: 72px;
 }
+/* line 21, ../sass/vr.desktop.scss */
+.vr-result .drawmode-group[data-group-length="12"] {
+  font-size: 65px;
+}
 
-/* line 2078, ../sass/screen.scss */
+/* line 2102, ../sass/screen.scss */
 .config-page {
   overflow: auto;
   height: 610px;
 }
-/* line 2081, ../sass/screen.scss */
+/* line 2105, ../sass/screen.scss */
 .config-page .config-group {
   overflow: hidden;
   *zoom: 1;
@@ -4872,7 +4920,7 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   border-radius: 20px;
   position: relative;
 }
-/* line 2090, ../sass/screen.scss */
+/* line 2114, ../sass/screen.scss */
 .config-page .config-group:before {
   content: attr(title);
   font-size: 1.3em;
@@ -4881,17 +4929,17 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   padding: 3px;
   color: orange;
 }
-/* line 2099, ../sass/screen.scss */
+/* line 2123, ../sass/screen.scss */
 .config-page .config-group input[type="text"] {
   font-size: 20px;
   width: 600px;
   background: rgba(255, 255, 255, 0.8);
 }
-/* line 2104, ../sass/screen.scss */
+/* line 2128, ../sass/screen.scss */
 .config-page .config-group .config-info {
   line-height: 1.6em;
 }
-/* line 2106, ../sass/screen.scss */
+/* line 2130, ../sass/screen.scss */
 .config-page .config-group .config-info em {
   background: red;
   color: yellow;
@@ -4899,32 +4947,32 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   padding: 0 12px;
   border-radius: 4px;
 }
-/* line 2113, ../sass/screen.scss */
+/* line 2137, ../sass/screen.scss */
 .config-page .config-group .config-info span {
   font-weight: bold;
   font-family: courier;
   text-shadow: 0 0 3px white;
 }
-/* line 2118, ../sass/screen.scss */
+/* line 2142, ../sass/screen.scss */
 .config-page .config-group .config-info a {
   text-decoration: underline;
   color: pink;
 }
-/* line 2124, ../sass/screen.scss */
+/* line 2148, ../sass/screen.scss */
 .config-page .config-item {
   overflow: hidden;
   *zoom: 1;
   margin-top: 20px;
 }
-/* line 2127, ../sass/screen.scss */
+/* line 2151, ../sass/screen.scss */
 .config-page .config-item:nth-child(2n+1) {
   background: rgba(255, 0, 0, 0.4);
 }
-/* line 2130, ../sass/screen.scss */
+/* line 2154, ../sass/screen.scss */
 .config-page .config-item:nth-child(2n) {
   background: rgba(255, 0, 0, 0.2);
 }
-/* line 2134, ../sass/screen.scss */
+/* line 2158, ../sass/screen.scss */
 .config-page .to-remote-button, .config-page .back-to-import, .config-page .export-config {
   position: fixed;
   top: 600px;
@@ -4932,11 +4980,11 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   width: 240px;
   font-size: 1.5em;
 }
-/* line 2141, ../sass/screen.scss */
+/* line 2165, ../sass/screen.scss */
 .config-page .back-to-import {
   top: 500px;
 }
-/* line 2144, ../sass/screen.scss */
+/* line 2168, ../sass/screen.scss */
 .config-page .export-config {
   font-size: 2em;
   display: block;
@@ -4944,31 +4992,31 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   top: 650px;
 }
 
-/* line 2151, ../sass/screen.scss */
+/* line 2175, ../sass/screen.scss */
 .test-page {
   width: 100%;
   height: 100%;
 }
 
-/* line 2154, ../sass/screen.scss */
+/* line 2178, ../sass/screen.scss */
 .need-file-form {
   text-align: center;
 }
 
-/* line 2157, ../sass/screen.scss */
+/* line 2181, ../sass/screen.scss */
 .fake-data-button, .config-button {
   font-size: 32px;
   margin-bottom: 10px;
 }
 
-/* line 2161, ../sass/screen.scss */
+/* line 2185, ../sass/screen.scss */
 .need-file-list {
   overflow: hidden;
   *zoom: 1;
   width: 80%;
   margin: 0 auto;
 }
-/* line 2165, ../sass/screen.scss */
+/* line 2189, ../sass/screen.scss */
 .need-file-list .need-file-item {
   box-sizing: border-box;
   width: 45%;
@@ -4981,18 +5029,18 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   line-height: 50px;
   background: rgba(0, 0, 0, 0.3);
 }
-/* line 2175, ../sass/screen.scss */
+/* line 2199, ../sass/screen.scss */
 .need-file-list .need-file-item label {
   font-size: 24px;
   display: block;
 }
-/* line 2180, ../sass/screen.scss */
+/* line 2204, ../sass/screen.scss */
 .need-file-list .need-file-item.success {
   color: yellow;
   line-height: 96px;
   border-color: yellow;
 }
-/* line 2184, ../sass/screen.scss */
+/* line 2208, ../sass/screen.scss */
 .need-file-list .need-file-item.success label:before {
   font-family: 'icomoon';
   speak: none;
@@ -5002,12 +5050,12 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   text-transform: none;
   content: "\e60b";
 }
-/* line 2188, ../sass/screen.scss */
+/* line 2212, ../sass/screen.scss */
 .need-file-list .need-file-item.success input {
   display: none;
 }
 
-/* line 2194, ../sass/screen.scss */
+/* line 2218, ../sass/screen.scss */
 .restore-key {
   font-size: 32px;
   color: white;
@@ -5018,7 +5066,7 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   width: 200px;
 }
 
-/* line 2203, ../sass/screen.scss */
+/* line 2227, ../sass/screen.scss */
 .start-system-button {
   font-size: 32px;
 }
@@ -5087,7 +5135,7 @@ div[data-pokemon-id="1"] .pokemon-result:before {
     opacity: 0;
   }
 }
-/* line 2213, ../sass/screen.scss */
+/* line 2237, ../sass/screen.scss */
 .ping {
   opacity: 0;
   position: fixed;
@@ -5101,7 +5149,7 @@ div[data-pokemon-id="1"] .pokemon-result:before {
   font-size: 40px;
   animation: signal 1s 1;
 }
-/* line 2222, ../sass/screen.scss */
+/* line 2246, ../sass/screen.scss */
 .ping.pong {
   animation: signal2 1s 1;
 }

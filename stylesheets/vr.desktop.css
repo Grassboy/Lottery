@@ -23,3 +23,7 @@
 .vr-result .drawmode-group {
   font-size: 72px;
 }
+/* line 21, ../sass/vr.desktop.scss */
+.vr-result .drawmode-group[data-group-length="12"] {
+  font-size: 65px;
+}

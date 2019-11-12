@@ -2,7 +2,7 @@
 	act_name: "小胖子與他的快樂伙伴 尾牙聯歡晚會",
 	output_filename: "fatboy_result.csv",
 	can_back_if_not_appear: false,
-	restore_key: "Relase1208"
+	restore_key: "Relase2019"
 }
 
 var msg_conf = {

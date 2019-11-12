@@ -339,6 +339,7 @@ $.when(
 
         //獎項清單頁 DOM
         dom = this.$dom_result = _tpl.gift_result_data.clone().appendTo(_dom.gift_result_list);
+        dom.find('.icon-award').toggleClass('active', opts.good_item);
         dom.find('.gift-result-id span').text(this._id+1);
         dom.find('.gift-result-sn span').text(this.sn);
         dom.find('.gift-result-content').text([this.title, this.content || "？？？"].join(' - '));
@@ -1567,7 +1568,8 @@ $.when(
                     sn: $.trim(gift[0]),
                     title: $.trim(gift[1]),
                     content: $.trim(gift[2]),
-                    count: $.trim(gift[3])
+                    count: $.trim(gift[3]),
+                    good_item: $.trim(gift[4])=='1'?true:false
                 };
                 switch(gift[5]){
                 case '1':

@@ -8,7 +8,26 @@
 	<meta property="og:site_name" content="Lottery 抽獎系統 - 抽獎按鈕" />
 	<link rel="shortcut icon" href="/favicon.ico" />
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
+    <script type="module">
+        import {initializeApp} from "https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, signInAnonymously } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js";
+        import { getDatabase, ref, set, remove, push, onDisconnect, onChildRemoved, onChildAdded} from "https://www.gstatic.com/firebasejs/9.5.0/firebase-database.js";
+        window.firebase = {
+            initializeApp: initializeApp,
+            getAuth: getAuth,
+            signInWithEmailAndPassword: signInWithEmailAndPassword,
+            signInAnonymously: signInAnonymously,
+            getDatabase: getDatabase,
+            onChildRemoved: onChildRemoved,
+            onChildAdded: onChildAdded,
+            push: push,
+            ref: ref,
+            set: set,
+            remove: remove,
+            onDisconnect: onDisconnect
+        };
+        renderPage();
+    </script>
 	<title>Lottery 抽獎系統 - 抽獎按鈕</title>
     <!-- //開發模式下，可能需要 compass livereload 環境
     <script src="http://localhost:24680/javascript/livereload.js"></script>

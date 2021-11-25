@@ -1,3 +1,4 @@
+var renderPage = function(){
     var is_ok = false;
     var config = location.href.toString().split('#')[1];
     var err_postfix = '此頁網址格式應為\n'+
@@ -39,18 +40,19 @@
             response: 'auth/gua_result/'
         };
 
-        firebase.initializeApp(firebase_conf.server);
-        var myFirebaseRef = firebase.database();
+        var app = firebase.initializeApp(firebase_conf.server);
+        var db = firebase.getDatabase(app);
+        var myFirebaseRef = firebase.ref.bind(null, db);
         var authCallback = function (error, authData) {
             if(error == -1) {
                 return;
             }
             alert('登入成功');
-            myFirebaseRef.ref(firebase_conf.get).remove();
+            firebase.remove( myFirebaseRef(firebase_conf.get) );
             $('.ping').bind('touchstart', function(){
-                myFirebaseRef.ref(firebase_conf.get).push({action:'ping'});
+                firebase.push( myFirebaseRef(firebase_conf.get), {action:'ping'});
             });
-            myFirebaseRef.ref(firebase_conf.get).on('child_added', function(snapshot){
+            firebase.onChildAdded( myFirebaseRef(firebase_conf.get), function(snapshot){
                 var value = snapshot.val();
                 $('.ping').toggleClass('pong');
                 if(value.action == 'draw-result'){
@@ -61,7 +63,7 @@
                     $('.draw-result').toggleClass('pong');
                 }
             });
-            myFirebaseRef.ref(firebase_conf.response).on('child_added', function(snapshot){
+            firebase.onChildAdded( myFirebaseRef(firebase_conf.response), function(snapshot){
                 var value = snapshot.val();
                 if(value.action == 'initscratch') {
                     $('body').addClass('scratching');
@@ -85,12 +87,13 @@
                 }
             });
             $('.remote-draw-button').bind('touchstart', function(){
-                myFirebaseRef.ref(firebase_conf.get).push({
+                firebase.push( myFirebaseRef(firebase_conf.get), {
                     action: 'draw-stop'
                 });
             });
         };
-        firebase.auth().signInAnonymously().catch(function(error){
+        var auth = firebase.getAuth();
+        firebase.signInAnonymously(auth).catch(function(error){
             return -1;
         }).then(function(error){
             if(error == -1) {
@@ -98,7 +101,7 @@
                 if(!pass) {
                     pass = localStorage['pass'] = prompt('請輸入同步機制所需的密碼');
                 }
-                firebase.auth().signInWithEmailAndPassword(config.email, pass).catch(function(error) {
+                firebase.signInWithEmailAndPassword(auth, config.email, pass).catch(function(error) {
                     var errorCode = error.code;
                     var errorMessage = error.message;
                     console.log('登入失敗：', errorCode, errorMessage);
@@ -156,7 +159,7 @@
                     ctx.beginPath();
                     ctx.arc(x, y, 24, 0, Math.PI * 2, true);
                     ctx.fill();
-                    myFirebaseRef.ref(firebase_conf.get).push({
+                    firebase.push( myFirebaseRef(firebase_conf.get), {
                         action: 'scratch',
                         x: x, y: y
                     });
@@ -171,7 +174,7 @@
             /*
             var prev_x = 0; prev_y = 0, threshold = 50;
             var mouseHandler = function (e, action) {
-                myFirebaseRef.ref(firebase_conf.get).push({
+                firebase.push( myFirebaseRef(firebase_conf.get), {
                     action: action,
                     x: (e.clientX || 0), y: (e.clientY || 0)
                 });
@@ -238,7 +241,7 @@
                     min_arrow_scale: 1,
                     fullscreen: true, dualmode: !(window.innerWidth >= 800 || window.innerHeight >= 800), arrow_delay: 100, touch: true,
                     onClearGift: function(current_length, index) {
-                        myFirebaseRef.ref(firebase_conf.get).push({
+                        firebase.push( myFirebaseRef(firebase_conf.get), {
                             action: 'vrcleargift',
                             current_length: current_length,
                             index: index
@@ -250,7 +253,7 @@
                             angle.alpha = -angle.alpha-90;
                             if(angle.alpha<0) angle.alpha+=360;
                             angle.beta += 90;
-                            myFirebaseRef.ref(firebase_conf.get).push({
+                            firebase.push( myFirebaseRef(firebase_conf.get), {
                                 action: 'vrmoveto',
                                 euler: {
                                     alpha: angle.alpha,
@@ -297,7 +300,7 @@
                     vrDraw.$main.find('.drawmode-name').text(data.name);
                     vrDraw.$main.find('.drawmode-sn').text(data.sn);
                     vrDraw.$main.find('.drawmode-group').text(data.group);
-                    myFirebaseRef.ref(firebase_conf.get).push({
+                    firebase.push( myFirebaseRef(firebase_conf.get), {
                         action: 'vrinited'
                     });
                     //clearTimeout(clear_timer);
@@ -308,3 +311,4 @@
             $('.drawmode-vr').hide();
         }
     }
+}

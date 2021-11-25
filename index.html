@@ -14,7 +14,26 @@
     <link href='http://fonts.googleapis.com/css?family=Fredoka+One' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="fonts/style.css">
 	<link href="stylesheets/animate.css" media="screen, projection" rel="stylesheet" type="text/css" />
-    <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
+    <script type="module">
+        import {initializeApp} from "https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, signInAnonymously } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js";
+        import { getDatabase, ref, set, remove, push, onDisconnect, onChildRemoved, onChildAdded} from "https://www.gstatic.com/firebasejs/9.5.0/firebase-database.js";
+        window.firebase = {
+            initializeApp: initializeApp,
+            getAuth: getAuth,
+            signInWithEmailAndPassword: signInWithEmailAndPassword,
+            signInAnonymously: signInAnonymously,
+            getDatabase: getDatabase,
+            onChildRemoved: onChildRemoved,
+            onChildAdded: onChildAdded,
+            push: push,
+            ref: ref,
+            set: set,
+            remove: remove,
+            onDisconnect: onDisconnect
+        };
+        _renderPage();
+    </script>
 	<link href="stylesheets/fix.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <!-- //開發模式下，可能需要 compass livereload 環境
     <script src="http://localhost:35729/livereload.js"></script>

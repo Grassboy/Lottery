@@ -1,9 +1,10 @@
+var _renderPage = function(){
 $.when(
     $.getScript('javascript/config.js?'+(new Date()).getTime()),
     $.getScript('javascript/config.info.js?'+(new Date()).getTime())
 ).then(function(){
     var addition_gift_index = 0;
-    firebase.initializeApp(firebase_conf);
+    var app = firebase.initializeApp(firebase_conf);
     //{{ 設定檔介面戴入
     (function initConfig(){
         $.getScript(msg_conf.url);
@@ -156,10 +157,10 @@ $.when(
 
     var browser_id = 'b'+(Math.random()*10000000).toFixed(0);
     var globalLog = function(data){
-        myFirebaseRef.ref(firebase_conf.sync).push($.extend(data, {from: browser_id}));
+        firebase.push( myFirebaseRef(firebase_conf.sync), $.extend(data, {from: browser_id}));
         if(data.action == 'log') {
             var user = user_array[data.user_index];
-            myFirebaseRef.ref(firebase_conf.get).push({
+            firebase.push( myFirebaseRef(firebase_conf.get), {
                 action: 'draw-result',
                 sn: user.sn,
                 name: user.name,
@@ -608,7 +609,7 @@ $.when(
             document.body.mozRequestFullScreen();
         });
         $('.footer').bind('click', function(){
-            myFirebaseRef.ref(firebase_conf.get).push({action:'ping'});
+            firebase.push( myFirebaseRef(firebase_conf.get), {action:'ping'});
         });
 
         //{{Gift Page
@@ -1227,9 +1228,9 @@ $.when(
                         dom.find('.drawmode-sn').text(data.sn);
                         dom.find('.drawmode-group').text(data.group).attr('data-group-length', data.group.length);
                         dom.find('.drawmode-name').text(data.name);
-                        myFirebaseRef.ref(firebase_conf.get).remove();
-                        myFirebaseRef.ref(firebase_conf.response).remove();
-                        myFirebaseRef.ref(firebase_conf.response).push(data);
+                        firebase.remove( myFirebaseRef(firebase_conf.get) );
+                        firebase.remove( myFirebaseRef(firebase_conf.response) );
+                        firebase.push( myFirebaseRef(firebase_conf.response), data);
                     });
                     $canvas.unbind('scratch').bind('scratch', function (e, x, y, is_local) {
                         if(!clear_timer) {
@@ -1274,7 +1275,7 @@ $.when(
                     } else {
                         deferred.resolve(-1);
                     }
-                    myFirebaseRef.ref(firebase_conf.response).push({
+                    firebase.push( myFirebaseRef(firebase_conf.response), {
                         action: 'clearscratch'
                     });
                 });
@@ -1320,7 +1321,7 @@ $.when(
                 that.pokemonGo.setActive(true);
                 that.pokemonGo.setBall();
                 that.pokemonGo.setPokemon();
-                myFirebaseRef.ref(firebase_conf.response).push({
+                firebase.push( myFirebaseRef(firebase_conf.response), {
                     action: 'initpoke'
                 });
                 dom.find('.pokemon-result').addClass('inactive').removeClass('animated bounceInDown');
@@ -1342,7 +1343,7 @@ $.when(
                     dom.find('.drawmode-name').text(user.name);
                     dom.find('.pokemon-result').removeClass('inactive').addClass('animated bounceInDown');
                     deferred.resolve(user);
-                    myFirebaseRef.ref(firebase_conf.response).push({
+                    firebase.push( myFirebaseRef(firebase_conf.response), {
                         action: 'clearpoke'
                     });
                 });
@@ -1360,7 +1361,7 @@ $.when(
                     skip_euler_rotation: true,
                     min_arrow_scale: 3,
                     onClearGift: function(current_length, index){
-                        myFirebaseRef.ref(firebase_conf.response).push({
+                        firebase.push( myFirebaseRef(firebase_conf.response), {
                             action: 'vrcleargift',
                             current_length: current_length,
                             index: index
@@ -1442,14 +1443,14 @@ $.when(
                         dom.find('.drawmode-group').text(user.group).attr('data-group-length', user.group.length);
                         dom.find('.drawmode-name').text(user.name);
                         dom.find('.vr-result').removeClass('inactive').addClass('animated bounceInDown');
-                        myFirebaseRef.ref(firebase_conf.response).push({
+                        firebase.push( myFirebaseRef(firebase_conf.response), {
                             action: 'clearvr'
                         });
                         deferred.resolve(user);
                     });
-                    myFirebaseRef.ref(firebase_conf.get).remove();
-                    myFirebaseRef.ref(firebase_conf.response).remove();
-                    myFirebaseRef.ref(firebase_conf.response).push({
+                    firebase.remove( myFirebaseRef(firebase_conf.get) );
+                    firebase.remove( myFirebaseRef(firebase_conf.response) );
+                    firebase.push( myFirebaseRef(firebase_conf.response), {
                         action: 'initvr',
                         sn: user.sn,
                         group: user.group,
@@ -1644,8 +1645,8 @@ $.when(
                 data[i]._gift_sn = gift.sn //把 gift.skip 加個 sn 的 reference (這種寫法好醜0rz...以後應該要比照 allow_gift_column 的寫法才對)
             }
         }
-        
-        var noshow_count = only_count = skip_count = 0;
+        var noshow_count, only_count, skip_count;
+        noshow_count = only_count = skip_count = 0;
         for(var i = 1, n = users.length; i < n; ++i){
             var ps_user = $.trim(users[i]).split(',');
             if(ps_user[1]){
@@ -1755,17 +1756,18 @@ $.when(
                 return;
             }
             alert('登入成功');
-            myFirebaseRef = firebase.database();
-            myFirebaseRef.ref(firebase_conf.get).remove()
-            myFirebaseRef.ref(firebase_conf.connection).remove()
+            var db = firebase.getDatabase(app);
+            myFirebaseRef = firebase.ref.bind(null, db);
+            firebase.remove( myFirebaseRef(firebase_conf.get) )
+            firebase.remove( myFirebaseRef(firebase_conf.connection) )
             var bindOfflineAlert = function() {
-                myFirebaseRef.ref(firebase_conf.connection+'/'+browser_id).onDisconnect().set({
+                firebase.onDisconnect( myFirebaseRef(firebase_conf.connection+'/'+browser_id) ).set({
                     action: 'connect_error',
                     from: browser_id
                 });
             };
             bindOfflineAlert();
-            myFirebaseRef.ref(firebase_conf.connection).on("child_removed", function(snapshot) {
+            firebase.onChildRemoved( myFirebaseRef(firebase_conf.connection), function(snapshot) {
                 var value = snapshot.val();
                 console.log(value);
                 if(value.from == browser_id) {
@@ -1775,23 +1777,23 @@ $.when(
                     bindOfflineAlert();
                 }
             });
-            myFirebaseRef.ref(firebase_conf.connection).on("child_added", function(snapshot) {
+            firebase.onChildAdded( myFirebaseRef(firebase_conf.connection), function(snapshot) {
                 var value = snapshot.val();
                 if(value.from != browser_id) {
                     console.log('喔喔！有人斷線了！');
                     $('body').addClass('bomb-other');
                     setTimeout(function(){
-                        myFirebaseRef.ref(firebase_conf.connection+'/'+value.from).remove();
+                        firebase.remove( myFirebaseRef(firebase_conf.connection+'/'+value.from) );
                         $('body').removeClass('bomb-other');
                     }, 3000);
                 } else {
                     $('body').addClass('bomb-self');
                 }
             });
-            myFirebaseRef.ref(firebase_conf.response).remove();
+            firebase.remove( myFirebaseRef(firebase_conf.response) );
             initStartUpEvent();
             $('.btn .icon-home').click();
-            myFirebaseRef.ref(firebase_conf.sync).on("child_added", function(snapshot) {
+            firebase.onChildAdded( myFirebaseRef(firebase_conf.sync), function(snapshot) {
                 _dom.ping.toggleClass('pong');
                 var value = snapshot.val();
                 if(value.from == browser_id) {
@@ -1864,7 +1866,7 @@ $.when(
                     }
                 }
             });
-            myFirebaseRef.ref(firebase_conf.get).on("child_added", function(snapshot) {
+            firebase.onChildAdded( myFirebaseRef(firebase_conf.get), function(snapshot) {
                 var value = snapshot.val();
                 if(value.action != 'vrmoveto') { //不理會 vrmoveto 的 ping 訊號
                     _dom.ping.toggleClass('pong');
@@ -1892,7 +1894,8 @@ $.when(
                 }
             });
         };
-        firebase.auth().signInAnonymously().catch(function(error){
+        var auth = firebase.getAuth();
+        firebase.signInAnonymously(auth).catch(function(error){
             return -1;
         }).then(function(error){
             if(error == -1) {
@@ -1900,7 +1903,7 @@ $.when(
                 if(!pass) {
                     pass = localStorage['pass'] = prompt('請輸入同步機制所需的密碼');
                 }
-                firebase.auth().signInWithEmailAndPassword(firebase_conf.email, pass).catch(function(error) {
+                firebase.signInWithEmailAndPassword(auth, firebase_conf.email, pass).catch(function(error) {
                     var errorCode = error.code;
                     var errorMessage = error.message;
                     console.log('登入失敗：', errorCode, errorMessage);
@@ -2004,4 +2007,4 @@ $.when(
     })();
     ////}}
 });
-
+}

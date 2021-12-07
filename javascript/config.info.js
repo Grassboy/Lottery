@@ -8,7 +8,7 @@ var setting_info = {
     'info.can_back_if_not_appear': `
         抽出來若不在現場，可否繼續參與後續抽獎？<br />
         <em>若為 <span>是</span> 表示之後仍然有可能抽中他</em>，<br />
-        若為 <span>否</span> 表示若不在場的話將會被歸為普獎
+        若為 <span>否</span> 表示若不在場的話將會視為棄權
     `,
     'info.restore_key': `
         預設備援金鑰

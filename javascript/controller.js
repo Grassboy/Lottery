@@ -142,7 +142,7 @@ $.when(
     var drawmodes = {};
     var current_drawmode;   //用來記目前的抽獎方式
     var myFirebaseRef;      //Firebase 的同步連線物件
-    var NOT_EXIST_STR = '不在現場';
+    var NOT_EXIST_STR = '不在現場的普獎';
     firebase_conf = firebase_conf || {};
     $.extend(firebase_conf, {
         check: 'auth/check/', //檢查目前的 server 是否需要輸入密碼
@@ -300,7 +300,7 @@ $.when(
                     });
                 }
             } else {
-                alert('此人並非不在現場');
+                alert('此人並非"不在現場的普獎"');
             }
         },
         toString: function(){
@@ -810,20 +810,20 @@ $.when(
         });
         //}}
 
-        //手動將已不在現場的籤放回籤筒
+        //手動將已不在現場的普獎的籤放回籤筒
         //**************************************
         //此功能亂用的話，的確有可能作弊！請操作者別亂玩！
         //設計目的：如果好死不死，主要瀏覽器網路掛掉，
         //          抽出的獎項手動 sync 過來的過程輸入錯誤，
-        //          且把此得獎者刪掉後變不在現場，
-        //          就必需要把這個人的不在現場拿掉，並把他的籤放回籤筒
+        //          且把此得獎者刪掉後變普獎，
+        //          就必需要把這個人的普獎拿掉，並把他的籤放回籤筒
         //**************************************
         $('.user-list').on('dblclick', '.user-receive:contains("'+NOT_EXIST_STR+'")', function(){
             var $this = $(this), user_sn = $this.prevAll('.user-sn').text();
             var user = filterOne(user_array, function(user){
                     return user.sn == user_sn;
                 });
-            if(user && confirm(['****警告，這個功能是為了補救手動 sync 得獎者時輸入錯誤，不能被放成不在現場而設計的，不要亂用！****\n您確定要將 ',user.sn,'-',user.name,' 的籤從不在現場的狀態放回籤筒？！'].join(''))){
+            if(user && confirm(['****警告，這個功能是為了補救手動 sync 得獎者時輸入錯誤，不能被放成普獎而設計的，不要亂用！****\n您確定要將 ',user.sn,'-',user.name,' 的籤從不在現場的普獎放回籤筒？！'].join(''))){
                 user.backToBox();
             }
         });
@@ -1815,7 +1815,7 @@ $.when(
                             }
                         }
                     }
-                } else if (value.action == 'fail') { // 同仁因不在現場改列棄權
+                } else if (value.action == 'fail') { // 同仁因不在現場改列普獎
                     var user = user_array[value.user_index];
                     var gift = gift_array[value.gift_index];
                     if(!user) {
@@ -1828,12 +1828,12 @@ $.when(
                             user.receiveFail(gift, true);
                         }
                     }
-                } else if (value.action == 'back_to_box') { // 同仁從不在現場棄權改放回籤筒
+                } else if (value.action == 'back_to_box') { // 同仁從不在現場改列普獎改放回籤筒
                     var user = user_array[value.user_index];
                     if(!user) {
                         console.log('第 ' + value.user_index + ' 名 User 不存在')
                     } else {
-                        console.log(user._id, ' 從不在現場回籤筒 ');
+                        console.log(user._id, ' 從普獎回籤筒 ');
                         if(user.receive_gift == NOT_EXIST_STR) {
                             user.backToBox(true);
                         }
@@ -1945,7 +1945,7 @@ $.when(
             return result.join('');
         };
         return function(){
-            $('.unique-text').text(uniqueText(originHTML+'追加獎項開始抽獎關閉獎項清單人尚未開始抽獎，請按 [開始] 進行抽獎如此一來這名同仁就只能領普獎棄權，確定嗎？結果載入恭喜中獎選我選我！'+$('.gift-result').text()));
+            $('.unique-text').text(uniqueText(originHTML+'追加獎項開始抽獎關閉獎項清單人尚未開始抽獎，請按 [開始] 進行抽獎如此一來這名同仁就只能領普獎，確定嗎？結果載入恭喜中獎選我選我！'+$('.gift-result').text()));
             $($.trim(justfont_conf)).appendTo('head');
         };
     })();

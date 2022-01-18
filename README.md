@@ -37,3 +37,9 @@
  * 灰色指南針此時會變成紅色指南針，即表示已完成 Watch，此時 http://localhost:24680/ 就可以連至抽獎系統，如下圖：
    ![System Preview](http://i.imgur.com/IzgDZjq.png)
 
+## 訊息達人相關設定更新
+
+如果您是敝司同仁，在介接訊息達人時，可能會遇到訊息發不出去的狀況，請進行下列操作：
+* 打開新分頁，進入 ```about:config```
+* 搜尋 ```network.cookie.sameSite.noneRequiresSecure``` 和 ```network.cookie.sameSite.laxByDefault``` 並將其值從原本的 true 改為 false
+* 重新整理抽獎系統頁面，並進行訊息發送，應該就能正常送出了

@@ -1,8 +1,8 @@
 ﻿var info = {
-	act_name: "小胖子與他的快樂伙伴 尾牙聯歡晚會",
+	act_name: "年終感恩餐會",
 	output_filename: "fatboy_result.csv",
 	can_back_if_not_appear: false,
-	restore_key: "Relase2019"
+	restore_key: new Date().toString().split(' ').join('').substr(3, 9)
 }
 
 var msg_conf = {

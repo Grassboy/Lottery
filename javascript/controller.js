@@ -1,3 +1,8 @@
+var Util = {
+    random: function(){ //產生 0~1 的亂數
+        return parseFloat('0.' + crypto.getRandomValues(new Uint32Array(1))[0]);
+    }
+};
 var _renderPage = function(){
 $.when(
     $.getScript('javascript/config.js?'+(new Date()).getTime()),
@@ -155,7 +160,7 @@ $.when(
     // 代換活動資訊
     document.title = info.act_name;
 
-    var browser_id = 'b'+(Math.random()*10000000).toFixed(0);
+    var browser_id = 'b'+(Util.random()*10000000).toFixed(0);
     var globalLog = function(data){
         firebase.push( myFirebaseRef(firebase_conf.sync), $.extend(data, {from: browser_id}));
         if(data.action == 'log') {
@@ -198,8 +203,18 @@ $.when(
         gift_result_data: null,
         gift_owner: null
     };
+    var arrayShuffle = function(array) {
+        for (var i = array.length - 1; i > 0; i--) {
+            var j = Math.floor(Util.random() * (i + 1));
+            var temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+        return array;
+    };
     var randomOf = function(array){
-        return array[(Math.random()*array.length)^0];
+        arrayShuffle(array); //抽獎之前，再次將 array 打散
+        return array[(Util.random()*array.length)^0];
     };
     var filterOne = function(array, filter){
         for(var i = 0, n = array.length; i < n; ++i){
@@ -1301,7 +1316,7 @@ $.when(
             },
             remoteDraw: function(){
                 var new_log = [PokemonGoMouseGesture[0][0]];
-                var s = parseInt((PokemonGoMouseGesture[0].length-21)*Math.random())+1;
+                var s = parseInt((PokemonGoMouseGesture[0].length-21)*Util.random())+1;
                 new_log.push.apply(new_log, PokemonGoMouseGesture[0].slice(s, s+20))
                 this.pokemonGo.replayLog(new_log);
             },
@@ -1309,7 +1324,7 @@ $.when(
                 var that = this;
                 setTimeout(function(){
                     var new_log = [PokemonGoMouseGesture[0][0]];
-                    var s = parseInt((PokemonGoMouseGesture[0].length-21)*Math.random())+1;
+                    var s = parseInt((PokemonGoMouseGesture[0].length-21)*Util.random())+1;
                     new_log.push.apply(new_log, PokemonGoMouseGesture[0].slice(s, s+20))
                     that.pokemonGo.replayLog(new_log);
                 }, 1000);
@@ -1337,7 +1352,7 @@ $.when(
                 dom.unbind('gotcha').one('gotcha', function(){
                     that.pokemonGo.setActive(false);
                     user = that.getUser();
-                    dom.find('.pokemon-hp span').text(parseInt(Math.random()*800+50,10));
+                    dom.find('.pokemon-hp span').text(parseInt(Util.random()*800+50,10));
                     dom.find('.drawmode-sn').text(user.sn);
                     dom.find('.drawmode-group').text(user.group).attr('data-group-length', user.group.length);
                     dom.find('.drawmode-name').text(user.name);
@@ -1941,7 +1956,7 @@ $.when(
                     result.splice(start, 0, str[i]);
                 }
             }
-            result.sort(function(){return Math.random() - 0.5;}); //打亂結果字串
+            result.sort(function(){return Util.random() - 0.5;}); //打亂結果字串
             return result.join('');
         };
         return function(){

@@ -1,6 +1,6 @@
 var Util = {
     random: function(){ //產生 0~1 的亂數
-        return parseFloat('0.' + crypto.getRandomValues(new Uint32Array(1))[0]);
+        return crypto.getRandomValues(new Uint32Array(1))[0] / 0xFFFFFFFF;
     }
 };
 var _renderPage = function(){

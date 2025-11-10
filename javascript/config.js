@@ -10,6 +10,7 @@ var msg_conf = {
 	admin_sn: "123456",
 	user_id: "admin",
 	password: "123455678",
+	api_key: "ABCD1234ABCD1234ABCD1234ABCD1234",
 	post_text: "請攜帶員工職別證供資料核對，於 1月8日 10:00-17:00依排定時間至辦公室16樓資訊處領獎 。未能於該時段領取獎品者，請於1月15日12:00前，與資訊處小胖子(0988888888)聯絡領取，否則視同放棄領獎。",
 	url: "http://localhost:24680/javascript/msg.js"
 }

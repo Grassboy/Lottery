@@ -22,10 +22,13 @@ var setting_info = {
         管理員員工編號，測試模式下會把所有訊息全發到這個員工編號，<br>你可以<button class="msg-test">按我測試訊息發佈</button>
     `,
     'msg_conf.user_id': `
-        訊息系統帳號
+        訊息系統專案識別 ID
     `,
     'msg_conf.password': `
-        訊息系統密碼
+        訊息系統專案 Secret
+    `,
+    'msg_conf.api_key': `
+        訊息系統專案 Key
     `,
     'msg_conf.post_text': `
         領獎辦法文字，屆時訊息格式為<br /><em> [活動名稱] 您中的獎是 [獎項編號] [獎項標題]：[獎項內容]，[領獎辦法文字]</em>

@@ -24,11 +24,11 @@ var setting_info = {
     'msg_conf.user_id': `
         訊息系統專案識別 ID
     `,
-    'msg_conf.password': `
-        訊息系統專案 Secret
-    `,
     'msg_conf.api_key': `
         訊息系統專案 Key
+    `,
+    'msg_conf.password': `
+        訊息系統專案 Secret
     `,
     'msg_conf.post_text': `
         領獎辦法文字，屆時訊息格式為<br /><em> [活動名稱] 您中的獎是 [獎項編號] [獎項標題]：[獎項內容]，[領獎辦法文字]</em>

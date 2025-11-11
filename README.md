@@ -40,7 +40,9 @@
 ## 訊息達人相關設定更新
 
 如果您是敝司同仁，在介接訊息達人時，可能會遇到訊息發不出去的狀況，請進行下列操作：
-* 首先先下載可進行 CORS Request 的 firefox addon https://addons.mozilla.org/zh-TW/firefox/addon/cors-everywhere/
+* 首先先下載可進行 Violent Monkey 的 firefox addon https://addons.mozilla.org/zh-TW/firefox/addon/violentmonkey/
 * 打開新分頁，進入 ```about:config```
 * 搜尋 ```network.cookie.sameSite.noneRequiresSecure``` 和 ```network.cookie.sameSite.laxByDefault``` 並將其值從原本的 true 改為 false
+* 和小弟拿到對應的 js 檔，放在 javascript 資料夾下
 * 重新整理抽獎系統頁面，並進行訊息發送，應該就能正常送出了
+

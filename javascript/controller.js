@@ -1676,7 +1676,7 @@ $.when(
                         //在 ps-page 下列出可不在現場原因
                         var ps_item = _tpl.ps_data.clone().appendTo('.ps-noshow-list');
                         ps_item.find('.ps-id').text(++noshow_count);
-                        ps_item.find('.ps-sn').text(ps_user[1]);
+                        ps_item.find('.ps-sn').text(String(ps_user[1]).padStart(6,'0'));
                         ps_item.find('.ps-content').text(user.gone_ok);
                     }
                     var skip_gift_array = [];
@@ -1687,7 +1687,7 @@ $.when(
                                 //在 ps-page 下列出該員工只能領取的獎項清單
                                 var ps_item = _tpl.ps_data.clone().appendTo('.ps-only-list');
                                 ps_item.find('.ps-id').text(++only_count);
-                                ps_item.find('.ps-sn').text(ps_user[1]);
+                                ps_item.find('.ps-sn').text(String(ps_user[1]).padStart(6,'0'));
                                 ps_item.find('.ps-content').text(user.allow_gift.replace(/\|/g, ' '));
                             }
                             continue;
@@ -1702,7 +1702,7 @@ $.when(
                         //在 ps-page 下列出必需 skip 的獎項清單
                         var ps_item = _tpl.ps_data.clone().appendTo('.ps-skip-list');
                         ps_item.find('.ps-id').text(++skip_count);
-                        ps_item.find('.ps-sn').text(ps_user[1]);
+                        ps_item.find('.ps-sn').text(String(ps_user[1]).padStart(6,'0'));
                         ps_item.find('.ps-content').text(skip_gift_array.join(' '));
                     }
                 }
